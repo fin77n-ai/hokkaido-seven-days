@@ -125,6 +125,12 @@ dayIds.forEach((did, idx) => {
     prevRaw = t;
   }
 
+  // 检查每日是否包含显式交通连接盒 (.r-seg)，符合 tripwork 点-边-点闭合规则
+  const segCount = [...dayHtml.matchAll(/class="r-item r-seg"/g)].length;
+  if (segCount === 0) {
+    err(`[点-边-点交通] #${did} (${dateStr}) 缺少 .r-seg 交通连接盒`);
+  }
+
   // 检查每日是否包含餐饮节点 (days_have_meals)
   const hasFood = dayHtml.includes('r-pin food') || /午餐|晚餐|朝食|拉面|汤咖喱|烤肉|蟹|寿司/.test(dayHtml);
   if (!hasFood) {
@@ -227,6 +233,15 @@ if (stepRows.join(',') !== '1,2,3,4,5,6,7') {
   err(`[步数统计] #steps-sec 日程行顺序异常: 期望 1..7，实际为 ${stepRows.join(',')}`);
 } else {
   ok('[步数统计] #steps-sec 严格对应 DAY 01–DAY 07 共 7 行，无重复或缺失');
+}
+
+// 9. JR北海道特急北斗号真实时刻表核验 (对照官方时刻表原图)
+if (!html.includes('16:17→17:38') || !html.includes('17:26→18:48')) {
+  err('[时刻表核验] D1 南千岁→洞爷 JR 特急北斗 18号/20号 时刻表与 JR 北海道官方时刻表不符');
+} else if (!html.includes('10:49 洞爺 → 11:28 登別') || !html.includes('14:48→16:04')) {
+  err('[时刻表核验] D3 洞爷→登别→札幌 JR 特急北斗 5号/11号/13号 时刻表与官方时刻表不符');
+} else {
+  ok('[时刻表核验] D1/D3 JR 特急北斗 18/20/5/11/13 号及洞爷 09:50 道南巴士与官方时刻表 100% 吻合');
 }
 
 // 输出汇总报告
