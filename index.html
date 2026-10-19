@@ -92,10 +92,10 @@
   .wx .tmp{font-family:var(--font-lat); font-weight:700; font-size:13.5px;}
   .wx .tmp small{color:var(--ink-faint); font-weight:500;}
   .wx.rain{border-color:var(--indigo); background:var(--indigo-soft);}
-  .daynav{position:sticky; top:43px; z-index:19; background:color-mix(in srgb,var(--paper) 92%,transparent); backdrop-filter:blur(10px); padding:9px 14px; display:flex; gap:7px; overflow-x:auto; border-bottom:1px solid var(--line);}
+  .daynav{position:sticky; top:0; z-index:25; background:color-mix(in srgb,var(--paper) 94%,transparent); backdrop-filter:blur(10px); padding:9px 14px; display:flex; gap:7px; overflow-x:auto; border-bottom:1px solid var(--line);}
   .daynav a{flex:0 0 auto; text-decoration:none; font-family:var(--font-lat); font-weight:700; font-size:12px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--line); padding:6px 11px; border-radius:999px;}
   .daynav a b{color:var(--indigo);}
-  .day-card{background:var(--surface); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); overflow:hidden; margin:0 18px 18px; scroll-margin-top:96px;}
+  .day-card{background:var(--surface); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); overflow:hidden; margin:0 18px 18px; scroll-margin-top:56px;}
   .day-head{display:flex; align-items:center; gap:12px; padding:15px 16px 13px; background:linear-gradient(180deg,var(--surface-2),var(--surface)); border-bottom:1px solid var(--line);}
   .day-num{flex:0 0 auto; width:46px; height:46px; border-radius:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1;
     font-family:var(--font-lat); font-weight:800; font-size:8px; letter-spacing:.2em; color:rgba(255,255,255,.85);
@@ -209,6 +209,8 @@
   .order-show[disabled]{opacity:.4;}
   .order-show .os-n{background:rgba(255,255,255,.28); border-radius:999px; padding:1px 9px; font-family:var(--font-lat); min-width:22px;}
   .ord-ovl,.menu-modal,.phrase-ovl,.taxi-ovl{position:fixed; inset:0; background:rgba(10,16,20,.65); display:flex; align-items:flex-end; justify-content:center; z-index:100;}
+  .ord-ovl{z-index:130;}
+  .phrase-ovl,.taxi-ovl{z-index:140;}
   .ord-ovl[hidden],.menu-modal[hidden],.phrase-ovl[hidden],.taxi-ovl[hidden]{display:none;}
   .ord-box,.mm-box{background:var(--paper); width:100%; max-width:440px; max-height:88vh; overflow-y:auto; border-radius:18px 18px 0 0; padding-bottom:20px; box-shadow:0 -8px 30px rgba(0,0,0,.35);}
   .ord-top,.mm-close{position:sticky; top:0; background:var(--paper); display:flex; align-items:center; justify-content:space-between; gap:10px; padding:13px 16px 10px; border-bottom:1px solid var(--line); z-index:2;}
@@ -233,11 +235,14 @@
   .must-pick .mp-title{display:flex; align-items:center; gap:7px; color:var(--kaki); font-size:13.5px; font-weight:800; margin-bottom:5px;}
   .must-pick .mp-title::before{content:"闭眼点"; padding:2px 7px; border-radius:999px; background:var(--kaki); color:#fff; font-size:10px;}
   .must-pick p{margin:0; color:var(--ink); font-size:12px; line-height:1.6;}
-  .app-tools{display:flex; align-items:center; gap:7px; padding:9px 18px; position:sticky; top:0; z-index:20;
-    background:color-mix(in srgb,var(--paper) 90%,transparent); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);}
+  .app-tools{display:flex; align-items:center; gap:7px; padding:9px 18px; background:var(--surface-2); border-bottom:1px solid var(--line);}
   .app-status{margin-right:auto; font-size:11.5px; font-weight:700; color:var(--moss);}
   .app-btn{border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:6px 10px; font:700 12px/1 var(--font-cjk); cursor:pointer; box-shadow:var(--shadow);}
   .app-btn[hidden]{display:none;}
+  .hotel-night-pill{display:inline-flex; align-items:center; gap:4px; margin-top:4px; padding:2px 8px; border-radius:999px; background:var(--indigo-soft); color:var(--indigo); font-size:11px; font-weight:800;}
+  .day-tasks li{font-size:12px; line-height:1.45; color:var(--ink-soft); padding-left:18px; position:relative; cursor:pointer; -webkit-tap-highlight-color:transparent;}
+  .day-tasks li.done{opacity:.58; text-decoration:line-through;}
+  .day-tasks li.done::before{content:'☑';}
   .today-card{margin:14px 18px 0; padding:15px 16px; border-radius:17px; color:#fff;
     background:linear-gradient(135deg,#285A86,#173B5B); box-shadow:0 8px 22px rgba(40,90,134,.25);}
   .today-kicker{font-family:var(--font-lat); font-size:10px; font-weight:800; letter-spacing:.16em; opacity:.75;}
@@ -361,26 +366,26 @@
   </div>
 
   <section id="flights">
-    <div class="sec-title"><span class="n">FLIGHTS</span><h2>已出票 · 全日空联程 (2PC 行李)</h2></div>
+    <div class="sec-title"><span class="n">FLIGHTS</span><h2>已出票 · 全日空联程直挂 (2PC 行李)</h2></div>
     <div class="flight">
       <div class="flt-row">
         <span class="flt-code">NH972</span>
-        <div class="flt-mid"><div class="flt-route">上海浦东 T2 → 东京羽田 T3</div><div class="flt-sub">12/25 五 · 座位 35A · 在羽田 T3 提行李入境过海关，免费巴士转 T2</div></div>
+        <div class="flt-mid"><div class="flt-route">上海浦东 T2 → 东京羽田 T3</div><div class="flt-sub">12/25 五 · 座位 35A · 浦东一次打出两段登机牌 &amp; 直挂 CTS 行李条！羽田 T3 过日本海关后门口 ANA 转机口 30 秒交箱</div></div>
         <div class="flt-time"><div class="t">08:35</div><div class="d">12:20 抵羽田</div></div>
       </div>
       <div class="flt-row">
         <span class="flt-code">NH67</span>
-        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 新千岁 国内线 D</div><div class="flt-sub">12/25 五 · 座位 18G · 国内线落地免排国际长队，16:00 丝滑出站！</div></div>
+        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 新千岁 国内线 D</div><div class="flt-sub">12/25 五 · 座位 18G · 走 T3 转机专用安检+免费巴士达 T2；新千岁国内线免排国际入境长队，16:00 丝滑出站！</div></div>
         <div class="flt-time"><div class="t">14:00</div><div class="d">15:35 抵千岁</div></div>
       </div>
       <div class="flt-row">
         <span class="flt-code ret">NH78</span>
-        <div class="flt-mid"><div class="flt-route">新千岁 国内线 D → 东京羽田 T2</div><div class="flt-sub">12/31 四(大晦日) · 座位 18D · 13:15 先到国内线 2F 扫完伴手礼再托运</div></div>
+        <div class="flt-mid"><div class="flt-route">新千岁 国内线 D → 东京羽田 T2</div><div class="flt-sub">12/31 四(大晦日) · 座位 18D · <b>返程 100% 彻底甩手直挂上海！</b>羽田完全不用见箱子</div></div>
         <div class="flt-time"><div class="t">19:30</div><div class="d">21:10 抵羽田</div></div>
       </div>
       <div class="flt-row">
         <span class="flt-code ret">NH967</span>
-        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 上海浦东 T2</div><div class="flt-sub">12/31 四 · 座位 38K · 羽田 T2 同航站楼内转国际，万米高空跨入 2027！</div></div>
+        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 上海浦东 T2</div><div class="flt-sub">12/31 四 · 座位 38K · 羽田 T2 同航站楼扶梯直上 3F 转国际，万米高空跨入 2027！</div></div>
         <div class="flt-time"><div class="t">22:40</div><div class="d">01:15+1 抵沪</div></div>
       </div>
     </div>
@@ -443,7 +448,7 @@
       <div class="day-wx"><div class="ic">❄️</div>0/-5°<div class="stp">🚶 ~6,200</div></div>
     </div>
     <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（圣诞夜丝滑转机 & 入住洞爷湖）</div><ul>
-      <li><b>① 羽田 T3→T2 转机：</b>12:20 落地羽田 T3 后先过边检、<b>提取 2 件行李过海关</b>，出关左转找「ANA 国内线转机柜台」直接重新托运，再坐免费接驳巴士去 T2 登机（14:00 起飞）。</li>
+      <li><b>① 羽田 T3 联程极速转机（无需重新值机！）：</b>在浦东已拿齐两段登机牌且箱子已挂好直达 <code>CTS</code> 行李条！但因日本海关法规定“国际转国内须在第一入境点清关”，在羽田 T3 过边检后从转盘拎下箱子走过海关门，<b>一出海关门右手边 10 米就是 ANA「国内線乗継カウンター（转机专用交运口）」，不用排队办值机，把带直挂条的箱子放上传送带（30秒搞定）</b>，即可走旁边 T3 转机专用安检口+免费接驳巴士直达 T2 候机厅！</li>
       <li><b>② 新千岁国内线秒出站：</b>15:35 落地新千岁已是国内线 D 口，<b>无需再排国际入境长队</b>！拿完行李下 B1 层坐 JR。</li>
       <li><b>③ 南千岁换乘铁律：</b>从新千岁机场坐 1 站（3分钟）到<b>「南千岁站」同站台对面换乘 JR 特急北斗 18 号(16:53) 或 20 号(18:02)</b> 直达洞爷站。</li>
       <li><b>④ 万世阁门口拍圣诞灯海：</b>洞爷湖冬季限定「イルミネーショントンネル（40万颗LED灯光隧道）」<b>就在万世阁正门马路对面</b>，吃完饭下楼就能拍！</li>
@@ -912,26 +917,6 @@
           <div class="step-val"><b>~10,200</b><small>7.4 km · 北大+地下街</small></div>
         </div>
         <div class="step-row">
-          <div class="step-lbl">DAY 03<small>12/27 登别转场</small></div>
-          <div class="step-track"><div class="step-fill" style="width:76%"></div></div>
-          <div class="step-val"><b>~9,100</b><small>6.6 km · 地狱谷+薄野</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 04<small>12/28 北大NANGA</small></div>
-          <div class="step-track"><div class="step-fill" style="width:85%"></div></div>
-          <div class="step-val"><b>~10,200</b><small>7.4 km · 北大+扫货</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 03<small>12/27 登别转场</small></div>
-          <div class="step-track"><div class="step-fill" style="width:76%"></div></div>
-          <div class="step-val"><b>~8,900</b><small>6.4 km · 地狱谷/薄野</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 04<small>12/28 北大NANGA</small></div>
-          <div class="step-track"><div class="step-fill" style="width:85%"></div></div>
-          <div class="step-val"><b>~9,800</b><small>7.1 km · 扫货+烤羊肉</small></div>
-        </div>
-        <div class="step-row">
           <div class="step-lbl">DAY 05<small>12/29 朝里小樽</small></div>
           <div class="step-track"><div class="step-fill hi" style="width:92%"></div></div>
           <div class="step-val"><b>~10,800</b><small>7.8 km · 单向微下坡</small></div>
@@ -948,8 +933,8 @@
         </div>
       </div>
       <div class="step-total">
-        ❄️ <b>七天合计约 61,800 步（日均 ~8,800 步 / 6.4 km）</b>——专为冬季雪地与情侣拍照优化的<b>「舒适不暴走」</b>节奏！<br>
-        💡 <b>为什么一点都不累？</b>① 札幌市区核心商圈（JR札幌站—大通—薄野）全程走<b>全暖气地下步行空间（チ・カ・ホ）</b>；② 小樽采用<b>「南小樽下 → 小樽上」</b>单向顺坡动线；③ 美瑛包车/巴士点对点下车即拍，上坡与寒风路段均配有<b>一键给司机看日语打车卡</b>。
+        ❄️ <b>七天合计约 59,400 步（日均 ~8,480 步 / 6.1 km）</b>——专为冬季雪地与情侣拍照优化的<b>「舒适不暴走」</b>节奏！<br>
+        💡 <b>为什么一点都不累？</b>① 札幌市区核心商圈（JR札幌站—大通—薄野）全程走<b>全暖气地下步行空间（チ・カ・ホ）</b>；② 小樽采用<b>「南小樽下 → 小樽上」</b>单向顺坡动线；③ 陡坡与雪夜寒风路段均配有<b>「🚕 给司机看」一键全屏日语打车卡</b>。
       </div>
     </div>
   </section>
@@ -1183,7 +1168,7 @@
   <div class="menu-modal" id="mm-daruma" hidden><div class="mm-box"><div class="mm-close"><span style="font-weight:800;font-size:14px;">🥩 成吉思汗 达摩 · 点菜器</span><button class="mm-x" type="button" aria-label="关闭">✕</button></div>
     <div class="menu-card">
       <div class="menu-head"><span class="menu-ic">🥩</span><div><div class="menu-name">成吉思汗 だるま (5.5店 / 4.4二阶亭)</div><div class="menu-sub">D4 晚餐 · 炭火烤冰鲜北海道羊肉</div></div></div>
-      <div class="must-pick"><div class="mp-title">两人黄金点法（不踩雷）</div><p>先点 <b>1份普通成吉思汗 + 1份上肉 + 1份菲力</b> 对比口感，配<b>烤洋葱</b>和<b>两杯生啤</b>；最后留两块肉和酱汁请店员往米饭里倒热茶做<b>「秘传茶泡饭」</b>收尾！</p></div>
+      <div class="must-pick"><div class="mp-title">两人黄金点法（不踩雷）</div><p>先点 <b>1份普通成吉思汗 + 1份上肉 + 1份菲力</b> 对比口感，配<b>烤洋葱</b>和<b>两杯生啤</b>；最后留两块肉和酱汁请店员往米饭里倒热茶做<b>「秘传茶泡饭」</b>收尾！</p><button class="preset-order" type="button" data-preset="daruma">⚡ 一键选好这套「两人黄金组合」</button></div>
       <ul class="dish">
         <li class="ord" data-jp="成吉思汗（マトン）" data-cn="经典成吉思汗羊肉"><div class="d-info"><span class="d-jp">成吉思汗（マトン）</span><span class="d-cn"><span class="star">⭐必点</span> 经典鲜切羊肉·肉香浓郁</span></div><span class="d-yen">¥1,280</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
         <li class="ord" data-jp="上肉（肩ロース）" data-cn="特选上等羊肩肉(每日限量)"><div class="d-info"><span class="d-jp">上肉（肩ロース）</span><span class="d-cn"><span class="star">⭐必点</span> 每日限量·油脂雪花最嫩</span></div><span class="d-yen">¥1,680</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
@@ -1200,7 +1185,7 @@
   <div class="menu-modal" id="mm-soupcurry" hidden><div class="mm-box"><div class="mm-close"><span style="font-weight:800;font-size:14px;">🍛 汤咖喱 Suage+ / GARAKU · 点菜器</span><button class="mm-x" type="button" aria-label="关闭">✕</button></div>
     <div class="menu-card">
       <div class="menu-head"><span class="menu-ic">🍛</span><div><div class="menu-name">湯咖喱 Suage+ 本店 ／ GARAKU</div><div class="menu-sub">D5 晚餐 · 步步选辣度与芝士饭</div></div></div>
-      <div class="must-pick"><div class="mp-title">汤咖喱三步点单法</div><p>① 选主菜（一人<b>知床脆皮鸡腿</b>、一人<b>炙烧厚切角煮五花肉</b>）→ ② 选汤底（<b>原味经典汤底</b>）→ ③ 选辣度（<b>3号中辣</b>最香）＋ <b>米饭加炙烧芝士（チーズ on ライス）</b>！</p></div>
+      <div class="must-pick"><div class="mp-title">汤咖喱三步点单法</div><p>① 选主菜（一人<b>知床脆皮鸡腿</b>、一人<b>炙烧厚切角煮五花肉</b>）→ ② 选汤底（<b>原味经典汤底</b>）→ ③ 选辣度（<b>3号中辣</b>最香）＋ <b>米饭加炙烧芝士（チーズ on ライス）</b>！</p><button class="preset-order" type="button" data-preset="soupcurry">⚡ 一键选好这套「两人汤咖喱顶配」</button></div>
       <ul class="dish">
         <li class="ord" data-jp="パリパリ知床鶏と野菜カレー（辛さ3番）" data-cn="脆皮知床鸡腿蔬菜汤咖喱(3号中辣)"><div class="d-info"><span class="d-jp">パリパリ知床鶏と野菜カレー</span><span class="d-cn"><span class="star">⭐店头牌</span> 鸡皮炸到酥脆·配9种北海道素揚げ蔬菜</span></div><span class="d-yen">¥1,550</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
         <li class="ord" data-jp="とろとろ炙り角煮カレー（辛さ3番）" data-cn="入口即化炙烧角煮豚肉汤咖喱"><div class="d-info"><span class="d-jp">とろとろ炙り角煮カレー</span><span class="d-cn"><span class="star">⭐必点</span> 厚切北海道猪肉炙烧·软烂入味</span></div><span class="d-yen">¥1,650</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
@@ -1214,7 +1199,7 @@
   <div class="menu-modal" id="mm-kani" hidden><div class="mm-box"><div class="mm-close"><span style="font-weight:800;font-size:14px;">🦀 螃蟹本家 / 冰雪之门 · 点菜器</span><button class="mm-x" type="button" aria-label="关闭">✕</button></div>
     <div class="menu-card">
       <div class="menu-head"><span class="menu-ic">🦀</span><div><div class="menu-name">札幌かに本家 ／ 氷雪の門</div><div class="menu-sub">D6 跨年前夜大餐 · 帝王蟹×松叶蟹×毛蟹</div></div></div>
-      <div class="must-pick"><div class="mp-title">两人跨年全蟹宴点法</div><p>不用一人点一套同质化会席！最聪明点法：<b>点 1 套顶配三大蟹火锅会席 ＋ 单点 1 份炭烤特大帝王蟹腿 ＋ 1 个蟹黄甲罗烧</b>，刺身、火锅、炭烤、杂炊全吃爽！</p></div>
+      <div class="must-pick"><div class="mp-title">两人跨年全蟹宴点法</div><p>不用一人点一套同质化会席！最聪明点法：<b>点 1 套顶配三大蟹火锅会席 ＋ 单点 1 份炭烤特大帝王蟹腿 ＋ 1 个蟹黄甲罗烧</b>，刺身、火锅、炭烤、杂炊全吃爽！</p><button class="preset-order" type="button" data-preset="kani">⚡ 一键选好这套「两人跨年全蟹宴」</button></div>
       <ul class="dish">
         <li class="ord" data-jp="特選かにすき会席（タラバ・ズワイ）" data-cn="特选帝王蟹&松叶蟹火锅会席套餐"><div class="d-info"><span class="d-jp">特選かにすき会席</span><span class="d-cn"><span class="star">⭐主套餐</span> 含蟹刺身、蟹火锅、蟹肉烧卖与收尾蟹汤杂炊</span></div><span class="d-yen">¥11,000</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
         <li class="ord" data-jp="本タラバかに炭火焼（太脚）" data-cn="炭火直烤特大帝王蟹腿"><div class="d-info"><span class="d-jp">本タラバかに炭火焼</span><span class="d-cn"><span class="star">⭐必加</span> 炭烤逼出焦香·蟹腿肉极其饱满多汁</span></div><span class="d-yen">¥5,800</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
@@ -1228,7 +1213,7 @@
   <div class="menu-modal" id="mm-hanamaru" hidden><div class="mm-box"><div class="mm-close"><span style="font-weight:800;font-size:14px;">🍣 根室花丸 · 6大必点王牌</span><button class="mm-x" type="button" aria-label="关闭">✕</button></div>
     <div class="menu-card">
       <div class="menu-head"><span class="menu-ic">🍣</span><div><div class="menu-name">回転寿司 根室花まる (COCONO店)</div><div class="menu-sub">D3 晚餐 · 就在 Stream 酒店同栋楼下</div></div></div>
-      <div class="must-pick"><div class="mp-title">进店直接抄单的 6 贯神作</div><p>根室花丸的精髓是道东根室港直送！<b>二层楼干贝、炙烧比目鱼鳍边、红帝王蟹、筋子酱油渍、北寄贝、花咲蟹铁炮汁（味增汤）</b>闭眼画单！</p></div>
+      <div class="must-pick"><div class="mp-title">进店直接抄单的 6 贯神作</div><p>根室花丸的精髓是道东根室港直送！<b>二层楼干贝、炙烧比目鱼鳍边、红帝王蟹、筋子酱油渍、北寄贝、花咲蟹铁炮汁（味增汤）</b>闭眼画单！</p><button class="preset-order" type="button" data-preset="hanamaru">⚡ 一键选好这套「根室花丸6大王牌」</button></div>
       <ul class="dish">
         <li class="ord" data-jp="二階建てほたて" data-cn="双层超厚野付产活干贝"><div class="d-info"><span class="d-jp">二階建てほたて</span><span class="d-cn"><span class="star">⭐封神必点</span> 两整颗超厚脆甜干贝叠放！</span></div><span class="d-yen">¥550</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
         <li class="ord" data-jp="炙りえんがわ（焦がし醤油）" data-cn="焦香酱油炙烧比目鱼鳍边"><div class="d-info"><span class="d-jp">炙りえんがわ</span><span class="d-cn"><span class="star">⭐必点</span> 喷枪逼出鱼油·入口即化</span></div><span class="d-yen">¥420</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
@@ -1244,7 +1229,7 @@
   <div class="menu-modal" id="mm-otaru" hidden><div class="mm-box"><div class="mm-close"><span style="font-weight:800;font-size:14px;">🦀 小樽海鲜丼 & 若鸡时代 · 点菜器</span><button class="mm-x" type="button" aria-label="关闭">✕</button></div>
     <div class="menu-card">
       <div class="menu-head"><span class="menu-ic">🦀</span><div><div class="menu-name">小樽三角市場 滝波食堂 ／ 若鶏時代なると</div><div class="menu-sub">D5 小樽午餐 · 海胆扇贝丼 vs 炸半鸡</div></div></div>
-      <div class="must-pick"><div class="mp-title">小樽午餐双雄</div><p>在<b>三角市场（泷波食堂）</b>直接选「わがまま丼（自选3拼：<b>生うに海胆 ＋ ほたて扇贝 ＋ ぼたん海老牡丹虾</b>）」；或者去<b>若鸡时代本店</b>吃现炸童子半鸡！</p></div>
+      <div class="must-pick"><div class="mp-title">小樽午餐双雄</div><p>在<b>三角市场（泷波食堂）</b>直接选「わがまま丼（自选3拼：<b>生うに海胆 ＋ ほたて扇贝 ＋ ぼたん海老牡丹虾</b>）」；或者去<b>若鸡时代本店</b>吃现炸童子半鸡！</p><button class="preset-order" type="button" data-preset="otaru">⚡ 一键选好这套「海鲜丼＋炸半鸡」</button></div>
       <ul class="dish">
         <li class="ord" data-jp="わがまま丼（3品：生うに・ほたて・ボタンエビ）" data-cn="自选三色海鲜丼(海胆+扇贝+牡丹虾)"><div class="d-info"><span class="d-jp">わがまま丼（生うに・ほたて・海老）</span><span class="d-cn"><span class="star">⭐三角市场头牌</span> 铺满整碗看不见米饭</span></div><span class="d-yen">¥3,600</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
         <li class="ord" data-jp="若鶏半身揚げ定食" data-cn="若鸡时代·招牌炸半鸡定食"><div class="d-info"><span class="d-jp">若鶏半身揚げ定食</span><span class="d-cn"><span class="star">⭐小樽名物</span> 皮脆肉嫩爆汁·配白饭味增汤</span></div><span class="d-yen">¥1,400</span><span class="stepper"><button class="st-m" type="button">−</button><span class="st-q">0</span><button class="st-p" type="button">＋</button></span></li>
@@ -1319,7 +1304,7 @@
       <div class="card" style="margin-top:8px; box-shadow:none;">
         <div class="row"><div class="ic">🥾</div><div class="bd"><div class="t">雪地防滑：别穿普通板鞋！</div><div class="d">12月底札幌与小樽人行道常结黑冰。穿深齿防滑防水雪地靴，或在 D4 去 Mont-bell / 便利店买一副<b>简易套鞋冰爪（スノースパイク，约¥1,200）</b>，走小樽船见坂陡坡稳如泰山。</div></div></div>
         <div class="row"><div class="ic">🚄</div><div class="bd"><div class="t">不必买昂贵的北海道 JR Pass！单买更省钱</div><div class="d">经精算：你们走「新千岁→洞爷→登别→札幌⇄小樽」单买车票合计约 <b>¥12,800/人</b>，远低于北海道铁路周游券（5日券 ¥21,000 / 7日券 ¥29,000）！直接在「えきねっと (Ekinet)」或新千岁 JR 售票机买<b>北斗号指定席</b>，小樽与地铁全程刷 Apple Wallet 里的 <b>Suica</b> 即可。</div></div></div>
-        <div class="row"><div class="ic">✈️</div><div class="bd"><div class="t">ANA 联程行李规则：去程羽田提，返程新千岁直挂</div><div class="d"><b>12/25 去程：</b>因在羽田从国际转国内，必须在羽田 T3 提取 2 件行李过海关，出关后立刻交给 T3 的 ANA 国内转机柜台。<br><b>12/31 返程：</b>在新千岁机场国内线 ANA 国际联程柜台托运，<b>行李直接挂到上海浦东</b>，在羽田 T2 转机时两手空空直接过国际边检！</div></div></div>
+        <div class="row"><div class="ic">✈️</div><div class="bd"><div class="t">ANA 联程直挂规则：浦东 &amp; 新千岁均一次拿齐两段登机牌！</div><div class="d"><b>12/25 去程（国际→日本国内）：</b>在浦东值机时<b>两段登机牌一次拿齐、行李条直接打到最终目的地 CTS（新千岁）</b>！因日本海关法规定“国际转日本国内必须在第一入境点清关”，在羽田 T3 过完边检后从转盘拎下带直挂条的箱子走过海关门，<b>一出海关门右手边 10 米就是 ANA「国内線乗継カウンター（转机专用交运口）」，无需重新排队办值机，把箱子放上传送带（30秒搞定）</b>，随后直接走旁边 T3 转机专用安检口+免费巴士直达 T2 候机厅！<br><b>12/31 返程（日本国内→国际）：</b><b>100% 彻底甩手直挂！</b>在新千岁国内线 ANA 柜台交完行李后，在羽田 T2 <b>完全不用见箱子、不用换航站楼</b>，顺扶梯直上 T2 3F 过国际边检登机，直到上海浦东才拿行李！</div></div></div>
       </div>
     </details>
   </section>
@@ -1409,15 +1394,33 @@
       var preset=presets[button.dataset.preset],modal=document.getElementById(preset.modal);
       if(!preset||!modal) return;
       modal.querySelectorAll('li.ord').forEach(function(li){ li._setQuantity(preset.items[li.dataset.jp]||0); });
+      modal.hidden=true;
       modal.querySelector('.order-show').click();
     });
   });
 
-  // Hotel Split Switcher
+  // Interactive Day Tasks Checkboxes
+  document.querySelectorAll('.day-tasks li').forEach(function(li,idx){
+    var key='hokkaido-task-v1:'+idx;
+    if(localStorage.getItem(key)==='1') li.classList.add('done');
+    li.addEventListener('click',function(e){
+      if(e.target.tagName==='A') return;
+      var next=!li.classList.contains('done');
+      li.classList.toggle('done',next);
+      localStorage.setItem(key,next?'1':'0');
+    });
+  });
+
+  // Hotel Split Switcher (updates both summary note and each day card's hotel badge)
   var modeNotes={
     A:'📌 <b>当前为【模式 A · 最优解】：12/25–27 住「洞爷湖万世阁」(2晚) ＋ 12/27–31 住「SAPPORO STREAM HOTEL」(4晚)</b>。避开 12/29–31 日本年末温泉天价房与拥挤人潮，且最后 4 晚连住札幌薄野免搬箱子！',
-    B:'📌 <b>当前为【模式 B · 紧凑泡汤】：12/25–26 住「洞爷湖万世阁」(1晚) ＋ 12/26–31 住「SAPPORO STREAM HOTEL」(5晚)</b>。D2 下午泡完私汤直接去札幌，多出整整 1 天可在 12/27 去旭川看企鹅或美瑛雪原（避开12/30闭园）！',
-    C:'📌 <b>当前为【模式 C · 先城后湖】：12/25–29 住「SAPPORO STREAM HOTEL」(4晚) ＋ 12/29–31 住「洞爷湖万世阁」(2晚)</b>。落地直接进札幌过圣诞集市（12/25最后一晚），D4 买好 NANGA，最后两晚去洞爷湖泡汤，12/31 从洞爷坐北斗号直奔新千岁机场！'
+    B:'📌 <b>当前为【模式 B · 紧凑泡汤】：12/25–26 住「洞爷湖万世阁」(1晚) ＋ 12/26–31 住「SAPPORO STREAM HOTEL」(5晚)</b>。D2 下午泡完私汤直接坐北斗号去札幌入住 Stream，札幌连住 5 晚更省心！',
+    C:'📌 <b>当前为【模式 C · 先城后湖】：12/25–29 住「SAPPORO STREAM HOTEL」(4晚) ＋ 12/29–31 住「洞爷湖万世阁」(2晚)</b>。D1–D4 先玩遍札幌、小樽、滑雪并买好 NANGA，D5–D6 去洞爷湖泡私汤，12/31 从洞爷直奔新千岁机场！'
+  };
+  var modeHotels={
+    A:{d1:'🏨 今晚住：洞爷湖万世阁 (第1晚)',d2:'🏨 今晚住：洞爷湖万世阁 (第2晚)',d3:'🏨 今晚住：SAPPORO STREAM HOTEL (第1晚)',d4:'🏨 今晚住：SAPPORO STREAM HOTEL (第2晚)',d5:'🏨 今晚住：SAPPORO STREAM HOTEL (第3晚)',d6:'🏨 今晚住：SAPPORO STREAM HOTEL (第4晚)',d7:'✈️ 今晚返程：NH78 → NH967 高空跨年'},
+    B:{d1:'🏨 今晚住：洞爷湖万世阁 (共1晚)',d2:'🏨 今晚转场住：SAPPORO STREAM HOTEL (第1晚)',d3:'🏨 今晚住：SAPPORO STREAM HOTEL (第2晚)',d4:'🏨 今晚住：SAPPORO STREAM HOTEL (第3晚)',d5:'🏨 今晚住：SAPPORO STREAM HOTEL (第4晚)',d6:'🏨 今晚住：SAPPORO STREAM HOTEL (第5晚)',d7:'✈️ 今晚返程：NH78 → NH967 高空跨年'},
+    C:{d1:'🏨 今晚住：SAPPORO STREAM HOTEL (第1晚·先城后湖)',d2:'🏨 今晚住：SAPPORO STREAM HOTEL (第2晚)',d3:'🏨 今晚住：SAPPORO STREAM HOTEL (第3晚)',d4:'🏨 今晚住：SAPPORO STREAM HOTEL (第4晚)',d5:'🏨 今晚转场住：洞爷湖万世阁 (第1晚)',d6:'🏨 今晚住：洞爷湖万世阁 (第2晚)',d7:'✈️ 今晚返程：洞爷 → 新千岁 NH78 → NH967'}
   };
   var hsBtns=document.querySelectorAll('#hotelSplitSwitcher .hs-btn');
   var hsNote=document.getElementById('hotelSplitNote');
@@ -1425,6 +1428,20 @@
   function applyMode(m){
     hsBtns.forEach(function(b){ b.classList.toggle('active',b.dataset.mode===m); });
     if(hsNote&&modeNotes[m]) hsNote.innerHTML=modeNotes[m];
+    var map=modeHotels[m]||modeHotels.A;
+    Object.keys(map).forEach(function(did){
+      var card=document.getElementById(did);
+      if(!card) return;
+      var titleBox=card.querySelector('.day-title');
+      if(!titleBox) return;
+      var pill=titleBox.querySelector('.hotel-night-pill');
+      if(!pill){
+        pill=document.createElement('div');
+        pill.className='hotel-night-pill';
+        titleBox.appendChild(pill);
+      }
+      pill.textContent=map[did];
+    });
     localStorage.setItem('hokkaido-hotel-mode',m);
   }
   hsBtns.forEach(function(b){ b.addEventListener('click',function(){ applyMode(b.dataset.mode); }); });
