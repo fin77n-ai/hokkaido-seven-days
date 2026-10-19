@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#F1EFE8"/>
+  <circle cx="386" cy="118" r="52" fill="#C0532E" opacity="0.88"/>
+  <circle cx="118" cy="108" r="7" fill="#285A86" opacity="0.35"/>
+  <circle cx="182" cy="84" r="5" fill="#285A86" opacity="0.28"/>
+  <circle cx="268" cy="112" r="6" fill="#285A86" opacity="0.32"/>
+  <path d="M52 404 L182 178 C196 154 232 154 246 178 L302 272 L344 206 C356 186 384 186 396 206 L460 312 L460 404 Z" fill="#285A86"/>
+  <path d="M138 254 L182 178 C196 154 232 154 246 178 L286 246 C248 232 192 234 138 254 Z" fill="#FBFAF6"/>
+  <path d="M88 404 H424" stroke="#3C7757" stroke-width="26" stroke-linecap="round"/>
+  <text x="256" y="366" text-anchor="middle" font-family="PingFang SC, Hiragino Sans, sans-serif" font-size="108" font-weight="800" fill="#FBFAF6">北海</text>
+</svg>
