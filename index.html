@@ -7,6 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="北海道七日">
+<meta name="description" content="2026.12.25–12.31 北海道七日冬旅：洞爷湖 2 晚 + 札幌 4 晚，离线可用的行程、美食、打车卡与点菜单。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="北海道七日 · 洞爷湖 × 札幌 × 小樽">
+<meta property="og:description" content="离线优先的冬日行程手册：每日路线、美食预约红绿灯、日语打车卡。">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -276,9 +280,6 @@
   .pass-callout b{color:var(--ink);}
   /* Hotel Switcher & Gourmet Hub & Shopping Checklist */
   .hotel-switcher{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:12px 14px; box-shadow:var(--shadow);}
-  .hs-btns{display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-bottom:10px;}
-  .hs-btn{border:1px solid var(--line); background:var(--surface-2); color:var(--ink-soft); border-radius:10px; padding:8px 6px; font:700 11.5px/1.3 var(--font-cjk); cursor:pointer; text-align:center;}
-  .hs-btn.active{background:var(--indigo); color:#fff; border-color:var(--indigo);}
   .hs-note{font-size:12px; color:var(--ink-soft); line-height:1.55; padding:9px 11px; border-radius:10px; background:var(--surface-2); border:1px dashed var(--line);}
   .hs-note b{color:var(--kaki);}
   .gourmet-tabs{display:flex; gap:6px; overflow-x:auto; padding-bottom:10px;}
@@ -426,16 +427,12 @@
     </div>
   </section>
 
-  <section id="hotel-switch">
-    <div class="sec-title"><span class="n">HOTEL SPLIT</span><h2>双核心酒店 · 排期动态切换器</h2></div>
-    <div class="hotel-switcher" id="hotelSplitSwitcher">
-      <div class="hs-btns">
-        <button class="hs-btn active" type="button" data-mode="A">模式 A (默认推荐)<br><small>洞爷2晚 + 札幌4晚</small></button>
-        <button class="hs-btn" type="button" data-mode="B">模式 B (紧凑泡汤)<br><small>洞爷1晚 + 札幌5晚</small></button>
-        <button class="hs-btn" type="button" data-mode="C">模式 C (先城后湖)<br><small>札幌4晚 + 洞爷2晚</small></button>
-      </div>
-      <div class="hs-note" id="hotelSplitNote">
-        📌 <b>当前为【模式 A · 最优解】：12/25–27 住「洞爷湖万世阁」(2晚) ＋ 12/27–31 住「SAPPORO STREAM HOTEL」(4晚)</b>。避开 12/29–31 日本年末温泉天价房与拥挤人潮，且最后 4 晚连住札幌薄野免搬箱子！等你确认具体订单日期后，点上方按钮即可一键切换。
+  <section id="hotel-stay">
+    <div class="sec-title"><span class="n">HOTEL</span><h2>住宿安排 · 已锁定</h2></div>
+    <div class="hotel-switcher">
+      <div class="hs-note">
+        🏨 <b>12/25–27 洞爷湖万世阁（2 晚）</b> → <b>12/27–31 SAPPORO STREAM HOTEL（4 晚 · 薄野地铁直结）</b><br>
+        12/27 上午退房坐 JR 北斗号去札幌，之后 4 晚连住不用再搬箱子；12/31 退房后直奔新千岁机场。
       </div>
     </div>
   </section>
@@ -1523,41 +1520,17 @@
     });
   });
 
-  // Hotel Split Switcher (updates both summary note and each day card's hotel badge)
-  var modeNotes={
-    A:'📌 <b>当前为【模式 A · 最优解】：12/25–27 住「洞爷湖万世阁」(2晚) ＋ 12/27–31 住「SAPPORO STREAM HOTEL」(4晚)</b>。避开 12/29–31 日本年末温泉天价房与拥挤人潮，且最后 4 晚连住札幌薄野免搬箱子！',
-    B:'📌 <b>当前为【模式 B · 紧凑泡汤】：12/25–26 住「洞爷湖万世阁」(1晚) ＋ 12/26–31 住「SAPPORO STREAM HOTEL」(5晚)</b>。D2 下午泡完私汤直接坐北斗号去札幌入住 Stream，札幌连住 5 晚更省心！',
-    C:'📌 <b>当前为【模式 C · 先城后湖】：12/25–29 住「SAPPORO STREAM HOTEL」(4晚) ＋ 12/29–31 住「洞爷湖万世阁」(2晚)</b>。D1–D4 先玩遍札幌、小樽、滑雪并买好 NANGA，D5–D6 去洞爷湖泡私汤，12/31 从洞爷直奔新千岁机场！'
-  };
-  var modeHotels={
-    A:{d1:'🏨 今晚住：洞爷湖万世阁 (第1晚)',d2:'🏨 今晚住：洞爷湖万世阁 (第2晚)',d3:'🏨 今晚住：SAPPORO STREAM HOTEL (第1晚)',d4:'🏨 今晚住：SAPPORO STREAM HOTEL (第2晚)',d5:'🏨 今晚住：SAPPORO STREAM HOTEL (第3晚)',d6:'🏨 今晚住：SAPPORO STREAM HOTEL (第4晚)',d7:'✈️ 今晚返程：NH78 → NH967 高空跨年'},
-    B:{d1:'🏨 今晚住：洞爷湖万世阁 (共1晚)',d2:'🏨 今晚转场住：SAPPORO STREAM HOTEL (第1晚)',d3:'🏨 今晚住：SAPPORO STREAM HOTEL (第2晚)',d4:'🏨 今晚住：SAPPORO STREAM HOTEL (第3晚)',d5:'🏨 今晚住：SAPPORO STREAM HOTEL (第4晚)',d6:'🏨 今晚住：SAPPORO STREAM HOTEL (第5晚)',d7:'✈️ 今晚返程：NH78 → NH967 高空跨年'},
-    C:{d1:'🏨 今晚住：SAPPORO STREAM HOTEL (第1晚·先城后湖)',d2:'🏨 今晚住：SAPPORO STREAM HOTEL (第2晚)',d3:'🏨 今晚住：SAPPORO STREAM HOTEL (第3晚)',d4:'🏨 今晚住：SAPPORO STREAM HOTEL (第4晚)',d5:'🏨 今晚转场住：洞爷湖万世阁 (第1晚)',d6:'🏨 今晚住：洞爷湖万世阁 (第2晚)',d7:'✈️ 今晚返程：洞爷 → 新千岁 NH78 → NH967'}
-  };
-  var hsBtns=document.querySelectorAll('#hotelSplitSwitcher .hs-btn');
-  var hsNote=document.getElementById('hotelSplitNote');
-  var savedMode=localStorage.getItem('hokkaido-hotel-mode')||'A';
-  function applyMode(m){
-    hsBtns.forEach(function(b){ b.classList.toggle('active',b.dataset.mode===m); });
-    if(hsNote&&modeNotes[m]) hsNote.innerHTML=modeNotes[m];
-    var map=modeHotels[m]||modeHotels.A;
-    Object.keys(map).forEach(function(did){
-      var card=document.getElementById(did);
-      if(!card) return;
-      var titleBox=card.querySelector('.day-title');
-      if(!titleBox) return;
-      var pill=titleBox.querySelector('.hotel-night-pill');
-      if(!pill){
-        pill=document.createElement('div');
-        pill.className='hotel-night-pill';
-        titleBox.appendChild(pill);
-      }
-      pill.textContent=map[did];
-    });
-    localStorage.setItem('hokkaido-hotel-mode',m);
-  }
-  hsBtns.forEach(function(b){ b.addEventListener('click',function(){ applyMode(b.dataset.mode); }); });
-  applyMode(savedMode);
+  // Hotel nights pill on each day card (stay plan is locked: 2 nights Toyako + 4 nights Sapporo)
+  var hotelNights={d1:'🏨 今晚住：洞爷湖万世阁 (第1晚)',d2:'🏨 今晚住：洞爷湖万世阁 (第2晚)',d3:'🏨 今晚住：SAPPORO STREAM HOTEL (第1晚)',d4:'🏨 今晚住：SAPPORO STREAM HOTEL (第2晚)',d5:'🏨 今晚住：SAPPORO STREAM HOTEL (第3晚)',d6:'🏨 今晚住：SAPPORO STREAM HOTEL (第4晚)',d7:'✈️ 今晚返程：NH78 → NH967 高空跨年'};
+  Object.keys(hotelNights).forEach(function(did){
+    var card=document.getElementById(did);
+    var titleBox=card&&card.querySelector('.day-title');
+    if(!titleBox) return;
+    var pill=document.createElement('div');
+    pill.className='hotel-night-pill';
+    pill.textContent=hotelNights[did];
+    titleBox.appendChild(pill);
+  });
 
   // Gourmet Tabs Filter
   var gTabs=document.querySelectorAll('#gourmetTabs .g-tab');
@@ -1692,7 +1665,8 @@
     localStorage.setItem('hokkaido-theme',root.dataset.theme);
   });
   var statusEl=document.getElementById('appStatus');
-  function updateNetwork(){ statusEl.textContent=navigator.onLine?'● 在线 · 行程已缓存可离线':'● 离线模式 · 攻略照常可用'; }
+  var offlineReady=false;
+  function updateNetwork(){ statusEl.textContent=!navigator.onLine?'● 离线模式 · 攻略照常可用':(offlineReady?'● 在线 · 已缓存，可离线使用':'● 在线 · 正在缓存离线包…'); }
   addEventListener('online',updateNetwork); addEventListener('offline',updateNetwork); updateNetwork();
   var installPrompt,installButton=document.getElementById('installApp');
   addEventListener('beforeinstallprompt',function(event){ event.preventDefault(); installPrompt=event; installButton.hidden=false; });
@@ -1702,6 +1676,7 @@
   });
   if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){
     navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(function(reg){ reg.update(); });
+    navigator.serviceWorker.ready.then(function(){ offlineReady=true; updateNetwork(); });
   }
 })();
 </script>
