@@ -138,6 +138,12 @@ dayIds.forEach((did, idx) => {
     err(`[餐饮保障] #${did} (${dateStr}) 未检测到任何用餐节点`);
   }
 
+  // 每日预算：必须有 .budget 明细，且至少列出 2 项花费
+  const budget = dayHtml.match(/<details class="budget">([\s\S]*?)<\/details>/);
+  if (!budget || [...budget[1].matchAll(/<li>/g)].length < 2) {
+    err(`[每日预算] #${did} (${dateStr}) 缺少今日花费明细`);
+  }
+
   // 首日 (D1 12/25) 入境+转机+城际缓冲链校验 (NH67 15:35 落地新千岁)
   if (did === 'd1') {
     const checkinMatch = dayHtml.match(/<span class="n-time">(\d{1,2}:\d{2})<\/span>\s*<span class="n-name hotel">/);
@@ -174,7 +180,7 @@ dayIds.forEach((did, idx) => {
     }
   }
 });
-ok('[闭合日链] D1–D7 全部 7 张日卡时钟单调递增、零重叠、餐饮与住宿齐备');
+ok('[闭合日链] D1–D7 全部 7 张日卡时钟单调递增、零重叠、餐饮住宿与每日预算齐备');
 
 // 5. 12/30–12/31「年末年始」休馆黑名单碰撞检测 (tripwork/trip_calendar.py)
 const d6Html = (html.match(/<article class="day-card" id="d6"[^>]*>([\s\S]*?)<\/article>/) || [])[1] || '';

@@ -367,6 +367,18 @@
   .tb-btn small{font-family:var(--font-lat); font-size:12px; color:var(--kaki);}
   .tb-acts{margin-top:6px;}
   #toolbox .pitfall-card{margin-top:18px;}
+  .budget{margin:10px 14px 0; border:1px solid var(--line); border-radius:13px; background:var(--surface-2);}
+  .budget summary{list-style:none; cursor:pointer; padding:9px 12px; font-size:13px; font-weight:700; color:var(--ink-soft); display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px;}
+  .budget summary::-webkit-details-marker{display:none;}
+  .budget summary::after{content:"▾"; margin-left:auto; color:var(--ink-faint);}
+  .budget[open] summary::after{content:"▴";}
+  .budget summary b{font-family:var(--font-lat); font-size:15px; color:var(--moss);}
+  .budget summary small{font-size:12px; color:var(--ink-faint); font-weight:600;}
+  .budget ul{list-style:none; margin:0; padding:2px 12px 8px; border-top:1px dashed var(--line);}
+  .budget li{display:flex; justify-content:space-between; gap:10px; padding:5px 0; font-size:12.5px; color:var(--ink-soft);}
+  .budget li b{font-family:var(--font-lat); color:var(--ink); white-space:nowrap;}
+  .budget p{margin:0; padding:0 12px 10px; font-size:12px; color:var(--kaki); line-height:1.5;}
+  .ov-st .ov-yen{color:var(--moss); font-weight:700;}
 </style>
 </head>
 <body>
@@ -482,15 +494,15 @@
   <section id="overview">
     <div class="sec-title"><span class="n">7 DAYS</span><h2>七天总览</h2></div>
     <div class="ov-list">
-      <a class="ov-row" data-day="1" href="#d1"><span class="ov-d lat">D1<small>12/25 五</small></span><span class="ov-bd"><b>圣诞夜抵达洞爷湖</b><span>羽田转机 · 北斗号 · 星光隧道</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:52%"></span></span><small>~6,200 步</small></span></a>
-      <a class="ov-row" data-day="2" href="#d2"><span class="ov-d lat">D2<small>12/26 六</small></span><span class="ov-bd"><b>洞爷湖雪景 × 湖景私汤</b><span>浮见堂 · 筒仓展望台 · 日落泡私汤</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:62%"></span></span><small>~7,400 步</small></span></a>
-      <a class="ov-row" data-day="3" href="#d3"><span class="ov-d lat">D3<small>12/27 日</small></span><span class="ov-bd"><b>顺路登别 → 搬去札幌</b><span>地狱谷 · 入住 Stream · 根室花丸</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:76%"></span></span><small>~9,100 步</small></span></a>
-      <a class="ov-row" data-day="4" href="#d4"><span class="ov-d lat">D4<small>12/28 一</small></span><span class="ov-bd"><b>北大雪景 × 买装备 × 女友购物</b><span>NANGA · 大丸/PARCO · 达摩烤羊肉</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:85%"></span></span><small>~10,200 步</small></span></a>
-      <a class="ov-row" data-day="5" href="#d5"><span class="ov-d lat">D5<small>12/29 二</small></span><span class="ov-bd"><b>《情书》朝里站 × 小樽蓝调</b><span>堺町通 · 天狗山日落 · 青之运河</span></span><span class="ov-st"><span class="step-track"><span class="step-fill hi" style="width:92%"></span></span><small>~10,800 步</small></span></a>
-      <a class="ov-row" data-day="6" href="#d6"><span class="ov-d lat">D6<small>12/30 三</small></span><span class="ov-bd"><b>手稻滑雪团课 × 跨年前夜蟹宴</b><span>你单板、她双板 · 19:00 螃蟹</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:55%"></span></span><small>~6,500 步</small></span></a>
-      <a class="ov-row" data-day="7" href="#d7"><span class="ov-d lat">D7<small>12/31 四</small></span><span class="ov-bd"><b>雪中鸟居 × 机场扫货 × 空中跨年</b><span>伏见稻荷 · 新千岁 2F · NH78</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:71%"></span></span><small>~8,500 步</small></span></a>
+      <a class="ov-row" data-day="1" href="#d1"><span class="ov-d lat">D1<small>12/25 五</small></span><span class="ov-bd"><b>圣诞夜抵达洞爷湖</b><span>羽田转机 · 北斗号 · 星光隧道</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:52%"></span></span><small>~6,200 步</small><small class="ov-yen">¥19,600</small></span></a>
+      <a class="ov-row" data-day="2" href="#d2"><span class="ov-d lat">D2<small>12/26 六</small></span><span class="ov-bd"><b>洞爷湖雪景 × 湖景私汤</b><span>浮见堂 · 筒仓展望台 · 日落泡私汤</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:62%"></span></span><small>~7,400 步</small><small class="ov-yen">¥17,400</small></span></a>
+      <a class="ov-row" data-day="3" href="#d3"><span class="ov-d lat">D3<small>12/27 日</small></span><span class="ov-bd"><b>顺路登别 → 搬去札幌</b><span>地狱谷 · 入住 Stream · 根室花丸</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:76%"></span></span><small>~9,100 步</small><small class="ov-yen">¥22,000</small></span></a>
+      <a class="ov-row" data-day="4" href="#d4"><span class="ov-d lat">D4<small>12/28 一</small></span><span class="ov-bd"><b>北大雪景 × 买装备 × 女友购物</b><span>NANGA · 大丸/PARCO · 达摩烤羊肉</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:85%"></span></span><small>~10,200 步</small><small class="ov-yen">¥12,200</small></span></a>
+      <a class="ov-row" data-day="5" href="#d5"><span class="ov-d lat">D5<small>12/29 二</small></span><span class="ov-bd"><b>《情书》朝里站 × 小樽蓝调</b><span>堺町通 · 天狗山日落 · 青之运河</span></span><span class="ov-st"><span class="step-track"><span class="step-fill hi" style="width:92%"></span></span><small>~10,800 步</small><small class="ov-yen">¥21,100</small></span></a>
+      <a class="ov-row" data-day="6" href="#d6"><span class="ov-d lat">D6<small>12/30 三</small></span><span class="ov-bd"><b>手稻滑雪团课 × 跨年前夜蟹宴</b><span>你单板、她双板 · 19:00 螃蟹</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:55%"></span></span><small>~6,500 步</small><small class="ov-yen">¥5–7.9万</small></span></a>
+      <a class="ov-row" data-day="7" href="#d7"><span class="ov-d lat">D7<small>12/31 四</small></span><span class="ov-bd"><b>雪中鸟居 × 机场扫货 × 空中跨年</b><span>伏见稻荷 · 新千岁 2F · NH78</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:71%"></span></span><small>~8,500 步</small><small class="ov-yen">¥12,500</small></span></a>
     </div>
-    <div class="ov-foot">🏨 12/25–27 洞爷湖万世阁 · 12/27–31 SAPPORO STREAM HOTEL（薄野站直通，4 晚不搬箱子）</div>
+    <div class="ov-foot">💴 七天两人吃喝交通门票合计约 <b>¥155,000–183,000</b>（约 7,300–8,600 元），不含酒店、机票、购物。<br>🏨 12/25–27 洞爷湖万世阁 · 12/27–31 SAPPORO STREAM HOTEL（薄野站直通，4 晚不搬箱子）</div>
   </section>
 
   <!-- ============ DAY 1 ============ -->
@@ -505,6 +517,7 @@
       <li><b>新千岁坐 JR 1 站到南千岁，同站台换北斗 18 号。</b>飞机晚点就坐 20 号，在车上先约好出租车</li>
       <li><b>星光隧道就在酒店正门对面，</b>开到 22:00，吃完饭下楼就能拍</li>
     </ul></div>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥19,600</b><small>约 920 元 · 不含酒店机票购物</small></summary><ul><li><span>JR 新千岁→洞爷（北斗号指定席）×2</span><b>约 ¥12,000</b></li><li><span>洞爷站→酒店 打车</span><b>¥2,600</b></li><li><span>机场零食</span><b>约 ¥1,000</b></li><li><span>晚餐 望羊蹄 两人</span><b>约 ¥4,000</b></li></ul></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin air">✈</span>
@@ -566,6 +579,7 @@
       <li><b>筒仓展望台在山上，冬天叫不到车。</b>让前台叫车，谈好「往返 + 山上等 30 分钟」，约 ¥5,000</li>
       <li><b>冬天不坐游船：</b>中岛封岛不能下船，不值得</li>
     </ul></div>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥17,400</b><small>约 820 元 · 不含酒店机票购物</small></summary><ul><li><span>筒仓展望台 包车往返</span><b>约 ¥5,000</b></li><li><span>午餐 仙堂庵 帆立天ざる ×2</span><b>¥3,300</b></li><li><span>冈田屋 白色年糕甜汤 ×2</span><b>¥1,100</b></li><li><span>私汤 50 分钟</span><b>约 ¥4,000</b></li><li><span>晚餐 温泉街 两人</span><b>约 ¥4,000</b></li></ul></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
@@ -623,6 +637,7 @@
       <li><b>下大雪不想拖箱子：</b>改坐万世阁到札幌站北口的直达巴士（10:00 发车，¥1,100/人，要预约 <a class="wx-live" href="https://inquiry.talkappi.com/?f=toyako-manseikaku-hp&id=56e6b20052d15ae0" target="_blank" rel="noopener">预约链接 →</a>）</li>
       <li><b>到酒店先下楼去根室花丸抽号，</b>回房间躺着等叫号</li>
     </ul></div>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥22,000</b><small>约 1,030 元 · 不含酒店机票购物</small></summary><ul><li><span>巴士 万世阁→洞爷站 ×2</span><b>约 ¥700</b></li><li><span>JR 洞爷→登别→札幌 ×2</span><b>约 ¥10,000</b></li><li><span>道南巴士 登别站⇄温泉 ×2</span><b>¥1,800</b></li><li><span>登别站寄存行李</span><b>约 ¥700</b></li><li><span>午餐 地狱拉面 ×2</span><b>约 ¥2,400</b></li><li><span>地铁 札幌→薄野 ×2</span><b>约 ¥400</b></li><li><span>晚餐 根室花丸 两人</span><b>约 ¥6,000</b></li></ul></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin">JR</span>
@@ -682,6 +697,7 @@
       <li><b>NANGA 和 Mont-bell 今天必须买：</b>Sapporo Factory 12/31 全馆休馆，后天就要滑雪</li>
       <li><b>顺手买齐滑雪小件：</b>防水手套、雪镜、毛线帽，租雪服一般不含这些</li>
     </ul></div>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥12,200</b><small>约 570 元 · 不含酒店机票购物</small></summary><ul><li><span>地铁</span><b>约 ¥500</b></li><li><span>午餐 六花亭本店 ×2</span><b>约 ¥3,000</b></li><li><span>打车两段</span><b>¥1,700</b></li><li><span>晚餐 达摩（点菜器两人套餐）</span><b>约 ¥7,000</b></li></ul><p>购物另算：NANGA 羽绒服约 ¥45,000–55,000，Mont-bell 滑雪小件另计</p></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
@@ -757,6 +773,7 @@
       <li><b>在南小樽下车，</b>往小樽站方向一路微下坡，不走回头路</li>
       <li><b>15:15 前上天狗山，</b>16:03 日落，白天、日落、夜景一次拍齐</li>
     </ul></div>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥21,100</b><small>约 990 元 · 不含酒店机票购物</small></summary><ul><li><span>地铁 + JR 札幌⇄小樽 ×2</span><b>约 ¥3,800</b></li><li><span>午餐 海鲜丼 + 炸半鸡</span><b>约 ¥5,000</b></li><li><span>LeTAO / 堺町通甜品</span><b>约 ¥1,500</b></li><li><span>打车两段</span><b>¥2,700</b></li><li><span>天狗山缆车往返 ×2</span><b>¥3,600</b></li><li><span>TENGUU CAFE 热可可</span><b>约 ¥1,000</b></li><li><span>晚餐 汤咖喱 ×2</span><b>¥3,500</b></li></ul></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin hotel">🏨</span>
@@ -860,6 +877,7 @@
       <li><b>分开上课：</b>你上单板班，她上双板班，午饭会合</li>
       <li><b>带上 D4 买的手套、雪镜、毛线帽；</b>里面穿速干保暖内衣加薄抓绒，别穿纯棉</li>
     </ul></div>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥50,000–79,000</b><small>约 2,350–3,700 元 · 不含酒店机票购物</small></summary><ul><li><span>中文滑雪团课 ×2</span><b>约 ¥23,000–34,000</b></li><li><span>缆车一日票 ×2（团课不含时）</span><b>¥0–17,600</b></li><li><span>雪场午饭 ×2</span><b>约 ¥3,000</b></li><li><span>螃蟹宴（点菜器两人套餐 + 饮料）</span><b>约 ¥24,000</b></li></ul><p>区间大是因为团课还没订：按订单价格和含不含缆车票再定</p></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin hotel">🚌</span>
@@ -939,6 +957,7 @@
       <li><b>伴手礼在机场 2F 买，</b>买完塞进行李箱再托运；带冰袋的蛋糕必须托运</li>
       <li><b>JR 去机场买 u-seat 指定席：</b>12/31 人多，保证两人并排还有大行李架</li>
     </ul></div>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥12,500</b><small>约 590 元 · 不含酒店机票购物</small></summary><ul><li><span>打车 薄野⇄伏见稻荷</span><b>约 ¥3,600</b></li><li><span>判官饼 / 御守</span><b>约 ¥1,000</b></li><li><span>去札幌站 地铁或打车</span><b>约 ¥1,000</b></li><li><span>JR 快速 Airport u-seat ×2</span><b>¥3,980</b></li><li><span>机场拉面 + Kinotoya 冰淇淋 ×2</span><b>约 ¥2,900</b></li></ul><p>伴手礼另算</p></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
