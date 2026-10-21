@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hokkaido-seven-days-v8';
+const CACHE_NAME = 'hokkaido-seven-days-v9';
 const APP_FILES = [
   './',
   './index.html',
@@ -9,9 +9,12 @@ const APP_FILES = [
   './icon-512.png',
   './icon-maskable-512.png'
 ];
+// Single-page app: every navigation (incl. links shared from WeChat with ?from=…) shares one cache entry
+const PAGE_KEY = new URL('./', self.registration.scope).href;
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES)));
+  // cache: 'reload' skips the browser HTTP cache, so a fresh deploy is precached instead of a 10-minute-old copy
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES.map(url => new Request(url, { cache: 'reload' })))));
   self.skipWaiting();
 });
 
@@ -22,19 +25,29 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
+// Tell open pages that a newer itinerary just landed in the cache, so they can offer a one-tap reload
+function notifyUpdated() {
+  return self.clients.matchAll({ type: 'window' })
+    .then(clients => clients.forEach(client => client.postMessage({ type: 'itinerary-updated' })));
+}
+
 // Stale-While-Revalidate: serve cache instantly (works on bad snow-day signal), refresh in background
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
-  event.respondWith(
-    caches.open(CACHE_NAME).then(cache =>
-      cache.match(event.request, { ignoreSearch: true }).then(cached => {
-        const refresh = fetch(event.request).then(response => {
-          if (response.ok) cache.put(event.request, response.clone());
-          return response;
-        });
-        if (cached) { refresh.catch(() => {}); return cached; }
-        return refresh.catch(() => cache.match('./index.html'));
-      })
-    )
-  );
+  const isPage = event.request.mode === 'navigate';
+  const key = isPage ? PAGE_KEY : event.request;
+  const work = caches.open(CACHE_NAME).then(cache => cache.match(key, { ignoreSearch: true }).then(cached => {
+    // clone now: the cached copy's body is consumed once it is handed to the page
+    const shown = isPage && cached ? cached.clone() : null;
+    const refresh = fetch(event.request.url, { cache: 'no-cache' }).then(response => {
+      if (!response.ok) return response;
+      const compare = shown ? Promise.all([shown.text(), response.clone().text()]) : null;
+      return Promise.all([cache.put(key, response.clone()).catch(() => {}), compare])
+        .then(([, texts]) => texts && texts[0] !== texts[1] && notifyUpdated())
+        .then(() => response);
+    });
+    return { cached, refresh };
+  }));
+  event.respondWith(work.then(({ cached, refresh }) => cached || refresh.catch(() => caches.match(PAGE_KEY))));
+  event.waitUntil(work.then(({ refresh }) => refresh).catch(() => {}));
 });
