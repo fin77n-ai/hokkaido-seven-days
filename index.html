@@ -103,6 +103,53 @@
   .daynav{position:sticky; top:0; z-index:25; background:color-mix(in srgb,var(--paper) 94%,transparent); backdrop-filter:blur(10px); padding:9px 14px; display:flex; gap:7px; overflow-x:auto; border-bottom:1px solid var(--line);}
   .daynav a{flex:0 0 auto; text-decoration:none; font-family:var(--font-lat); font-weight:700; font-size:12px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--line); padding:6px 11px; border-radius:999px;}
   .daynav a b{color:var(--indigo);}
+  .daynav .map-open{flex:0 0 auto; border:0; background:var(--indigo); color:#fff; font:800 12px/1 var(--font-cjk); padding:7px 12px; border-radius:999px; cursor:pointer;}
+  .map-ovl{position:fixed; inset:0; z-index:120; background:var(--paper); display:flex; flex-direction:column; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);}
+  .map-ovl[hidden]{display:none;}
+  .map-top{display:flex; align-items:center; gap:8px; padding:10px 14px 6px;}
+  .map-top h3{margin:0 auto 0 0; font-size:16px;}
+  .map-views{display:flex; background:var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:3px;}
+  .map-view{border:0; background:none; color:var(--ink-soft); font:700 13px/1 var(--font-cjk); padding:7px 12px; border-radius:999px; cursor:pointer;}
+  .map-view.active{background:var(--indigo); color:#fff;}
+  .map-close{border:1px solid var(--line); background:var(--surface); color:var(--ink); width:34px; height:34px; border-radius:50%; font-size:16px; cursor:pointer;}
+  .map-chips{display:flex; gap:6px; overflow-x:auto; padding:4px 14px;}
+  .map-chip{flex:0 0 auto; border:1px solid var(--line); background:var(--surface); color:var(--ink-soft); font:700 12px/1 var(--font-cjk); padding:7px 11px; border-radius:999px; cursor:pointer;}
+  .map-chip.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .map-chip i{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; vertical-align:-1px;}
+  .map-stage{position:relative; flex:1; min-height:0; margin:6px 10px 10px; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:var(--indigo-soft);}
+  .map-stage.city{background:var(--surface);}
+  .map-stage svg{display:block; width:100%; height:100%;}
+  .m-sea{fill:var(--indigo-soft);} .m-land{fill:var(--surface); stroke:var(--line); stroke-width:calc(2px*var(--z,1));}
+  .m-lake{fill:color-mix(in srgb,var(--indigo) 30%,var(--indigo-soft));}
+  .m-park{fill:var(--moss-soft); stroke:var(--moss); stroke-width:1.5;}
+  .m-river{fill:none; stroke:color-mix(in srgb,var(--indigo) 45%,transparent); stroke-width:9; stroke-linecap:round;}
+  .m-rail{fill:none; stroke:var(--ink-faint); stroke-width:5; stroke-dasharray:14 8;}
+  .m-label{fill:var(--ink-faint); font:700 calc(24px*var(--z,1)) var(--font-cjk); text-anchor:middle; pointer-events:none;}
+  .m-label.sea{fill:color-mix(in srgb,var(--indigo) 60%,transparent); font-style:italic; letter-spacing:calc(6px*var(--z,1));}
+  .m-mtn{fill:var(--ink-faint); opacity:.5;}
+  .m-citybox{fill:color-mix(in srgb,var(--kaki) 14%,transparent); stroke:var(--kaki); stroke-width:calc(3px*var(--z,1)); stroke-dasharray:calc(8px*var(--z,1)) calc(5px*var(--z,1)); cursor:pointer;}
+  .m-citytag rect{fill:var(--kaki);} .m-citytag text{fill:#fff; font:800 22px var(--font-cjk); text-anchor:middle;}
+  .m-citytag{cursor:pointer;}
+  .m-leg{fill:none; stroke-linecap:round; stroke-linejoin:round;}
+  .m-pin{cursor:pointer;}
+  .m-pin circle.dot{stroke:var(--paper); stroke-width:calc(3px*var(--z,1));}
+  .m-pin text{text-anchor:middle; dominant-baseline:central; pointer-events:none;}
+  .m-pin .badge{fill:var(--ink);} .m-pin .badge-t{fill:var(--paper); font:800 calc(16px*var(--z,1)) var(--font-lat);}
+  .m-pin .name{fill:var(--ink); font:800 calc(19px*var(--z,1)) var(--font-cjk); paint-order:stroke; stroke:var(--surface); stroke-width:calc(5px*var(--z,1));}
+  .m-pin.sel circle.dot{stroke:var(--ink); stroke-width:calc(5px*var(--z,1));}
+  .m-compass text{fill:var(--ink); font:800 22px var(--font-lat); text-anchor:middle;}
+  .m-scale line{stroke:var(--ink); stroke-width:4;} .m-scale text{fill:var(--ink); font:700 18px var(--font-lat);}
+  .map-card{position:absolute; left:10px; right:10px; bottom:10px; max-height:55%; overflow-y:auto; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px 14px; box-shadow:var(--shadow);}
+  .map-card[hidden]{display:none;}
+  .map-card h4{margin:0 0 4px; font-size:15px;}
+  .map-card .mc-jp{font-size:12px; color:var(--ink-faint); margin-bottom:8px;}
+  .map-card .mc-acts{display:flex; gap:8px; flex-wrap:wrap;}
+  .map-card .mc-acts a,.map-card .mc-acts button{flex:1 1 auto; text-align:center; text-decoration:none; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); font:700 13px/1 var(--font-cjk); padding:10px; border-radius:10px; cursor:pointer;}
+  .map-card .mc-acts a{background:var(--indigo); color:#fff; border-color:var(--indigo);}
+  .map-card .mc-list{display:grid; gap:6px;}
+  .map-card .mc-list button{display:flex; gap:8px; align-items:center; text-align:left; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); font:700 13px/1.3 var(--font-cjk); padding:9px 10px; border-radius:10px; cursor:pointer;}
+  .map-card .mc-list small{margin-left:auto; color:var(--ink-faint); font-weight:600;}
+  .map-hint{position:absolute; left:12px; top:10px; font-size:12px; font-weight:700; color:var(--ink-soft); background:color-mix(in srgb,var(--surface) 85%,transparent); padding:5px 9px; border-radius:999px; pointer-events:none;}
   .day-card{background:var(--surface); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); overflow:hidden; margin:0 18px 18px; scroll-margin-top:56px;}
   .day-head{display:flex; align-items:center; gap:12px; padding:15px 16px 13px; background:linear-gradient(180deg,var(--surface-2),var(--surface)); border-bottom:1px solid var(--line);}
   .day-num{flex:0 0 auto; width:46px; height:46px; border-radius:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1;
@@ -457,6 +504,7 @@
   </section>
 
   <nav class="daynav">
+    <button class="map-open" id="mapOpen" type="button">🗺️ 地图</button>
     <a href="#d1"><b>D1</b> 圣诞抵洞爷</a>
     <a href="#d2"><b>D2</b> 湖景私汤</a>
     <a href="#d3"><b>D3</b> 登别转札幌</a>
@@ -1361,6 +1409,24 @@
   </div>
 
   <!-- 出租车老司机全屏指路浮层 -->
+  <div class="map-ovl" id="mapOvl" role="dialog" aria-label="行程地图" hidden>
+    <div class="map-top">
+      <h3>🗺️ 行程地图</h3>
+      <div class="map-views" id="mapViews">
+        <button class="map-view active" type="button" data-view="region">全道</button>
+        <button class="map-view" type="button" data-view="city">札幌市区</button>
+      </div>
+      <button class="map-close" id="mapClose" type="button" aria-label="关闭地图">✕</button>
+    </div>
+    <div class="map-chips" id="mapCats"></div>
+    <div class="map-chips" id="mapDays"></div>
+    <div class="map-stage">
+      <svg id="mapSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="map-hint" id="mapHint"></div>
+      <div class="map-card" id="mapCard" hidden></div>
+    </div>
+  </div>
+
   <div class="taxi-ovl" id="taxiOvl" hidden>
     <div class="phrase-sheet">
       <div style="font-size:12px;font-weight:800;color:var(--kaki);letter-spacing:.08em;margin-bottom:6px;">🚕 運転手さんへ（给日本出租车司机看）</div>
@@ -1613,7 +1679,7 @@
   var todayTitle=document.getElementById('todayTitle'),todaySub=document.getElementById('todaySub'),todayAlert=document.getElementById('todayAlert');
   if(japanDate<'2026-12-25'){
     todayTitle.textContent='冬旅待命 · 12/25 圣诞夜出发';
-    todaySub.textContent='先确认螃蟹预约、私汤方案与酒店具体入住天数';
+    todaySub.textContent='先确认螃蟹预约与私汤方案';
     todayAlert.textContent=tripDays[0].alert;
   }else if(japanDate>'2026-12-31'){
     target=tripDays[6];
@@ -1664,6 +1730,158 @@
     root.dataset.theme=dark?'light':'dark';
     localStorage.setItem('hokkaido-theme',root.dataset.theme);
   });
+  // Offline trip map: SVG basemap (Natural Earth-level coastline + OSM lakes/river/rail), pins by real lat/lon
+  var MAP_BASE={"views":{"region":{"lon0":140.35,"lon1":142.05,"lat0":42.2,"lat1":43.5,"W":1328,"kx":781.176471,"H":1385,"ky":1065.384615},"city":{"lon0":141.31,"lon1":141.378,"lat0":43.022,"lat1":43.092,"W":850,"kx":12500.0,"H":1198,"ky":17114.285714}},"region":{"land":"M1348,-20L1348,1094L1345,1089L1312,1082L1299,1064L1296,1063L1297,1059L1278,1050L1262,1035L1254,1024L1243,1015L1242,1012L1238,1009L1226,1004L1211,982L1189,969L1151,952L1147,957L1146,957L1148,953L1145,949L1141,947L1134,956L1131,955L1133,947L1132,945L1091,934L1058,928L1034,929L1033,926L1001,928L1006,925L1009,924L1007,923L1008,922L1028,912L1030,913L1034,911L1034,909L1045,904L1048,905L1053,902L1051,897L1030,907L1028,904L1026,905L1028,908L1001,919L997,911L993,914L996,920L996,926L993,926L993,927L995,928L993,928L993,929L991,927L988,927L989,928L990,928L990,933L988,933L988,931L985,930L978,930L927,943L896,955L856,973L835,985L798,1008L782,1020L760,1038L761,1039L760,1040L758,1039L728,1062L670,1113L665,1115L658,1116L656,1115L638,1129L635,1127L632,1127L605,1151L580,1176L549,1217L551,1222L543,1224L534,1236L535,1240L534,1240L533,1238L529,1240L522,1249L514,1264L516,1267L515,1272L514,1272L509,1276L505,1276L505,1277L498,1273L494,1270L487,1271L489,1269L484,1270L483,1267L483,1264L481,1262L470,1259L467,1259L463,1256L462,1251L454,1240L454,1238L458,1236L457,1234L463,1235L463,1228L470,1227L471,1231L471,1232L473,1231L474,1235L477,1232L478,1234L476,1235L478,1240L479,1240L480,1236L481,1241L482,1239L483,1240L482,1242L483,1243L484,1241L485,1242L485,1248L487,1249L487,1252L489,1253L489,1251L491,1250L492,1253L493,1252L492,1248L496,1249L494,1246L496,1247L498,1243L494,1242L493,1232L514,1227L511,1224L490,1226L489,1222L496,1221L498,1220L494,1218L494,1215L493,1217L490,1216L486,1219L485,1216L472,1214L466,1211L461,1209L461,1207L459,1206L457,1209L449,1205L443,1204L443,1202L438,1196L436,1193L435,1180L430,1151L421,1130L408,1107L401,1102L397,1102L394,1100L382,1097L367,1079L358,1074L353,1066L341,1063L337,1065L338,1062L336,1050L337,1049L336,1047L341,1050L341,1046L337,1044L335,1047L333,1046L333,1045L335,1045L331,1043L330,1042L333,1036L331,1033L334,1035L332,1032L334,1030L332,1026L318,1008L310,1004L300,993L294,988L292,986L286,984L283,986L282,979L281,976L274,973L257,972L246,972L235,974L233,973L229,973L212,980L201,985L197,985L196,984L189,987L188,990L182,993L171,990L168,986L165,984L159,981L144,971L139,971L131,969L126,973L125,975L121,975L117,973L115,973L112,975L99,970L93,973L86,979L48,1019L17,1063L-1,1094L-20,1136L-20,1349L-7,1356L14,1360L26,1359L38,1367L46,1381L52,1385L63,1395L66,1395L72,1404L73,1405L-20,1405L-20,700L-18,697L-17,697L-5,686L6,669L7,662L10,663L21,643L22,635L23,635L32,618L32,615L35,615L39,613L42,609L48,603L51,596L63,586L65,586L77,580L79,577L80,577L105,561L109,557L118,553L122,547L124,547L128,549L129,547L126,547L127,546L129,547L129,544L130,545L135,542L139,529L140,502L138,498L127,496L124,492L122,493L124,487L122,486L118,476L115,470L113,467L114,464L107,452L100,446L95,445L90,441L88,429L86,420L78,416L79,412L76,411L74,402L72,401L72,399L73,398L72,396L71,395L69,395L68,393L67,393L64,390L62,387L63,380L58,380L42,364L31,358L23,352L21,351L19,349L17,347L17,346L8,340L-1,328L-2,323L-4,322L-3,320L-8,311L-8,308L-12,306L-19,296L-19,295L-18,288L-13,272L-13,263L-10,261L-14,255L-17,256L-15,253L-14,254L-12,252L-11,252L-7,249L-8,246L-8,243L-6,243L-5,238L-10,232L-8,231L-6,232L-4,230L0,219L3,214L6,199L8,196L5,186L-3,176L1,178L7,178L13,180L19,179L20,177L23,181L32,178L34,177L36,180L39,180L40,177L42,177L44,175L46,177L48,176L49,178L58,181L75,174L80,171L81,169L86,164L86,160L88,155L91,146L95,143L87,140L88,136L91,134L95,135L97,133L98,134L102,132L105,133L106,132L109,134L111,134L111,135L115,135L117,138L119,137L122,140L125,149L128,152L138,149L140,150L138,154L142,160L147,165L148,165L149,170L153,171L155,171L155,174L166,185L167,187L171,188L180,201L181,201L185,204L188,203L189,206L192,209L193,210L196,209L199,210L197,210L197,212L199,214L198,215L201,217L209,216L215,218L219,215L219,218L223,227L228,227L231,228L231,231L226,238L224,238L227,248L238,253L259,260L263,260L270,265L272,264L274,265L281,263L282,268L288,266L295,274L301,274L301,280L305,283L308,281L310,281L310,283L313,287L316,286L319,291L322,290L329,291L330,290L334,292L335,305L333,305L332,308L333,315L340,320L342,319L345,325L363,325L386,321L387,318L390,320L397,316L394,306L398,309L398,307L396,304L394,303L394,301L399,302L400,300L403,302L404,309L408,313L419,310L423,310L426,307L441,307L447,303L445,293L447,295L451,290L458,291L460,291L460,289L469,290L483,281L494,277L521,277L519,283L521,292L523,291L524,293L519,299L520,304L518,306L512,308L510,312L512,312L513,313L509,315L509,318L514,316L512,319L515,318L513,321L516,320L514,322L516,325L519,324L520,326L517,328L519,329L523,328L529,332L526,335L532,338L532,336L535,337L539,341L550,340L562,344L565,347L575,349L586,354L593,358L607,367L616,369L634,378L650,373L690,352L701,345L722,330L727,322L729,324L733,322L734,320L735,313L739,308L738,311L739,312L742,309L743,310L748,305L746,302L743,305L741,303L746,299L749,303L749,302L754,299L784,263L798,241L807,230L826,204L829,197L839,182L838,170L839,160L843,149L841,145L841,134L845,118L843,85L829,54L821,41L819,33L815,29L814,23L812,23L799,5L798,-3L793,-12L788,-20ZM198,205L196,205L196,204L198,204ZM714,317L721,311L733,294L734,288L733,294L721,311Z","lake":"M766,742L771,742L777,742L788,747L796,753L810,766L815,768L816,770L819,771L821,773L823,776L822,778L823,780L822,783L821,790L822,792L822,795L824,798L825,799L827,802L827,805L826,806L824,807L822,807L814,808L809,808L805,810L802,813L800,814L797,812L794,813L792,813L788,812L783,812L781,814L779,814L776,816L772,818L770,822L767,824L765,828L763,832L759,834L757,836L752,842L748,844L745,847L739,848L736,847L733,844L730,840L727,839L724,837L722,837L718,834L714,831L713,829L713,827L716,822L716,820L715,819L712,815L710,812L709,808L708,807L707,806L707,805L705,800L704,796L706,794L707,786L709,782L712,779L715,777L718,778L721,776L724,777L725,778L727,777L728,778L729,781L728,782L729,782L734,779L736,781L737,781L740,779L743,779L745,779L746,777L745,774L745,772L746,771L748,770L750,769L751,766L752,765L753,761L752,759L753,757L755,755L761,751L761,749L762,748L764,743ZM649,1054L654,1054L658,1056L661,1061L662,1066L661,1070L660,1073L657,1075L651,1077L649,1077L644,1076L640,1072L638,1067L639,1061L640,1059L644,1055ZM424,989L424,992L423,992L422,992L421,992L421,994L420,996L419,996L419,997L418,998L417,997L415,996L413,998L412,998L412,1001L410,1004L400,1004L397,1005L393,1001L388,999L386,1002L388,999L385,997L378,995L374,996L371,994L359,995L356,992L355,990L356,989L353,991L351,989L350,986L350,983L349,979L346,970L346,966L343,963L343,962L343,962L344,957L343,955L344,952L346,950L348,950L352,947L354,947L354,942L356,938L359,939L360,934L362,932L364,932L365,930L366,930L367,925L366,924L367,922L370,918L371,917L372,918L371,916L372,915L374,912L379,908L381,909L382,910L384,910L386,911L388,914L391,917L396,917L400,914L400,913L402,910L404,909L405,910L408,910L410,913L412,913L416,916L417,915L419,916L422,920L422,922L424,923L427,924L432,930L433,931L432,933L433,936L439,939L441,942L442,946L443,947L445,947L446,947L447,950L447,955L447,962L444,967L444,969L441,974L436,978L435,978L433,983L432,987L430,989L424,989Z"},"city":{"river":"M532,1209L529,1201L530,1181M530,1181L541,1129L568,1049L572,979L580,949L590,925M590,925L611,875M611,875L620,853L624,832L627,782L632,753L641,722L648,710L653,694L657,666L676,627L707,588M707,588L715,580L727,556L737,524L748,513L765,502L803,492L813,482L833,472L861,467","rail":"M287,371L305,382M283,369L287,371M562,395L597,396M15,211L155,294M155,294L263,358M597,396L708,399M708,399L799,400L866,392M267,360L283,369M263,358L267,360M262,359L-7,197M282,370L266,361M-10,194L15,211M447,420L455,417M463,414L493,401M707,400L597,397M597,397L588,397M708,398L787,399L865,392M866,394L798,402L708,399M869,394L796,404L707,400M708,399L597,397M458,416L463,414M434,423L447,420M588,397L577,397M455,417L458,416M577,397L560,397M557,397L542,399M494,408L478,412M493,401L512,396M513,404L494,408M527,393L547,394M286,372L282,370M266,361L262,359M-7,197L-11,195M305,382L365,416L384,423L410,426L434,423M452,420L413,428L384,424L365,416L286,372M547,394L708,398M528,401L513,404M512,396L527,393M560,397L557,397M465,417L452,420M473,414L478,412M557,395L562,395","park":"M583,524L585,532L577,534L553,537L544,540L373,573L333,580L331,570L552,529L552,530L558,529L559,528Z"}};
+  var MAP_SPOTS=[{"k":"cts","n":"新千岁机场 国内线","q":"新千歳空港国内線ターミナル","y":42.788,"x":141.681,"c":"move","d":[1,7],"a":"d1"},{"k":"manseikaku","n":"洞爷湖万世阁","q":"洞爺湖万世閣ホテルレイクサイドテラス","y":42.565819,"x":140.824675,"c":"hotel","d":[1,2,3],"a":"d1"},{"k":"tunnel","n":"洞爷湖星光隧道","q":"洞爺湖イルミネーショントンネル","y":42.5662,"x":140.8196,"c":"sight","d":[1],"a":"d1"},{"k":"ukimido","n":"浮见堂公园","q":"洞爺湖浮見堂公園","y":42.5676,"x":140.829,"c":"sight","d":[2],"a":"d2"},{"k":"silo","n":"筒仓展望台","q":"サイロ展望台","y":42.626188,"x":140.799441,"c":"sight","d":[2],"a":"d2"},{"k":"sendoan","n":"仙堂庵 荞麦","q":"そば処仙堂庵 洞爺湖","y":42.5653,"x":140.8197,"c":"food","d":[2],"a":"d2"},{"k":"nonokaze","n":"乃之风 私汤","q":"ザ レイクビュー TOYA 乃の風リゾート","y":42.5671,"x":140.8253,"c":"onsen","d":[2],"a":"d2"},{"k":"noboribetsu","n":"JR 登别站","q":"登別駅","y":42.452009,"x":141.180803,"c":"move","d":[3],"a":"d3"},{"k":"jigokudani","n":"登别地狱谷","q":"登別地獄谷","y":42.497572,"x":141.145335,"c":"sight","d":[3],"a":"d3"},{"k":"stream","n":"SAPPORO STREAM HOTEL","q":"SAPPORO STREAM HOTEL","y":43.055177,"x":141.35224,"c":"hotel","d":[3,4,5,6,7],"a":"d3"},{"k":"hanamaru","n":"根室花丸 回转寿司","q":"回転寿司 根室花まる ココノススキノ店","y":43.0553,"x":141.3537,"c":"food","d":[3],"a":"d3"},{"k":"hokudai","n":"北海道大学","q":"北海道大学 ポプラ並木","y":43.0795,"x":141.3373,"c":"sight","d":[4],"a":"d4"},{"k":"rokkatei","n":"六花亭 札幌本店","q":"六花亭 札幌本店","y":43.066023,"x":141.346554,"c":"food","d":[4],"a":"d4"},{"k":"nanga","n":"NANGA · Sapporo Factory","q":"NANGA SHOP SAPPORO サッポロファクトリー","y":43.0646,"x":141.3627,"c":"shop","d":[4],"a":"d4"},{"k":"daimaru","n":"大丸札幌","q":"大丸札幌店","y":43.068,"x":141.3492,"c":"shop","d":[4],"a":"d4"},{"k":"parco","n":"札幌 PARCO","q":"札幌PARCO","y":43.058728,"x":141.353158,"c":"shop","d":[4],"a":"d4"},{"k":"daruma","n":"达摩 成吉思汗烤肉","q":"成吉思汗だるま 5.5店","y":43.0537,"x":141.3518,"c":"food","d":[4],"a":"d4"},{"k":"asari","n":"朝里站","q":"朝里駅","y":43.176908,"x":141.063689,"c":"sight","d":[5],"a":"d5"},{"k":"orgel","n":"小樽音乐盒堂","q":"小樽オルゴール堂 本館","y":43.190579,"x":141.007792,"c":"sight","d":[5],"a":"d5"},{"k":"sankaku","n":"三角市场 泷波食堂","q":"小樽三角市場 滝波食堂","y":43.1975,"x":140.9945,"c":"food","d":[5],"a":"d5"},{"k":"funami","n":"船见坂","q":"船見坂 小樽","y":43.198825,"x":140.993147,"c":"sight","d":[5],"a":"d5"},{"k":"tengu","n":"天狗山缆车","q":"小樽天狗山ロープウェイ","y":43.177937,"x":140.975161,"c":"sight","d":[5],"a":"d5"},{"k":"canal","n":"小樽运河","q":"小樽運河 浅草橋街園","y":43.202023,"x":141.000601,"c":"sight","d":[5],"a":"d5"},{"k":"suage","n":"Suage+ 汤咖喱","q":"スープカレー すあげプラス 本店","y":43.0565,"x":141.351,"c":"food","d":[5],"a":"d5"},{"k":"teine","n":"手稻滑雪场","q":"サッポロテイネ オリンピアスキースクール","y":43.086697,"x":141.204206,"c":"sight","d":[6],"a":"d6"},{"k":"hoheikyo","n":"丰平峡温泉","q":"豊平峡温泉","y":42.948944,"x":141.155875,"c":"onsen","d":[6],"a":"d6"},{"k":"kani","n":"螃蟹本家 薄野店","q":"札幌かに本家 すすきの店","y":43.0556,"x":141.3554,"c":"food","d":[6],"a":"d6"},{"k":"inari","n":"伏见稻荷神社","q":"札幌伏見稲荷神社","y":43.034966,"x":141.32537,"c":"sight","d":[7],"a":"d7"},{"k":"jrsapporo","n":"JR 札幌站","q":"JR札幌駅","y":43.0687,"x":141.3508,"c":"move","d":[7],"a":"d7"},{"k":"boyotei","n":"望羊蹄 西餐","q":"レストラン望羊蹄 洞爺湖","y":42.565045,"x":140.819057,"c":"food","d":[],"a":"gourmetGrid"},{"k":"ippontei","n":"一本亭 拉面","q":"ラーメン一本亭 洞爺湖","y":42.565,"x":140.8202,"c":"food","d":[],"a":"gourmetGrid"},{"k":"okadaya","n":"冈田屋 红豆汤","q":"岡田屋 洞爺湖","y":42.565259,"x":140.818454,"c":"food","d":[],"a":"gourmetGrid"},{"k":"ponpekora","n":"Ponpekora 湖景汤咖喱","q":"Soup Curry Ponpekora 洞爺湖","y":42.5647,"x":140.8186,"c":"food","d":[],"a":"gourmetGrid"},{"k":"pal","n":"PaL 夜芭菲","q":"夜パフェ専門店 Parfaiteria PaL","y":43.0558,"x":141.355,"c":"food","d":[],"a":"gourmetGrid"},{"k":"utari","n":"Utari 炉端烧","q":"炉ばた焼 ウタリ 札幌","y":43.053904,"x":141.352001,"c":"food","d":[],"a":"gourmetGrid"},{"k":"ichigen","n":"一幻 虾汤拉面","q":"えびそば一幻 総本店","y":43.051275,"x":141.345469,"c":"food","d":[],"a":"gourmetGrid"},{"k":"naruto","n":"若鸡时代 炸鸡","q":"若鶏時代なると 本店","y":43.1965,"x":140.9985,"c":"food","d":[],"a":"gourmetGrid"},{"k":"masazushi","n":"政寿司 本店","q":"おたる政寿司 本店","y":43.194175,"x":141.000158,"c":"food","d":[],"a":"gourmetGrid"},{"k":"toyakanko","n":"洞爷观光酒店 私汤","q":"洞爺観光ホテル","y":42.565692,"x":140.820895,"c":"onsen","d":[],"a":"onsenGuide"},{"k":"furukawa","n":"定山溪 ふる川 私汤","q":"定山渓温泉 ぬくもりの宿 ふる川","y":42.965684,"x":141.161158,"c":"onsen","d":[],"a":"onsenGuide"},{"k":"stellar","n":"Stellar Place","q":"札幌ステラプレイス","y":43.068046,"x":141.350991,"c":"shop","d":[],"a":"shoppingHub"},{"k":"kitaichi","n":"北一硝子 三号馆","q":"北一硝子三号館","y":43.192309,"x":141.007317,"c":"shop","d":[],"a":"shoppingHub"},{"k":"miffy","n":"Miffy 甜点堂 小樽","q":"みっふぃーおやつ堂 小樽店","y":43.1918,"x":141.006,"c":"shop","d":[],"a":"shoppingHub"}];
+  var MAP_ROUTES={"1":["cts","manseikaku","tunnel"],"2":["manseikaku","ukimido","silo","sendoan","nonokaze"],"3":["manseikaku","noboribetsu","jigokudani","stream","hanamaru"],"4":["stream","hokudai","rokkatei","nanga","daimaru","parco","daruma"],"5":["stream","asari","orgel","sankaku","funami","tengu","canal","suage"],"6":["stream","teine","hoheikyo","kani"],"7":["stream","inari","jrsapporo","cts"]};
+  var MAP_CATS={all:['全部','#57646C',''],sight:['景点','#C0532E','📸'],food:['美食','#C98A1B','🍜'],hotel:['住宿','#285A86','🏨'],onsen:['温泉','#2E8C93','♨️'],shop:['购物','#8A5CB5','🛍️'],move:['交通','#57646C','🚉']};
+  var DAY_COLORS=['#C0532E','#285A86','#3C7757','#8A5CB5','#C98A1B','#2E8C93','#B23A6B'];
+  var mapOvl=document.getElementById('mapOvl'),mapSvg=document.getElementById('mapSvg'),mapCard=document.getElementById('mapCard'),mapHint=document.getElementById('mapHint');
+  var mapState={view:'region',cat:'all',day:0,sel:null};
+  var mapClusters=[];
+  function mapPickDay(d){
+    mapState.day=d;
+    // a day spent entirely downtown (e.g. D4) reads better on the city view
+    if(d) mapState.view=MAP_ROUTES[d].every(function(k){return mapInCity(mapSpot(k));})?'city':'region';
+  }
+  if(today) mapPickDay(tripDays.indexOf(today)+1);
+  function mapEsc(t){ return String(t).replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch];}); }
+  function mapProj(v,s){ return [(s.x-v.lon0)*v.kx,(v.lat1-s.y)*v.ky]; }
+  function mapInCity(s){ var c=MAP_BASE.views.city; return s.x>c.lon0&&s.x<c.lon1&&s.y>c.lat0&&s.y<c.lat1; }
+  function mapSpot(k){ return MAP_SPOTS.find(function(s){return s.k===k;}); }
+  function mapIcon(s){ return s.k==='cts'?'✈️':MAP_CATS[s.c][2]; }
+  function mapVisible(s){
+    if(mapState.cat!=='all'&&s.c!==mapState.cat) return false;
+    return !mapState.day||s.d.indexOf(mapState.day)>=0||MAP_ROUTES[mapState.day].indexOf(s.k)>=0;
+  }
+  function mapChips(){
+    document.getElementById('mapCats').innerHTML=Object.keys(MAP_CATS).map(function(c){
+      return '<button class="map-chip'+(mapState.cat===c?' active':'')+'" type="button" data-cat="'+c+'">'+(c==='all'?'':'<i style="background:'+MAP_CATS[c][1]+'"></i>')+MAP_CATS[c][0]+'</button>';
+    }).join('');
+    var days='<button class="map-chip'+(mapState.day?'':' active')+'" type="button" data-day="0">全程</button>';
+    for(var d=1;d<=7;d++) days+='<button class="map-chip'+(mapState.day===d?' active':'')+'" type="button" data-day="'+d+'"><i style="background:'+DAY_COLORS[d-1]+'"></i>D'+d+' '+tripDays[d-1].date.slice(5).replace('-','/')+'</button>';
+    document.getElementById('mapDays').innerHTML=days;
+  }
+  // frame = viewBox shaped like the screen; region view fits the visible spots (Sapporo downtown counts as one point)
+  function mapFrame(v,isRegion){
+    var stage=mapSvg.parentNode,a=(stage.clientHeight||700)/(stage.clientWidth||370);
+    var x0=0,x1=v.W,y0=0,y1=v.H,pad=0;
+    if(isRegion){
+      var c=MAP_BASE.views.city,cc={x:(c.lon0+c.lon1)/2,y:(c.lat0+c.lat1)/2};
+      var pts=MAP_SPOTS.filter(mapVisible).map(function(s){return mapProj(v,mapInCity(s)?cc:s);});
+      if(!pts.length) pts=MAP_SPOTS.map(function(s){return mapProj(v,s);});
+      var xs=pts.map(function(p){return p[0];}),ys=pts.map(function(p){return p[1];});
+      x0=Math.min.apply(null,xs); x1=Math.max.apply(null,xs); y0=Math.min.apply(null,ys); y1=Math.max.apply(null,ys); pad=90;
+    }
+    var w=Math.max(x1-x0,(y1-y0)/a,isRegion?120:0)+pad*2,h=w*a;
+    var clamp=function(mid,size,max){ return size>=max?mid-size/2:Math.min(Math.max(mid-size/2,0),max-size); };
+    return {x:clamp((x0+x1)/2,w,v.W),y:clamp((y0+y1)/2,h,v.H),w:w,h:h};
+  }
+  function mapRender(){
+    var view=mapState.view,v=MAP_BASE.views[view],isRegion=view==='region',f=mapFrame(v,isRegion),z=f.w/(isRegion?1000:850);
+    mapSvg.parentNode.classList.toggle('city',!isRegion);
+    var r=(isRegion?30:20)*z,gap=(isRegion?58:38)*z,out=[];
+    mapSvg.setAttribute('viewBox',f.x+' '+f.y+' '+f.w+' '+f.h);
+    mapSvg.style.setProperty('--z',z);
+    out.push('<defs>'+DAY_COLORS.map(function(c,i){return '<marker id="mArr'+i+'" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="'+c+'"/></marker>';}).join('')+'</defs>');
+    if(isRegion){
+      out.push('<rect class="m-sea" width="'+v.W+'" height="'+v.H+'"/><path class="m-land" d="'+MAP_BASE.region.land+'"/><path class="m-lake" d="'+MAP_BASE.region.lake+'"/>');
+      [['石狩湾',141.22,43.26,'sea'],['太平洋',141.62,42.45,'sea'],['内浦湾',140.70,42.41,'sea'],['支笏湖',141.33,42.80,''],['洞爷湖',140.86,42.645,''],['小樽',141.0,43.235,''],['定山溪',141.165,42.99,'']].forEach(function(l){
+        var p=mapProj(v,{x:l[1],y:l[2]}); out.push('<text class="m-label '+l[3]+'" x="'+p[0]+'" y="'+p[1]+'">'+l[0]+'</text>');
+      });
+      var yotei=mapProj(v,{x:140.8114,y:42.8267});
+      out.push('<path class="m-mtn" d="M'+(yotei[0]-34*z)+','+(yotei[1]+22*z)+' L'+yotei[0]+','+(yotei[1]-26*z)+' L'+(yotei[0]+34*z)+','+(yotei[1]+22*z)+' Z"/><text class="m-label" x="'+yotei[0]+'" y="'+(yotei[1]+50*z)+'">羊蹄山</text>');
+    }else{
+      out.push('<rect class="m-land" width="'+v.W+'" height="'+v.H+'" style="stroke:none"/><path class="m-park" d="'+MAP_BASE.city.park+'"/><path class="m-river" d="'+MAP_BASE.city.river+'"/><path class="m-rail" d="'+MAP_BASE.city.rail+'"/>');
+      [['大通公园',141.3505,43.0618],['丰平川',141.3625,43.0435],['JR 线',141.330,43.0712],['薄野',141.3600,43.0500]].forEach(function(l){
+        var p=mapProj(v,{x:l[1],y:l[2]}); out.push('<text class="m-label" x="'+p[0]+'" y="'+p[1]+'">'+l[0]+'</text>');
+      });
+    }
+    // routes: one leg per hop, arrowhead at the midpoint shows direction
+    (mapState.day?[mapState.day]:[1,2,3,4,5,6,7]).forEach(function(d){
+      var pts=MAP_ROUTES[d].map(function(k){return mapProj(v,mapSpot(k));}),col=DAY_COLORS[d-1];
+      var w=(mapState.day?(isRegion?7:6):(isRegion?5:4))*z,op=mapState.day?0.95:0.6;
+      for(var i=1;i<pts.length;i++){
+        var a=pts[i-1],b=pts[i],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,long=Math.hypot(b[0]-a[0],b[1]-a[1])>r*2.2;
+        out.push('<path class="m-leg" d="M'+a[0]+','+a[1]+' L'+mx+','+my+' L'+b[0]+','+b[1]+'" stroke="'+col+'" stroke-width="'+w+'" opacity="'+op+'"'+(mapState.day?'':' stroke-dasharray="1 0"')+(long?' marker-mid="url(#mArr'+(d-1)+')"':'')+'/>');
+      }
+    });
+    // pins: Sapporo downtown folds into one box on the region view; nearby pins merge into a numbered cluster
+    var shown=MAP_SPOTS.filter(mapVisible),cityCount=0;
+    if(isRegion){ cityCount=shown.filter(mapInCity).length; shown=shown.filter(function(s){return !mapInCity(s);}); }
+    shown.sort(function(a,b){return (b.c==='hotel')-(a.c==='hotel');});
+    mapClusters=[];
+    shown.forEach(function(s){
+      var p=mapProj(v,s),hit=mapClusters.find(function(c){return Math.hypot(c.p[0]-p[0],c.p[1]-p[1])<gap;});
+      if(hit) hit.items.push(s); else mapClusters.push({p:p,items:[s]});
+    });
+    if(isRegion){
+      var c=MAP_BASE.views.city,a=mapProj(v,{x:c.lon0,y:c.lat1}),b=mapProj(v,{x:c.lon1,y:c.lat0});
+      out.push('<g data-city="1"><rect class="m-citybox" x="'+a[0]+'" y="'+a[1]+'" width="'+(b[0]-a[0])+'" height="'+(b[1]-a[1])+'" rx="8"/>'+
+        '<g class="m-citytag" transform="translate('+(b[0]+204*z>f.x+f.w?a[0]-204*z:b[0]+8*z)+','+(a[1]-6*z)+') scale('+z+')"><rect width="196" height="40" rx="20"/><text x="98" y="28">札幌市区 '+cityCount+' 处 ›</text></g></g>');
+    }
+    mapClusters.forEach(function(cl,i){
+      var s=cl.items[0],n=cl.items.length,hotel=s.c==='hotel',rr=hotel?r*1.2:r,sel=mapState.sel===i;
+      var g='<g class="m-pin'+(sel?' sel':'')+'" data-i="'+i+'" transform="translate('+cl.p[0]+','+cl.p[1]+')">'+
+        '<circle class="dot" r="'+rr+'" fill="'+MAP_CATS[s.c][1]+'"/><text font-size="'+(rr*1.05)+'">'+mapIcon(s)+'</text>';
+      if(n>1) g+='<circle class="badge" cx="'+(rr*0.8)+'" cy="'+(-rr*0.8)+'" r="'+(13*z)+'"/><text class="badge-t" x="'+(rr*0.8)+'" y="'+(-rr*0.8)+'">'+n+'</text>';
+      if(hotel) g+='<text class="name" y="'+(rr+18*z)+'">'+(s.k==='stream'?'STREAM 酒店':'万世阁')+'</text>';
+      out.push(g+'</g>');
+    });
+    // compass + scale bar for a sense of direction and distance
+    // scale bar length is drawn in screen-sized units, so pick the km that fits ~100 units after zooming
+    var unitKm=1/(111.32*Math.cos((v.lat0+v.lat1)/2*Math.PI/180))*v.kx/z;
+    var km=[0.2,0.5,1,2,5,10,20].find(function(k){return k*unitKm>=70;})||20,kmPx=km*unitKm;
+    out.push('<g class="m-compass" transform="translate('+(f.x+f.w-50*z)+','+(f.y+60*z)+') scale('+z+')"><circle r="34" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><path d="M0,-26 L10,6 L0,0 L-10,6 Z" fill="var(--kaki)"/><path d="M0,26 L10,6 L0,0 L-10,6 Z" fill="var(--ink-faint)"/><text y="-40">N</text></g>');
+    out.push('<g class="m-scale" transform="translate('+(f.x+24*z)+','+(f.y+f.h-30*z)+') scale('+z+')"><line x1="0" y1="0" x2="'+kmPx+'" y2="0"/><line x1="0" y1="-8" x2="0" y2="8"/><line x1="'+kmPx+'" y1="-8" x2="'+kmPx+'" y2="8"/><text x="'+(kmPx+10)+'" y="6">'+(km<1?km*1000+' m':km+' km')+'</text></g>');
+    mapSvg.innerHTML=out.join('');
+    var total=MAP_SPOTS.filter(mapVisible).length;
+    mapHint.textContent=(mapState.day?'D'+mapState.day+' · ':'全程 · ')+total+' 个点'+(isRegion?' · 点数字气泡看清单':' · 点图钉看详情');
+    document.querySelectorAll('#mapViews .map-view').forEach(function(b){ b.classList.toggle('active',b.dataset.view===view); });
+  }
+  function mapShowSpot(s){
+    var days=s.d.length?s.d.map(function(d){return 'D'+d;}).join(' · '):'备选';
+    var jump=s.d.length?'#d'+s.d[0]:'#'+s.a;
+    mapCard.innerHTML='<h4>'+mapIcon(s)+' '+mapEsc(s.n)+'</h4><div class="mc-jp">'+MAP_CATS[s.c][0]+' · '+days+' · '+mapEsc(s.q)+'</div>'+
+      '<div class="mc-acts"><a href="https://www.google.com/maps/search/'+encodeURIComponent(s.q)+'" target="_blank" rel="noopener">📍 Google 导航</a><button type="button" data-jump="'+jump+'">📅 看行程</button></div>';
+    mapCard.hidden=false;
+  }
+  function mapShowCluster(cl){
+    if(cl.items.length===1){ mapShowSpot(cl.items[0]); return; }
+    mapCard.innerHTML='<h4>这一带有 '+cl.items.length+' 个点</h4><div class="mc-list">'+cl.items.map(function(s){
+      return '<button type="button" data-k="'+s.k+'">'+mapIcon(s)+' '+mapEsc(s.n)+'<small>'+(s.d.length?'D'+s.d.join('/D'):'备选')+'</small></button>';
+    }).join('')+'</div>';
+    mapCard.hidden=false;
+  }
+  mapSvg.addEventListener('click',function(e){
+    var pin=e.target.closest('.m-pin'),city=e.target.closest('[data-city]');
+    if(pin){ mapState.sel=+pin.dataset.i; mapRender(); mapShowCluster(mapClusters[mapState.sel]); return; }
+    mapState.sel=null; mapCard.hidden=true;
+    if(city){ mapState.view='city'; }
+    mapRender();
+  });
+  mapCard.addEventListener('click',function(e){
+    var item=e.target.closest('[data-k]'),jump=e.target.closest('[data-jump]');
+    if(item) mapShowSpot(mapSpot(item.dataset.k));
+    if(jump){ mapOvl.hidden=true; location.hash=jump.dataset.jump; }
+  });
+  document.getElementById('mapViews').addEventListener('click',function(e){
+    var b=e.target.closest('[data-view]'); if(!b) return;
+    mapState.view=b.dataset.view; mapState.sel=null; mapCard.hidden=true; mapRender();
+  });
+  ['mapCats','mapDays'].forEach(function(id){
+    document.getElementById(id).addEventListener('click',function(e){
+      var b=e.target.closest('.map-chip'); if(!b) return;
+      if(b.dataset.cat) mapState.cat=b.dataset.cat;
+      else mapPickDay(+b.dataset.day);
+      mapState.sel=null; mapCard.hidden=true; mapChips(); mapRender();
+    });
+  });
+  document.getElementById('mapOpen').addEventListener('click',function(){ mapOvl.hidden=false; mapChips(); mapRender(); });
+  document.getElementById('mapClose').addEventListener('click',function(){ mapOvl.hidden=true; });
+  addEventListener('keydown',function(e){ if(e.key==='Escape') mapOvl.hidden=true; });
+  addEventListener('resize',function(){ if(!mapOvl.hidden) mapRender(); });
+
   var statusEl=document.getElementById('appStatus');
   var offlineReady=false;
   function updateNetwork(){ statusEl.textContent=!navigator.onLine?'● 离线模式 · 攻略照常可用':(offlineReady?'● 在线 · 已缓存，可离线使用':'● 在线 · 正在缓存离线包…'); }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hokkaido-seven-days-v7';
+const CACHE_NAME = 'hokkaido-seven-days-v8';
 const APP_FILES = [
   './',
   './index.html',
