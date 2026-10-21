@@ -98,7 +98,7 @@
   .wx .day{font-size:12px; color:var(--ink-faint); font-family:var(--font-lat); font-weight:700;}
   .wx .ic{font-size:21px; margin:4px 0 2px; line-height:1;}
   .wx .tmp{font-family:var(--font-lat); font-weight:700; font-size:13.5px;}
-  .wx .tmp small{color:var(--ink-faint); font-weight:500;}
+  .wx .tmp small{color:var(--ink-faint); font-weight:500; font-size:12px;}
   .wx.rain{border-color:var(--indigo); background:var(--indigo-soft);}
   .daynav{position:sticky; top:0; z-index:25; background:color-mix(in srgb,var(--paper) 94%,transparent); backdrop-filter:blur(10px); padding:9px 14px; display:flex; gap:7px; overflow-x:auto; border-bottom:1px solid var(--line);}
   .daynav a{flex:0 0 auto; text-decoration:none; font-family:var(--font-lat); font-weight:700; font-size:12px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--line); padding:6px 11px; border-radius:999px;}
@@ -173,13 +173,6 @@
   .day-wx{font-size:12px; color:var(--ink-soft); text-align:right; white-space:nowrap; display:flex; flex-direction:column; align-items:flex-end; gap:2px;}
   .day-wx .ic{font-size:17px;}
   .day-wx .stp{font-family:var(--font-lat); font-weight:700; font-size:12px; color:var(--kaki); background:var(--kaki-soft); padding:1px 7px; border-radius:999px;}
-  .day-adv{padding:10px 16px 0;}
-  .day-adv details.exp{margin-top:0;}
-  .day-adv details.exp summary{color:var(--kaki);}
-  .day-adv details.exp summary::before{content:none;}
-  .adv-grid{display:flex; flex-wrap:wrap; gap:6px; margin:2px 0 8px;}
-  .adv-chip{font-size:12px; font-weight:600; color:var(--ink-soft); background:var(--surface); border:1px solid var(--line); padding:3px 9px; border-radius:999px;}
-  .adv-chip b{color:var(--ink);}
   .wx-live{display:inline-block; margin-top:2px; font-size:12px; font-weight:700; color:var(--indigo); text-decoration:none;}
   .route{padding:8px 16px 4px;}
   .r-item{position:relative; padding-left:40px;}
@@ -239,18 +232,9 @@
   .row .bd{flex:1; min-width:0;}
   .row .bd .t{font-weight:700; font-size:14px;}
   .row .bd .d{font-size:12.5px; color:var(--ink-soft); margin-top:2px; line-height:1.5;}
-  .steps{display:grid; grid-template-columns:62px 1fr auto; align-items:center; gap:11px 10px; padding:6px 0;}
-  .step-row{display:contents;}
-  .step-lbl{font-family:var(--font-lat); font-weight:800; font-size:12px; color:var(--ink);}
-  .step-lbl small{display:block; font-family:var(--font-cjk); font-weight:600; font-size:12px; color:var(--ink-faint); margin-top:1px;}
   .step-track{height:15px; background:var(--surface-2); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
   .step-fill{height:100%; border-radius:7px 0 0 7px; background:linear-gradient(90deg,var(--moss),var(--indigo));}
   .step-fill.hi{background:linear-gradient(90deg,var(--kaki),#E0663A);}
-  .step-val{text-align:right; white-space:nowrap;}
-  .step-val b{font-family:var(--font-lat); font-weight:800; font-size:12.5px; color:var(--ink);}
-  .step-val small{display:block; font-size:12px; color:var(--ink-faint); font-family:var(--font-lat);}
-  .step-total{margin-top:4px; padding-top:11px; border-top:1px dashed var(--line); font-size:12px; color:var(--ink-soft); line-height:1.6;}
-  .step-total b{color:var(--ink);}
   .menu-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; margin-bottom:14px;}
   .menu-head{display:flex; align-items:center; gap:11px; padding:12px 15px; background:linear-gradient(180deg,var(--surface-2),var(--surface)); border-bottom:1px solid var(--line);}
   .menu-ic{font-size:20px; flex:0 0 auto;}
@@ -318,7 +302,6 @@
   .today-sub{font-size:12px; opacity:.82; margin-top:3px;}
   .today-alert{margin-top:10px; padding:8px 10px; border-radius:10px; background:rgba(255,255,255,.14); font-size:12px; font-weight:700; line-height:1.5;}
   .today-go{border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.16); color:#fff; border-radius:999px; padding:8px 12px; font:800 12px/1 var(--font-cjk); cursor:pointer; white-space:nowrap;}
-  .tested-badge{display:inline-flex; align-items:center; gap:5px; padding:3px 8px; border-radius:999px; background:var(--kaki-soft); color:var(--kaki); font-size:12px; font-weight:800;}
   .pitfall-card{border:1px solid color-mix(in srgb,var(--kaki) 42%,var(--line)); background:linear-gradient(145deg,var(--kaki-soft),var(--surface)); border-radius:17px; box-shadow:var(--shadow); padding:13px 14px 9px;}
   .pitfall-card>summary{cursor:pointer; list-style:none; font-size:14px; font-weight:900; display:flex; align-items:center; justify-content:space-between; gap:10px; padding-bottom:4px;}
   .pitfall-card>summary::-webkit-details-marker{display:none}.pitfall-card>summary::after{content:'＋'; color:var(--kaki); font-size:18px}.pitfall-card[open]>summary::after{content:'－'}
@@ -336,37 +319,6 @@
   .pass-callout .pc-title{font-size:13px; font-weight:800; color:var(--moss); cursor:pointer; list-style:none; display:flex; justify-content:space-between;}
   .pass-callout p{margin:6px 0 0; font-size:12px; line-height:1.55; color:var(--ink-soft);}
   .pass-callout b{color:var(--ink);}
-  /* Hotel Switcher & Gourmet Hub & Shopping Checklist */
-  .hotel-switcher{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:12px 14px; box-shadow:var(--shadow);}
-  .hs-note{font-size:12px; color:var(--ink-soft); line-height:1.55; padding:9px 11px; border-radius:10px; background:var(--surface-2); border:1px dashed var(--line);}
-  .hs-note b{color:var(--kaki);}
-  .gourmet-tabs{display:flex; gap:6px; overflow-x:auto; padding-bottom:10px;}
-  .g-tab{flex:0 0 auto; border:1px solid var(--line); background:var(--surface); color:var(--ink-soft); border-radius:999px; padding:6px 12px; font:700 12px/1 var(--font-cjk); cursor:pointer;}
-  .g-tab.active{background:var(--kaki); color:#fff; border-color:var(--kaki);}
-  .gourmet-grid{display:grid; gap:10px;}
-  .g-card{background:var(--surface); border:1px solid var(--line); border-radius:15px; padding:12px 14px; box-shadow:var(--shadow);}
-  .g-card[hidden]{display:none;}
-  .g-top{display:flex; align-items:flex-start; justify-content:space-between; gap:8px;}
-  .g-name{font-weight:800; font-size:14.5px; color:var(--ink);}
-  .g-star{font-family:var(--font-lat); font-weight:800; font-size:12px; color:#D97706; background:#FEF3C7; padding:2px 7px; border-radius:999px; white-space:nowrap;}
-  .g-badges{display:flex; flex-wrap:wrap; gap:5px; margin:6px 0;}
-  .b-must{background:#FEE2E2; color:#B91C1C; font-size:12px; font-weight:800; padding:2px 8px; border-radius:999px;}
-  .b-rec{background:#FEF3C7; color:#B45309; font-size:12px; font-weight:800; padding:2px 8px; border-radius:999px;}
-  .b-queue{background:var(--indigo-soft); color:var(--indigo); font-size:12px; font-weight:800; padding:2px 8px; border-radius:999px;}
-  .b-walk{background:var(--moss-soft); color:var(--moss); font-size:12px; font-weight:800; padding:2px 8px; border-radius:999px;}
-  .g-desc{font-size:12px; color:var(--ink-soft); line-height:1.5; margin-top:4px;}
-  .g-desc b{color:var(--ink);}
-  .g-actions{display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;}
-  .reserve-grid{display:grid; gap:9px;}
-  .reserve-card{padding:13px 14px; border:1px solid var(--line); border-radius:15px; background:var(--surface); box-shadow:var(--shadow);}
-  .reserve-top{display:flex; align-items:center; gap:9px;}
-  .reserve-icon{font-size:21px;}
-  .reserve-name{font-weight:800; line-height:1.25;}
-  .reserve-meta{font-size:12px; color:var(--kaki); font-weight:700; margin-top:2px;}
-  .reserve-jp{margin:8px 0; padding:8px 10px; border-radius:10px; background:var(--surface-2); font-size:12.5px; font-weight:700; line-height:1.5;}
-  .reserve-actions{display:flex; gap:7px;}
-  .reserve-actions button,.reserve-actions a{flex:1; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink); padding:7px 8px; text-align:center; text-decoration:none; font:700 12px/1 var(--font-cjk); cursor:pointer;}
-  .preset-order{width:100%; margin-top:8px; border:none; border-radius:11px; padding:10px; background:var(--kaki); color:#fff; font:800 12.5px/1 var(--font-cjk); cursor:pointer;}
   .phrase-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
   .phrase{min-height:74px; padding:10px; border:1px solid var(--line); border-radius:13px; background:var(--surface); color:var(--ink); text-align:left; cursor:pointer; box-shadow:var(--shadow);}
   .phrase b{display:block; font-size:12.5px; line-height:1.35;}.phrase span{display:block; margin-top:4px; color:var(--kaki); font-size:12px; font-weight:700;}
@@ -384,6 +336,37 @@
   .chk-item.done{opacity:.6; text-decoration:line-through;}
   .chk-box{font-weight:900; color:var(--kaki); font-size:15px; line-height:1.2;}
   footer{text-align:center; padding:22px 20px 6px; color:var(--ink-faint); font-size:12px; line-height:1.7;}
+
+  .preset-order{width:100%; margin-top:8px; border:none; border-radius:11px; padding:10px; background:var(--kaki); color:#fff; font:800 12.5px/1 var(--font-cjk); cursor:pointer;}
+  .today-wx{padding:10px 18px 0;}
+  .prep-card{background:var(--surface); border:1px solid color-mix(in srgb,var(--moss) 35%,var(--line)); border-radius:16px; box-shadow:var(--shadow); padding:12px 14px;}
+  .prep-card>summary{list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:15px; font-weight:800;}
+  .prep-card>summary::-webkit-details-marker{display:none;}
+  .prep-count{font-size:12px; font-weight:800; color:var(--kaki); background:var(--kaki-soft); padding:3px 9px; border-radius:999px;}
+  .prep-done{list-style:none; margin:10px 0 0; padding:0; display:grid; gap:4px; font-size:12.5px; color:var(--moss); font-weight:700;}
+  .prep-card .chk-item{line-height:1.5; color:var(--ink-soft);}
+  .prep-card .chk-item b{color:var(--ink);}
+  .ov-list{background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;}
+  .ov-row{display:grid; grid-template-columns:52px 1fr 76px; gap:10px; align-items:center; padding:10px 14px; text-decoration:none; color:var(--ink);}
+  .ov-row+.ov-row{border-top:1px solid var(--line);}
+  .ov-d{font-weight:800; font-size:15px; color:var(--indigo); line-height:1.1;}
+  .ov-d small{display:block; font-family:var(--font-cjk); font-size:12px; font-weight:600; color:var(--ink-faint); margin-top:3px;}
+  .ov-bd{min-width:0;}
+  .ov-bd b{display:block; font-size:14px; line-height:1.3;}
+  .ov-bd span{display:block; font-size:12px; color:var(--ink-soft); margin-top:2px; line-height:1.4;}
+  .ov-st{display:flex; flex-direction:column; gap:4px; text-align:right;}
+  .ov-st small{font-family:var(--font-lat); font-size:12px; color:var(--ink-faint); white-space:nowrap;}
+  .ov-st .step-track{display:block; height:8px;}
+  .ov-st .step-fill{display:block;}
+  .ov-foot{margin:10px 4px 0; font-size:12px; color:var(--ink-soft); line-height:1.55;}
+  #toolbox .card,#toolbox .flight{margin-bottom:6px;}
+  .tb-h{margin:18px 4px 8px; font-size:14px; font-weight:800;}
+  .tb-sub{margin:10px 0 0; font-size:13px; font-weight:800; color:var(--indigo);}
+  .tb-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .tb-btn{display:flex; justify-content:space-between; align-items:center; gap:6px; padding:12px; border:1px solid var(--line); border-radius:13px; background:var(--surface); color:var(--ink); font:800 13px/1.2 var(--font-cjk); text-align:left; cursor:pointer; box-shadow:var(--shadow);}
+  .tb-btn small{font-family:var(--font-lat); font-size:12px; color:var(--kaki);}
+  .tb-acts{margin-top:6px;}
+  #toolbox .pitfall-card{margin-top:18px;}
 </style>
 </head>
 <body>
@@ -431,13 +414,11 @@
       <path d="M114 125 C110 117 116 115 118 123 M119 125 C117 117 123 116 122 124" stroke="var(--indigo)" stroke-width="1.5" fill="#FBFAF6" stroke-linecap="round"/>
       <circle cx="112" cy="132" r="1.6" fill="var(--kaki)"/>
     </svg>
-    <div class="eyebrow">Hokkaido · Powder Snow &amp; Private Onsen</div>
-    <h1>北海道七日<small>洞爷湖万世阁 × 札幌 Stream · 粉雪看海私汤与买买买 · 点 🎧 有解说</small></h1>
+    <div class="eyebrow">Hokkaido · 12/25 – 12/31 · 2026</div>
+    <h1>北海道七日<small>洞爷湖 2 晚 → 札幌 4 晚 · 情侣冬日慢游</small></h1>
     <div class="hero-meta">
       <span class="pill lat"><b>12/25</b>&nbsp;–&nbsp;<b>12/31</b>&nbsp;2026</span>
       <span class="pill">✈️ <b>ANA</b> 联程直挂</span>
-      <span class="pill">♨️ <b>纹身私汤</b> + 看海滑雪</span>
-      <span class="pill">💃 <b>女友美妆女装</b> + NANGA</span>
     </div>
   </header>
 
@@ -447,134 +428,124 @@
     <button class="app-btn" id="themeToggle" type="button" aria-label="切换明暗主题">◐ 主题</button>
   </nav>
 
+  <!-- ============ ① 今天 ============ -->
   <div class="today-card" id="todayCard">
-    <div class="today-kicker">TODAY MODE · JAPAN TIME (UTC+9)</div>
+    <div class="today-kicker">TODAY · 日本时间</div>
     <div class="today-main">
       <div class="today-copy">
-        <div class="today-title" id="todayTitle">正在定位北海道今日行程</div>
-        <div class="today-sub" id="todaySub">以日本时间自动判断下一站</div>
+        <div class="today-title" id="todayTitle">正在定位今天的行程</div>
+        <div class="today-sub" id="todaySub">按日本时间自动找下一站</div>
       </div>
       <button class="today-go" id="todayGo" type="button">查看今天</button>
     </div>
-    <div class="today-alert" id="todayAlert">❄️ 核心铁律：16:00 天黑 · 12/28 买 NANGA · 12/31 下午逛新千岁机场</div>
+    <div class="today-alert" id="todayAlert">❄️ 16:03 日落，户外景点都排在下午 4 点前</div>
+  </div>
+  <div class="wx-scroll today-wx" id="wxLiveBox">
+    <div class="wx"><div class="day">札幌</div><div class="ic" id="wx-sap-ic">🌨</div><div class="tmp" id="wx-sap-t">-1<small>/-6°C</small></div><div class="day" id="wx-sap-w">实时拉取中</div></div>
+    <div class="wx"><div class="day">洞爷湖</div><div class="ic" id="wx-toy-ic">❄️</div><div class="tmp" id="wx-toy-t">0<small>/-5°C</small></div><div class="day" id="wx-toy-w">实时拉取中</div></div>
+    <div class="wx"><div class="day">小樽</div><div class="ic" id="wx-ota-ic">🌨</div><div class="tmp" id="wx-ota-t">-1<small>/-5°C</small></div><div class="day" id="wx-ota-w">实时拉取中</div></div>
+    <div class="wx rain"><div class="day">日落</div><div class="ic">🌇</div><div class="tmp">16:03</div><div class="day">15:30 起蓝调</div></div>
   </div>
 
-  <section id="flights">
-    <div class="sec-title"><span class="n">FLIGHTS</span><h2>已出票 · 全日空联程直挂 (2PC 行李)</h2></div>
-    <div class="flight">
-      <div class="flt-row">
-        <span class="flt-code">NH972</span>
-        <div class="flt-mid"><div class="flt-route">上海浦东 T2 → 东京羽田 T3</div><div class="flt-sub">12/25 五 · 座位 35A · 浦东一次打出两段登机牌 &amp; 直挂 CTS 行李条！羽田 T3 过日本海关后门口 ANA 转机口 30 秒交箱</div></div>
-        <div class="flt-time"><div class="t">08:35</div><div class="d">12:20 抵羽田</div></div>
-      </div>
-      <div class="flt-row">
-        <span class="flt-code">NH67</span>
-        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 新千岁 国内线 D</div><div class="flt-sub">12/25 五 · 座位 18G · 走 T3 转机专用安检+免费巴士达 T2；新千岁国内线免排国际入境长队，16:00 丝滑出站！</div></div>
-        <div class="flt-time"><div class="t">14:00</div><div class="d">15:35 抵千岁</div></div>
-      </div>
-      <div class="flt-row">
-        <span class="flt-code ret">NH78</span>
-        <div class="flt-mid"><div class="flt-route">新千岁 国内线 D → 东京羽田 T2</div><div class="flt-sub">12/31 四(大晦日) · 座位 18D · <b>返程 100% 彻底甩手直挂上海！</b>羽田完全不用见箱子</div></div>
-        <div class="flt-time"><div class="t">19:30</div><div class="d">21:10 抵羽田</div></div>
-      </div>
-      <div class="flt-row">
-        <span class="flt-code ret">NH967</span>
-        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 上海浦东 T2</div><div class="flt-sub">12/31 四 · 座位 38K · 羽田 T2 同航站楼扶梯直上 3F 转国际，万米高空跨入 2027！</div></div>
-        <div class="flt-time"><div class="t">22:40</div><div class="d">01:15+1 抵沪</div></div>
-      </div>
-    </div>
-  </section>
+  <nav class="daynav">
+    <button class="map-open" id="mapOpen" type="button">🗺️ 地图</button>
+    <a href="#d1"><b>D1</b> 抵达</a>
+    <a href="#d2"><b>D2</b> 洞爷湖</a>
+    <a href="#d3"><b>D3</b> 登别</a>
+    <a href="#d4"><b>D4</b> 购物</a>
+    <a href="#d5"><b>D5</b> 小樽</a>
+    <a href="#d6"><b>D6</b> 滑雪</a>
+    <a href="#d7"><b>D7</b> 返程</a>
+    <a href="#toolbox"><b>🧰</b> 工具箱</a>
+  </nav>
 
-  <section id="hotel-stay">
-    <div class="sec-title"><span class="n">HOTEL</span><h2>住宿安排 · 已锁定</h2></div>
-    <div class="hotel-switcher">
-      <div class="hs-note">
-        🏨 <b>12/25–27 洞爷湖万世阁（2 晚）</b> → <b>12/27–31 SAPPORO STREAM HOTEL（4 晚 · 薄野地铁直结）</b><br>
-        12/27 上午退房坐 JR 北斗号去札幌，之后 4 晚连住不用再搬箱子；12/31 退房后直奔新千岁机场。
-      </div>
-    </div>
-  </section>
-
-  <section id="weather-holiday">
-    <div class="sec-title"><span class="n">LIVE WEATHER & HOLIDAY</span><h2>实时风雪雷达 × 年末年始防扑空</h2></div>
-    <div class="wx-scroll" id="wxLiveBox">
-      <div class="wx"><div class="day">札幌 SAPPORO</div><div class="ic" id="wx-sap-ic">🌨</div><div class="tmp" id="wx-sap-t">-1<small>/-6°C</small></div><div class="day" id="wx-sap-w">实时拉取中</div></div>
-      <div class="wx"><div class="day">洞爷湖 TOYA</div><div class="ic" id="wx-toy-ic">❄️</div><div class="tmp" id="wx-toy-t">0<small>/-5°C</small></div><div class="day" id="wx-toy-w">实时拉取中</div></div>
-      <div class="wx"><div class="day">小樽 OTARU</div><div class="ic" id="wx-ota-ic">🌨</div><div class="tmp" id="wx-ota-t">-1<small>/-5°C</small></div><div class="day" id="wx-ota-w">实时拉取中</div></div>
-      <div class="wx rain"><div class="day">日落 SUNSET</div><div class="ic">🌇</div><div class="tmp">16:03</div><div class="day">15:30入蓝调</div></div>
-    </div>
-    <details class="pitfall-card">
-      <summary><span>🚨 12/25–12/31 节假日休馆与纹身私汤生死红线</span><span class="tested-badge">点此展开速查</span></summary>
-      <ul class="pitfall-list">
-        <li><b>🧥 买 NANGA 死线：</b>札幌直营店在 <b>Sapporo Factory 2条馆 2F</b>，每年 <b>12/31 全馆休馆</b>！已锁死在 <b>D4 (12/28)</b> 去买，退税约国内 6 折，买完直接穿去小樽和滑雪。</li>
-        <li><b>♨️ 万世阁纹身规定：</b>洞爷湖万世阁官网明确<b>公共大浴场（星之汤/月之汤）严禁纹身，连贴肉色遮瑕贴也禁止入内</b>！本攻略已为你配齐<b>西馆展望私汤房 / 湖畔乃之风日归私汤 / 定山溪私汤 / 丰平峡（官方允许纹身）</b>四大方案，情侣独享随便拍照。</li>
-        <li><b>🛍️ 12/31 大晦日闭店潮：</b>12/31 札幌大丸/PARCO 等百货 <b>17:00–18:00 全部拉闸过年</b>，餐厅大量店休。因此<b>D7 (12/31) 13:15 直接进驻 365 天全开的新千岁机场国内线 2F</b> 抢冬季限定 SNOWS、六花亭、北菓楼、吃拉面道场！</li>
-        <li><b>🌇 16:00 天黑定律：</b>朋友原攻略 14:30 才到小樽，走两步就全黑了。我们改为 <b>10:15 先拍《情书》朝里无人看海雪站 → 中午南小樽 → 15:15 天狗山看日落蓝调 → 16:45 青之运河亮灯</b>。</li>
+  <!-- ============ 行前清单 ============ -->
+  <section id="prep">
+    <details class="prep-card" id="prepCard" open>
+      <summary><span>✅ 行前清单</span><span class="prep-count" id="prepCount"></span></summary>
+      <ul class="prep-done">
+        <li>✈️ 机票已出票：ANA NH972 + NH67 去，NH78 + NH967 回</li>
+        <li>🏨 酒店已订：洞爷湖万世阁 2 晚 → SAPPORO STREAM HOTEL 4 晚</li>
+      </ul>
+      <ul class="chk-list">
+        <li class="chk-item" data-chk="pre-kani"><span class="chk-box">□</span><div><b>🦀 订 D6 12/30 19:00 螃蟹宴 · 2 位</b><br>かに本家官网，或冰雪之门 TableCheck（支持中文）。年末现场排不到，备注「個室希望」</div></li>
+        <li class="chk-item" data-chk="pre-ski"><span class="chk-box">□</span><div><b>🎿 订 D6 手稻中文滑雪团课 · 2 人（你单板、她双板）</b><br>下单前问清：缆车票含不含、集合点和时间、几点回札幌、手套和雪镜给不给</div></li>
+        <li class="chk-item" data-chk="pre-onsen"><span class="chk-box">□</span><div><b>♨️ 定 D2 下午私汤</b><br>先查万世阁房型带不带展望温泉；不带就约乃之风或洞爷观光酒店的家族汤（约 ¥3,300–4,500 / 50 分钟）</div></li>
+        <li class="chk-item" data-chk="pre-jr"><span class="chk-box">□</span><div><b>🚄 Ekinet 买北斗号指定席</b><br>D1 南千岁→洞爷（北斗 18 号）；D3 洞爷→登别（5 号）、登别→札幌（11 号）</div></li>
+        <li class="chk-item" data-chk="pre-suica"><span class="chk-box">□</span><div><b>📱 iPhone 钱包加 Suica，填好 Visit Japan Web</b><br>小樽 JR 和地铁全程刷 Suica</div></li>
+        <li class="chk-item" data-chk="pre-daruma"><span class="chk-box">□</span><div><b>🥩（可选）订 D4 达摩 4.4 二阶亭 18:45</b><br>不订就去 5.5 店现场排</div></li>
       </ul>
     </details>
   </section>
 
-  <nav class="daynav">
-    <button class="map-open" id="mapOpen" type="button">🗺️ 地图</button>
-    <a href="#d1"><b>D1</b> 圣诞抵洞爷</a>
-    <a href="#d2"><b>D2</b> 湖景私汤</a>
-    <a href="#d3"><b>D3</b> 登别转札幌</a>
-    <a href="#d4"><b>D4</b> 买NANGA</a>
-    <a href="#d5"><b>D5</b> 朝里小樽</a>
-    <a href="#d6"><b>D6</b> 看海滑雪</a>
-    <a href="#d7"><b>D7</b> 机场跨年</a>
-    <a href="#gourmetHub"><b>🍽️</b> 酒店美食</a>
-    <a href="#onsenGuide"><b>♨️</b> 纹身私汤</a>
-    <a href="#shoppingHub"><b>🧥</b> 扫货清单</a>
-  </nav>
-
-  <section style="padding-bottom:0;">
-    <div class="sec-title"><span class="n">ROUTES</span><h2>每日路线（点击 🎧 展开拍照机位与避坑解说）</h2></div>
+  <!-- ============ ② 七天总览 ============ -->
+  <section id="overview">
+    <div class="sec-title"><span class="n">7 DAYS</span><h2>七天总览</h2></div>
+    <div class="ov-list">
+      <a class="ov-row" data-day="1" href="#d1"><span class="ov-d lat">D1<small>12/25 五</small></span><span class="ov-bd"><b>圣诞夜抵达洞爷湖</b><span>羽田转机 · 北斗号 · 星光隧道</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:52%"></span></span><small>~6,200 步</small></span></a>
+      <a class="ov-row" data-day="2" href="#d2"><span class="ov-d lat">D2<small>12/26 六</small></span><span class="ov-bd"><b>洞爷湖雪景 × 湖景私汤</b><span>浮见堂 · 筒仓展望台 · 日落泡私汤</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:62%"></span></span><small>~7,400 步</small></span></a>
+      <a class="ov-row" data-day="3" href="#d3"><span class="ov-d lat">D3<small>12/27 日</small></span><span class="ov-bd"><b>顺路登别 → 搬去札幌</b><span>地狱谷 · 入住 Stream · 根室花丸</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:76%"></span></span><small>~9,100 步</small></span></a>
+      <a class="ov-row" data-day="4" href="#d4"><span class="ov-d lat">D4<small>12/28 一</small></span><span class="ov-bd"><b>北大雪景 × 买装备 × 女友购物</b><span>NANGA · 大丸/PARCO · 达摩烤羊肉</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:85%"></span></span><small>~10,200 步</small></span></a>
+      <a class="ov-row" data-day="5" href="#d5"><span class="ov-d lat">D5<small>12/29 二</small></span><span class="ov-bd"><b>《情书》朝里站 × 小樽蓝调</b><span>堺町通 · 天狗山日落 · 青之运河</span></span><span class="ov-st"><span class="step-track"><span class="step-fill hi" style="width:92%"></span></span><small>~10,800 步</small></span></a>
+      <a class="ov-row" data-day="6" href="#d6"><span class="ov-d lat">D6<small>12/30 三</small></span><span class="ov-bd"><b>手稻滑雪团课 × 跨年前夜蟹宴</b><span>你单板、她双板 · 19:00 螃蟹</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:55%"></span></span><small>~6,500 步</small></span></a>
+      <a class="ov-row" data-day="7" href="#d7"><span class="ov-d lat">D7<small>12/31 四</small></span><span class="ov-bd"><b>雪中鸟居 × 机场扫货 × 空中跨年</b><span>伏见稻荷 · 新千岁 2F · NH78</span></span><span class="ov-st"><span class="step-track"><span class="step-fill" style="width:71%"></span></span><small>~8,500 步</small></span></a>
+    </div>
+    <div class="ov-foot">🏨 12/25–27 洞爷湖万世阁 · 12/27–31 SAPPORO STREAM HOTEL（薄野站直通，4 晚不搬箱子）</div>
   </section>
+
   <!-- ============ DAY 1 ============ -->
-  <article class="day-card" id="d1" data-hotel-default="洞爷湖万世阁">
+  <article class="day-card" id="d1">
     <div class="day-head">
       <div class="day-num">DAY<span>01</span></div>
-      <div class="day-title"><div class="h">圣诞夜降落北海道 → 洞爷湖星光隧道</div><div class="s">12/25 五 · ✈️浦东 → 羽田入境转机 → 新千岁D口 → 🚄洞爷湖万世阁 → ✨圣诞灯光隧道</div></div>
+      <div class="day-title"><div class="h">圣诞夜抵达洞爷湖</div><div class="s">12/25 五 · 浦东 → 羽田转机 → 新千岁 → 北斗号 → 万世阁</div></div>
       <div class="day-wx"><div class="ic">❄️</div>0/-5°<div class="stp">🚶 ~6,200</div></div>
     </div>
-    <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（圣诞夜丝滑转机 & 入住洞爷湖）</div><ul>
-      <li><b>① 羽田 T3 联程极速转机（无需重新值机！）：</b>在浦东已拿齐两段登机牌且箱子已挂好直达 <code>CTS</code> 行李条！但因日本海关法规定“国际转国内须在第一入境点清关”，在羽田 T3 过边检后从转盘拎下箱子走过海关门，<b>一出海关门右手边 10 米就是 ANA「国内線乗継カウンター（转机专用交运口）」，不用排队办值机，把带直挂条的箱子放上传送带（30秒搞定）</b>，即可走旁边 T3 转机专用安检口+免费接驳巴士直达 T2 候机厅！</li>
-      <li><b>② 新千岁国内线秒出站：</b>15:35 落地新千岁已是国内线 D 口，<b>无需再排国际入境长队</b>！拿完行李下 B1 层坐 JR。</li>
-      <li><b>③ 南千岁换乘铁律（真实时刻表）：</b>从新千岁机场下 B1 坐 1 站（3分钟）到<b>「南千岁站」同站台换乘 JR 特急北斗 18 号 (16:17→17:38 抵洞爷)</b>；若飞机晚点则坐<b>北斗 20 号 (17:26→18:48 抵洞爷)</b>。</li>
-      <li><b>④ 万世阁门口拍圣诞灯海：</b>洞爷湖冬季限定「イルミネーショントンネル（40万颗LED灯光隧道）」<b>就在万世阁正门马路对面</b>，吃完饭下楼就能拍！</li>
+    <div class="day-tasks"><div class="day-tasks-title">今天记住</div><ul>
+      <li><b>羽田 T3 不用重新值机：</b>入境后拎箱过海关，出门右手 10 米就是 ANA 转机交运口，把箱子放上传送带就行</li>
+      <li><b>新千岁坐 JR 1 站到南千岁，同站台换北斗 18 号。</b>飞机晚点就坐 20 号，在车上先约好出租车</li>
+      <li><b>星光隧道就在酒店正门对面，</b>开到 22:00，吃完饭下楼就能拍</li>
     </ul></div>
-    <div class="day-adv"><details class="exp"><summary>🌡️ 今日穿什么 · 室内外 35°C 温差保命法则</summary><div class="exp-bd">
-      <div class="adv-grid"><span class="adv-chip">🧥 <b>洋葱式三层穿法</b></span><span class="adv-chip">🥾 防滑防水鞋底</span><span class="adv-chip">🧤 手套放外兜</span><span class="adv-chip">🪪 Visit Japan Web 截图</span></div>
-      <p>日本机场、JR 车厢和酒店暖气高达 24–26°C，里面如果穿厚毛衣会热到怀疑人生！正确穿法：<b>透气保暖内衣 + 薄抓绒/开衫 + 防风长羽绒服</b>，进室内一脱外套就清爽。<a class="wx-live" href="https://tenki.jp/forecast/1/4/2100/1584/" target="_blank" rel="noopener">🔗 查洞爷湖实时天气 →</a></p>
-    </div></details></div>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin air">✈</span>
         <div class="n-top"><span class="n-time">08:35</span><span class="n-name">浦东 T2 → 羽田 T3 (12:20) → 新千岁 D口 (15:35)</span><a class="n-nav" href="https://www.google.com/maps/search/新千歳空港国内線ターミナル" target="_blank" rel="noopener">📍导航</a></div>
         <div class="n-jp">ANA NH972 (35A) ＋ NH67 (18G) · 羽田 T3→T2 转机</div>
-        <div class="n-find">15:35 落地新千岁国内线 D 航站楼！比直飞国际线省去至少 60 分钟入境排队。提取行李后如果饿了，国内线 2F 随手买个<b>Kinotoya 半熟芝士塔或北菓楼泡芙</b>垫肚子，直接下 B1 坐 JR。<span class="tags"><span class="tag book">📌 已出票锁死</span><span class="tag free">2件免费托运</span></span></div>
+        <div class="n-find">在新千岁落地的是国内线，不用排入境队。饿了就在国内线 2F 买个 Kinotoya 芝士塔垫一下，然后下 B1 坐 JR。<span class="tags"><span class="tag book">已出票</span><span class="tag free">2 件免费托运</span></span></div>
+        <details class="exp"><summary>羽田转机详细步骤</summary><div class="exp-bd">
+          <p>浦东值机时两段登机牌一次拿齐，行李条直接打到 CTS。日本规定国际转国内要在第一个入境机场清关，所以在羽田 T3 过边检后，从转盘拎下箱子走出海关门，<b>右手边 10 米就是 ANA「国内線乗継カウンター」</b>，放上传送带就行（30 秒）。然后走 T3 转机专用安检，坐免费巴士到 T2。</p>
+        </div></details>
       </div>
       <div class="r-item r-seg">
         <div class="seg-box">
-          <div class="seg-main">🚉 JR 新千岁机场 →「南千歳」3分 ＋ 🚄 <b>JR 特急北斗 18号 (16:17→17:38)</b> 或 <b>北斗 20号 (17:26→18:48)</b> 至「洞爺駅」＋ 🚕 打车 12分 (约¥2,600) 或道南巴士至万世阁</div>
-          <div class="seg-sub">💡 <b>真实时刻表与末班车预警</b>：15:35 国内线落地免过关，赶 <b>16:17 南千岁发的北斗 18 号（17:38 到洞爷）</b>还能稳稳坐上 <b>17:58 / 18:50（末班）道南巴士</b>！若坐 <b>17:26 北斗 20 号（18:48 到洞爷）</b>，建议在火车上用 <b>GO / Uber App</b> 或致电洞爷出租车（洞爺ハイヤー <code>0142-75-2151</code>）预约出站打车直达万世阁！</div>
+          <div class="seg-main">🚉 JR 新千岁机场 →「南千歳」3分 ＋ 🚄 <b>北斗 18号 (16:17→17:38)</b> 或 <b>北斗 20号 (17:26→18:48)</b> 到「洞爺駅」＋ 🚕 打车 12 分（约 ¥2,600）或道南巴士到万世阁</div>
+          <div class="seg-sub">💡 坐 18 号的话，还赶得上 <b>17:58 或 18:50（末班）道南巴士</b>。坐 20 号就在车上用 GO / Uber 约车，或打洞爷出租车 洞爺ハイヤー 0142-75-2151。</div>
         </div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin hotel">🏨</span>
         <div class="n-top"><span class="n-time">18:15</span><span class="n-name hotel">Check-in · 洞爷湖万世阁</span><a class="n-nav" href="https://www.google.com/maps/search/洞爺湖万世閣ホテルレイクサイドテラス" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖万世阁酒店" data-taxi-jp="洞爺湖万世閣 ホテルレイクサイドテラス" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉21番地 (TEL: 0570-08-3500)">🚕 给司机看</button></div>
         <div class="n-jp">洞爺湖万世閣 ホテルレイクサイドテラス</div>
-        <div class="n-find">坐落于洞爷湖正中央湖畔！办入住时若未含晚餐，直接步行 4 分钟去吃<b>昭和洋食名店「望羊蹄」</b>或<b>「拉面一本亭」</b>（见下方酒店美食库）。<span class="tags"><span class="tag book">🏨 已订核心宿</span></span></div>
-        <details class="exp"><summary>展开万世阁纹身规定与拍雪景秘籍</summary><div class="exp-bd">
-          <p><b>⚠️ 纹身重要提醒：</b>万世阁公共池（8F星之汤/B1月之汤）官网明确规定<b>禁止纹身及遮瑕贴入内</b>。但酒店 1F 湖畔庭园与<b>免费足汤「茶鳟汤（ちゃますゆ）」</b>穿衣服即可泡脚看湖！私汤泡澡拍照我们安排在明天下午的<b>湖畔貸切私汤屋</b>（或升级西馆展望私汤房）。</p>
+        <div class="n-find">就在洞爷湖畔正中间。<span class="tags"><span class="tag book">已订 · 第 1 晚</span></span></div>
+        <details class="exp"><summary>纹身注意：公共浴场不能进</summary><div class="exp-bd">
+          <p>万世阁的公共大浴场（8F 星之汤 / B1 月之汤）<b>禁止纹身，贴遮瑕贴也不行</b>。1F 湖畔的免费足汤「茶鳟汤（ちゃますゆ）」穿着衣服就能泡。正式泡汤安排在明天下午的私汤。</p>
         </div></details>
       </div>
       <div class="r-item r-node">
-        <span class="r-pin nat">1</span>
-        <div class="n-top"><span class="n-time">20:00</span><span class="n-name">🎄 圣诞夜 · 洞爷湖星光隧道 & 望羊蹄晚餐</span><a class="n-nav" href="https://www.google.com/maps/search/洞爺湖イルミネーショントンネル" target="_blank" rel="noopener">📍导航</a></div>
+        <span class="r-pin food">1</span>
+        <div class="n-top"><span class="n-time">18:45</span><span class="n-name">🍽️ 晚餐 · 望羊蹄 昭和洋食</span><a class="n-nav" href="https://www.google.com/maps/search/レストラン望羊蹄+洞爺湖" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-jp">レストラン望羊蹄 · 万世阁向西步行 4 分 · 17:00–20:00</div>
+        <div class="n-find">如果房费含晚餐就在酒店吃。不含的话就去望羊蹄，这家 1946 年开业，点铁板芝士汉堡排和焦糖布丁。坐北斗 20 号晚到的话，就去一本亭吃拉面。<span class="tags"><span class="tag yen">免预约</span></span></div>
+        <details class="exp"><summary>洞爷湖温泉街还能吃什么</summary><div class="exp-bd">
+          <p>🍜 <b>拉面一本亭</b>（步行 6 分）：黑酱油拉面、帆立贝盐味拉面。</p>
+          <p>🍛 <b>Soup Curry Ponpekora / 牛排 HLAHAL</b>（步行 5 分）：一线湖景，靠窗位少，早点去。</p>
+          <p>🍤 <b>仙堂庵</b>只开午市（11:30–14:30），留到明天中午。</p>
+        </div></details>
+      </div>
+      <div class="r-item r-node">
+        <span class="r-pin nat">2</span>
+        <div class="n-top"><span class="n-time">20:00</span><span class="n-name">🎄 洞爷湖星光隧道</span><a class="n-nav" href="https://www.google.com/maps/search/洞爺湖イルミネーショントンネル" target="_blank" rel="noopener">📍导航</a></div>
         <div class="n-jp">洞爺湖イルミネーショントンネル（にぎわい広場）· 18:00–22:00</div>
-        <div class="n-find">就在万世阁正门斜对面步行 1 分钟！40 万颗暖白与冰蓝 LED 灯珠组成的 70 米星光穹顶，在圣诞夜飘雪中牵手拍照氛围感拉满，而且晚上 8 点后几乎没有团客！<span class="tags"><span class="tag free">免费开放至22:00</span><span class="tag photo">圣诞夜出片王</span></span></div>
+        <div class="n-find">酒店正门斜对面，步行 1 分钟。40 万颗 LED 组成 70 米长的灯光隧道，晚上 8 点后几乎没有团客。<span class="tags"><span class="tag free">免费</span><span class="tag photo">圣诞夜合照</span></span></div>
       </div>
     </div>
     <a class="gmap" href="https://www.google.com/maps/dir/新千歳空港/南千歳駅/洞爺駅/洞爺湖万世閣ホテルレイクサイドテラス" target="_blank" rel="noopener">
@@ -584,53 +555,54 @@
   </article>
 
   <!-- ============ DAY 2 ============ -->
-  <article class="day-card" id="d2" data-hotel-default="洞爷湖万世阁">
+  <article class="day-card" id="d2">
     <div class="day-head">
       <div class="day-num">DAY<span>02</span></div>
-      <div class="day-title"><div class="h">洞爷湖雪景大片 × 纹身友好湖景私汤</div><div class="s">12/26 六 · 🏨万世阁 → 📸浮见堂雪栈桥 → 🏔筒仓展望台(羊蹄山) → 🍜仙堂庵 → ♨️湖景私汤拍照</div></div>
+      <div class="day-title"><div class="h">洞爷湖雪景 × 湖景私汤</div><div class="s">12/26 六 · 浮见堂 → 筒仓展望台 → 仙堂庵 → 日落泡私汤</div></div>
       <div class="day-wx"><div class="ic">⛅</div>1/-4°<div class="stp">🚶 ~7,400</div></div>
     </div>
-    <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（人少出片机位 + 情侣私汤自由拍）</div><ul>
-      <li><b>① 砍掉冬季鸡肋游船：</b>冬季洞爷湖中岛封岛不能下船，把时间留给零团客的<b>「浮见堂雪中朱红栈桥」</b>和俯瞰全景的<b>「筒仓展望台」</b>，出片率高 10 倍！</li>
-      <li><b>② 私汤预约确认：</b>上午请万世阁前台帮忙电话确认下午的<b>洞爷湖畔日归貸切風呂（乃之风/洞爷观光酒店家族汤）</b>，或直接在西馆展望私汤房内泡汤拍照。</li>
-      <li><b>③ 午餐免排队神店：</b>万世阁正对面步行 1 分钟的<b>「仙堂庵」11:30–14:30 营业</b>，现炸洞爷湖大扇贝天妇罗配手打荞麦面绝赞（若逢店休则走 4 分钟去吃 11:00 开门的昭和洋食「望羊蹄」）。</li>
+    <div class="day-tasks"><div class="day-tasks-title">今天记住</div><ul>
+      <li><b>上午先请前台确认下午的私汤</b>（没提前订的话，让前台帮忙打电话）</li>
+      <li><b>筒仓展望台在山上，冬天叫不到车。</b>让前台叫车，谈好「往返 + 山上等 30 分钟」，约 ¥5,000</li>
+      <li><b>冬天不坐游船：</b>中岛封岛不能下船，不值得</li>
     </ul></div>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
-        <div class="n-top"><span class="n-time">09:30</span><span class="n-name">📸 洞爷湖浮见堂公园 · 雪中朱红六角亭</span><a class="n-nav" href="https://www.google.com/maps/search/洞爺湖浮見堂公園" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖浮见堂公园" data-taxi-jp="洞爺湖 浮見堂公園（うきみどうこうえん）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉">🚕 给司机看</button></div>
-        <div class="n-jp">浮見堂公園 · 从万世阁沿湖畔散步道向西步行 12 分钟</div>
-        <div class="n-find">延伸进湛蓝湖水中的白雪木栈桥与朱红色双层六角亭，背后就是中岛与雪山！旅行团大巴根本不会来这里，两个人承包整片雪岸。<span class="tags"><span class="tag free">全天免费</span><span class="tag photo">零团客秘境机位</span></span></div>
-        <details class="exp"><summary>展开拍照机位解说</summary><div class="exp-bd">
-          <p><b>📸 最佳构图：</b>一人站在栈桥尽头朱红亭子下回眸，摄影师在岸边用手机 2x/3x 人像模式拍摄，白雪、红亭、蓝湖与远山层次感绝了。</p>
+        <div class="n-top"><span class="n-time">09:30</span><span class="n-name">📸 浮见堂公园 · 雪中朱红六角亭</span><a class="n-nav" href="https://www.google.com/maps/search/洞爺湖浮見堂公園" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖浮见堂公园" data-taxi-jp="洞爺湖 浮見堂公園（うきみどうこうえん）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉">🚕 给司机看</button></div>
+        <div class="n-jp">浮見堂公園 · 沿湖畔散步道向西步行 12 分</div>
+        <div class="n-find">伸进湖里的白雪栈桥和朱红六角亭，背后是中岛和雪山。旅行团不来这里。<span class="tags"><span class="tag free">免费</span><span class="tag photo">零团客</span></span></div>
+        <details class="exp"><summary>怎么拍</summary><div class="exp-bd">
+          <p>一个人站在栈桥尽头的亭子下回头，另一个人在岸边用手机 2x/3x 人像模式拍，白雪、红亭、蓝湖、远山都能拍进去。</p>
         </div></details>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚕 打车上山 12 分钟至「筒仓展望台 Silo」（距温泉街约 8km，不可步行）</div>
-          <div class="seg-sub">💡 <b>山上防吹风秘籍</b>：展望台在西岸高地，冬季出租车较少路过；强烈建议让万世阁前台帮忙叫车并跟司机商量<b>「往返包车＋山上等 30 分钟」（约 ¥5,000）</b>，拍完直接坐暖气车下山吃午饭！</div>
-        </div>
+        <div class="seg-box"><div class="seg-main">🚕 打车上山 12 分钟到「筒仓展望台」（离温泉街约 8km，走不上去）</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin nat">2</span>
-        <div class="n-top"><span class="n-time">10:45</span><span class="n-name">🏔 筒仓展望台 (Silo) & Lake Hill Farm</span><a class="n-nav" href="https://www.google.com/maps/search/サイロ展望台" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖筒仓展望台" data-taxi-jp="サイロ展望台（洞爺湖）" data-taxi-addr="北海道虻田郡洞爺湖町成香3-5">🚕 给司机看</button></div>
-        <div class="n-jp">サイロ展望台 · 俯瞰洞爷湖＋中岛＋羊蹄山（虾夷富士）</div>
-        <div class="n-find">这里是俯拍洞爷湖全景与“北海道富士山”羊蹄山同框的最高颜值机位！买一瓶<b>洞爷湖牧场浓厚热牛乳/布丁</b>当道具拍照超好看。<span class="tags"><span class="tag free">免费观景台</span><span class="tag photo">08:30–17:00营业</span></span></div>
+        <div class="n-top"><span class="n-time">10:45</span><span class="n-name">🏔 筒仓展望台 · 洞爷湖 + 羊蹄山同框</span><a class="n-nav" href="https://www.google.com/maps/search/サイロ展望台" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖筒仓展望台" data-taxi-jp="サイロ展望台（洞爺湖）" data-taxi-addr="北海道虻田郡洞爺湖町成香3-5">🚕 给司机看</button></div>
+        <div class="n-jp">サイロ展望台 · 08:30–17:00</div>
+        <div class="n-find">俯拍洞爷湖全景和「北海道富士山」羊蹄山的最佳机位。买一瓶洞爷湖牧场热牛奶或布丁，拿着拍照很好看。<span class="tags"><span class="tag free">免费</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚕 乘车 12 分钟返回洞爷湖温泉街（万世阁正门对面）</div></div>
+        <div class="seg-box"><div class="seg-main">🚕 坐同一辆车 12 分钟回温泉街</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">12:30</span><span class="n-name">🍤 仙堂庵 或 冈田屋 · 湖畔午餐与甜汤</span><a class="n-nav" href="https://www.google.com/maps/search/そば処仙堂庵+洞爺湖" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">そば処 仙堂庵（万世阁正对面1分）＋ 岡田屋（白色红豆年糕汤）</div>
-        <div class="n-find">午餐在<b>仙堂庵</b>吃喷香的「帆立天ざる（大扇贝天妇罗手打荞麦面）」，饭后散步 3 分钟去<b>冈田屋</b>喝一碗洞爷湖名物「白いおしるこ（北海道牛奶炖白芸豆年糕甜汤）」，暖心又出片！<span class="tags"><span class="tag yen">🚶 免预约随到随吃</span></span></div>
+        <div class="n-top"><span class="n-time">12:30</span><span class="n-name">🍤 午餐 · 仙堂庵 → 冈田屋甜汤</span><a class="n-nav" href="https://www.google.com/maps/search/そば処仙堂庵+洞爺湖" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="仙堂庵荞麦面" data-taxi-jp="そば処 仙堂庵（洞爺観光ホテル1F）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉33">🚕 给司机看</button></div>
+        <div class="n-jp">そば処 仙堂庵（万世阁正对面）＋ 岡田屋（步行 3 分）</div>
+        <div class="n-find">仙堂庵点「帆立天ざる」，大扇贝天妇罗配手打荞麦面（¥1,650）。吃完去冈田屋喝一碗洞爷湖名物「白いおしるこ」，牛奶白芸豆年糕甜汤（¥550）。遇到仙堂庵店休，就去望羊蹄。<span class="tags"><span class="tag yen">免预约</span></span></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin hotel">♨</span>
-        <div class="n-top"><span class="n-time">15:15</span><span class="n-name">♨️ 洞爷湖私汤时间 · 纹身友好情侣独享</span><a class="n-nav" href="https://www.google.com/maps/search/ザ+レイクビュー+TOYA+乃の風リゾート" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">万世閣西館展望風呂付客室 ／ 湖畔貸切風呂（私汤包间）</div>
-        <div class="n-find">趁 15:30–16:15 日落蓝调时刻泡进私汤！完全不受纹身限制，架好手机拍夕阳映照洞爷湖雪面的温泉大片（详见下方「♨️ 纹身私汤」专题卡）。<span class="tags"><span class="tag book">100%纹身友好</span><span class="tag photo">蓝调时刻泡汤拍照</span></span></div>
+        <div class="n-top"><span class="n-time">15:15</span><span class="n-name">♨️ 私汤 · 日落蓝调时泡汤</span><a class="n-nav" href="https://www.google.com/maps/search/ザ+レイクビュー+TOYA+乃の風リゾート" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-jp">万世閣 西館展望風呂付客室 ／ 湖畔貸切風呂</div>
+        <div class="n-find">15:30–16:15 正好是日落和蓝调时刻。私汤是两个人独享，不看纹身，可以架好手机拍。<span class="tags"><span class="tag book">要先订</span><span class="tag photo">蓝调泡汤</span></span></div>
+        <details class="exp"><summary>两种私汤方案</summary><div class="exp-bd">
+          <p><b>① 万世阁西馆「展望風呂付客室」：</b>房间阳台自带面朝湖的温泉池，24 小时随时泡。看你们订的是不是这个房型，不是的话可以写邮件问补差价升级。</p>
+          <p><b>② 隔壁酒店的日归私汤（按小时包间）：</b>洞爷观光酒店的家族风吕，或乃之风（ザ レイクビュー TOYA 乃の風）的貸切露天风吕，步行 2–5 分钟，约 ¥3,300–4,500 / 50 分钟。</p>
+        </div></details>
       </div>
     </div>
     <a class="gmap" href="https://www.google.com/maps/dir/洞爺湖万世閣/浮見堂公園/サイロ展望台/岡田屋" target="_blank" rel="noopener">
@@ -640,51 +612,56 @@
   </article>
 
   <!-- ============ DAY 3 ============ -->
-  <article class="day-card" id="d3" data-hotel-default="SAPPORO STREAM HOTEL">
+  <article class="day-card" id="d3">
     <div class="day-head">
       <div class="day-num">DAY<span>03</span></div>
-      <div class="day-title"><div class="h">顺路打卡登别地狱谷 → 入住薄野地标 Stream</div><div class="s">12/27 日 · 🏨洞爷退房 → 🚄顺路停登别地狱谷雪景 → 🏨札幌 Stream → 🍣根室花丸/薄野街拍</div></div>
+      <div class="day-title"><div class="h">顺路登别地狱谷 → 搬去札幌</div><div class="s">12/27 日 · 退房 → 登别站存行李 → 地狱谷 → 札幌 Stream → 根室花丸</div></div>
       <div class="day-wx"><div class="ic">🌨</div>0/-6°<div class="stp">🚶 ~9,100</div></div>
     </div>
-    <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（不走回头路顺游登别 + 根室花丸躺等秘籍）</div><ul>
-      <li><b>① 零折返顺游登别：</b>洞爷去札幌的 JR 特急北斗号<b>必经登别站（仅40分钟）</b>！在 JR 登别站或巴士总站寄存 2 个行李箱，坐 15 分钟道南巴士进地狱谷拍完雪中火山口，再继续北上札幌，省去朋友原攻略整整半天折返！</li>
-      <li><b>② 只去地狱谷、跳过熊牧场：</b>你们喜欢好看少人的地方，<b>雪盖赤红火山口与滚滚白烟的地狱谷木栈道</b>极度震撼出片；熊牧场团客多且气味重，果断略过。</li>
-      <li><b>③ Stream 酒店下楼取号神操作：</b>入住薄野直结的 <b>SAPPORO STREAM HOTEL</b> 后，直接坐电梯下到同栋楼 <b>COCONO SUSUKINO</b> 的<b>「根室花丸」拿排队号，回楼上房间躺着看手机叫号</b>！</li>
-      <li><b>④ 暴雪偷懒 Plan B（酒店直达大巴）：</b>若 D3 遇大雪不想拖箱子去登别，可提前预约<b>洞爷湖万世阁 ➔ 札幌站北口官方接驳巴士</b>（10:00发车，单程仅 ¥1,100/人，酒店门口上车直达札幌！<a class="wx-live" href="https://inquiry.talkappi.com/?f=toyako-manseikaku-hp&id=56e6b20052d15ae0" target="_blank" rel="noopener">🔗 官网预约链接 →</a>）。</li>
+    <div class="day-tasks"><div class="day-tasks-title">今天记住</div><ul>
+      <li><b>09:50 在万世阁门口坐道南巴士去洞爷站，</b>行李存在登别站，轻装上山</li>
+      <li><b>下大雪不想拖箱子：</b>改坐万世阁到札幌站北口的直达巴士（10:00 发车，¥1,100/人，要预约 <a class="wx-live" href="https://inquiry.talkappi.com/?f=toyako-manseikaku-hp&id=56e6b20052d15ae0" target="_blank" rel="noopener">预约链接 →</a>）</li>
+      <li><b>到酒店先下楼去根室花丸抽号，</b>回房间躺着等叫号</li>
     </ul></div>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin">JR</span>
-        <div class="n-top"><span class="n-time">09:50</span><span class="n-name">洞爷湖万世阁退房 → 道南巴士赴洞爷站 → JR 登别站存行李</span><a class="n-nav" href="https://www.google.com/maps/search/登別駅" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">09:50</span><span class="n-name">退房 → 道南巴士 → JR 登别站存行李</span><a class="n-nav" href="https://www.google.com/maps/search/登別駅" target="_blank" rel="noopener">📍导航</a></div>
         <div class="n-jp">09:50「万世閣前」巴士 → 10:15 洞爺駅 ＋ JR 特急北斗 5号 (10:49 洞爺 → 11:28 登別)</div>
-        <div class="n-find">按照洞爷湖道南巴士时刻表，<b>09:50 在万世阁门口「万世閣前」站牌上车</b>，10:15 抵达 JR 洞爷站，从容衔接 <b>10:49 特急北斗 5 号（11:28 到登别站）</b>！JR 登别站出站有储物柜及人工寄存，轻装坐 11:40 道南巴士（¥450，15分钟）上山。</div>
+        <div class="n-find">北斗号从洞爷去札幌正好经过登别，中途停一下，不用走回头路。登别站有储物柜和人工寄存。</div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚌 道南巴士 NA/NC 系统「登別駅前 (11:40) → 登別温泉 (11:55)」¥450 ＋ 🚶 步行 6 分钟至地狱谷</div></div>
+        <div class="seg-box"><div class="seg-main">🚌 道南巴士「登別駅前 (11:40) → 登別温泉 (11:55)」¥450 ＋ 🚶 步行 6 分钟到地狱谷</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
-        <div class="n-top"><span class="n-time">12:00</span><span class="n-name">🌋 登别地狱谷 · 白雪覆盖的硫磺火山口</span><a class="n-nav" href="https://www.google.com/maps/search/登別地獄谷" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="登别地狱谷展望台" data-taxi-jp="登別地獄谷（のぼりべつじごくだに）展望台" data-taxi-addr="北海道登別市登別温泉町無番地">🚕 给司机看</button></div>
-        <div class="n-jp">登別地獄谷 · 温泉街午餐（味の大王 地狱拉面 / 温泉市场）</div>
-        <div class="n-find">直径 450 米的爆裂火山口在 12 月底铺满厚厚白雪，硫磺蒸汽在阳光下翻涌，沿着木栈道走到<b>铁泉池（间歇泉）</b>拍照约 50 分钟，回温泉街吃碗热腾腾的拉面或海鲜。<span class="tags"><span class="tag free">地狱谷免费开放</span><span class="tag photo">冰火交融大片</span></span></div>
+        <div class="n-top"><span class="n-time">12:00</span><span class="n-name">🌋 登别地狱谷 + 温泉街午餐</span><a class="n-nav" href="https://www.google.com/maps/search/登別地獄谷" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="登别地狱谷展望台" data-taxi-jp="登別地獄谷（のぼりべつじごくだに）展望台" data-taxi-addr="北海道登別市登別温泉町無番地">🚕 给司机看</button></div>
+        <div class="n-jp">登別地獄谷 · 午餐：味の大王 地狱拉面 / 温泉市场</div>
+        <div class="n-find">铺满白雪的火山口冒着硫磺蒸汽，沿木栈道走到铁泉池约 50 分钟，回温泉街吃碗拉面。熊牧场团客多、气味重，跳过。<span class="tags"><span class="tag free">免费</span><span class="tag photo">冰火同框</span></span></div>
       </div>
       <div class="r-item r-seg">
         <div class="seg-box">
-          <div class="seg-main">🚌 道南巴士 (14:00/14:58) 回登别站取行李 ＋ 🚄 <b>JR 特急北斗 11号 (14:48→16:04)</b> 或 <b>北斗 13号 (16:09→17:30)</b> 直达札幌站 ＋ 🚇 地铁南北线 2 站至「すすきの（薄野）」</div>
-          <div class="seg-sub">💡 <b>全程不踩雪秘籍</b>：到了 JR 札幌站不用出地面！顺着地下指示牌坐地铁南北线到「すすきの駅」，<b>5 号出口直接连通 COCONO SUSUKINO 大楼电梯直达 SAPPORO STREAM HOTEL</b>（7F 大堂）。</div>
+          <div class="seg-main">🚌 道南巴士 (14:00/14:58) 回登别站取行李 ＋ 🚄 <b>北斗 11号 (14:48→16:04)</b> 或 <b>北斗 13号 (16:09→17:30)</b> 到札幌 ＋ 🚇 南北线 2 站到「すすきの」</div>
+          <div class="seg-sub">💡 在札幌站不用出地面：坐地铁到すすきの站，<b>5 号出口直通 COCONO SUSUKINO</b>，坐电梯到 7F 酒店大堂。</div>
         </div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin hotel">🏨</span>
         <div class="n-top"><span class="n-time">17:15</span><span class="n-name hotel">Check-in · SAPPORO STREAM HOTEL</span><a class="n-nav" href="https://www.google.com/maps/search/SAPPORO+STREAM+HOTEL" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌 Stream 酒店 (薄野)" data-taxi-jp="SAPPORO STREAM HOTEL（ココノ ススキノ上層）" data-taxi-addr="北海道札幌市中央区南4条西4丁目1番1 COCONO SUSUKINO 7F">🚕 给司机看</button></div>
-        <div class="n-jp">SAPPORO STREAM HOTEL · 薄野新地标 COCONO SUSUKINO 直结</div>
-        <div class="n-find">2024 新开业的颜值天花板酒店！下楼 B1 是精品超市与伴手礼、B2–4F 全是餐厅与电影院，连住 4 晚完全不用折腾换酒店。<span class="tags"><span class="tag book">🏨 已订核心宿·连住4晚</span></span></div>
+        <div class="n-jp">SAPPORO STREAM HOTEL · COCONO SUSUKINO 直通</div>
+        <div class="n-find">楼下 B1 是超市和伴手礼，B2–4F 是餐厅和电影院。连住 4 晚。<span class="tags"><span class="tag book">已订 · 4 晚</span></span></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">2</span>
-        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-hanamaru">🍣 根室花丸 (酒店脚下店) ＋ 薄野 NIKKA 街拍 <span class="ml-badge">📖闭眼点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/回転寿司+根室花まる+ココノススキノ店" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">根室花まる ココノススキノ店 ＋ ニッカウヰスキー看板 ＋ 夜パフェ</div>
-        <div class="n-find">住在 Stream 酒店的最大特权：下电梯去 <b>COCONO SUSUKINO</b> 的<b>根室花丸</b>抽号，扫码看进度回房间休息，快到号再下楼吃双层干贝和红帝王蟹！饭后出门就是<b>薄野 NIKKA 威士忌大叔霓虹牌（2楼商场露台可平视合影！）</b>，再吃一杯札幌特有的<b>夜芭菲（Parfaiteria PaL，步行3分钟）</b>。<span class="tags"><span class="tag queue">🎫 现场抽号·回房躺等</span></span></div>
+        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-hanamaru">🍣 根室花丸（酒店楼下）<span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/回転寿司+根室花まる+ココノススキノ店" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-jp">根室花まる ココノススキノ店 → 饭后 NIKKA 霓虹牌 + 夜芭菲</div>
+        <div class="n-find">下楼抽号，扫码看进度，回房间等。必点双层干贝和帝王蟹。12/31 这家店基本吃不上，所以排在今天。饭后出门就是 NIKKA 威士忌大叔霓虹牌，2 楼露台能平视合影。<span class="tags"><span class="tag queue">现场抽号</span></span></div>
+        <details class="exp"><summary>排太久？薄野还能吃什么（4 晚通用）</summary><div class="exp-bd">
+          <p>🔥 <b>炉端烧 Utari</b>（步行 2–5 分）：60 年老店，看师傅烤喜知次鱼和大扇贝，建议请前台代订。</p>
+          <p>🍢 <b>串鸟 薄野店</b>：平价烧鸟，免预约，鸡汤免费续。</p>
+          <p>🦐 <b>一幻 虾汤拉面 总本店</b>（步行 7 分）：排太长就留到 D7 机场 3F 吃同一家。</p>
+          <p>🍨 <b>夜芭菲 Parfaiteria PaL</b>（步行 3 分）：札幌特有的「吃完饭再来一杯芭菲」，晚上现场取号。</p>
+        </div></details>
       </div>
     </div>
     <a class="gmap" href="https://www.google.com/maps/dir/洞爺湖万世閣/登別地獄谷/札幌駅/SAPPORO+STREAM+HOTEL" target="_blank" rel="noopener">
@@ -694,76 +671,72 @@
   </article>
 
   <!-- ============ DAY 4 ============ -->
-  <article class="day-card" id="d4" data-hotel-default="SAPPORO STREAM HOTEL">
+  <article class="day-card" id="d4">
     <div class="day-head">
       <div class="day-num">DAY<span>04</span></div>
-      <div class="day-title"><div class="h">北大雪道 × 女友美妆女装 &amp; 男友 NANGA 扫货 × 烤羊肉</div><div class="s">12/28 一 · 🌲北大雪景 → 🍰六花亭堂食 → 🧥NANGA → 💃大丸/Stellar/PARCO女友买买买 → 🥩达摩烤肉</div></div>
+      <div class="day-title"><div class="h">北大雪景 × 买滑雪装备 × 女友购物</div><div class="s">12/28 一 · 北大 → 六花亭 → NANGA/Mont-bell → 大丸 → PARCO → 达摩烤肉</div></div>
       <div class="day-wx"><div class="ic">☀️</div>0/-5°<div class="stp">🚶 ~10,200</div></div>
     </div>
-    <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（赶在 12/31 闭馆前拿下 NANGA & Mont-bell！）</div><ul>
-      <li><b>① 为什么今天必买 NANGA？</b>因为 <b>Sapporo Factory 在 12/31 全馆休馆</b>，而且今天买好日产 NANGA 羽绒服和 Mont-bell 雪地配件，明天去小樽海边、后天去手稻滑雪正好穿上拍大片！</li>
-      <li><b>② 随身带护照原件：</b>NANGA、Mont-bell、Stellar Place（北面紫标/SHIRO）满 ¥5,500 当场免税 10%，结账必须出示护照原件。</li>
-      <li><b>③ 六花亭本店 2F 堂食限定：</b>札幌本店 2F 咖啡厅的<b>「マルセイアイスサンド（朗姆葡萄冰淇淋饼干）」</b>保质期仅几小时，全北海道只能在店里现吃！</li>
+    <div class="day-tasks"><div class="day-tasks-title">今天记住</div><ul>
+      <li><b>带护照原件：</b>满 ¥5,500 当场免税 10%</li>
+      <li><b>NANGA 和 Mont-bell 今天必须买：</b>Sapporo Factory 12/31 全馆休馆，后天就要滑雪</li>
+      <li><b>顺手买齐滑雪小件：</b>防水手套、雪镜、毛线帽，租雪服一般不含这些</li>
     </ul></div>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
-        <div class="n-top"><span class="n-time">10:00</span><span class="n-name">🌲 北海道大学 · 白桦林与百年古建筑雪景</span><a class="n-nav" href="https://www.google.com/maps/search/北海道大学+ポプラ並木" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">北海道大学（正門 → 古河講堂 → ポプラ並木 → Marche Café & Labo）</div>
-        <div class="n-find">从薄野坐地铁南北线 3 站到「北12条駅」步行 5 分钟即达！纯白积雪覆盖的西洋木造古河讲堂、高耸的白杨木林道，安静得只听见踩雪声。在农场直营咖啡厅喝杯热北大牛乳。<span class="tags"><span class="tag free">校园免费开放</span><span class="tag photo">清冷文艺雪景大片</span></span></div>
+        <div class="n-top"><span class="n-time">10:00</span><span class="n-name">🌲 北海道大学 · 白杨林雪景</span><a class="n-nav" href="https://www.google.com/maps/search/北海道大学+ポプラ並木" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-jp">北海道大学（正門 → 古河講堂 → ポプラ並木）</div>
+        <div class="n-find">南北线 3 站到「北12条駅」，走 5 分钟。雪里的木造古河讲堂和白杨林道，安静到只听得见踩雪声。<span class="tags"><span class="tag free">免费</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚶 从北大正门向南步行 8 分钟（可钻进札幌站地下通道取暖直达）</div></div>
+        <div class="seg-box"><div class="seg-main">🚶 从北大正门向南步行 8 分钟（可以走札幌站地下通道）</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">2</span>
-        <div class="n-top"><span class="n-time">11:45</span><span class="n-name">🍰 六花亭 札幌本店 (2F 喫茶室堂食限定)</span><a class="n-nav" href="https://www.google.com/maps/search/六花亭+札幌本店" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">六花亭 札幌本店 2F 喫茶室（11:00–16:30 L.O.16:00 · 周三定休，D4为周一正常营业！）</div>
-        <div class="n-find">直接上 2 楼咖啡厅！必点带不回国的<b>「マルセイアイスサンド（朗姆葡萄冰淇淋夹心饼 ¥300）」</b>＋<b>「雪こんチーズ（现烤奥利奥重芝士蛋糕）」</b>＋热披萨。<span class="tags"><span class="tag yen">🚶 免预约·本店限定</span></span></div>
+        <div class="n-top"><span class="n-time">11:45</span><span class="n-name">🍰 午餐 · 六花亭 札幌本店 2F</span><a class="n-nav" href="https://www.google.com/maps/search/六花亭+札幌本店" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-jp">六花亭 札幌本店 2F 喫茶室 · 11:00–16:30（周三休，今天周一）</div>
+        <div class="n-find">必点只能在店里现吃的「マルセイアイスサンド」（朗姆葡萄冰淇淋夹心饼 ¥300），再加一份现烤芝士蛋糕和热披萨。<span class="tags"><span class="tag yen">免预约</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚕 从六花亭门口打车 6 分钟（约 ¥900）直达 Sapporo Factory 2条馆门口</div></div>
+        <div class="seg-box"><div class="seg-main">🚕 打车 6 分钟（约 ¥900）到 Sapporo Factory 2条馆</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin">🛍</span>
-        <div class="n-top"><span class="n-time">13:30</span><span class="n-name">🧥 NANGA SHOP SAPPORO ＋ Mont-bell 旗舰店</span><a class="n-nav" href="https://www.google.com/maps/search/NANGA+SHOP+SAPPORO+サッポロファクトリー" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="Sapporo Factory (NANGA札幌店)" data-taxi-jp="サッポロファクトリー 2条館（NANGA SHOP SAPPORO）" data-taxi-addr="北海道札幌市中央区北2条東4丁目 サッポロファクトリー2条館 2F">🚕 给司机看</button></div>
-        <div class="n-jp">サッポロファクトリー 2条館 2F · 10:00–20:00（⚠️ 12/31 全馆休馆！）</div>
-        <div class="n-find"><b>Sapporo Factory 2条馆 2楼</b>把北海道最强户外牌子聚齐了：<br>
-        • <b>NANGA SHOP SAPPORO：</b>试穿日产王牌 <b>Aurora Tex Down Jacket / Light</b> 或 <b>Takibi 情侣难燃羽绒</b>，免税后约 ¥45,000–¥55,000（约 ¥2,100–2,600 RMB，国内 6 折！）。<br>
-        • <b>Mont-bell（就在隔壁）：</b>顺手入手 Plasma 1000 超轻羽绒、防风触屏手套、美利奴羊毛雪袜与<b>简易防滑冰爪（スノースパイク）</b>。<br>
-        • <b>中庭 Atrium 巨型玻璃温室：</b>高耸的红砖啤酒厂遗迹+15米巨型冬季装饰树，顺路拍一组工业复古风大片！<span class="tags"><span class="tag book">⚠️ 12/31休馆·今日必买</span><span class="tag yen">当场免税10%</span></span></div>
+        <div class="n-top"><span class="n-time">13:30</span><span class="n-name">🧥 NANGA ＋ Mont-bell · 滑雪前买装备</span><a class="n-nav" href="https://www.google.com/maps/search/NANGA+SHOP+SAPPORO+サッポロファクトリー" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="Sapporo Factory (NANGA札幌店)" data-taxi-jp="サッポロファクトリー 2条館（NANGA SHOP SAPPORO）" data-taxi-addr="北海道札幌市中央区北2条東4丁目 サッポロファクトリー2条館 2F">🚕 给司机看</button></div>
+        <div class="n-jp">サッポロファクトリー 2条館 2F · 10:00–20:00（12/31 休馆）</div>
+        <div class="n-find"><b>NANGA：</b>试 Aurora Tex 羽绒服或情侣款 Takibi，免税后约 ¥45,000–55,000（约 2,100–2,600 元）。<br><b>Mont-bell（隔壁）：</b>防水手套、雪镜、美利奴雪袜、简易冰爪（スノースパイク）。买完明天穿去小樽，后天穿去滑雪。<span class="tags"><span class="tag book">今天必买</span><span class="tag yen">当场免税</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚕 打车 5 分钟（约 ¥800）回到 JR 札幌站大丸百货 &amp; Stellar Place</div></div>
+        <div class="seg-box"><div class="seg-main">🚕 打车 5 分钟（约 ¥800）回 JR 札幌站</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin">💃</span>
-        <div class="n-top"><span class="n-time">15:30</span><span class="n-name">💃 女友主场① · 大丸札幌 × Stellar Place (北海道美妆/珠宝/买手店)</span><a class="n-nav" href="https://www.google.com/maps/search/大丸札幌店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="大丸札幌百货 &amp; Stellar Place" data-taxi-jp="大丸札幌店（JR札幌駅直結）" data-taxi-addr="北海道札幌市中央区北5条西4丁目7">🚕 给司机看</button></div>
-        <div class="n-jp">大丸札幌店 (1F–3F) ＋ 札幌ステラプレイス（全程室内暖气）</div>
-        <div class="n-find">男朋友在 Sapporo Factory 买完 NANGA 后，打车 5 分钟回 JR 札幌站开启<b>女朋友专属扫货局</b>：<br>
-        • <b>北海道本土香氛三巨头：</b><b>SHIRO</b>（大丸 1F / Stellar B1，北海道砂川发源，白茶/皂香香水、酒粕发光面膜仅国内 <b>5 折</b>！）、<b>HABA</b>（北海道无添加角鲨烷美容油原产地）、<b>北肌/富良野薰衣草精油</b>。<br>
-        • <b>日系极细 K 金雪花珠宝 &amp; 大牌包（大丸 1F–2F）：</b><b>Agete / Ete / Star Jewelry</b> 冬季限定 10K/18K 金六棱雪花项链与耳钉（圣诞跨年送女友惊喜绝杀！），以及货很全的 <b>BAO BAO 三宅一生、Celine、Loewe</b>。<br>
-        • <b>日系文艺买手店（Stellar Place）：</b><b>THE NORTH FACE Purple Label（北面紫标女装）</b>、<b>Bshop、BEAMS、UNITED ARROWS、TOMORROWLAND、MHL.、Marimekko</b>！<span class="tags"><span class="tag book">💃 SHIRO国内5折</span><span class="tag yen">大丸退税极快</span></span></div>
+        <div class="n-top"><span class="n-time">15:30</span><span class="n-name">💃 女友主场 ① · 大丸札幌 × Stellar Place</span><a class="n-nav" href="https://www.google.com/maps/search/大丸札幌店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="大丸札幌百货 &amp; Stellar Place" data-taxi-jp="大丸札幌店（JR札幌駅直結）" data-taxi-addr="北海道札幌市中央区北5条西4丁目7">🚕 给司机看</button></div>
+        <div class="n-jp">大丸札幌店 1F–3F ＋ 札幌ステラプレイス（全程室内）</div>
+        <div class="n-find">重点三家：<b>SHIRO</b> 香水和酒粕面膜（北海道品牌），<b>Agete / Star Jewelry</b> 冬季雪花项链（送礼），<b>北面紫标</b>女装。清单在工具箱里，可以打勾。<span class="tags"><span class="tag yen">大丸退税快</span></span></div>
+        <details class="exp"><summary>还有哪些店</summary><div class="exp-bd">
+          <p><b>大丸：</b>HABA 角鲨烷美容油、Ete、BAO BAO 三宅一生、Celine、Loewe。</p>
+          <p><b>Stellar Place：</b>Bshop、BEAMS、UNITED ARROWS、TOMORROWLAND、MHL.、Marimekko。</p>
+        </div></details>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚶 沿全暖气「札幌駅前通地下歩行空間 (チ・カ・ホ)」向南边逛边走 10 分钟直通大通 PARCO</div></div>
+        <div class="seg-box"><div class="seg-main">🚶 走全暖气地下通道「チ・カ・ホ」向南 10 分钟到大通 PARCO</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin">👗</span>
-        <div class="n-top"><span class="n-time">17:15</span><span class="n-name">👗 女友主场② · 札幌 PARCO × 狸小路 Vintage 中古街</span><a class="n-nav" href="https://www.google.com/maps/search/札幌PARCO" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌 PARCO 百货 (大通商圈)" data-taxi-jp="札幌パルコ（SAPPORO PARCO）" data-taxi-addr="北海道札幌市中央区南1条西3丁目3">🚕 给司机看</button></div>
-        <div class="n-jp">札幌PARCO → PIVOT CROSS → 狸小路 RAGTAG / 2nd STREET 中古店</div>
-        <div class="n-find">顺着全暖气的<b>札幌地下步行空间（チ・カ・ホ）</b>一路往南逛到大通/薄野（一步雪都不用踩）：<br>
-        • <b>札幌 PARCO：</b>集中扫荡日系仙女品牌 <b>SNIDEL、FRAY I.D、Mila Owen、Lily Brown</b>（大衣/马海毛毛衣约国内 5.5 折，买完明天穿去小樽拍照！），以及 <b>Vivienne Westwood Red Label（日本限定西太后土星刺绣围巾/贝雷帽/针织衫）</b>、<b>鬼塚虎 Nippon Made</b>。<br>
-        • <b>Vintage 中古寻宝（PARCO 旁步行 2 分钟）：</b>逛 <b>RAGTAG、2nd STREET、大黑屋</b>，淘 95 新日系设计师羊绒大衣与好价中古 Celine/LV 小包，回 Stream 酒店放好战利品下楼吃烤肉！<span class="tags"><span class="tag photo">西太后土星围巾拍照绝美</span><span class="tag free">直通薄野Stream酒店</span></span></div>
+        <div class="n-top"><span class="n-time">17:15</span><span class="n-name">👗 女友主场 ② · 札幌 PARCO × 狸小路中古店</span><a class="n-nav" href="https://www.google.com/maps/search/札幌PARCO" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌 PARCO 百货 (大通商圈)" data-taxi-jp="札幌パルコ（SAPPORO PARCO）" data-taxi-addr="北海道札幌市中央区南1条西3丁目3">🚕 给司机看</button></div>
+        <div class="n-jp">札幌PARCO → 狸小路 RAGTAG / 2nd STREET</div>
+        <div class="n-find"><b>PARCO：</b>SNIDEL、FRAY I.D、Mila Owen、Lily Brown 的大衣和毛衣，Vivienne Westwood Red Label 的日本限定围巾和贝雷帽。<br><b>中古店（走 2 分钟）：</b>RAGTAG、2nd STREET、大黑屋，淘设计师大衣和中古包。<span class="tags"><span class="tag free">走地下回酒店</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚶 走地下街 Pole Town 回 SAPPORO STREAM HOTEL 放购物袋，步行 4 分钟至达摩 5.5 店</div></div>
+        <div class="seg-box"><div class="seg-main">🚶 走地下街回酒店放东西，再步行 4 分钟到达摩</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">18:45</span><span class="n-name menu-link" data-open="mm-daruma">🥩 成吉思汗 达摩 (5.5店 / 4.4二阶亭) <span class="ml-badge">📖闭眼点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/成吉思汗だるま+5.5店" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">成吉思汗だるま 5.5店 ／ 4.4二階亭（距 Stream 酒店步行 4 分钟）</div>
-        <div class="n-find">1954 年创立的札幌烤小羊肉天花板！用备长炭铁锅烤冰鲜北海道羊肩肉，毫无膻味、汁水丰盈。<b>避峰秘籍：去座位最多且新净的「5.5店」或可网上订位的「4.4二阶亭」</b>，比老本店少排一半队！<span class="tags"><span class="tag queue">⚠️ 4.4二阶亭可预约/5.5现场排</span></span></div>
+        <div class="n-top"><span class="n-time">18:45</span><span class="n-name menu-link" data-open="mm-daruma">🥩 晚餐 · 成吉思汗 达摩 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/成吉思汗だるま+5.5店" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-jp">成吉思汗だるま 5.5店 ／ 4.4二階亭（酒店步行 4 分）</div>
+        <div class="n-find">1954 年开业的札幌炭烤羊肉老店。去座位多的 5.5 店，或者能网上订位的 4.4 二阶亭，比本店少排一半队。年末部分分店休息，所以排在今天。<span class="tags"><span class="tag queue">二阶亭可预约</span></span></div>
       </div>
     </div>
     <a class="gmap" href="https://www.google.com/maps/dir/北海道大学/六花亭札幌本店/サッポロファクトリー/札幌ステラプレイス/成吉思汗だるま5.5店" target="_blank" rel="noopener">
@@ -771,126 +744,107 @@
       用 Google 地图看 D4 路线
     </a>
   </article>
+
   <!-- ============ DAY 5 ============ -->
   <article class="day-card" id="d5">
     <div class="day-head">
       <div class="day-num">DAY<span>05</span></div>
-      <div class="day-title"><div class="h">《情书》无人海边雪站 × 小樽蓝调时刻</div><div class="s">12/29 二 · 🏨薄野 → 🌊朝里站 → 🍰南小樽/堺町通 → 🚠天狗山 → ✨青之运河 → 🍲汤咖喱</div></div>
+      <div class="day-title"><div class="h">《情书》朝里站 × 小樽蓝调</div><div class="s">12/29 二 · 朝里站 → 堺町通 → 三角市场 → 船见坂 → 天狗山 → 运河 → 汤咖喱</div></div>
       <div class="day-wx"><div class="ic">🌨</div>-1/-6°<div class="stp">🚶 ~10,800</div></div>
     </div>
-    <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（趁年末关门前·上午出发拍齐白昼与蓝调！）</div><ul>
-      <li><b>① 选座铁律：</b>坐 JR 往小樽方向请死守<b>【前进方向右侧靠窗】</b>！过钱函站后火车直接贴着石狩湾海浪与白色雪岸飞驰，手机贴窗拍绝美海景视频。</li>
-      <li><b>② 朝里站跳车：</b>在「朝里站」下车拍 30 分钟《情书》无人看海雪站，<b>下车第一件事先看下一班往小樽/南小樽的时刻表</b>（约 20–30 分钟一班）。</li>
-      <li><b>③ 单向微下坡：</b>严格执行<b>「南小樽站下车 → 堺町通 → 运河 → 小樽站上车」</b>单向微下坡动线，雪地省力且绝不走回头路。</li>
-      <li><b>④ 15:15 登顶天狗山：</b>趁 16:03 日落前坐上天狗山缆车，一次集齐<b>白昼雪山海湾 + 日落金辉 + 16:15 蓝调万家灯火</b>三重机位！</li>
+    <div class="day-tasks"><div class="day-tasks-title">今天记住</div><ul>
+      <li><b>坐普通列车，坐前进方向右侧靠窗。</b>快速 Airport 号不停朝里站；过了钱函站就贴着海开</li>
+      <li><b>在南小樽下车，</b>往小樽站方向一路微下坡，不走回头路</li>
+      <li><b>15:15 前上天狗山，</b>16:03 日落，白天、日落、夜景一次拍齐</li>
     </ul></div>
-    <div class="day-adv"><details class="exp"><summary>🌡️ 今日穿什么 · 海风防寒与小樽出片配色</summary><div class="exp-bd">
-      <div class="adv-grid"><span class="adv-chip">🧣 <b>亮色围巾/红毛衣</b></span><span class="adv-chip">🧤 触屏手套+暖宝宝</span><span class="adv-chip">🥾 防滑防水雪地靴</span><span class="adv-chip">🔋 充电宝贴身放</span></div>
-      <p>朝里站海边与天狗山顶风力比市区大 2 级，<b>帽子（护耳）+ 围巾</b>必戴。拍照穿搭强烈推荐<b>正红、姜黄、克莱因蓝或驼色大衣</b>，在朝里站白雪大海和船见坂背景里对比度拉满！低温下 iPhone 掉电快，给手机背面贴一片暖宝宝。<a class="wx-live" href="https://tenki.jp/forecast/1/2/1400/1203/" target="_blank" rel="noopener">🔗 查小樽实时天气 →</a></p>
-    </div></details></div>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin hotel">🏨</span>
-        <div class="n-top"><span class="n-time">09:30</span><span class="n-name hotel">SAPPORO STREAM HOTEL 出发</span><a class="n-nav" href="https://www.google.com/maps/search/SAPPORO+STREAM+HOTEL" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">09:30</span><span class="n-name hotel">从酒店出发</span><a class="n-nav" href="https://www.google.com/maps/search/SAPPORO+STREAM+HOTEL" target="_blank" rel="noopener">📍导航</a></div>
         <div class="n-jp">すすきの駅 → 札幌駅（地下鉄南北線 2駅）</div>
-        <div class="n-find">12/29 是小樽堺町通甜品老铺与三角市场<b>年末正常营业的黄金窗口</b>（12/30–31 许多店铺提早打烊或店休），今天上午准时出发，把白昼海雪与傍晚蓝调一次拿下！</div>
+        <div class="n-find">12/29 是小樽老铺年末正常营业的最后一天，12/30 起很多店提早关门或休息。</div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚇 南北线「すすきの → さっぽろ」4分 ＋ 🚉 JR 函馆本线（小樽方向）普通列车「札幌 → 朝里」约 35分 <b>刷 Suica</b></div>
-          <div class="seg-sub">⚠️ <b>避坑提醒</b>：去「朝里站」必须坐<b>普通列车（Local / 普通）</b>或区间快速（看清停靠站），<b>快速 Airport 号不停朝里站</b>！上车坐<b>右侧窗边</b>，过了「銭函（Zenibako）」立即举起相机。</div>
-        </div>
+        <div class="seg-box"><div class="seg-main">🚇 南北线到札幌站 ＋ 🚉 JR 函馆本线<b>普通列车</b>「札幌 → 朝里」约 35 分，刷 Suica</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
-        <div class="n-top"><span class="n-time">10:15</span><span class="n-name">🌊 朝里站 · 《情书》无人海边雪站</span><a class="n-nav" href="https://www.google.com/maps/search/朝里駅" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="JR朝里站" data-taxi-jp="JR朝里駅（あさりえき）" data-taxi-addr="北海道小樽市朝里1丁目">🚕 给司机看</button></div>
-        <div class="n-jp">朝里駅 · Asari Station（映画『Love Letter』ロケ地）</div>
-        <div class="n-find">《情书》与无数日剧取景的无人看海小站！深邃湛蓝的石狩湾紧贴着覆满白雪的月台栏杆与复古站牌，相比人挤人的小樽运河，这里<b>人少、安静、出片率 100%</b>！拍 30 分钟后搭下一班普通列车 2 站（7 分钟）直达「南小樽站」。<span class="tags"><span class="tag free">无人车站·Suica进出</span><span class="tag photo">停留 30–35 分钟</span></span></div>
-        <details class="exp"><summary>展开三大神仙拍摄机位解说</summary><div class="exp-bd">
-          <p><b>📸 机位① 跨线天桥俯拍（封神机位）：</b>站内连接两个月台的绿色跨线小天桥，透过窗户或下楼梯转角往下拍——<b>女友站在雪白月台 + 背后蔚蓝大海 + 进站列车同框</b>，日系电影感直接拉满。</p>
-          <p><b>📸 机位② 2号月台白雪木栅栏 + 蓝白「朝里」站牌：</b>背靠大海海浪拍半身/侧颜人像，海面反光就是天然反光板。</p>
-          <p><b>📸 机位③ 出站步行 1 分钟海边防波堤：</b>刷卡出小木屋站房，走几步就是石狩湾鹅卵石雪滩，可拍海浪拍打白雪礁石与黄色小木屋同框。⚠️ <b>严禁踏入铁轨区域</b>，站在月台黄线内用 2x–3x 镜头压缩感最好。</p>
+        <div class="n-top"><span class="n-time">10:15</span><span class="n-name">🌊 朝里站 · 《情书》看海雪站</span><a class="n-nav" href="https://www.google.com/maps/search/朝里駅" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="JR朝里站" data-taxi-jp="JR朝里駅（あさりえき）" data-taxi-addr="北海道小樽市朝里1丁目">🚕 给司机看</button></div>
+        <div class="n-jp">朝里駅 · 映画『Love Letter』ロケ地</div>
+        <div class="n-find">月台栏杆后面就是石狩湾，没什么人。拍 30 分钟，<b>下车先看下一班去南小樽的时间</b>（20–30 分钟一班）。<span class="tags"><span class="tag free">刷 Suica 进出</span><span class="tag photo">停 30 分钟</span></span></div>
+        <details class="exp"><summary>三个机位</summary><div class="exp-bd">
+          <p><b>① 跨线天桥：</b>从天桥窗户或楼梯转角往下拍，月台、大海、进站列车同框。</p>
+          <p><b>② 2 号月台：</b>雪白木栅栏加蓝白站牌，背对大海拍半身。</p>
+          <p><b>③ 出站 1 分钟的防波堤：</b>海浪拍雪礁石。不要进铁轨区域，站在黄线内用 2x–3x 拍。</p>
         </div></details>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚉 JR 普通列车「朝里 → 南小樽」2站 · 7分钟</div>
-          <div class="seg-sub">💡 <b>为什么在「南小樽」下车？</b>堺町通商业街的起点就在南小樽站下方！从南小樽往小樽站走全程是<b>顺向微下坡</b>，省体力且一气呵成逛完所有甜品店直抵运河。</div>
-        </div>
+        <div class="seg-box"><div class="seg-main">🚉 JR 普通列车「朝里 → 南小樽」2 站 · 7 分钟</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin">2</span>
-        <div class="n-top"><span class="n-time">11:15</span><span class="n-name">🚉 南小樽 → 堺町通漫步 · 女友手作孤品 × 甜品三巨头</span><a class="n-nav" href="https://www.google.com/maps/search/小樽オルゴール堂+本館" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽八音盒堂本馆 (童话十字路口)" data-taxi-jp="小樽オルゴール堂 本館（メルヘン交差点）" data-taxi-addr="北海道小樽市住吉町4-1">🚕 给司机看</button></div>
-        <div class="n-jp">オルゴール堂 → 北一硝子/大正硝子 → SNOOPY/Miffy小樽限定 → LeTAO/北菓楼/六花亭</div>
-        <div class="n-find">从南小樽出站步行 6 分钟即达<b>童话十字路口（メルヘン交差点）</b>，这里是女朋友的少女心天堂：<br>① <b>小樽八音盒堂本馆</b>：门前古董蒸汽钟每 15 分钟喷白烟奏乐；馆内 3,000+ 款八音盒，挑一只底座刻有 Otaru 的<b>旋转木马/玻璃天使八音盒</b>。<br>② <b>北一硝子（三号馆/水晶馆）&amp; 大正硝子馆</b>：北海道纯手作吹制玻璃！必入<b>「倒入冷水浮现雪花的变色玻璃杯」</b>与<b>手作琉璃小雪人/海豹耳环、戒指托</b>（¥1,200起，全宇宙不撞款）。<br>③ <b>SNOOPY 茶屋 ＆ Miffy 米菲兔小樽店（みっふぃーおやつ堂）</b>：收一只<b>北海道限定薰衣草紫 / 雪人装扮的史努比 &amp; 米菲兔毛绒挂件</b>挂包上拍照！<br>④ <b>LeTAO 本店 + 北菓楼 + 六花亭</b>：上 LeTAO 3F 免费钟楼俯拍街景、2F 吃奇迹双层芝士蛋糕，北菓楼吃梦不思议大泡芙。<span class="tags"><span class="tag photo">🎐 北一硝子琉璃耳环/雪花杯</span><span class="tag yen">🐰 北海道限定米菲兔/史努比</span></span></div>
-        <details class="exp"><summary>展开解说与避坑</summary><div class="exp-bd">
-          <p><b>伴手礼减负原则：</b>北菓楼米果、六花亭、LeTAO 冷冻蛋糕在 <b>D7 新千岁机场国内线 2F 全部货源充足且免税</b>！今天在堺町通只吃<b>现做堂食</b>（LeTAO 鲜打双层芝士、北菓楼现烤泡芙、六花亭雪やこんこ現烤冰淇淋夹心），<b>千万别大包小包拎着逛小樽</b>！</p>
-          <p><b>北一硝子三号馆（北一ホール）：</b>顺路走 3 分钟，167 盏手点煤油灯摇曳的百年石造仓库咖啡厅，进去拍张照或喝杯热奶茶超浪漫。</p>
+        <div class="n-top"><span class="n-time">11:15</span><span class="n-name">🎐 堺町通 · 玻璃、音乐盒、甜品</span><a class="n-nav" href="https://www.google.com/maps/search/小樽オルゴール堂+本館" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽八音盒堂本馆 (童话十字路口)" data-taxi-jp="小樽オルゴール堂 本館（メルヘン交差点）" data-taxi-addr="北海道小樽市住吉町4-1">🚕 给司机看</button></div>
+        <div class="n-jp">オルゴール堂 → 北一硝子 / 大正硝子 → SNOOPY / Miffy → LeTAO / 北菓楼</div>
+        <div class="n-find">从南小樽站走 6 分钟到童话十字路口，一路逛下去：<b>音乐盒堂本馆</b>（门口蒸汽钟每 15 分钟奏乐），<b>北一硝子</b>手作玻璃（倒冷水会浮现雪花的杯子、琉璃耳环），<b>SNOOPY 茶屋 / Miffy</b> 北海道限定挂件，最后在 LeTAO 吃现做的双层芝士蛋糕。<span class="tags"><span class="tag photo">手作孤品</span></span></div>
+        <details class="exp"><summary>伴手礼别在这里买</summary><div class="exp-bd">
+          <p>北菓楼、六花亭、LeTAO 冷冻蛋糕在 D7 新千岁机场 2F 都有，而且免税。今天只吃现做的，别拎着大盒子逛小樽。</p>
+          <p>顺路的北一硝子三号馆是 167 盏煤油灯照明的百年仓库咖啡厅，进去拍张照很值。</p>
         </div></details>
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">13:00</span><span class="n-name menu-link" data-open="mm-otaru">🦀 小樽午餐 · 三角市场海鲜丼 / 若鸡时代炸半鸡 <span class="ml-badge">📖菜单</span></span><a class="n-nav" href="https://www.google.com/maps/search/小樽三角市場+滝波食堂" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽三角市场 / 若鸡时代本店" data-taxi-jp="小樽三角市場（さんかくいちば） / 若鶏時代なると 本店" data-taxi-addr="北海道小樽市稲穂3丁目10-16（三角市場）">🚕 给司机看</button></div>
-        <div class="n-jp">三角市場「滝波食堂 / 武田鮮魚店」 或 「若鶏時代なると 本店」</div>
-        <div class="n-find">根据胃口与排队情况二选一：<br>🦀 <b>选项 A · 三角市场「泷波食堂 / 武田鲜鱼店」</b>：招牌「わがまま丼（任性自选三色/四色丼）」，闭眼选<b>生海胆 + 甜虾 + 巨型帆立贝 + 鲑鱼籽</b>，再点一碗铁炮汁（蟹汤）！<br>🍗 <b>选项 B · 若鸡时代 Naruto 本店（なると本店）</b>：小樽灵魂名物！《First Love》同款现炸黄金半身鸡（若鶏半身揚げ），外皮极薄酥脆、撕开狂飙肉汁，配生啤与握寿司套餐，座位多翻台极快！<span class="tags"><span class="tag yen">三色丼 ~¥3,300</span><span class="tag yen">炸半鸡定食 ¥1,600</span></span></div>
-        <details class="exp"><summary>展开三角市场不排队秘籍</summary><div class="exp-bd">
-          <p><b>三角市场排号技巧：</b>「泷波食堂」门口有自助取号机，若排队超过 40 分钟，隔壁<b>「武田鲜鱼店（武田鮮魚店）」</b>是自家水产直营，出品同样顶、座位更多，通常 15 分钟内能入座！</p>
-          <p>若不想在狭窄市场站着等，从三角市场步行 5 分钟就是<b>「若鸡时代 Naruto 本店」</b>，两层楼超大空间，热乎乎的现炸半鸡在雪天吃幸福感爆棚。</p>
+        <div class="n-top"><span class="n-time">13:00</span><span class="n-name menu-link" data-open="mm-otaru">🦀 午餐 · 三角市场海鲜丼 或 若鸡时代 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/小樽三角市場+滝波食堂" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽三角市场 / 若鸡时代本店" data-taxi-jp="小樽三角市場（さんかくいちば） / 若鶏時代なると 本店" data-taxi-addr="北海道小樽市稲穂3丁目10-16（三角市場）">🚕 给司机看</button></div>
+        <div class="n-jp">三角市場「滝波食堂 / 武田鮮魚店」 ／ 「若鶏時代なると 本店」</div>
+        <div class="n-find"><b>A · 泷波食堂：</b>「わがまま丼」自选海胆、甜虾、帆立贝、鲑鱼籽，约 ¥3,300。<br><b>B · 若鸡时代：</b>小樽名物现炸半只鸡定食，约 ¥1,600，座位多、翻台快。<span class="tags"><span class="tag queue">泷波现场取号</span></span></div>
+        <details class="exp"><summary>排队太长怎么办</summary><div class="exp-bd">
+          <p>泷波门口取号，等超过 40 分钟就去隔壁<b>武田鲜鱼店</b>，水产直营，一般 15 分钟内有位。不想在市场站着等，就走 5 分钟去若鸡时代。</p>
+          <p>想吃正经寿司的话，<b>政寿司本店</b>（《将太的寿司》原型）要提前在官网订吧台。</p>
         </div></details>
       </div>
       <div class="r-item r-node">
         <span class="r-pin nat">4</span>
-        <div class="n-top"><span class="n-time">14:30</span><span class="n-name">📸 船见坂 · 《情书》坡道尽头看海</span><a class="n-nav" href="https://www.google.com/maps/search/船見坂+小樽" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽 船见坂 (上坡拍照点)" data-taxi-jp="船見坂（ふなみざか）上の交差点付近" data-taxi-addr="北海道小樽市富岡1丁目・稲穂3丁目境界">🚕 给司机看</button></div>
-        <div class="n-jp">船見坂 · Funamizaka（小樽駅から徒歩5分）</div>
-        <div class="n-find">就在三角市场旁步行 3 分钟！《情书》里邮递员骑摩托车冲上来的 15 度陡坡。站在坡道高处往下拍，<b>笔直的雪坡公路尽头直接撞进深蓝色大海与港口</b>，开启手机 <b>3x / 5x 长焦镜头</b>可以把大海“拉近”塞满背景！<span class="tags"><span class="tag photo">3x长焦封神</span><span class="tag free">注意避让车辆</span></span></div>
+        <div class="n-top"><span class="n-time">14:30</span><span class="n-name">📸 船见坂 · 坡道尽头是海</span><a class="n-nav" href="https://www.google.com/maps/search/船見坂+小樽" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽 船见坂 (上坡拍照点)" data-taxi-jp="船見坂（ふなみざか）上の交差点付近" data-taxi-addr="北海道小樽市富岡1丁目・稲穂3丁目境界">🚕 给司机看</button></div>
+        <div class="n-jp">船見坂 · 三角市场旁步行 3 分</div>
+        <div class="n-find">《情书》里邮递员骑车冲上来的陡坡。站在高处往下拍，用 3x/5x 长焦把海拉近。<span class="tags"><span class="tag photo">3x 长焦</span><span class="tag free">注意避车</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚕 小樽站前 / 船见坂打车直上「天狗山缆车站」约 10分（约 ¥1,300） 或 🚌 小樽站前 4 号站台搭 9 号巴士 17分</div>
-          <div class="seg-sub">💡 <b>强烈建议两人直接打车去缆车站</b>：仅 ¥1,300 左右，免去雪中等巴士吹冷风，精准卡在 15:15 登顶！</div>
-        </div>
+        <div class="seg-box"><div class="seg-main">🚕 打车约 10 分钟（约 ¥1,300）到天狗山缆车站，比在雪里等巴士强</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin nat">5</span>
-        <div class="n-top"><span class="n-time">15:15</span><span class="n-name">🚠 小樽天狗山缆车 · 《First Love》同款蓝调夜景</span><a class="n-nav" href="https://www.google.com/maps/search/小樽天狗山ロープウェイ" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽天狗山缆车站" data-taxi-jp="小樽天狗山ロープウェイ 山麓駅" data-taxi-addr="北海道小樽市最上2丁目16-15">🚕 给司机看</button></div>
-        <div class="n-jp">小樽天狗山ロープウェイ · 北海道三大夜景</div>
-        <div class="n-find">北海道三大夜景之一，也是日剧《First Love 初恋》男女主定情看夜景的圣地！<b>15:15 上山是最聪明的黄金时刻</b>：<br>・<b>15:20–15:55（白昼+日落）</b>：趁天亮先拍山顶皑皑白雪、天狗山神社红鸟居、屋顶展望台与湛蓝石狩湾同框；<br>・<b>16:00–16:25（蓝调时刻）</b>：进 TENGUU CAFE 喝热可可等 16:03 日落，随后出来拍<b>深邃宝蓝色天空 + 蜿蜒海岸线宝石般亮起的万家灯火</b>，给女友开闪光灯拍夜景人像绝美！<span class="tags"><span class="tag yen">往返缆车 ¥1,800</span><span class="tag photo">16:03日落·蓝调绝景</span></span></div>
-        <details class="exp"><summary>展开机位指南 &amp; 暴雪大风停运 Plan B</summary><div class="exp-bd">
-          <p><b>📸 必拍 3 个点：</b>① <b>屋上展望台（Roof Deck）</b>毫无遮挡俯瞰整个小樽港湾；② <b>TENGUU 露台（天狗桜展望台）</b>带弧形沙发座与大树，构图极佳；③ 下山缆车站在<b>车厢最前排靠海侧</b>拍缓缓坠入万家灯火的视频。</p>
-          <p><b>🛡️ 恶劣天气 Plan B（若遇强风缆车停运）：</b>出发前扫一眼官网运航状态；若停运，直接去运河旁的<b>「小樽艺术村 · 花窗玻璃美术馆（ステンドグラス美術館）」</b>，室内温暖如春，英国教堂百年巨幅彩绘玻璃在冬日暗调下美得令人窒息，再逛小樽浪漫馆。</p>
+        <div class="n-top"><span class="n-time">15:15</span><span class="n-name">🚠 天狗山缆车 · 日落和夜景</span><a class="n-nav" href="https://www.google.com/maps/search/小樽天狗山ロープウェイ" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽天狗山缆车站" data-taxi-jp="小樽天狗山ロープウェイ 山麓駅" data-taxi-addr="北海道小樽市最上2丁目16-15">🚕 给司机看</button></div>
+        <div class="n-jp">小樽天狗山ロープウェイ · 北海道三大夜景之一</div>
+        <div class="n-find">15:20–15:55 趁天亮拍雪山和海湾；进 TENGUU CAFE 喝热可可等 16:03 日落；16:00–16:25 出来拍蓝调和亮起来的港口灯火。<span class="tags"><span class="tag yen">往返 ¥1,800</span><span class="tag photo">蓝调夜景</span></span></div>
+        <details class="exp"><summary>机位和停运 Plan B</summary><div class="exp-bd">
+          <p><b>机位：</b>屋顶展望台看整个港湾；天狗桜展望台有弧形沙发；下山时站车厢最前排靠海的一侧拍视频。</p>
+          <p><b>大风停运：</b>出发前看官网运行状态。停运就去运河旁的小樽艺术村彩绘玻璃美术馆，室内暖和。</p>
         </div></details>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚠 缆车下山 ＋ 🚕 打车直达「小樽运河 浅草桥」约 10分（约 ¥1,400）</div>
-        </div>
+        <div class="seg-box"><div class="seg-main">🚠 下山 ＋ 🚕 打车约 10 分钟（约 ¥1,400）到运河浅草桥</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin nat">6</span>
-        <div class="n-top"><span class="n-time">16:45</span><span class="n-name">✨ 小樽运河 ·「青之运河」冬季限定亮灯</span><a class="n-nav" href="https://www.google.com/maps/search/小樽運河+浅草橋街園" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽运河 浅草桥观景台" data-taxi-jp="小樽運河 浅草橋街園（あさくさばし）" data-taxi-addr="北海道小樽市港町5">🚕 给司机看</button></div>
+        <div class="n-top"><span class="n-time">16:45</span><span class="n-name">✨ 小樽运河 · 青之运河</span><a class="n-nav" href="https://www.google.com/maps/search/小樽運河+浅草橋街園" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽运河 浅草桥观景台" data-taxi-jp="小樽運河 浅草橋街園（あさくさばし）" data-taxi-addr="北海道小樽市港町5">🚕 给司机看</button></div>
         <div class="n-jp">小樽ゆき物語「青の運河」· 浅草橋 ～ 中央橋</div>
-        <div class="n-find">11 月至次年 1 月底限定！运河沿岸亮起 <b>10,000 颗冰晶蓝 LED 灯</b>，配合复古煤气灯的暖黄光晕倒映在墨绿水面上，与覆盖厚雪的石造仓库交织成梦幻冷暖撞色。拍完浅草桥标准照后，<b>下台阶走运河步道往「中央桥」方向走</b>，桥洞下几乎没人，拍情侣合照更干净！拍完沿中央通直走 8 分钟即达 JR 小樽站。<span class="tags"><span class="tag free">冬季限定亮灯</span><span class="tag photo">浅草桥+中央桥机位</span></span></div>
+        <div class="n-find">冬季限定的蓝色灯光加煤气灯。浅草桥拍完标准照，下台阶往中央桥方向走，桥洞下没什么人。再走 8 分钟到小樽站。<span class="tags"><span class="tag free">冬季限定</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚉 JR 快速 Airport 号「小樽 → 札幌」32分 ＋ 🚇 南北线至「すすきの」</div>
-          <div class="seg-sub">💡 <b>小樽是始发站</b>！提前 10 分钟进站上车，自由席也能稳稳坐到并排座位，一路吹着暖气睡回札幌。</div>
-        </div>
+        <div class="seg-box"><div class="seg-main">🚉 JR 快速 Airport 号「小樽 → 札幌」32 分（小樽是始发站，提前 10 分钟进站有座）＋ 🚇 南北线到すすきの</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">7</span>
-        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-soupcurry">🍲 薄野晚餐 · 汤咖喱 Suage+ 本店 或 GARAKU <span class="ml-badge">📖菜单</span></span><a class="n-nav" href="https://www.google.com/maps/search/スープカレー+すあげプラス+本店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="汤咖喱 Suage+ 本店 (薄野)" data-taxi-jp="スープカレー Suage+（すあげプラス）本店" data-taxi-addr="北海道札幌市中央区南4条西5丁目6-1 都志松ビル2F">🚕 给司机看</button></div>
-        <div class="n-jp">Soup Curry Suage+（すあげプラス）本店 ／ GARAKU</div>
-        <div class="n-find">在小樽吹了一天海风，回薄野喝一口滚烫辛香的<b>北海道灵魂美食——汤咖喱（Soup Curry）</b>直接满血复活！<b>Suage+ 本店</b>就在你住的 SAPPORO STREAM HOTEL 步行 2 分钟处！招牌<b>「脆皮知床鸡腿蔬菜汤咖喱」</b>+<b>「厚切炙烧角煮（五花肉）汤咖喱」</b>，米饭必加<b>炙烧芝士（ライスにチーズ on）</b>，挤上柠檬汁拌进汤里香迷糊了！<span class="tags"><span class="tag yen">人均 ~¥1,750</span><span class="tag queue">距酒店步行2分钟</span></span></div>
-        <details class="exp"><summary>展开点单三步口诀与免吹风排队技巧</summary><div class="exp-bd">
-          <p><b>📋 汤咖喱点单三步法：</b>① 选主菜（知床鸡腿パリパリ知床鶏 / 炙烧角煮）；② 选汤底（<b>原味定番スープ</b>最鲜醇，或椰奶汤底）；③ 选辣度（<b>3 番中辛</b>微辣提鲜最推荐）+ 饭量（小盛/中盛 + <b>炙烧芝士 ¥200</b>）。</p>
-          <p><b>💡 排队策略：</b><b>Suage+ 本店</b>在大楼 2F 楼梯间排（不用在室外吹风），且隔壁 30 米还有分店 <b>Suage2</b> 共同分流，通常 15–25 分钟即入座；<b>GARAKU</b> 可提前用 LINE 线上取号，到号再去。</p>
+        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-soupcurry">🍲 晚餐 · 汤咖喱 Suage+ 本店 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/スープカレー+すあげプラス+本店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="汤咖喱 Suage+ 本店 (薄野)" data-taxi-jp="スープカレー Suage+（すあげプラス）本店" data-taxi-addr="北海道札幌市中央区南4条西5丁目6-1 都志松ビル2F">🚕 给司机看</button></div>
+        <div class="n-jp">Soup Curry Suage+ 本店（酒店步行 2 分）／ GARAKU</div>
+        <div class="n-find">吹了一天海风，回来喝一碗汤咖喱。点脆皮知床鸡腿 + 炙烧角煮，辣度 3 号，米饭加炙烧芝士。人均约 ¥1,750。<span class="tags"><span class="tag queue">现场取号</span></span></div>
+        <details class="exp"><summary>排队技巧</summary><div class="exp-bd">
+          <p>Suage+ 在大楼 2F 楼梯间排队，不用在外面吹风，隔壁 30 米还有分店 Suage2，一般 15–25 分钟入座。GARAKU 可以用 LINE 线上取号。</p>
         </div></details>
       </div>
     </div>
     <a class="gmap" href="https://www.google.com/maps/dir/SAPPORO+STREAM+HOTEL/朝里駅/南小樽駅/小樽三角市場/船見坂/小樽天狗山ロープウェイ/小樽運河浅草橋/スープカレーSuage+本店" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-      用 Google 地图看今天路线
+      用 Google 地图看 D5 路线
     </a>
   </article>
 
@@ -898,67 +852,78 @@
   <article class="day-card" id="d6">
     <div class="day-head">
       <div class="day-num">DAY<span>06</span></div>
-      <div class="day-title"><div class="h">看海滑雪初体验 × 雪谷私汤 × 跨年前夜帝王蟹盛宴</div><div class="s">12/30 三 · 🏨薄野 → 🎿手稻看海滑雪 → ♨️定山溪私汤/丰平峡温泉 → 🦀帝王蟹全蟹宴</div></div>
-      <div class="day-wx"><div class="ic">❄️</div>-2/-7°<div class="stp">🚶 ~7,200</div></div>
+      <div class="day-title"><div class="h">手稻滑雪团课 × 跨年前夜蟹宴</div><div class="s">12/30 三 · 团车接送 → 你单板、她双板分开上课 → 回酒店休息 → 19:00 螃蟹</div></div>
+      <div class="day-wx"><div class="ic">❄️</div>-2/-7°<div class="stp">🚶 ~6,500</div></div>
     </div>
-    <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（年末闭园避坑 × 滑雪泡汤螃蟹王炸日）</div><ul>
-      <li><b>① 年末避坑：</b>今天是 12/30，旭山动物园已进入年末闭园期（12/30–1/1 休园），不去跑空！改去离札幌仅 35 分钟的<b>「札幌手稻滑雪场」看海滑雪</b>最爽。</li>
-      <li><b>② 零基础也出片：</b>完全不会滑也没问题！直接租一套<b>「手ぶらパック（空手来全套雪服+雪具）」</b>，坐缆车上山顶拍<b>白雪雪道直冲石狩湾蔚蓝大海</b>的封神大片，再在平缓新手道玩雪 2 小时。</li>
-      <li><b>③ 下午雪谷泡汤：</b>滑完雪浑身微酸，下午去<b>「定山溪雪景貸切私汤」</b>（情侣独享包间）或<b>「丰平峡温泉」</b>（官方允许纹身入内的百人雪景露天大汤）泡热汤解乏。</li>
-      <li><b>④ 19:00 跨年前夜大餐：</b>回薄野吃已提前锁死预约的<b>「札幌螃蟹本家 / 冰雪之门」</b>帝王蟹+毛蟹+松叶蟹会席！</li>
+    <div class="day-tasks"><div class="day-tasks-title">今天记住</div><ul>
+      <li><b>集合时间和地点以团课订单为准，</b>下面的时间是常见安排</li>
+      <li><b>分开上课：</b>你上单板班，她上双板班，午饭会合</li>
+      <li><b>带上 D4 买的手套、雪镜、毛线帽；</b>里面穿速干保暖内衣加薄抓绒，别穿纯棉</li>
     </ul></div>
-    <div class="day-adv"><details class="exp"><summary>🌡️ 今日穿什么 · 滑雪场内搭与泡汤准备</summary><div class="exp-bd">
-      <div class="adv-grid"><span class="adv-chip">👕 <b>速干保暖内衣</b></span><span class="adv-chip">🧦 长筒厚运动袜</span><span class="adv-chip">🕶️ 雪镜/墨镜防雪盲</span><span class="adv-chip">♨️ 泡汤便携护肤品</span></div>
-      <p><b>滑雪千万别穿纯棉秋衣或厚毛衣！</b>雪服非常防风保暖，里面穿<b>1件发热速干内衣 + 1件薄抓绒/卫衣</b>即可，穿雪靴必须配过小腿肚的长筒厚袜防磨脚。滑完雪直接去泡温泉，带好小瓶保湿乳液。<a class="wx-live" href="https://sapporo-teine.com/snow/" target="_blank" rel="noopener">🔗 查手稻雪场实时雪况与缆车 →</a></p>
-    </div></details></div>
     <div class="route">
       <div class="r-item r-node">
+        <span class="r-pin hotel">🚌</span>
+        <div class="n-top"><span class="n-time">08:00</span><span class="n-name">集合上车 · 中文滑雪团</span></div>
+        <div class="n-jp">集合点看订单（一般在札幌市区）</div>
+        <div class="n-find">团课一般包接送、雪服雪具和教学。缆车票含不含，下单时要看清楚。<span class="tags"><span class="tag book">要先订</span></span></div>
+      </div>
+      <div class="r-item r-seg">
+        <div class="seg-box">
+          <div class="seg-main">🚌 团车到手稻 Olympia 区约 40 分钟</div>
+          <div class="seg-sub">💡 如果最后订的团不含接送：从薄野打车约 35 分钟（约 ¥6,500），或 JR 到手稻站，在南口 3 号站台坐「手70」巴士 16 分钟到「サッポロテイネオリンピア前」。</div>
+        </div>
+      </div>
+      <div class="r-item r-node">
         <span class="r-pin nat">1</span>
-        <div class="n-top"><span class="n-time">09:00</span><span class="n-name">🎿 札幌手稻滑雪场 · 冲向大海的冬奥粉雪道</span><a class="n-nav" href="https://www.google.com/maps/search/サッポロテイネ+オリンピアスキースクール" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌手稻滑雪场 (奥林匹亚区租雪具)" data-taxi-jp="サッポロテイネ オリンピアゾーン（聖火台エリア）" data-taxi-addr="北海道札幌市手稲区手稲本町593-3">🚕 给司机看</button></div>
-        <div class="n-jp">サッポロテイネ（Sapporo Teine）· オリンピアゾーン / ハイランドゾーン</div>
-        <div class="n-find">1972 年札幌冬奥会赛场，也是全北海道离大都市最近、唯一能<b>边滑雪边俯瞰石狩湾蔚蓝大海与札幌城市天际线</b>的绝美雪场！<br><b>🚌 怎么去最顺：</b><br>・<b>省心首选（打车）</b>：从薄野酒店直接打车去「サッポロテイネ オリンピアゾーン（Olympia Zone）」，约 35 分钟（约 ¥6,500），下车直接进租借中心；<br>・<b>JR + 巴士</b>：JR 札幌站 → 手稻站（快速 10 分钟），从<b>南口 3 号站台</b>搭 JR 北海道巴士「手70 / ていね山線」16 分钟直达「サッポロテイネオリンピア前」。<span class="tags"><span class="tag yen">空手套票含雪服雪具</span><span class="tag photo">山顶看海滑雪大片</span></span></div>
-        <details class="exp"><summary>展开空手租雪服攻略 · 新手雪道 &amp; 山顶看海机位</summary><div class="exp-bd">
-          <p><b>🧤 怎么租全套雪服+雪板（手ぶらパック / Empty-handed Pack）：</b><br>新手直接定位<b>「オリンピアゾーン（Olympia Zone · 奥林匹亚区）」</b>的雪具租借中心（Rental Corner）。现场或提前官网订<b>「手ぶらセット（含缆车票 + 双板/单板 + 雪靴 + 上下身雪服）」</b>（成人约 ¥15,000–¥17,500），Salomon 旗舰店装备很新、配色高级好看！注：护目镜、手套、毛线帽因卫生原因通常不外租，<b>直接戴自己的防水手套和毛线帽</b>（或现场买一副雪镜）即可。</p>
-          <p><b>⛷️ 零基础新手怎么玩最爽（白桦平缓道）：</b><br>在奥林匹亚区圣火台旁就是超宽敞、坡度仅 7–9 度的<b>「白樺サンダンス（白桦新手道）」</b>，设有魔毯/平缓四人吊椅，摔倒在北海道粉雪上像摔在棉花糖里一样完全不疼！两人互相拍穿雪服抱雪板的情侣照超飒。</p>
-          <p><b>📸 封神看海机位（山顶咖啡厅 &amp; Panorama 展望）：</b><br>就算不从山顶滑下来，也可以去 Highland 区乘坐<b>「サミットエクスプレス（Summit Express 厢式封闭缆车）」</b>直达海拔 1,023m 山顶！走出缆车站的瞬间——<b>脚下是纯白粉雪山脊，正前方是深蓝色的石狩湾大海与整座札幌城</b>！在山顶 <b>Hot Cafe 1023</b> 喝杯热咖啡拍完照，新手若不敢滑下山（山顶自然道坡度虽然只有 12 度但较窄长），<b>可咨询工作人员乘厢式缆车原路下山</b>，安全又出片！</p>
+        <div class="n-top"><span class="n-time">09:30</span><span class="n-name">🎿 上午课 · 单板班 / 双板班</span><a class="n-nav" href="https://www.google.com/maps/search/サッポロテイネ+オリンピアスキースクール" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌手稻滑雪场 (奥林匹亚区)" data-taxi-jp="サッポロテイネ オリンピアゾーン（聖火台エリア）" data-taxi-addr="北海道札幌市手稲区手稲本町593-3">🚕 给司机看</button></div>
+        <div class="n-jp">サッポロテイネ オリンピアゾーン · 1972 年冬奥会场地</div>
+        <div class="n-find">新手课在 Olympia 区的白桦新手道，坡度只有 7–9 度，有魔毯。北海道粉雪很软，摔了也不疼。<span class="tags"><span class="tag photo">雪服合照</span></span></div>
+        <details class="exp"><summary>第一次滑雪的小提示</summary><div class="exp-bd">
+          <p><b>单板</b>第一天基本在练站立和后刃刹车，摔得多，护臀护膝有就戴上。<b>双板</b>先学「八字」刹车，下午一般就能滑一小段缓坡。</p>
+          <p>雪靴要配过小腿的长筒厚袜，防磨脚。iPhone 低温掉电快，背面贴一片暖宝宝。</p>
+        </div></details>
+      </div>
+      <div class="r-item r-node">
+        <span class="r-pin food">2</span>
+        <div class="n-top"><span class="n-time">12:00</span><span class="n-name">🍛 午饭会合 · 雪场餐厅</span></div>
+        <div class="n-jp">Olympia 区雪场餐厅</div>
+        <div class="n-find">两个人交换一下上午摔了几次 😂 团课一般不含午饭，现场付。<span class="tags"><span class="tag yen">现场付</span></span></div>
+      </div>
+      <div class="r-item r-node">
+        <span class="r-pin nat">3</span>
+        <div class="n-top"><span class="n-time">13:00</span><span class="n-name">🏔 下午课 · 有空就坐缆车上山顶看海</span><a class="n-nav" href="https://sapporo-teine.com/snow/" target="_blank" rel="noopener">❄️雪况</a></div>
+        <div class="n-jp">ハイランドゾーン · サミットエクスプレス → 山顶 1,023m</div>
+        <div class="n-find">下午继续上课。如果团的安排留了自由时间，就去 Highland 区坐封闭缆车到山顶，脚下是雪山，前面是石狩湾和整座札幌城，在 Hot Cafe 1023 喝杯咖啡。<span class="tags"><span class="tag photo">山顶看海</span></span></div>
+        <details class="exp"><summary>新手怎么下山</summary><div class="exp-bd">
+          <p>山顶下来的雪道虽然只有 12 度，但又窄又长，新手不建议滑。问工作人员能不能坐缆车原路下山。</p>
         </div></details>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚕 13:00 归还雪具 → 打车经山路直达「定山溪 / 丰平峡」约 50分（注：手稻与定山溪之间无直达公交，坐公交需绕回札幌站耗时 2小时+）</div>
-          <div class="seg-sub">💡 <b>体力弹性选择</b>：如果在手稻滑完雪不想再坐 50 分钟车去定山溪山谷，可以直接回札幌市区，去薄野旁的<b>「天然温泉 プレミアホテル-CABIN-札幌」或「桑拿/私汤包间」</b>泡汤休整，把力气留给晚上的帝王蟹大餐！</div>
-        </div>
+        <div class="seg-box"><div class="seg-main">🚌 团车送回札幌（回程时间以订单为准，一般在下午 4–5 点）</div></div>
       </div>
       <div class="r-item r-node">
-        <span class="r-pin nat">2</span>
-        <div class="n-top"><span class="n-time">14:00</span><span class="n-name">♨️ 雪谷温泉二选一 · 定山溪私汤 或 丰平峡大露天</span><a class="n-nav" href="https://www.google.com/maps/search/豊平峡温泉" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="丰平峡温泉 (或定山溪温泉)" data-taxi-jp="豊平峡温泉（ほうへいきょうおんせん）" data-taxi-addr="北海道札幌市南区定山渓608番地2">🚕 给司机看</button></div>
-        <div class="n-jp">定山渓温泉 貸切風呂（选项A） ／ 豊平峡温泉 タトゥーOK（选项B）</div>
-        <div class="n-find">滑雪后最极致的享受就是泡进冒着热气的雪谷温泉！贴心为你准备<b>两个零尴尬方案</b>：<br>💑 <b>【选项 A · 情侣独享】定山溪温泉日归「貸切私汤」</b>：预订定山溪酒店的私汤包间（如<b>ぬくもりの宿 ふる川 / 定山渓万世閣ホテルミリオーネ / 章月グランドホテル</b>日归貸切風呂，50–60 分钟约 ¥3,300–¥4,400/间），两人独享一间半露天雪景木汤，<b>完全不惧纹身限制，还能架手机拍情侣泡汤看雪背影</b>！<br>🌲 <b>【选项 B · 雪景天花板】丰平峡温泉（Hoheikyo Onsen）</b>：北海道极其罕见<b>官方明确允许纹身（Tattoo Friendly）直接入内</b>的 100% 源泉挂流秘汤！拥有全日本最大级别的<b>百人岩石大露天风吕</b>，四周被原始森林与厚厚白雪环抱，雪花直接飘落在头发上。<span class="tags"><span class="tag free">选项B官方允许纹身</span><span class="tag yen">日归入浴 ¥1,000</span></span></div>
-        <details class="exp"><summary>展开两家温泉对比 &amp; 丰平峡必吃现烤馕咖喱</summary><div class="exp-bd">
-          <p><b>怎么选？</b>如果你想<b>和女朋友待在同一个池子里聊天拍照</b>，选<b>【选项 A 定山溪貸切私汤】</b>（需提前发邮件或让酒店前台帮忙电话确认当日私汤空档）；如果你想体验<b>震撼的原始森林大雪露天温泉</b>（男女分汤），选<b>【选项 B 丰平峡温泉】</b>，无需预约随到随泡！</p>
-          <p><b>🍛 丰平峡温泉隐藏王牌——「ONSEN食堂」印度烤饼咖喱：</b>全札幌人都专门开车来吃的神奇名物！聘请尼泊尔大厨在温泉食堂里用炭火炉现烤比脸还大的巨型芝士烤饼（チーズナン），配北海道洋葱慢炖的十胜和牛/羊肉咖喱，泡完汤吃一口香到灵魂出窍！</p>
+        <span class="r-pin hotel">🏨</span>
+        <div class="n-top"><span class="n-time">17:00</span><span class="n-name hotel">回酒店洗澡、休息、换衣服</span></div>
+        <div class="n-jp">SAPPORO STREAM HOTEL</div>
+        <div class="n-find">滑了一天腿会酸，在房间躺一会儿，换身好看的衣服去吃蟹。</div>
+        <details class="exp"><summary>为什么今天不安排泡温泉</summary><div class="exp-bd">
+          <p>团课是全天的。手稻到定山溪或丰平峡打车要 50 分钟，下课再去来不及赶 19:00 的蟹宴。泡汤已经在 D2 洞爷湖安排了私汤。</p>
         </div></details>
       </div>
-      <div class="r-item r-seg">
-        <div class="seg-box">
-          <div class="seg-main">🚌 定铁巴士 (定鉄バス 快速7/8系统，免预约刷Suica) 或 河童 Liner 号(需提前预约)「定山渓・豊平峡 → すすきの（薄野）」约 60分（或打车 45分）</div>
-          <div class="seg-sub">💡 <b>回程巴士避坑</b>：「河童ライナー号」属于预约制直达车，若未预约请直接坐每 30–60 分钟一班的普通<b>「じょうてつバス（定铁巴士 快速7/8系统）」</b>，直达薄野站门口！17:30 回到 SAPPORO STREAM HOTEL 换身好看衣服去吃帝王蟹大餐！</div>
-        </div>
-      </div>
       <div class="r-item r-node">
-        <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">19:00</span><span class="n-name menu-link" data-open="mm-kani">🦀 跨年前夜大餐 · 札幌螃蟹本家 或 冰雪之门 <span class="ml-badge">📖菜单</span></span><a class="n-nav" href="https://www.google.com/maps/search/札幌かに本家+すすきの店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌螃蟹本家 薄野店 (或冰雪之门)" data-taxi-jp="札幌かに本家 すすきの店 ／ 氷雪の門（ひょうせつのもん）" data-taxi-addr="北海道札幌市中央区南4条西2丁目11（かに本家すすきの店）">🚕 给司机看</button></div>
-        <div class="n-jp">札幌かに本家 すすきの店 ／ 氷雪の門（三大蟹会席）</div>
-        <div class="n-find">从酒店下楼步行 3–4 分钟即达！12/30 跨年前夜，用一套仪式感拉满的<b>「北海道三大蟹（帝王蟹 + 松叶蟹 + 毛蟹）全蟹会席」</b>犒劳自己和女友！<br>・<b>札幌螃蟹本家（かに本家 すすきの店）</b>：传统日式和风包厢、穿和服店员贴心服务，必点<b>流冰会席 / 特选本タラバかにすき（帝王蟹火锅）+ 烤帝王蟹腿 + 蟹肉刺身 + 蟹黄甲罗烧</b>；<br>・<b>冰雪之门（氷雪の門）</b>：创业 1964 年的薄野活蟹老字号，主打<b>活帝王蟹/活毛蟹一蟹多吃（刺身 + 炭烤 + 涮涮锅 + 天妇罗 + 黄金蟹粥收尾）</b>。<span class="tags"><span class="tag book">⚠️ 年末必须提前官网/TableCheck锁死预约</span><span class="tag yen">会席 ¥11,000–¥18,000/人</span></span></div>
-        <details class="exp"><summary>展开年末预约铁律与三大蟹口感揭秘</summary><div class="exp-bd">
-          <p><b>🚨 12/30–12/31 预约生死线：</b>年末最后两天是全北海道螃蟹名店最火爆的档期，现场 Walk-in 100% 满席！请务必在出发前 1–2 个月通过 <b>TableCheck（氷雪の門支持中文预订）</b> 或 <b>かに本家官网</b> 锁死 12/30 19:00 席位（顺手备注 <b>個室希望 / 包厢优先</b>，私密感更好）。</p>
-          <p><b>🦀 三大蟹怎么吃最懂行：</b>① <b>帝王蟹（タラバガニ）</b>肉质最粗壮饱满，最适合<b>炭火焼（焼きガニ）</b>和天妇罗，一口咬下去全是肉纤维；② <b>松叶蟹/雪蟹（ズワイガニ）</b>清甜滑嫩，最适合做<b>生蟹刺身（かに造り）</b>和涮涮锅；③ <b>北海道毛蟹（毛ガニ）</b>个头小但<b>蟹膏（かに味噌）</b>浓香到极点，拌蟹肉吃一口封神！最后用吸饱蟹汤精华的汤底煮一碗<b>鸡蛋海苔蟹杂炊（雑炊）</b>收尾，圆满！</p>
+        <span class="r-pin food">4</span>
+        <div class="n-top"><span class="n-time">19:00</span><span class="n-name menu-link" data-open="mm-kani">🦀 跨年前夜 · 三大蟹会席 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/札幌かに本家+すすきの店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌螃蟹本家 薄野店 (或冰雪之门)" data-taxi-jp="札幌かに本家 すすきの店 ／ 氷雪の門（ひょうせつのもん）" data-taxi-addr="北海道札幌市中央区南4条西2丁目11（かに本家すすきの店）">🚕 给司机看</button></div>
+        <div class="n-jp">札幌かに本家 すすきの店 ／ 氷雪の門（酒店步行 3–4 分）</div>
+        <div class="n-find">帝王蟹、松叶蟹、毛蟹一次吃齐。最划算的点法：1 套三大蟹火锅会席 + 1 份炭烤帝王蟹腿 + 1 个蟹黄甲罗烧，两个人刚好。<span class="tags"><span class="tag book">必须提前订</span><span class="tag yen">¥11,000–18,000/人</span></span></div>
+        <details class="exp"><summary>三种蟹怎么吃</summary><div class="exp-bd">
+          <p><b>帝王蟹</b>肉最粗壮，适合炭烤；<b>松叶蟹</b>清甜，适合刺身和涮锅；<b>毛蟹</b>个头小，但蟹膏最香。最后用蟹汤煮一碗杂炊收尾。</p>
+          <p>到店说「19時に2名で予約しています」（我订了 19 点两位），工具箱里有这句的语音卡。</p>
         </div></details>
       </div>
     </div>
-    <a class="gmap" href="https://www.google.com/maps/dir/SAPPORO+STREAM+HOTEL/サッポロテイネ+オリンピア/豊平峡温泉/札幌かに本家+すすきの店" target="_blank" rel="noopener">
+    <a class="gmap" href="https://www.google.com/maps/dir/SAPPORO+STREAM+HOTEL/サッポロテイネ+オリンピア/札幌かに本家+すすきの店" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-      用 Google 地图看今天路线
+      用 Google 地图看 D6 路线
     </a>
   </article>
 
@@ -966,372 +931,61 @@
   <article class="day-card" id="d7">
     <div class="day-head">
       <div class="day-num">DAY<span>07</span></div>
-      <div class="day-title"><div class="h">雪中红鸟居祈福 × 新千岁机场终极扫货 × 万米高空跨年</div><div class="s">12/31 四 (大晦日) · ⛩️伏见稻荷/北海道神宫 → 🚄u-seat → 🛍️新千岁国内线2F → ✈️NH78/NH967</div></div>
+      <div class="day-title"><div class="h">雪中鸟居 × 机场扫货 × 空中跨年</div><div class="s">12/31 四（大晦日）· 伏见稻荷 → 取行李 → 新千岁 2F → NH78 → NH967</div></div>
       <div class="day-wx"><div class="ic">🌤</div>-1/-6°<div class="stp">🚶 ~8,500</div></div>
     </div>
-    <div class="day-tasks"><div class="day-tasks-title">TODAY · 今日先完成（大晦日关门预警 × 机场国内线扫货直挂）</div><ul>
-      <li><b>① ⚠️ 大晦日关门铁律：</b>12/31 是日本除夕「大晦日」，札幌市区百货商场 <b>17:00 就全部拉闸关门</b>、Sapporo Factory 全天休馆！<b>千万别把市区购物留到今天</b>（时尚单品已在 D4 买齐）。</li>
-      <li><b>② 雪中红鸟居祈福：</b>上午退房寄存行李后，打车去「伏见稻荷神社」拍纯白厚雪 + 27 座朱红鸟居大片，或去「北海道神宫」买限定雪景御守、吃现烤判官饼。</li>
-      <li><b>③ 13:00 提早杀向新千岁国内线 2F：</b>你飞羽田的 <b>NH78 就在国内线航站楼 D 口</b>！国内线 2F 是<b>全年无休的北海道最大美食伴手礼乐园</b>，先买齐所有伴手礼塞进行李箱，再去 ANA 柜台办直挂托运（每人 2 件 23kg 额度）！</li>
-      <li><b>④ 万米高空迎 2027：</b>19:30 搭 NH78 飞羽田 T2 → 同楼免换航站楼转国际线 NH967（22:40 起飞），在万米高空与女友一起跨入 2027 元旦！</li>
+    <div class="day-tasks"><div class="day-tasks-title">今天记住</div><ul>
+      <li><b>市区百货 17:00 就关门，Sapporo Factory 全天休馆，</b>今天不在市区购物</li>
+      <li><b>伴手礼在机场 2F 买，</b>买完塞进行李箱再托运；带冰袋的蛋糕必须托运</li>
+      <li><b>JR 去机场买 u-seat 指定席：</b>12/31 人多，保证两人并排还有大行李架</li>
     </ul></div>
-    <div class="day-adv"><details class="exp"><summary>🌡️ 今日穿什么 · 跨年返程最舒适穿法</summary><div class="exp-bd">
-      <div class="adv-grid"><span class="adv-chip">🧥 <b>外厚内薄易穿脱</b></span><span class="adv-chip">👟 一脚蹬舒服鞋</span><span class="adv-chip">🧳 预留行李箱空位</span><span class="adv-chip">❄️ 冰袋随箱托运</span></div>
-      <p>上午在神社雪地拍照穿羽绒服，下午进新千岁机场和飞机客舱暖气很足，里面穿<b>宽松卫衣/针织衫 + 阔腿裤</b>最舒服。到机场买完 SNOWS、六花亭、北菓楼和 LeTAO（带冷冻冰袋），<b>在托运前塞进大行李箱</b>，两手空空进安检！<a class="wx-live" href="https://www.new-chitose-airport.jp/ja/spend/shop/" target="_blank" rel="noopener">🔗 查新千岁机场店铺指南 →</a></p>
-    </div></details></div>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
-        <div class="n-top"><span class="n-time">09:30</span><span class="n-name">⛩️ 札幌伏见稻荷神社 或 北海道神宫 · 雪中祈福</span><a class="n-nav" href="https://www.google.com/maps/search/札幌伏見稲荷神社" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌伏见稻荷神社 (或北海道神宫)" data-taxi-jp="札幌伏見稲荷神社（ふしみいなりじんじゃ） ／ 北海道神宮" data-taxi-addr="北海道札幌市中央区伏見2丁目2-17">🚕 给司机看</button></div>
-        <div class="n-jp">札幌伏見稲荷神社（27基の朱塗り鳥居） ／ 北海道神宮（円山公園）</div>
-        <div class="n-find">先在酒店办退房并寄存行李，从薄野打车约 12–15 分钟（约 ¥1,800）直达！<br>⛩️ <b>首选机位 · 札幌伏见稻荷神社</b>：无需远赴京都，在纯白无瑕的北国厚雪映衬下，<b>27 座连绵向上的鲜艳朱红鸟居隧道</b>形成极致的红白视觉冲击！上午 9:30 光线柔和且人少幽静，和女朋友拍冬日收官合照绝美。<br>🦊 <b>顺路/备选 · 北海道神宫</b>（打车相距仅 8 分钟）：参天古木被白雪覆盖，大晦日充满迎新庄重氛围。必去神宫茶屋吃热乎乎的<b>现烤「判官饼（判官さま）」</b>（红豆麻薯烤饼）+ 抽一枚超可爱的<b>北海道虾夷松鼠签 / 雪景御守</b>。<span class="tags"><span class="tag photo">纯白厚雪×朱红鸟居</span><span class="tag free">免费参拜</span></span></div>
-        <details class="exp"><summary>展开神社拍摄与大晦日特别提示</summary><div class="exp-bd">
-          <p><b>📸 伏见稻荷拍摄技巧：</b>让女友走在鸟居阶梯中段回眸，摄影师站在低处用 2x/3x 镜头仰拍，既能避开地面脚印，又能拍出朱红鸟居层层叠叠延伸进白雪森林的纵深感。</p>
-          <p><b>⚠️ 北海道神宫大晦日闭门时间：</b>12/31 神宫为筹备跨年「初诣」，下午 16:00 会暂时闭门（23:00 重开跨年），但我们上午 09:30–11:30 参拜完全不受影响，反而能感受到一年最后一天独特的净心仪式感。</p>
+        <div class="n-top"><span class="n-time">09:30</span><span class="n-name">⛩️ 伏见稻荷神社 · 雪中红鸟居</span><a class="n-nav" href="https://www.google.com/maps/search/札幌伏見稲荷神社" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌伏见稻荷神社 (或北海道神宫)" data-taxi-jp="札幌伏見稲荷神社（ふしみいなりじんじゃ） ／ 北海道神宮" data-taxi-addr="北海道札幌市中央区伏見2丁目2-17">🚕 给司机看</button></div>
+        <div class="n-jp">札幌伏見稲荷神社 ／ 北海道神宮（打车相距 8 分）</div>
+        <div class="n-find">先退房寄存行李，打车 12–15 分钟（约 ¥1,800）。白雪里一排朱红鸟居，上午人少。时间够就顺路去北海道神宫，吃现烤判官饼，求一个雪景御守。<span class="tags"><span class="tag free">免费参拜</span><span class="tag photo">红白鸟居</span></span></div>
+        <details class="exp"><summary>怎么拍 · 神宫大晦日开放时间</summary><div class="exp-bd">
+          <p>她走在鸟居台阶中段回头，你站在低处用 2x/3x 往上拍，能避开地上的脚印。</p>
+          <p>北海道神宫 12/31 下午 16:00 暂时闭门准备跨年初诣，上午参拜不受影响。</p>
         </div></details>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚇 地铁或打车 12–15 分钟返回薄野 SAPPORO STREAM HOTEL 拿行李</div></div>
+        <div class="seg-box"><div class="seg-main">🚇 地铁或打车 12–15 分钟回酒店拿行李</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin hotel">🧳</span>
-        <div class="n-top"><span class="n-time">12:00</span><span class="n-name hotel">回 SAPPORO STREAM HOTEL 取行李 → 前往新千岁机场</span><a class="n-nav" href="https://www.google.com/maps/search/JR札幌駅" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="JR札幌站 (搭快速Airport号)" data-taxi-jp="JR札幌駅（さっぽろえき）南口" data-taxi-addr="北海道札幌市中央区北5条西4丁目">🚕 给司机看</button></div>
-        <div class="n-jp">JR快速エアポート（指定席 u-seat 必买！）</div>
-        <div class="n-find">回酒店取寄存行李，地下直通搭地铁 2 站（或直接打车 ¥1,000）到 JR 札幌站，搭乘 <b>JR 快速 Airport 号（快速エアポート）37 分钟直达新千岁机场</b>！<br>🔥 <b>强推必买 4 号车厢「指定席 u-seat」（¥1,990 = 乘车券 ¥1,150 + 指定席 ¥840）</b>：12/31 返乡与游客极多，多花 ¥840 不仅<b>100% 保证两人并排软座</b>，而且 4 号车厢门口有<b>专属大型行李架</b>，不用在自由席罚站挤箱子！<span class="tags"><span class="tag yen">u-seat ¥1,990</span><span class="tag free">每12分钟一班·37分直达</span></span></div>
+        <div class="n-top"><span class="n-time">12:00</span><span class="n-name hotel">取行李 → JR 札幌站</span><a class="n-nav" href="https://www.google.com/maps/search/JR札幌駅" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="JR札幌站 (搭快速Airport号)" data-taxi-jp="JR札幌駅（さっぽろえき）南口" data-taxi-addr="北海道札幌市中央区北5条西4丁目">🚕 给司机看</button></div>
+        <div class="n-jp">JR快速エアポート · 4号車 指定席 u-seat</div>
+        <div class="n-find">地铁 2 站或打车（约 ¥1,000）到札幌站，坐快速 Airport 号 37 分钟到机场。u-seat ¥1,990（乘车券 ¥1,150 + 指定席 ¥840）。<span class="tags"><span class="tag yen">u-seat ¥1,990</span><span class="tag free">每 12 分钟一班</span></span></div>
       </div>
       <div class="r-item r-seg">
-        <div class="seg-box"><div class="seg-main">🚄 JR 快速 Airport 号（u-seat 4号车厢）「札幌駅 → 新千歳空港駅」37 分钟直达 B1 层，乘扶梯直上国内线 2F</div></div>
+        <div class="seg-box"><div class="seg-main">🚄 快速 Airport 号到新千岁 B1，坐扶梯上国内线 2F</div></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin">2</span>
-        <div class="n-top"><span class="n-time">13:15</span><span class="n-name">🛍️ 新千岁机场国内线 2F · 终极扫货 → 塞箱直挂浦东</span><a class="n-nav" href="https://www.google.com/maps/search/新千歳空港+国内線ターミナル+2F" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">新千歳空港 国内線ターミナルビル 2F（Shopping World）</div>
-        <div class="n-find"><b>为什么 13:15 就来机场？因为新千岁国内线 2F 本身就是全北海道最强、全年无休的伴手礼与甜品主题乐园！</b>而且你飞羽田的 <b>ANA NH78 本来就在国内线 2F D 区值机</b>！<br><b>🎯 伴手礼黄金扫货顺序（买完直接装箱托运）：</b><br>① <b>SNOWS 冬季限定生巧克力夹心饼（スノーサンド）</b>：在国内线 2F <b>ANA FESTA（7号/9号登机口前或大堂店）</b>，认准版画雪山包装，冬季限定必抢！<br>② <b>北菓楼新千岁机场店</b>：必买<b>开拓米果（開拓おかき·甜虾/帆立贝/毛蟹味）</b>、妖精之森年轮蛋糕、机场限定梦不思议泡芙。<br>③ <b>六花亭 &amp; 柳月</b>：六花亭朗姆葡萄奶油夹心饼（マルセイバターサンド）、草莓夹心白巧；柳月三方六年轮蛋糕。<br>④ <b>LeTAO &amp; 札幌农学校</b>：LeTAO 双层芝士蛋糕（店员会配<b>长效保冷冰袋+保冷袋</b>，可撑 8–10 小时，<b>必须塞进行李箱托运</b>，冰袋不能随身过安检！）；<b>札幌农学校空港工房</b>排一份刚出炉的现烤酪农芝士蛋糕 &amp; 苹果派！<br>📦 <b>15:30 装箱直挂：</b>把所有战利品、液体、带冰袋的蛋糕装进两个大行李箱，去国内线 2F <b>ANA 国际线转机柜台（国内→国際 乗り継ぎカウンター）</b>办理托运——<b>行李直接挂到上海浦东 PVG（每人免费托运 2 件 × 23kg）</b>，在羽田转机完全不用取行李！<span class="tags"><span class="tag free">ANA 2件×23kg直挂浦东</span><span class="tag book">冰袋蛋糕务必托运</span></span></div>
+        <div class="n-top"><span class="n-time">13:15</span><span class="n-name">🛍️ 新千岁机场国内线 2F · 买伴手礼 → 托运</span><a class="n-nav" href="https://www.google.com/maps/search/新千歳空港+国内線ターミナル+2F" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-jp">新千歳空港 国内線ターミナルビル 2F（全年无休）</div>
+        <div class="n-find">顺序：<b>SNOWS 冬季限定</b>（ANA FESTA）→ <b>北菓楼</b>开拓米果 → <b>六花亭</b>葡萄黄油夹心 → <b>LeTAO</b>（要冰袋）。清单在工具箱，可以打勾。<br>15:30 去 2F ANA 柜台托运，<b>行李直挂上海浦东</b>，羽田不用取（每人 2 件 × 23kg）。<span class="tags"><span class="tag free">直挂浦东</span><span class="tag book">冰袋蛋糕托运</span></span></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">16:30</span><span class="n-name">🍜 机场 3F 北海道拉面道场 / 根室花丸 + Kinotoya 冰淇淋</span><a class="n-nav" href="https://www.google.com/maps/search/新千歳空港+北海道ラーメン道場" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">16:30</span><span class="n-name">🍜 晚餐 · 机场 3F 拉面道场 + Kinotoya 冰淇淋</span><a class="n-nav" href="https://www.google.com/maps/search/新千歳空港+北海道ラーメン道場" target="_blank" rel="noopener">📍导航</a></div>
         <div class="n-jp">国内線 3F 北海道ラーメン道場（えびそば一幻 / 弟子屈 / 梅光軒）</div>
-        <div class="n-find">托运完行李一身轻松！上 <b>国内线 3F「北海道拉面道场」</b>集结了全道 10 家顶级拉面名店：<br>・<b>えびそば一幻（一幻鲜虾拉面）</b>：浓郁甜虾头熬制的红色虾汤 + 虾油 + 脆虾天妇罗碎，鲜到眉毛掉下来！<br>・<b>弟子屈ラーメン</b>：烧烤豚骨味噌拉面 / 鱼介干贝盐味拉面；或去 3F <b>根室花丸新千岁机场店</b>二刷回转寿司。<br>🍦 <b>餐后必吃甜点：</b>下到 2F 买连续多年蝉联机场总选举第一名的 <b>KINOTOYA「极上牛乳冰淇淋（極上牛乳ソフト）」</b>（巨型卷足足绕 6 圈半，浓醇如奶油）！吃饱还能去 3F 連絡通道逛<b>哆啦A梦空中乐园（Doraemon Waku Waku Sky Park）</b>与 Royce 巧克力世界透明工厂。<span class="tags"><span class="tag yen">一幻拉面 ~¥1,000</span><span class="tag yen">Kinotoya冰淇淋 ¥450</span></span></div>
+        <div class="n-find">一幻虾汤拉面（约 ¥1,000），或者 3F 根室花丸再吃一次寿司。饭后下 2F 吃 Kinotoya 极上牛乳冰淇淋（¥450）。<span class="tags"><span class="tag yen">免预约</span></span></div>
       </div>
       <div class="r-item r-node">
         <span class="r-pin air">✈</span>
-        <div class="n-top"><span class="n-time">19:30</span><span class="n-name">✈️ NH78 新千岁 → 羽田 T2 同楼转 NH967 → 跨年回上海</span></div>
+        <div class="n-top"><span class="n-time">19:30</span><span class="n-name">✈️ NH78 → 羽田 T2 同楼转 NH967 → 跨年回上海</span></div>
         <div class="n-jp">CTS 19:30 (NH78) → HND T2 21:10 ／ HND T2 22:40 (NH967) → PVG T2 01:15+1</div>
-        <div class="n-find"><b>18:45 前从国内线 2F D 安检口进安检</b>，19:30 搭 NH78 起飞。<br>✨ <b>羽田 T2 90 分钟丝滑同楼中转攻略：</b>21:10 落地羽田 T2 国内线到达层后，<b>完全不用换航站楼、不用取托运行李</b>！顺着头顶清晰的<b>「国際線乗り継ぎ（International Connecting Flights）」</b>蓝标搭扶梯上到 <b>羽田 T2 3F 国际线出发大厅</b>，过海关与安检仅需 15–20 分钟。<br>🥂 <b>22:40 NH967 起飞（北京时间 23:40）</b>：在万米高空的星空下与女朋友倒数迎接 <b>2027 元旦（00:00）</b>，01:15 平安落地上海浦东 T2。北海道冬日浪漫之旅，完美收官 ❄️🎉</div>
+        <div class="n-find"><b>18:45 前进安检。</b>羽田 T2 不用换航站楼也不用取行李，跟着「国際線乗り継ぎ」蓝色标志上 3F，过关约 15–20 分钟。22:40 起飞，在空中迎接 2027 年 🎉</div>
       </div>
     </div>
     <a class="gmap" href="https://www.google.com/maps/dir/SAPPORO+STREAM+HOTEL/札幌伏見稲荷神社/北海道神宮/札幌駅/新千歳空港" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-      用 Google 地图看今天路线
+      用 Google 地图看 D7 路线
     </a>
   </article>
-
-  <!-- ============ STEP COUNT OVERVIEW ============ -->
-  <section id="steps-sec">
-    <div class="sec-title"><span class="n">STEP COUNT</span><h2>七日步数与体力分配</h2></div>
-    <div class="card">
-      <div class="steps">
-        <div class="step-row">
-          <div class="step-lbl">DAY 01<small>12/25 落地洞爷</small></div>
-          <div class="step-track"><div class="step-fill" style="width:52%"></div></div>
-          <div class="step-val"><b>~6,200</b><small>4.5 km · 泡汤休整</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 02<small>12/26 湖景私汤</small></div>
-          <div class="step-track"><div class="step-fill" style="width:62%"></div></div>
-          <div class="step-val"><b>~7,400</b><small>5.3 km · 浮见堂/私汤</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 03<small>12/27 登别转场</small></div>
-          <div class="step-track"><div class="step-fill" style="width:76%"></div></div>
-          <div class="step-val"><b>~9,100</b><small>6.6 km · 地狱谷/薄野</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 04<small>12/28 买NANGA</small></div>
-          <div class="step-track"><div class="step-fill" style="width:85%"></div></div>
-          <div class="step-val"><b>~10,200</b><small>7.4 km · 北大+地下街</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 05<small>12/29 朝里小樽</small></div>
-          <div class="step-track"><div class="step-fill hi" style="width:92%"></div></div>
-          <div class="step-val"><b>~10,800</b><small>7.8 km · 单向微下坡</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 06<small>12/30 滑雪泡汤</small></div>
-          <div class="step-track"><div class="step-fill" style="width:60%"></div></div>
-          <div class="step-val"><b>~7,200</b><small>5.2 km · 滑雪+私汤</small></div>
-        </div>
-        <div class="step-row">
-          <div class="step-lbl">DAY 07<small>12/31 神社机场</small></div>
-          <div class="step-track"><div class="step-fill" style="width:71%"></div></div>
-          <div class="step-val"><b>~8,500</b><small>6.1 km · 室内扫货</small></div>
-        </div>
-      </div>
-      <div class="step-total">
-        ❄️ <b>七天合计约 59,400 步（日均 ~8,480 步 / 6.1 km）</b>——专为冬季雪地与情侣拍照优化的<b>「舒适不暴走」</b>节奏！<br>
-        💡 <b>为什么一点都不累？</b>① 札幌市区核心商圈（JR札幌站—大通—薄野）全程走<b>全暖气地下步行空间（チ・カ・ホ）</b>；② 小樽采用<b>「南小樽下 → 小樽上」</b>单向顺坡动线；③ 陡坡与雪夜寒风路段均配有<b>「🚕 给司机看」一键全屏日语打车卡</b>。
-      </div>
-    </div>
-  </section>
-  <!-- ============ HOTEL NEARBY GOURMET HUB ============ -->
-  <section id="gourmetHub">
-    <div class="sec-title"><span class="n">HOTEL GOURMET</span><h2>酒店周边 Google 高分美食 × 预约红绿灯</h2></div>
-    <div class="gourmet-tabs" id="gourmetTabs">
-      <button class="g-tab active" type="button" data-filter="all">全部精选 (14)</button>
-      <button class="g-tab" type="button" data-filter="toya">🏨 洞爷湖万世阁周边</button>
-      <button class="g-tab" type="button" data-filter="sapporo">🏙 札幌 Stream 周边</button>
-      <button class="g-tab" type="button" data-filter="otaru">🌊 小樽 & 机场</button>
-    </div>
-    <div class="gourmet-grid" id="gourmetGrid">
-      <!-- 洞爷湖万世阁周边 -->
-      <div class="g-card" data-area="toya">
-        <div class="g-top"><div class="g-name">🍤 仙堂庵 (そば処 仙堂庵)</div><span class="g-star">★ 4.2</span></div>
-        <div class="g-badges"><span class="b-walk">🚶 免预约·随到随吃</span><span class="tag free">万世阁正对面步行 1 分钟</span></div>
-        <div class="g-desc">就在洞爷湖万世阁马路正对面（洞爷观光酒店1F）！必吃<b>洞爷湖产巨型活扇贝天妇罗配手打荞麦面（帆立天ざる ¥1,650）</b>，扇贝比手掌心还大，外酥里嫩。<b>11:30–14:30 午餐神店</b>。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/そば処+仙堂庵+洞爺湖" target="_blank" rel="noopener">📍 Google 地图</a><button class="n-nav taxi-trig" type="button" data-taxi-name="仙堂庵荞麦面" data-taxi-jp="そば処 仙堂庵（洞爺観光ホテル1F）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉33">🚕 给司机看</button></div>
-      </div>
-
-      <div class="g-card" data-area="toya">
-        <div class="g-top"><div class="g-name">🥩 望羊蹄 (レストラン 望羊蹄)</div><span class="g-star">★ 4.2</span></div>
-        <div class="g-badges"><span class="b-walk">🚶 免预约·饭点稍排队</span><span class="tag free">万世阁向西步行 4 分钟</span></div>
-        <div class="g-desc">1946 年创业的昭和复古洋食传奇！木质壁炉与老胶片氛围极适合拍照。必点<b>铁板芝士汉堡排（チーズハンバーグ）</b>、<b>厚切铁板猪排（ポークチャップ）</b>与焦糖布丁。营业 11:00–15:00 / 17:00–20:00。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/レストラン望羊蹄+洞爺湖" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="toya">
-        <div class="g-top"><div class="g-name">🍜 拉面 一本亭 (ラーメン一本亭)</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-walk">🚶 免预约</span><span class="tag free">万世阁步行 6 分钟</span></div>
-        <div class="g-desc">洞爷湖本地人私藏的高分拉面屋！招牌<b>焦香黑酱油拉面（黒醤油ラーメン）</b>与清甜帆立贝盐味拉面，冬夜看完灯光隧道吃一碗全身冒汗。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/ラーメン一本亭+洞爺湖" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="toya">
-        <div class="g-top"><div class="g-name">🍡 冈田屋 (岡田屋 · 白色红豆年糕汤)</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-walk">🚶 免预约·下午茶首选</span><span class="tag free">万世阁步行 3 分钟</span></div>
-        <div class="g-desc">洞爷湖甜品名物！用伊达牧场纯牛奶慢炖当地大福白芸豆与软糯烤年糕，做成纯白色的<b>「白いおしるこ（白色年糕甜汤 ¥550）」</b>，还有超好吃的炸鸡天妇罗乌冬。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/岡田屋+洞爺湖" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="toya">
-        <div class="g-top"><div class="g-name">🍛 湖景汤咖喱 Ponpekora / 牛排 HLAHAL</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-rec">⚠️ 建议早到·靠窗位少</span><span class="tag free">万世阁步行 5 分钟</span></div>
-        <div class="g-desc">面朝洞爷湖的一线湖景小店！<b>Soup Curry Ponpekora</b> 的蔬菜鸡腿汤咖喱香料层次丰富；隔壁 <b>HLAHAL</b> 主打洞爷湖和牛汉堡排配红酒汁。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/Soup+Curry+Ponpekora+洞爺湖" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <!-- 札幌 SAPPORO STREAM HOTEL 周边 -->
-      <div class="g-card" data-area="sapporo">
-        <div class="g-top"><div class="g-name">🍣 根室花丸 COCONO SUSUKINO店</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-queue">🎫 现场抽号·回楼上房间躺等！</span><span class="tag book">就在 Stream 酒店同栋楼 B1/楼下</span></div>
-        <div class="g-desc">住 SAPPORO STREAM HOTEL 的王炸福利！不用在札幌站 JR Tower 苦排 3 小时——<b>直接坐酒店电梯下楼到 COCONO SUSUKINO 店取号</b>，扫票面二维码回酒店床上躺着看叫号！<b>⚠️ 12/31 仅限外卖或极早截单，务必 D3 (12/27) 吃！</b></div>
-        <div class="g-actions"><button class="n-nav" type="button" data-open="mm-hanamaru">📖 两人闭眼点单器</button><a class="n-nav" href="https://www.google.com/maps/search/回転寿司+根室花まる+ココノススキノ店" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="sapporo">
-        <div class="g-top"><div class="g-name">🥩 成吉思汗 达摩 (5.5店 / 4.4二阶亭 / 本店)</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-rec">⚠️ 4.4二阶亭可网上预约 · 5.5店现场排最快</span><span class="tag free">距 Stream 酒店步行 4 分钟</span></div>
-        <div class="g-desc">札幌成吉思汗炭火烤小羊肉第一招牌！<b>「4.4二阶亭」与「5.5店」</b>排烟好、座位多且有独立储物柜不熏羽绒服。<b>⚠️ 12/31–1/1 部分分店年末店休，锁死在 D4 (12/28) 吃！</b></div>
-        <div class="g-actions"><button class="n-nav" type="button" data-open="mm-daruma">📖 两人闭眼点单器</button><a class="n-nav" href="https://www.google.com/maps/search/成吉思汗だるま+5.5店" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="sapporo">
-        <div class="g-top"><div class="g-name">🍛 汤咖喱 Suage+ 本店 / GARAKU</div><span class="g-star">★ 4.4</span></div>
-        <div class="g-badges"><span class="b-queue">🎫 现场机器取号·不可预约</span><span class="tag free">距 Stream 酒店步行 3–5 分钟</span></div>
-        <div class="g-desc"><b>Suage+ 本店</b>距 Stream 酒店仅 250 米（步行 3 分钟）！招牌「パリパリ知床鶏（脆皮知床鸡腿汤咖喱）」配炙烧芝士黄姜饭；<b>GARAKU</b> 主打和风高汤底，门口机器取号后可去旁边逛街。</div>
-        <div class="g-actions"><button class="n-nav" type="button" data-open="mm-soupcurry">📖 两人闭眼点单器</button><a class="n-nav" href="https://www.google.com/maps/search/Soup+Curry+Suage+本店" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="sapporo">
-        <div class="g-top"><div class="g-name">🦀 札幌螃蟹本家 (薄野店) / 冰雪之门</div><span class="g-star">★ 4.2</span></div>
-        <div class="g-badges"><span class="b-must">🔥 必须预约！提前30天官网/TableCheck锁死</span><span class="tag free">距 Stream 酒店步行 4 分钟</span></div>
-        <div class="g-desc">12/30 跨年前夜全蟹宴首选！距离 Stream 酒店仅两个街口，榻榻米包间私密性极佳，一次吃齐<b>活毛蟹刺身、炭烤帝王蟹腿、蟹肉甲罗烧与蟹膏杂炊</b>。年末档期无预约绝对吃不到！</div>
-        <div class="g-actions"><button class="n-nav" type="button" data-open="mm-kani">📖 两人闭眼点单器</button><a class="n-nav" href="https://www.google.com/maps/search/札幌かに本家+すすきの店" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="sapporo">
-        <div class="g-top"><div class="g-name">🍨 夜芭菲 Parfaiteria PaL / 佐藤堂</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-queue">🎫 晚间现场取号</span><span class="tag free">距 Stream 酒店步行 3 分钟</span></div>
-        <div class="g-desc">札幌独有的「締めパフェ（吃完烤肉/拉面后用艺术芭菲收尾）」文化！手工吹制糖艺+开心果冰淇淋+北海道鲜莓，颜值高到舍不得下勺。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/夜パフェ専門店+Parfaiteria+PaL" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="sapporo">
-        <div class="g-top"><div class="g-name">🔥 炉端烧 Utari (ウタリ) / 串鸟 薄野店</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-rec">⚠️ Utari建议请前台代订 · 串鸟免预约</span><span class="tag free">距 Stream 酒店步行 2–5 分钟</span></div>
-        <div class="g-desc"><b>炉端烧 Utari</b> 是 60 年老字号，围着炭火看老匠人烤喜知次鱼（Kinki）与大扇贝；<b>串鸟（Kushidori）</b>就在酒店楼下街角，免预约平价烧鸟，免费热鸡汤无限续杯。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/炉ばた焼+ウタリ+札幌" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="sapporo">
-        <div class="g-top"><div class="g-name">🦐 一幻拉面 总本店 / 信玄拉面</div><span class="g-star">★ 4.3</span></div>
-        <div class="g-badges"><span class="b-walk">🚶 免预约·错峰排队</span><span class="tag free">距 Stream 酒店步行 7 分钟（或 D7 机场吃）</span></div>
-        <div class="g-desc">浓郁甜虾头熬制的红色虾汤拉面（必点<b>そのまま原汤＋粗面＋虾味饭团</b>）！如果薄野总本店排队太长，D7 在新千岁机场 3F 拉面道场也能吃到一模一样的。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/えびそば一幻+総本店" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <!-- 小樽 & 机场 -->
-      <div class="g-card" data-area="otaru">
-        <div class="g-top"><div class="g-name">🦀 小樽三角市场·泷波食堂 ＆ 若鸡时代本店</div><span class="g-star">★ 4.2</span></div>
-        <div class="g-badges"><span class="b-queue">🎫 泷波现场取号 · 若鸡时代免预约300座</span><span class="tag free">小樽站旁步行 1–7 分钟</span></div>
-        <div class="g-desc"><b>泷波食堂</b>自选海胆+牡丹虾+帆立贝三色丼；若不想在市场排队，步行 6 分钟去<b>「若鸡时代 Naruto 本店」</b>，300 个座位翻台极快，现炸半只童子鸡外皮酥脆爆汁！</div>
-        <div class="g-actions"><button class="n-nav" type="button" data-open="mm-otaru">📖 两人闭眼点单器</button><a class="n-nav" href="https://www.google.com/maps/search/若鶏時代なると+本店" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-
-      <div class="g-card" data-area="otaru">
-        <div class="g-top"><div class="g-name">🍣 小樽 政寿司 本店 (おたる政寿司)</div><span class="g-star">★ 4.2</span></div>
-        <div class="g-badges"><span class="b-must">🔥 必须预约·官网提前订</span><span class="tag free">小樽寿司屋通</span></div>
-        <div class="g-desc">漫画《将太的寿司》原型名店，招牌生乌贼素面（いかそうめん）与赤海胆握寿司。想去必须提前在官网预约吧台位（若未订则直接吃三角市场或若鸡时代）。</div>
-        <div class="g-actions"><a class="n-nav" href="https://www.google.com/maps/search/おたる政寿司+本店" target="_blank" rel="noopener">📍 Google 地图</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TATTOO FRIENDLY PRIVATE ONSEN GUIDE ============ -->
-  <section id="onsenGuide">
-    <div class="sec-title"><span class="n">PRIVATE ONSEN</span><h2>纹身友好 · 情侣私汤拍照全方案</h2></div>
-    <div class="card">
-      <div class="row">
-        <div class="ic">🚨</div>
-        <div class="bd">
-          <div class="t">洞爷湖万世阁官网纹身红线（必知！）</div>
-          <div class="d">万世阁官网明确写明：<b>公共大浴场（8F星之汤/B1月之汤）严禁刺青/纹身，且连贴肉色遮瑕贴（疑似シール）也禁止入内</b>。但别慌！下面 4 套方案让你和女友既能光明正大泡真温泉，还能独享空间随便拍照：</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ic">①</div>
-        <div class="bd">
-          <div class="t">方案一：万世阁西馆「温泉展望風呂付客室」</div>
-          <div class="d">检查你们的万世阁房型！如果是<b>西馆带展望温泉风吕的房型</b>（或写邮件联系酒店补差价升级），房间阳台自带面朝洞爷湖的真温泉池，24 小时不限次数、情侣独享拍雪景大片！</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ic">②</div>
-        <div class="bd">
-          <div class="t">方案二：洞爷湖畔「日归貸切風呂（私汤包间）」</div>
-          <div class="d">若万世阁住的是普通房，步行 2–5 分钟即可去隔壁的<b>「洞爷观光酒店（洞爺観光ホテル 貸切家族風呂）」</b>或<b>「乃之风（ザ レイクビュー TOYA 乃の風 貸切露天風呂）」</b>按小时包一间私汤屋（约 ¥3,300–¥4,500/50分钟），完全不看纹身！<br><a class="wx-live" href="https://www.google.com/maps/search/洞爺観光ホテル" target="_blank" rel="noopener">📍 导航去洞爷湖私汤包间 →</a></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ic">③</div>
-        <div class="bd">
-          <div class="t">方案三：D6 札幌定山溪「雪谷日归貸切私汤」</div>
-          <div class="d">在 D6 下午从手稻滑雪场打车/坐车去定山溪温泉，预约<b>「ぬくもりの宿 ふる川」</b>或<b>「章月グランドホテル / 定山渓万世閣」</b>的日归貸切風呂，对着漫天飞雪的溪谷两个人在木桶池里拍照。<br><a class="wx-live" href="https://www.google.com/maps/search/定山渓温泉+ぬくもりの宿+ふる川" target="_blank" rel="noopener">📍 导航定山溪私汤 →</a></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ic">④</div>
-        <div class="bd">
-          <div class="t">方案四：丰平峡温泉（北海道罕见【官方公开允许纹身】大露天！）</div>
-          <div class="d">如果想体验超大的户外雪景岩石露天风吕，定山溪再往里 5 分钟的<b>「丰平峡温泉（豊平峡温泉）」</b>是全北海道极少数<b>官方公开允许纹身客直接泡公共大露天</b>的 100% 源泉挂流秘汤（入场 ¥1,000），泡完还能吃名物印度烤饼咖喱！<br><a class="wx-live" href="https://www.google.com/maps/search/豊平峡温泉" target="_blank" rel="noopener">📍 导航丰平峡温泉 →</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ NANGA & SOUVENIR SHOPPING HUB ============ -->
-  <section id="shoppingHub">
-    <div class="sec-title"><span class="n">HIS &amp; HERS SHOPPING</span><h2>女友专属买买买 × 男友 NANGA × 伴手礼清单</h2></div>
-    <div class="card">
-      <div class="row">
-        <div class="ic">💃</div>
-        <div class="bd">
-          <div class="t">女友必逛①：北海道发源香氛美妆（SHIRO / HABA / 限定药妆）</div>
-          <div class="d">• <b>SHIRO（大丸札幌 1F / Stellar Place B1）：</b>老家就在北海道砂川！日本原价+免税仅国内 <b>5 折</b>。必入<b>白茶 (White Tea) / 皂香 (Savon) / 金木犀香水与护手霜</b>、北海道<b>酒粕（Sake Kasu）发光面膜</b>、昆布睫毛精华。<br>
-          • <b>HABA（大丸札幌店）：</b>北海道诞生的无添加主义王牌，高纯度<b>角鲨烷美容油（Squalane）</b>冬天混在面霜里一滴救命，价格白菜。<br>
-          • <b>北海道限定药妆（Stream 酒店步行 3 分钟 MEGA 唐吉诃德 / 松本清）：</b>北海道限定<b>薰衣草/哈密瓜 Lululun 面膜</b>、<b>北海道纯马油</b>、泡私汤必带的<b>吉卜力/雪景气泡入浴剂（Bath Bomb）</b>。</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ic">👗</div>
-        <div class="bd">
-          <div class="t">女友必逛②：札幌 3 大女装/轻奢/中古商圈（全通暖气地下街！）</div>
-          <div class="d">• <b>札幌 PARCO &amp; PIVOT CROSS（大通商圈，离 Stream 酒店走地下街 5 分钟）：</b>年轻女生天堂！<b>SNIDEL / FRAY I.D / Mila Owen / Lily Brown</b>（日系仙女大衣毛衣，国内 5.5 折）、<b>Vivienne Westwood Red Label</b>（日本限定西太后土星刺绣围巾/贝雷帽/针织衫，雪地拍照绝美！）、<b>鬼塚虎 Nippon Made</b>。<br>
-          • <b>大丸札幌店 &amp; Stellar Place（JR札幌站）：</b>1F 必看日系极细 K 金珠宝 <b>Agete / Ete / Star Jewelry</b>（冬日限定雪花钻石项链，圣诞跨年送女友首选！）与 <b>BAO BAO 三宅一生 / Celine / Loewe</b>（大丸退税极快）；楼上逛 <b>THE NORTH FACE Purple Label（北面紫标女装）</b>、<b>Bshop / BEAMS / UNITED ARROWS / Marimekko</b>。<br>
-          • <b>狸小路 Vintage 中古寻宝（PARCO 旁）：</b><b>RAGTAG / 2nd STREET / 大黑屋</b>，淘成色极佳的日系设计师大衣与中古 LV/Celine。</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ic">🎐</div>
-        <div class="bd">
-          <div class="t">女友必逛③：小樽堺町通「少女心手作孤品」（D5 专属）</div>
-          <div class="d">• <b>北一硝子 &amp; 大正硝子馆：</b>北海道纯手工吹制玻璃！必买<b>「冷饮浮现雪花变色玻璃杯」</b>、<b>手作琉璃雪人/小海豹戒指托与耳环</b>（¥1,000–¥2,500，全宇宙独一无二不撞款）。<br>
-          • <b>小樽八音盒堂本馆：</b>挑一只底座刻有 Otaru 的<b>旋转木马/玻璃天使八音盒</b>。<br>
-          • <b>SNOOPY 茶屋 &amp; Miffy 米菲兔小樽店：</b>收一只<b>北海道限定薰衣草紫/雪人款史努比或米菲兔挂件</b>，挂在包上边走边拍！</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ic">🧥</div>
-        <div class="bd">
-          <div class="t">男友必逛：NANGA SHOP SAPPORO ＋ Mont-bell（Sapporo Factory 2F）</div>
-          <div class="d"><b>⚠️ 生死提醒：Sapporo Factory 每年 12/31 全馆休馆！必须锁死在 D4 (12/28) 去！</b><br>
-          • <b>NANGA 札幌直营店：</b>日产 <b>Aurora Tex Down Jacket</b>（退税后约 ¥44,000 ≈ ¥2,080 RMB，国内 5.8 折）、<b>Aurora Tex Light</b>、或情侣款 <b>Takibi 难燃羽绒</b>。<br>
-          • <b>Mont-bell（就在隔壁）：</b><b>Plasma 1000</b> 超轻羽绒、<b>Storm Cruiser</b> 硬壳、雪地防滑冰爪与防风触屏手套（国内 5.5 折）。</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div style="font-weight:800;font-size:14.5px;padding:6px 2px 4px;color:var(--indigo);">💃 女友心愿单 · 北海道特色买买买勾选清单（点按打勾自动保存）</div>
-      <div style="font-size:12px;color:var(--ink-soft);margin-bottom:8px;">📍 一键导航：<a class="n-nav" href="https://www.google.com/maps/search/大丸札幌店" target="_blank" rel="noopener">大丸札幌</a> <a class="n-nav" href="https://www.google.com/maps/search/札幌PARCO" target="_blank" rel="noopener">札幌PARCO</a> <a class="n-nav" href="https://www.google.com/maps/search/札幌ステラプレイス" target="_blank" rel="noopener">Stellar Place</a> <a class="n-nav" href="https://www.google.com/maps/search/北一硝子三号館" target="_blank" rel="noopener">小樽北一硝子</a> <a class="n-nav" href="https://www.google.com/maps/search/みっふぃーおやつ堂+小樽店" target="_blank" rel="noopener">小樽米菲兔店</a></div>
-      <ul class="chk-list" id="gfShopChkList">
-        <li class="chk-item" data-chk="gf-shiro"><span class="chk-box">□</span><div><b>🧴 SHIRO 北海道发源香氛 &amp; 酒粕面膜</b>（大丸札幌 1F / Stellar B1 · 白茶/皂香香水、酒粕发光面膜，国内 5 折）</div></li>
-        <li class="chk-item" data-chk="gf-agete"><span class="chk-box">□</span><div><b>💎 Agete / Ete / Star Jewelry 冬日雪花K金项链/耳钉</b>（大丸札幌 1F · 极细 10K/18K 金微镶钻，圣诞跨年送礼必杀）</div></li>
-        <li class="chk-item" data-chk="gf-snidel"><span class="chk-box">□</span><div><b>👗 SNIDEL / FRAY I.D 仙女大衣 &amp; 西太后土星围巾/贝雷帽</b>（札幌 PARCO · 国内 5.5 折，买完穿去小樽拍雪景）</div></li>
-        <li class="chk-item" data-chk="gf-baobao"><span class="chk-box">□</span><div><b>👜 BAO BAO 三宅一生 / 北面紫标女装 / Bshop 买手店</b>（大丸札幌 &amp; Stellar Place · 札幌货源比东京全得多）</div></li>
-        <li class="chk-item" data-chk="gf-glass"><span class="chk-box">□</span><div><b>🎐 小樽北一硝子「冷饮雪花变色杯 &amp; 手作琉璃耳环」＋ 八音盒</b>（D5 小樽堺町通 · 匠人手吹孤品绝不撞款）</div></li>
-        <li class="chk-item" data-chk="gf-miffy"><span class="chk-box">□</span><div><b>🐰 小樽 SNOOPY茶屋 / Miffy米菲兔「北海道限定薰衣草/雪人挂件」</b>（D5 堺町通 · 挂包上边走边拍萌翻）</div></li>
-        <li class="chk-item" data-chk="gf-haba"><span class="chk-box">□</span><div><b>🛁 HABA 角鲨烷油 ＋ 北海道薰衣草 Lululun 面膜 ＋ 私汤起泡入浴球</b>（大丸 &amp; Stream 旁唐吉诃德/松本清）</div></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div style="font-weight:800;font-size:14.5px;padding:6px 2px 4px;color:var(--kaki);">✈️ 12/31 新千岁机场国内线 2F · 终极伴手礼勾选清单（点按打勾自动保存）</div>
-      <div style="font-size:12px;color:var(--ink-soft);margin-bottom:8px;">💡 <b>D 的减负铁律：</b>市区坚决不拎重盒！D7 (12/31) 13:15 到新千岁国内线 2F 一次买齐塞进箱子，直接去 ANA 柜台托运直挂上海！</div>
-      <ul class="chk-list" id="shopChkList">
-        <li class="chk-item" data-chk="snows"><span class="chk-box">□</span><div><b>❄️ SNOWS「SNOWSAND 生巧夹心脆饼」</b>（冬季限定伴手礼界爱马仕！认准国内线 2F ANA FESTA，版画铁盒美哭）</div></li>
-        <li class="chk-item" data-chk="rokkatei"><span class="chk-box">□</span><div><b>🧈 六花亭「朗姆酒葡萄干黄油夹心饼干 (Marusei)」＋「草莓白巧」</b>（冷藏后像冰淇淋一样绵密）</div></li>
-        <li class="chk-item" data-chk="kitakaro"><span class="chk-box">□</span><div><b>🦐 北菓楼「北海道开拓米果 (増毛甜虾/帆立贝味)」＋「妖精之森年轮蛋糕」</b>（咸鲜下酒神物，长辈朋友通杀）</div></li>
-        <li class="chk-item" data-chk="letao"><span class="chk-box">□</span><div><b>🧀 LeTAO「双层芝士蛋糕 Double Fromage」</b>（结账说 <b>保冷剤お願いします</b> 加专用冰袋，飞回上海依然完好）</div></li>
-        <li class="chk-item" data-chk="kinotoya"><span class="chk-box">□</span><div><b>🥛 札幌农学校「现烤酪农芝士蛋糕 & 北海道牛奶饼干」</b>（国内线 2F 甜品大街奶味王炸）</div></li>
-        <li class="chk-item" data-chk="nanga"><span class="chk-box">□</span><div><b>🧥 D4 市区已拿：NANGA 日产羽绒服 ＋ Mont-bell 雪地配件 ＋ SHIRO 香水</b>（记得带护照原件免税）</div></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ RESERVED CARDS ============ -->
-  <section id="reservedSec">
-    <div class="sec-title"><span class="n">BOOKING & QUEUE</span><h2>重点餐厅预约卡包 × 一键闭眼点单</h2></div>
-    <div class="reserve-grid">
-      <div class="reserve-card">
-        <div class="reserve-top"><span class="reserve-icon">🦀</span><div><div class="reserve-name">札幌螃蟹本家 (薄野店) / 冰雪之门</div><div class="reserve-meta">D6 · 12/30 19:00 · 2名 · 🔥 必须提前官网/TableCheck预约</div></div></div>
-        <div class="reserve-jp">19時に2名で予約しています。確認をお願いします。<br><small style="color:var(--ink-soft);font-weight:600;">（我预约了 19:00 两位，麻烦帮我确认）</small></div>
-        <div class="reserve-actions"><button type="button" data-open="mm-kani">查看蟹宴菜单</button><a href="https://www.google.com/maps/search/札幌かに本家+すすきの店" target="_blank" rel="noopener">📍 导航到店</a></div>
-        <button class="preset-order" type="button" data-preset="kani">🦀 一键选好「两人跨年全蟹宴」给店员看</button>
-      </div>
-
-      <div class="reserve-card">
-        <div class="reserve-top"><span class="reserve-icon">🥩</span><div><div class="reserve-name">成吉思汗 达摩 (5.5店 / 4.4二阶亭)</div><div class="reserve-meta">D4 · 12/28 18:45 · 2名 · 4.4二阶亭可预约 / 5.5店现场排</div></div></div>
-        <div class="reserve-jp">2名です。空いている席はありますか？<br><small style="color:var(--ink-soft);font-weight:600;">（我们两位，请问有空位吗？）</small></div>
-        <div class="reserve-actions"><button type="button" data-open="mm-daruma">查看烤肉菜单</button><a href="https://www.google.com/maps/search/成吉思汗だるま+5.5店" target="_blank" rel="noopener">📍 导航到店</a></div>
-        <button class="preset-order" type="button" data-preset="daruma">🥩 一键选好「达摩两人黄金组合」给店员看</button>
-      </div>
-
-      <div class="reserve-card">
-        <div class="reserve-top"><span class="reserve-icon">🍣</span><div><div class="reserve-name">根室花丸 (COCONO SUSUKINO 酒店楼下店)</div><div class="reserve-meta">D3 · 12/27 18:30 · 2名 · 🎫 下电梯抽号回房间躺等</div></div></div>
-        <div class="reserve-jp">番号札を取りたいです。2名、テーブル席希望です。<br><small style="color:var(--ink-soft);font-weight:600;">（我想取排队号，两位，希望坐卡座）</small></div>
-        <div class="reserve-actions"><button type="button" data-open="mm-hanamaru">查看必吃寿司</button><a href="https://www.google.com/maps/search/回転寿司+根室花まる+ココノススキノ店" target="_blank" rel="noopener">📍 导航到店</a></div>
-        <button class="preset-order" type="button" data-preset="hanamaru">🍣 一键选好「根室花丸6大王牌」给店员看</button>
-      </div>
-
-      <div class="reserve-card">
-        <div class="reserve-top"><span class="reserve-icon">🍛</span><div><div class="reserve-name">汤咖喱 Suage+ 本店 / GARAKU</div><div class="reserve-meta">D5 · 12/29 18:30 · 2名 · 🎫 门口取号机抽号</div></div></div>
-        <div class="reserve-jp">2名です。辛さは3番（中辛）、ライスはチーズのせ（中）でお願いします。<br><small style="color:var(--ink-soft);font-weight:600;">（两位。辣度选 3 号中辣，米饭要中份加炙烧芝士）</small></div>
-        <div class="reserve-actions"><button type="button" data-open="mm-soupcurry">查看汤咖喱菜单</button><a href="https://www.google.com/maps/search/Soup+Curry+Suage+本店" target="_blank" rel="noopener">📍 导航到店</a></div>
-        <button class="preset-order" type="button" data-preset="soupcurry">🍛 一键选好「两人汤咖喱顶配」给店员看</button>
-      </div>
-    </div>
-  </section>
   <!-- ============ 5 INTERACTIVE MENU MODALS ============ -->
   <div class="menu-modal" id="mm-daruma" hidden><div class="mm-box"><div class="mm-close"><span style="font-weight:800;font-size:14px;">🥩 成吉思汗 达摩 · 点菜器</span><button class="mm-x" type="button" aria-label="关闭">✕</button></div>
     <div class="menu-card">
@@ -1459,20 +1113,96 @@
     </div>
   </div>
 
-  <!-- ============ OFFLINE JAPANESE PHRASES ============ -->
-  <section>
-    <div class="sec-title"><span class="n">JAPANESE</span><h2>北海道冬日 · 离线应急日语发声卡</h2></div>
-    <details class="pitfall-card" open>
-      <summary>🗣️ 点击卡片全屏放大 ＋ 真人日语朗读</summary>
-      <div class="phrase-grid" style="margin-top:8px;">
-        <button class="phrase" type="button" data-jp="タトゥーがありますが、貸切風呂（家族風呂）は利用できますか？" data-reading="Tatuu ga arimasu ga, kashikiri-buro wa riyou dekimasu ka?" data-cn="我们有纹身，请问可以使用私人包间温泉（贷切风吕）吗？"><b>♨️ 询问纹身私汤包间</b><span>貸切風呂は使えますか</span></button>
-        <button class="phrase" type="button" data-jp="免税（めんぜい）の手続きをお願いします。パスポートはこれです。" data-reading="Menzei no tetsuzuki o onegai shimasu. Pasupooto wa kore desu." data-cn="麻烦帮我办理免税手续，这是我的护照。（买 NANGA/Mont-bell 必用）"><b>🧥 办理退税 (买NANGA)</b><span>免税手続きお願いします</span></button>
-        <button class="phrase" type="button" data-jp="飛行機で持ち帰るので、保冷剤（ほれいざい）を入れていただけますか？" data-reading="Hikouki de mochikaeru node, horeizai o irete itadakemasu ka?" data-cn="我们要坐飞机带回去，请问可以帮我放保冷冰袋吗？（机场买 LeTAO 必用）"><b>🧀 要求加保冷冰袋</b><span>保冷剤を入れてください</span></button>
-        <button class="phrase" type="button" data-jp="スキーウェアと板のレンタル（手ぶらセット）を2名分お願いします。" data-reading="Sukii wea to ita no rentaru o nimei-bun onegai shimasu." data-cn="麻烦租两套全套滑雪服和雪板套装。（手稻滑雪场必用）"><b>🎿 租全套雪服与雪板</b><span>スキーレンタル2名分</span></button>
-        <button class="phrase" type="button" data-jp="サッポロクラシック生ビールを二杯お願いします。" data-reading="Sapporo Kurashikku nama biiru o nihai onegai shimasu." data-cn="请给我们来两杯北海道限定札幌 Classic 生啤！"><b>🍺 来两杯限定生啤</b><span>クラシック生を二杯</span></button>
-        <button class="phrase" type="button" data-jp="チェックイン前（後）ですが、荷物を2つ預かっていただけますか？" data-reading="Chekku-in mae (go) desu ga, nimotsu o futatsu azukatte itadakemasu ka?" data-cn="请问可以帮我们寄存两个行李箱吗？"><b>🧳 寄存两个行李箱</b><span>荷物を2つ預かれますか</span></button>
-        <button class="phrase" type="button" data-jp="写真を撮っていただけますか？ここを押すだけです。" data-reading="Shashin o totte itadakemasu ka? Koko o osu dake desu." data-cn="请问可以帮我们情侣合拍张照吗？按这里就可以了。"><b>📸 请路人帮忙拍合照</b><span>写真を撮ってもらえますか</span></button>
-        <button class="phrase" type="button" data-jp="この場所までタクシーを呼んでいただけますか？" data-reading="Kono basho made takushii o yonde itadakemasu ka?" data-cn="请问可以帮我们叫一辆出租车去这个地方吗？"><b>🚕 请店员/前台叫车</b><span>タクシーを呼んでください</span></button>
+  <!-- ============ ③ 工具箱 ============ -->
+  <section id="toolbox">
+    <div class="sec-title"><span class="n">TOOLBOX</span><h2>工具箱 · 要用的时候再翻</h2></div>
+
+    <div class="tb-h">🗣️ 日语语音卡 · 点一下全屏放大并朗读</div>
+    <div class="phrase-grid">
+      <button class="phrase" type="button" data-jp="19時に2名で予約しています。確認をお願いします。" data-reading="Juu-ku-ji ni nimei de yoyaku shite imasu. Kakunin o onegai shimasu." data-cn="我预约了 19:00 两位，麻烦帮我确认。（D6 螃蟹店）"><b>🦀 我有预约</b><span>19時に2名で予約</span></button>
+      <button class="phrase" type="button" data-jp="タトゥーがありますが、貸切風呂（家族風呂）は利用できますか？" data-reading="Tatuu ga arimasu ga, kashikiri-buro wa riyou dekimasu ka?" data-cn="我们有纹身，请问可以用私人包间温泉吗？"><b>♨️ 问纹身私汤</b><span>貸切風呂は使えますか</span></button>
+      <button class="phrase" type="button" data-jp="免税（めんぜい）の手続きをお願いします。パスポートはこれです。" data-reading="Menzei no tetsuzuki o onegai shimasu. Pasupooto wa kore desu." data-cn="麻烦帮我办免税，这是护照。（D4 买 NANGA）"><b>🧥 办免税</b><span>免税手続きお願いします</span></button>
+      <button class="phrase" type="button" data-jp="スクールの集合場所はどこですか？" data-reading="Sukuuru no shuugou basho wa doko desu ka?" data-cn="请问滑雪学校在哪里集合？（D6 手稻）"><b>🎿 滑雪课在哪集合</b><span>集合場所はどこですか</span></button>
+      <button class="phrase" type="button" data-jp="飛行機で持ち帰るので、保冷剤（ほれいざい）を入れていただけますか？" data-reading="Hikouki de mochikaeru node, horeizai o irete itadakemasu ka?" data-cn="要坐飞机带回去，可以帮我放冰袋吗？（D7 买 LeTAO）"><b>🧀 要冰袋</b><span>保冷剤を入れてください</span></button>
+      <button class="phrase" type="button" data-jp="チェックイン前（後）ですが、荷物を2つ預かっていただけますか？" data-reading="Chekku-in mae (go) desu ga, nimotsu o futatsu azukatte itadakemasu ka?" data-cn="可以帮我们寄存两个行李箱吗？"><b>🧳 寄存两个箱子</b><span>荷物を2つ預かれますか</span></button>
+      <button class="phrase" type="button" data-jp="写真を撮っていただけますか？ここを押すだけです。" data-reading="Shashin o totte itadakemasu ka? Koko o osu dake desu." data-cn="可以帮我们拍张合照吗？按这里就行。"><b>📸 请路人拍合照</b><span>写真を撮ってもらえますか</span></button>
+      <button class="phrase" type="button" data-jp="この場所までタクシーを呼んでいただけますか？" data-reading="Kono basho made takushii o yonde itadakemasu ka?" data-cn="可以帮我们叫一辆出租车去这里吗？"><b>🚕 请前台叫车</b><span>タクシーを呼んでください</span></button>
+      <button class="phrase" type="button" data-jp="サッポロクラシック生ビールを二杯お願いします。" data-reading="Sapporo Kurashikku nama biiru o nihai onegai shimasu." data-cn="来两杯北海道限定札幌 Classic 生啤！"><b>🍺 两杯限定生啤</b><span>クラシック生を二杯</span></button>
+    </div>
+
+    <div class="tb-h">📖 点菜器 · 选好直接给店员看</div>
+    <div class="tb-grid">
+      <button class="tb-btn" type="button" data-open="mm-hanamaru">🍣 根室花丸<small>D3</small></button>
+      <button class="tb-btn" type="button" data-open="mm-daruma">🥩 达摩烤羊肉<small>D4</small></button>
+      <button class="tb-btn" type="button" data-open="mm-otaru">🦀 小樽午餐<small>D5</small></button>
+      <button class="tb-btn" type="button" data-open="mm-soupcurry">🍲 汤咖喱<small>D5</small></button>
+      <button class="tb-btn" type="button" data-open="mm-kani">🦀 螃蟹宴<small>D6</small></button>
+    </div>
+
+    <div class="tb-h">🛍️ 购物清单 · 点一下打勾（自动保存）</div>
+    <div class="card">
+      <div class="tb-sub">💃 她的心愿单（D4 札幌 · D5 小樽）</div>
+      <ul class="chk-list">
+        <li class="chk-item" data-chk="gf-shiro"><span class="chk-box">□</span><div><b>🧴 SHIRO 香水 + 酒粕面膜</b> · 大丸 1F / Stellar B1</div></li>
+        <li class="chk-item" data-chk="gf-agete"><span class="chk-box">□</span><div><b>💎 Agete / Star Jewelry 雪花项链或耳钉</b> · 大丸 1F</div></li>
+        <li class="chk-item" data-chk="gf-snidel"><span class="chk-box">□</span><div><b>👗 SNIDEL / FRAY I.D 大衣 + 西太后围巾</b> · 札幌 PARCO</div></li>
+        <li class="chk-item" data-chk="gf-baobao"><span class="chk-box">□</span><div><b>👜 BAO BAO / 北面紫标 / Bshop</b> · 大丸 &amp; Stellar Place</div></li>
+        <li class="chk-item" data-chk="gf-haba"><span class="chk-box">□</span><div><b>🛁 HABA 角鲨烷油 + Lululun 面膜 + 入浴球</b> · 大丸 / 酒店旁唐吉诃德</div></li>
+        <li class="chk-item" data-chk="gf-glass"><span class="chk-box">□</span><div><b>🎐 北一硝子雪花杯 + 琉璃耳环 + 音乐盒</b> · D5 堺町通</div></li>
+        <li class="chk-item" data-chk="gf-miffy"><span class="chk-box">□</span><div><b>🐰 SNOOPY / Miffy 北海道限定挂件</b> · D5 堺町通</div></li>
+      </ul>
+      <div class="tb-sub">🧥 你的装备（D4 Sapporo Factory）</div>
+      <ul class="chk-list">
+        <li class="chk-item" data-chk="nanga"><span class="chk-box">□</span><div><b>NANGA 羽绒服</b> · 带护照免税</div></li>
+        <li class="chk-item" data-chk="ski-gear"><span class="chk-box">□</span><div><b>两人份防水手套 + 雪镜 + 毛线帽</b> · Mont-bell（D6 滑雪用）</div></li>
+      </ul>
+      <div class="tb-sub">✈️ 伴手礼（D7 新千岁国内线 2F）</div>
+      <ul class="chk-list">
+        <li class="chk-item" data-chk="snows"><span class="chk-box">□</span><div><b>❄️ SNOWS 冬季限定 SNOWSAND</b> · ANA FESTA</div></li>
+        <li class="chk-item" data-chk="rokkatei"><span class="chk-box">□</span><div><b>🧈 六花亭 葡萄黄油夹心 + 草莓白巧</b></div></li>
+        <li class="chk-item" data-chk="kitakaro"><span class="chk-box">□</span><div><b>🦐 北菓楼 开拓米果 + 年轮蛋糕</b></div></li>
+        <li class="chk-item" data-chk="letao"><span class="chk-box">□</span><div><b>🧀 LeTAO 双层芝士蛋糕</b> · 说「保冷剤お願いします」</div></li>
+        <li class="chk-item" data-chk="kinotoya"><span class="chk-box">□</span><div><b>🥛 札幌农学校 芝士蛋糕 + 牛奶饼干</b></div></li>
+      </ul>
+    </div>
+
+    <div class="tb-h">✈️ 航班</div>
+    <div class="flight">
+      <div class="flt-row">
+        <span class="flt-code">NH972</span>
+        <div class="flt-mid"><div class="flt-route">上海浦东 T2 → 东京羽田 T3</div><div class="flt-sub">12/25 五 · 35A · 行李直挂 CTS</div></div>
+        <div class="flt-time"><div class="t">08:35</div><div class="d">12:20 到</div></div>
+      </div>
+      <div class="flt-row">
+        <span class="flt-code">NH67</span>
+        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 新千岁 国内线</div><div class="flt-sub">12/25 五 · 18G · 羽田 T3 入境后转 T2</div></div>
+        <div class="flt-time"><div class="t">14:00</div><div class="d">15:35 到</div></div>
+      </div>
+      <div class="flt-row">
+        <span class="flt-code ret">NH78</span>
+        <div class="flt-mid"><div class="flt-route">新千岁 国内线 → 东京羽田 T2</div><div class="flt-sub">12/31 四 · 18D · 行李直挂浦东</div></div>
+        <div class="flt-time"><div class="t">19:30</div><div class="d">21:10 到</div></div>
+      </div>
+      <div class="flt-row">
+        <span class="flt-code ret">NH967</span>
+        <div class="flt-mid"><div class="flt-route">东京羽田 T2 → 上海浦东 T2</div><div class="flt-sub">12/31 四 · 38K · T2 同楼上 3F 转国际</div></div>
+        <div class="flt-time"><div class="t">22:40</div><div class="d">01:15+1 到</div></div>
+      </div>
+    </div>
+
+    <div class="tb-h">🏨 酒店</div>
+    <div class="card">
+      <div class="row"><div class="ic">🏨</div><div class="bd"><div class="t">洞爷湖万世阁 · 12/25–27（2 晚）</div><div class="d">北海道虻田郡洞爺湖町洞爺湖温泉21番地 · 0570-08-3500</div><div class="tb-acts"><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖万世阁酒店" data-taxi-jp="洞爺湖万世閣 ホテルレイクサイドテラス" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉21番地 (TEL: 0570-08-3500)">🚕 给司机看</button></div></div></div>
+      <div class="row"><div class="ic">🏙</div><div class="bd"><div class="t">SAPPORO STREAM HOTEL · 12/27–31（4 晚）</div><div class="d">札幌市中央区南4条西4丁目1番1 COCONO SUSUKINO 7F · 地铁すすきの站 5 号出口直通</div><div class="tb-acts"><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌 Stream 酒店 (薄野)" data-taxi-jp="SAPPORO STREAM HOTEL（ココノ ススキノ上層）" data-taxi-addr="北海道札幌市中央区南4条西4丁目1番1 COCONO SUSUKINO 7F">🚕 给司机看</button></div></div></div>
+    </div>
+
+    <details class="pitfall-card">
+      <summary>📌 冬季锦囊 · 穿衣、防滑、交通、温泉</summary>
+      <div class="card" style="margin-top:8px; box-shadow:none;">
+        <div class="row"><div class="ic">🧥</div><div class="bd"><div class="t">洋葱式穿法</div><div class="d">室内暖气 24–26°C，别穿厚毛衣。保暖内衣 + 薄抓绒 + 防风长羽绒服，进门脱外套就行。手套放外兜，海边和山顶戴护耳帽子。</div></div></div>
+        <div class="row"><div class="ic">🥾</div><div class="bd"><div class="t">防滑：别穿普通板鞋</div><div class="d">札幌和小樽人行道常有黑冰。穿深齿防滑雪地靴，或在 D4 Mont-bell 买简易冰爪（约 ¥1,200）。</div></div></div>
+        <div class="row"><div class="ic">🚄</div><div class="bd"><div class="t">不买 JR Pass，单买更省</div><div class="d">这趟单买车票约 ¥12,800/人，比北海道周游券（5 日 ¥21,000）便宜。北斗号在 Ekinet 买指定席，其余刷 Suica。</div></div></div>
+        <div class="row"><div class="ic">♨️</div><div class="bd"><div class="t">纹身泡温泉的规则</div><div class="d">大部分公共浴场（包括万世阁）禁止纹身，贴遮瑕贴也不行。能泡的：私汤包间（貸切風呂），或官方允许纹身的丰平峡温泉（定山溪再往里 5 分钟，¥1,000，离札幌约 1 小时）。</div></div></div>
       </div>
     </details>
   </section>
@@ -1489,23 +1219,9 @@
     </div>
   </div>
 
-  <!-- ============ WINTER TIPS ============ -->
-  <section>
-    <div class="sec-title"><span class="n">WINTER TIPS</span><h2>12月底北海道 · 保命与出片锦囊</h2></div>
-    <details class="pitfall-card">
-      <summary>📌 查看防滑、行李直挂、JR 指定席与支付贴士</summary>
-      <div class="card" style="margin-top:8px; box-shadow:none;">
-        <div class="row"><div class="ic">🥾</div><div class="bd"><div class="t">雪地防滑：别穿普通板鞋！</div><div class="d">12月底札幌与小樽人行道常结黑冰。穿深齿防滑防水雪地靴，或在 D4 去 Mont-bell / 便利店买一副<b>简易套鞋冰爪（スノースパイク，约¥1,200）</b>，走小樽船见坂陡坡稳如泰山。</div></div></div>
-        <div class="row"><div class="ic">🚄</div><div class="bd"><div class="t">不必买昂贵的北海道 JR Pass！单买更省钱</div><div class="d">经精算：你们走「新千岁→洞爷→登别→札幌⇄小樽」单买车票合计约 <b>¥12,800/人</b>，远低于北海道铁路周游券（5日券 ¥21,000 / 7日券 ¥29,000）！直接在「えきねっと (Ekinet)」或新千岁 JR 售票机买<b>北斗号指定席</b>，小樽与地铁全程刷 Apple Wallet 里的 <b>Suica</b> 即可。</div></div></div>
-        <div class="row"><div class="ic">✈️</div><div class="bd"><div class="t">ANA 联程直挂规则：浦东 &amp; 新千岁均一次拿齐两段登机牌！</div><div class="d"><b>12/25 去程（国际→日本国内）：</b>在浦东值机时<b>两段登机牌一次拿齐、行李条直接打到最终目的地 CTS（新千岁）</b>！因日本海关法规定“国际转日本国内必须在第一入境点清关”，在羽田 T3 过完边检后从转盘拎下带直挂条的箱子走过海关门，<b>一出海关门右手边 10 米就是 ANA「国内線乗継カウンター（转机专用交运口）」，无需重新排队办值机，把箱子放上传送带（30秒搞定）</b>，随后直接走旁边 T3 转机专用安检口+免费巴士直达 T2 候机厅！<br><b>12/31 返程（日本国内→国际）：</b><b>100% 彻底甩手直挂！</b>在新千岁国内线 ANA 柜台交完行李后，在羽田 T2 <b>完全不用见箱子、不用换航站楼</b>，顺扶梯直上 T2 3F 过国际边检登机，直到上海浦东才拿行李！</div></div></div>
-      </div>
-    </details>
-  </section>
-
   <footer>
     <div class="lat">HOKKAIDO · TOYA × SAPPORO × OTARU · 2026.12.25–12.31</div>
-    行程 by 幽默伙伴 D 🐧 · 专为情侣冬日拍照慢游定制 · 支持离线添加到手机主屏幕<br>
-    航班：ANA NH972/NH67（12/25 浦东→羽田→新千岁）· NH78/NH967（12/31 新千岁→羽田→浦东）
+    行程 by 幽默伙伴 D 🐧 · 可离线 · 可添加到手机主屏幕
   </footer>
 </div>
 
@@ -1594,7 +1310,7 @@
 
   // Interactive Day Tasks Checkboxes
   document.querySelectorAll('.day-tasks li').forEach(function(li,idx){
-    var key='hokkaido-task-v1:'+idx;
+    var key='hokkaido-task-v2:'+idx;
     if(localStorage.getItem(key)==='1') li.classList.add('done');
     li.addEventListener('click',function(e){
       if(e.target.tagName==='A') return;
@@ -1616,18 +1332,13 @@
     titleBox.appendChild(pill);
   });
 
-  // Gourmet Tabs Filter
-  var gTabs=document.querySelectorAll('#gourmetTabs .g-tab');
-  var gCards=document.querySelectorAll('#gourmetGrid .g-card');
-  gTabs.forEach(function(tab){
-    tab.addEventListener('click',function(){
-      var f=tab.dataset.filter;
-      gTabs.forEach(function(t){ t.classList.toggle('active',t===tab); });
-      gCards.forEach(function(c){ c.hidden=(f!=='all'&&c.dataset.area!==f); });
-    });
-  });
-
-  // Shopping Checklist persistence (both Girlfriend Wishlist & Airport Souvenirs)
+  // Checklist persistence (pre-trip bookings + shopping lists)
+  var prepCount=document.getElementById('prepCount');
+  function refreshPrep(){
+    var left=document.querySelectorAll('#prep .chk-item:not(.done)').length;
+    prepCount.textContent=left?'还剩 '+left+' 项':'全部搞定 🎉';
+    return left;
+  }
   document.querySelectorAll('.chk-list .chk-item').forEach(function(item){
     var key='hokkaido-chk:'+item.dataset.chk;
     function renderChk(done){
@@ -1639,8 +1350,10 @@
       var next=localStorage.getItem(key)!=='1';
       localStorage.setItem(key,next?'1':'0');
       renderChk(next);
+      refreshPrep();
     });
   });
+  refreshPrep();
 
   // Taxi Driver Overlay
   var taxiOvl=document.getElementById('taxiOvl');
@@ -1687,7 +1400,7 @@
     {date:'2026-12-27',id:'d3',title:'D3 顺游登别地狱谷 → 札幌 Stream',alert:'🍣 入住薄野 Stream 后先下楼去根室花丸抽号，回房间躺等叫号！'},
     {date:'2026-12-28',id:'d4',title:'D4 北大雪林 × 买 NANGA × 烤羊肉',alert:'🧥 带上护照原件！今天在 Sapporo Factory 2F 把 NANGA 和 Mont-bell 拿下（12/31休馆）！'},
     {date:'2026-12-29',id:'d5',title:'D5 《情书》朝里看海雪站 × 小樽蓝调',alert:'🌊 JR 往小樽坐右侧靠窗！10:15 朝里站下车拍照，15:15 上天狗山看日落！'},
-    {date:'2026-12-30',id:'d6',title:'D6 手稻看海滑雪 × 私汤 × 帝王蟹',alert:'🦀 上午手稻山顶拍白雪大海，下午定山溪/丰平峡泡汤，19:00 跨年前夜全蟹宴！'},
+    {date:'2026-12-30',id:'d6',title:'D6 手稻滑雪团课 × 跨年前夜蟹宴',alert:'🎿 带上手套、雪镜、毛线帽！集合时间看团课订单，19:00 螃蟹宴'},
     {date:'2026-12-31',id:'d7',title:'D7 大晦日红鸟居 × 新千岁机场扫货跨年',alert:'🛍️ 12/31 市区商场早关门！13:15 进驻新千岁国内线 2F 抢 SNOWS 伴手礼再托运！'}
   ];
   var parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
@@ -1695,10 +1408,14 @@
   var japanDate=part('year')+'-'+part('month')+'-'+part('day'),japanMinutes=(+part('hour'))*60+(+part('minute'));
   var today=tripDays.find(function(day){return day.date===japanDate;}),target=today||tripDays[0];
   var todayTitle=document.getElementById('todayTitle'),todaySub=document.getElementById('todaySub'),todayAlert=document.getElementById('todayAlert');
+  var prepTarget=false;
   if(japanDate<'2026-12-25'){
-    todayTitle.textContent='冬旅待命 · 12/25 圣诞夜出发';
-    todaySub.textContent='先确认螃蟹预约与私汤方案';
+    var daysLeft=Math.round((Date.parse('2026-12-25')-Date.parse(japanDate))/86400000),left=refreshPrep();
+    todayTitle.textContent='还有 '+daysLeft+' 天出发 ❄️';
+    todaySub.textContent=left?'行前清单还剩 '+left+' 项没搞定':'行前清单全部搞定，等出发！';
     todayAlert.textContent=tripDays[0].alert;
+    document.getElementById('todayGo').textContent=left?'去清单':'看 D1';
+    prepTarget=left>0;
   }else if(japanDate>'2026-12-31'){
     target=tripDays[6];
     todayTitle.textContent='北海道七日跨年之旅圆满收官 ❄️';
@@ -1714,7 +1431,9 @@
     });
     todaySub.textContent=next?'下一站：'+next.textContent.trim():'今日行程已圆满走完，回酒店泡汤吃夜宵！';
   }
-  document.getElementById('todayGo').addEventListener('click',function(){ document.getElementById(target.id).scrollIntoView({behavior:'smooth'}); });
+  // once the trip starts the pre-trip list folds away so today's route sits right under the card
+  if(japanDate>='2026-12-25') document.getElementById('prepCard').open=false;
+  document.getElementById('todayGo').addEventListener('click',function(){ document.getElementById(prepTarget?'prep':target.id).scrollIntoView({behavior:'smooth'}); });
 
   // Live Weather Fetch (Open-Meteo JMA model, no API key required)
   var cities=[
@@ -1750,8 +1469,8 @@
   });
   // Offline trip map: SVG basemap (Natural Earth-level coastline + OSM lakes/river/rail), pins by real lat/lon
   var MAP_BASE={"views":{"region":{"lon0":140.35,"lon1":142.05,"lat0":42.2,"lat1":43.5,"W":1328,"kx":781.176471,"H":1385,"ky":1065.384615},"city":{"lon0":141.31,"lon1":141.378,"lat0":43.022,"lat1":43.092,"W":850,"kx":12500.0,"H":1198,"ky":17114.285714}},"region":{"land":"M1348,-20L1348,1094L1345,1089L1312,1082L1299,1064L1296,1063L1297,1059L1278,1050L1262,1035L1254,1024L1243,1015L1242,1012L1238,1009L1226,1004L1211,982L1189,969L1151,952L1147,957L1146,957L1148,953L1145,949L1141,947L1134,956L1131,955L1133,947L1132,945L1091,934L1058,928L1034,929L1033,926L1001,928L1006,925L1009,924L1007,923L1008,922L1028,912L1030,913L1034,911L1034,909L1045,904L1048,905L1053,902L1051,897L1030,907L1028,904L1026,905L1028,908L1001,919L997,911L993,914L996,920L996,926L993,926L993,927L995,928L993,928L993,929L991,927L988,927L989,928L990,928L990,933L988,933L988,931L985,930L978,930L927,943L896,955L856,973L835,985L798,1008L782,1020L760,1038L761,1039L760,1040L758,1039L728,1062L670,1113L665,1115L658,1116L656,1115L638,1129L635,1127L632,1127L605,1151L580,1176L549,1217L551,1222L543,1224L534,1236L535,1240L534,1240L533,1238L529,1240L522,1249L514,1264L516,1267L515,1272L514,1272L509,1276L505,1276L505,1277L498,1273L494,1270L487,1271L489,1269L484,1270L483,1267L483,1264L481,1262L470,1259L467,1259L463,1256L462,1251L454,1240L454,1238L458,1236L457,1234L463,1235L463,1228L470,1227L471,1231L471,1232L473,1231L474,1235L477,1232L478,1234L476,1235L478,1240L479,1240L480,1236L481,1241L482,1239L483,1240L482,1242L483,1243L484,1241L485,1242L485,1248L487,1249L487,1252L489,1253L489,1251L491,1250L492,1253L493,1252L492,1248L496,1249L494,1246L496,1247L498,1243L494,1242L493,1232L514,1227L511,1224L490,1226L489,1222L496,1221L498,1220L494,1218L494,1215L493,1217L490,1216L486,1219L485,1216L472,1214L466,1211L461,1209L461,1207L459,1206L457,1209L449,1205L443,1204L443,1202L438,1196L436,1193L435,1180L430,1151L421,1130L408,1107L401,1102L397,1102L394,1100L382,1097L367,1079L358,1074L353,1066L341,1063L337,1065L338,1062L336,1050L337,1049L336,1047L341,1050L341,1046L337,1044L335,1047L333,1046L333,1045L335,1045L331,1043L330,1042L333,1036L331,1033L334,1035L332,1032L334,1030L332,1026L318,1008L310,1004L300,993L294,988L292,986L286,984L283,986L282,979L281,976L274,973L257,972L246,972L235,974L233,973L229,973L212,980L201,985L197,985L196,984L189,987L188,990L182,993L171,990L168,986L165,984L159,981L144,971L139,971L131,969L126,973L125,975L121,975L117,973L115,973L112,975L99,970L93,973L86,979L48,1019L17,1063L-1,1094L-20,1136L-20,1349L-7,1356L14,1360L26,1359L38,1367L46,1381L52,1385L63,1395L66,1395L72,1404L73,1405L-20,1405L-20,700L-18,697L-17,697L-5,686L6,669L7,662L10,663L21,643L22,635L23,635L32,618L32,615L35,615L39,613L42,609L48,603L51,596L63,586L65,586L77,580L79,577L80,577L105,561L109,557L118,553L122,547L124,547L128,549L129,547L126,547L127,546L129,547L129,544L130,545L135,542L139,529L140,502L138,498L127,496L124,492L122,493L124,487L122,486L118,476L115,470L113,467L114,464L107,452L100,446L95,445L90,441L88,429L86,420L78,416L79,412L76,411L74,402L72,401L72,399L73,398L72,396L71,395L69,395L68,393L67,393L64,390L62,387L63,380L58,380L42,364L31,358L23,352L21,351L19,349L17,347L17,346L8,340L-1,328L-2,323L-4,322L-3,320L-8,311L-8,308L-12,306L-19,296L-19,295L-18,288L-13,272L-13,263L-10,261L-14,255L-17,256L-15,253L-14,254L-12,252L-11,252L-7,249L-8,246L-8,243L-6,243L-5,238L-10,232L-8,231L-6,232L-4,230L0,219L3,214L6,199L8,196L5,186L-3,176L1,178L7,178L13,180L19,179L20,177L23,181L32,178L34,177L36,180L39,180L40,177L42,177L44,175L46,177L48,176L49,178L58,181L75,174L80,171L81,169L86,164L86,160L88,155L91,146L95,143L87,140L88,136L91,134L95,135L97,133L98,134L102,132L105,133L106,132L109,134L111,134L111,135L115,135L117,138L119,137L122,140L125,149L128,152L138,149L140,150L138,154L142,160L147,165L148,165L149,170L153,171L155,171L155,174L166,185L167,187L171,188L180,201L181,201L185,204L188,203L189,206L192,209L193,210L196,209L199,210L197,210L197,212L199,214L198,215L201,217L209,216L215,218L219,215L219,218L223,227L228,227L231,228L231,231L226,238L224,238L227,248L238,253L259,260L263,260L270,265L272,264L274,265L281,263L282,268L288,266L295,274L301,274L301,280L305,283L308,281L310,281L310,283L313,287L316,286L319,291L322,290L329,291L330,290L334,292L335,305L333,305L332,308L333,315L340,320L342,319L345,325L363,325L386,321L387,318L390,320L397,316L394,306L398,309L398,307L396,304L394,303L394,301L399,302L400,300L403,302L404,309L408,313L419,310L423,310L426,307L441,307L447,303L445,293L447,295L451,290L458,291L460,291L460,289L469,290L483,281L494,277L521,277L519,283L521,292L523,291L524,293L519,299L520,304L518,306L512,308L510,312L512,312L513,313L509,315L509,318L514,316L512,319L515,318L513,321L516,320L514,322L516,325L519,324L520,326L517,328L519,329L523,328L529,332L526,335L532,338L532,336L535,337L539,341L550,340L562,344L565,347L575,349L586,354L593,358L607,367L616,369L634,378L650,373L690,352L701,345L722,330L727,322L729,324L733,322L734,320L735,313L739,308L738,311L739,312L742,309L743,310L748,305L746,302L743,305L741,303L746,299L749,303L749,302L754,299L784,263L798,241L807,230L826,204L829,197L839,182L838,170L839,160L843,149L841,145L841,134L845,118L843,85L829,54L821,41L819,33L815,29L814,23L812,23L799,5L798,-3L793,-12L788,-20ZM198,205L196,205L196,204L198,204ZM714,317L721,311L733,294L734,288L733,294L721,311Z","lake":"M766,742L771,742L777,742L788,747L796,753L810,766L815,768L816,770L819,771L821,773L823,776L822,778L823,780L822,783L821,790L822,792L822,795L824,798L825,799L827,802L827,805L826,806L824,807L822,807L814,808L809,808L805,810L802,813L800,814L797,812L794,813L792,813L788,812L783,812L781,814L779,814L776,816L772,818L770,822L767,824L765,828L763,832L759,834L757,836L752,842L748,844L745,847L739,848L736,847L733,844L730,840L727,839L724,837L722,837L718,834L714,831L713,829L713,827L716,822L716,820L715,819L712,815L710,812L709,808L708,807L707,806L707,805L705,800L704,796L706,794L707,786L709,782L712,779L715,777L718,778L721,776L724,777L725,778L727,777L728,778L729,781L728,782L729,782L734,779L736,781L737,781L740,779L743,779L745,779L746,777L745,774L745,772L746,771L748,770L750,769L751,766L752,765L753,761L752,759L753,757L755,755L761,751L761,749L762,748L764,743ZM649,1054L654,1054L658,1056L661,1061L662,1066L661,1070L660,1073L657,1075L651,1077L649,1077L644,1076L640,1072L638,1067L639,1061L640,1059L644,1055ZM424,989L424,992L423,992L422,992L421,992L421,994L420,996L419,996L419,997L418,998L417,997L415,996L413,998L412,998L412,1001L410,1004L400,1004L397,1005L393,1001L388,999L386,1002L388,999L385,997L378,995L374,996L371,994L359,995L356,992L355,990L356,989L353,991L351,989L350,986L350,983L349,979L346,970L346,966L343,963L343,962L343,962L344,957L343,955L344,952L346,950L348,950L352,947L354,947L354,942L356,938L359,939L360,934L362,932L364,932L365,930L366,930L367,925L366,924L367,922L370,918L371,917L372,918L371,916L372,915L374,912L379,908L381,909L382,910L384,910L386,911L388,914L391,917L396,917L400,914L400,913L402,910L404,909L405,910L408,910L410,913L412,913L416,916L417,915L419,916L422,920L422,922L424,923L427,924L432,930L433,931L432,933L433,936L439,939L441,942L442,946L443,947L445,947L446,947L447,950L447,955L447,962L444,967L444,969L441,974L436,978L435,978L433,983L432,987L430,989L424,989Z"},"city":{"river":"M532,1209L529,1201L530,1181M530,1181L541,1129L568,1049L572,979L580,949L590,925M590,925L611,875M611,875L620,853L624,832L627,782L632,753L641,722L648,710L653,694L657,666L676,627L707,588M707,588L715,580L727,556L737,524L748,513L765,502L803,492L813,482L833,472L861,467","rail":"M287,371L305,382M283,369L287,371M562,395L597,396M15,211L155,294M155,294L263,358M597,396L708,399M708,399L799,400L866,392M267,360L283,369M263,358L267,360M262,359L-7,197M282,370L266,361M-10,194L15,211M447,420L455,417M463,414L493,401M707,400L597,397M597,397L588,397M708,398L787,399L865,392M866,394L798,402L708,399M869,394L796,404L707,400M708,399L597,397M458,416L463,414M434,423L447,420M588,397L577,397M455,417L458,416M577,397L560,397M557,397L542,399M494,408L478,412M493,401L512,396M513,404L494,408M527,393L547,394M286,372L282,370M266,361L262,359M-7,197L-11,195M305,382L365,416L384,423L410,426L434,423M452,420L413,428L384,424L365,416L286,372M547,394L708,398M528,401L513,404M512,396L527,393M560,397L557,397M465,417L452,420M473,414L478,412M557,395L562,395","park":"M583,524L585,532L577,534L553,537L544,540L373,573L333,580L331,570L552,529L552,530L558,529L559,528Z"}};
-  var MAP_SPOTS=[{"k":"cts","n":"新千岁机场 国内线","q":"新千歳空港国内線ターミナル","y":42.788,"x":141.681,"c":"move","d":[1,7],"a":"d1"},{"k":"manseikaku","n":"洞爷湖万世阁","q":"洞爺湖万世閣ホテルレイクサイドテラス","y":42.565819,"x":140.824675,"c":"hotel","d":[1,2,3],"a":"d1"},{"k":"tunnel","n":"洞爷湖星光隧道","q":"洞爺湖イルミネーショントンネル","y":42.5662,"x":140.8196,"c":"sight","d":[1],"a":"d1"},{"k":"ukimido","n":"浮见堂公园","q":"洞爺湖浮見堂公園","y":42.5676,"x":140.829,"c":"sight","d":[2],"a":"d2"},{"k":"silo","n":"筒仓展望台","q":"サイロ展望台","y":42.626188,"x":140.799441,"c":"sight","d":[2],"a":"d2"},{"k":"sendoan","n":"仙堂庵 荞麦","q":"そば処仙堂庵 洞爺湖","y":42.5653,"x":140.8197,"c":"food","d":[2],"a":"d2"},{"k":"nonokaze","n":"乃之风 私汤","q":"ザ レイクビュー TOYA 乃の風リゾート","y":42.5671,"x":140.8253,"c":"onsen","d":[2],"a":"d2"},{"k":"noboribetsu","n":"JR 登别站","q":"登別駅","y":42.452009,"x":141.180803,"c":"move","d":[3],"a":"d3"},{"k":"jigokudani","n":"登别地狱谷","q":"登別地獄谷","y":42.497572,"x":141.145335,"c":"sight","d":[3],"a":"d3"},{"k":"stream","n":"SAPPORO STREAM HOTEL","q":"SAPPORO STREAM HOTEL","y":43.055177,"x":141.35224,"c":"hotel","d":[3,4,5,6,7],"a":"d3"},{"k":"hanamaru","n":"根室花丸 回转寿司","q":"回転寿司 根室花まる ココノススキノ店","y":43.0553,"x":141.3537,"c":"food","d":[3],"a":"d3"},{"k":"hokudai","n":"北海道大学","q":"北海道大学 ポプラ並木","y":43.0795,"x":141.3373,"c":"sight","d":[4],"a":"d4"},{"k":"rokkatei","n":"六花亭 札幌本店","q":"六花亭 札幌本店","y":43.066023,"x":141.346554,"c":"food","d":[4],"a":"d4"},{"k":"nanga","n":"NANGA · Sapporo Factory","q":"NANGA SHOP SAPPORO サッポロファクトリー","y":43.0646,"x":141.3627,"c":"shop","d":[4],"a":"d4"},{"k":"daimaru","n":"大丸札幌","q":"大丸札幌店","y":43.068,"x":141.3492,"c":"shop","d":[4],"a":"d4"},{"k":"parco","n":"札幌 PARCO","q":"札幌PARCO","y":43.058728,"x":141.353158,"c":"shop","d":[4],"a":"d4"},{"k":"daruma","n":"达摩 成吉思汗烤肉","q":"成吉思汗だるま 5.5店","y":43.0537,"x":141.3518,"c":"food","d":[4],"a":"d4"},{"k":"asari","n":"朝里站","q":"朝里駅","y":43.176908,"x":141.063689,"c":"sight","d":[5],"a":"d5"},{"k":"orgel","n":"小樽音乐盒堂","q":"小樽オルゴール堂 本館","y":43.190579,"x":141.007792,"c":"sight","d":[5],"a":"d5"},{"k":"sankaku","n":"三角市场 泷波食堂","q":"小樽三角市場 滝波食堂","y":43.1975,"x":140.9945,"c":"food","d":[5],"a":"d5"},{"k":"funami","n":"船见坂","q":"船見坂 小樽","y":43.198825,"x":140.993147,"c":"sight","d":[5],"a":"d5"},{"k":"tengu","n":"天狗山缆车","q":"小樽天狗山ロープウェイ","y":43.177937,"x":140.975161,"c":"sight","d":[5],"a":"d5"},{"k":"canal","n":"小樽运河","q":"小樽運河 浅草橋街園","y":43.202023,"x":141.000601,"c":"sight","d":[5],"a":"d5"},{"k":"suage","n":"Suage+ 汤咖喱","q":"スープカレー すあげプラス 本店","y":43.0565,"x":141.351,"c":"food","d":[5],"a":"d5"},{"k":"teine","n":"手稻滑雪场","q":"サッポロテイネ オリンピアスキースクール","y":43.086697,"x":141.204206,"c":"sight","d":[6],"a":"d6"},{"k":"hoheikyo","n":"丰平峡温泉","q":"豊平峡温泉","y":42.948944,"x":141.155875,"c":"onsen","d":[6],"a":"d6"},{"k":"kani","n":"螃蟹本家 薄野店","q":"札幌かに本家 すすきの店","y":43.0556,"x":141.3554,"c":"food","d":[6],"a":"d6"},{"k":"inari","n":"伏见稻荷神社","q":"札幌伏見稲荷神社","y":43.034966,"x":141.32537,"c":"sight","d":[7],"a":"d7"},{"k":"jrsapporo","n":"JR 札幌站","q":"JR札幌駅","y":43.0687,"x":141.3508,"c":"move","d":[7],"a":"d7"},{"k":"boyotei","n":"望羊蹄 西餐","q":"レストラン望羊蹄 洞爺湖","y":42.565045,"x":140.819057,"c":"food","d":[],"a":"gourmetGrid"},{"k":"ippontei","n":"一本亭 拉面","q":"ラーメン一本亭 洞爺湖","y":42.565,"x":140.8202,"c":"food","d":[],"a":"gourmetGrid"},{"k":"okadaya","n":"冈田屋 红豆汤","q":"岡田屋 洞爺湖","y":42.565259,"x":140.818454,"c":"food","d":[],"a":"gourmetGrid"},{"k":"ponpekora","n":"Ponpekora 湖景汤咖喱","q":"Soup Curry Ponpekora 洞爺湖","y":42.5647,"x":140.8186,"c":"food","d":[],"a":"gourmetGrid"},{"k":"pal","n":"PaL 夜芭菲","q":"夜パフェ専門店 Parfaiteria PaL","y":43.0558,"x":141.355,"c":"food","d":[],"a":"gourmetGrid"},{"k":"utari","n":"Utari 炉端烧","q":"炉ばた焼 ウタリ 札幌","y":43.053904,"x":141.352001,"c":"food","d":[],"a":"gourmetGrid"},{"k":"ichigen","n":"一幻 虾汤拉面","q":"えびそば一幻 総本店","y":43.051275,"x":141.345469,"c":"food","d":[],"a":"gourmetGrid"},{"k":"naruto","n":"若鸡时代 炸鸡","q":"若鶏時代なると 本店","y":43.1965,"x":140.9985,"c":"food","d":[],"a":"gourmetGrid"},{"k":"masazushi","n":"政寿司 本店","q":"おたる政寿司 本店","y":43.194175,"x":141.000158,"c":"food","d":[],"a":"gourmetGrid"},{"k":"toyakanko","n":"洞爷观光酒店 私汤","q":"洞爺観光ホテル","y":42.565692,"x":140.820895,"c":"onsen","d":[],"a":"onsenGuide"},{"k":"furukawa","n":"定山溪 ふる川 私汤","q":"定山渓温泉 ぬくもりの宿 ふる川","y":42.965684,"x":141.161158,"c":"onsen","d":[],"a":"onsenGuide"},{"k":"stellar","n":"Stellar Place","q":"札幌ステラプレイス","y":43.068046,"x":141.350991,"c":"shop","d":[],"a":"shoppingHub"},{"k":"kitaichi","n":"北一硝子 三号馆","q":"北一硝子三号館","y":43.192309,"x":141.007317,"c":"shop","d":[],"a":"shoppingHub"},{"k":"miffy","n":"Miffy 甜点堂 小樽","q":"みっふぃーおやつ堂 小樽店","y":43.1918,"x":141.006,"c":"shop","d":[],"a":"shoppingHub"}];
-  var MAP_ROUTES={"1":["cts","manseikaku","tunnel"],"2":["manseikaku","ukimido","silo","sendoan","nonokaze"],"3":["manseikaku","noboribetsu","jigokudani","stream","hanamaru"],"4":["stream","hokudai","rokkatei","nanga","daimaru","parco","daruma"],"5":["stream","asari","orgel","sankaku","funami","tengu","canal","suage"],"6":["stream","teine","hoheikyo","kani"],"7":["stream","inari","jrsapporo","cts"]};
+  var MAP_SPOTS=[{"k":"cts","n":"新千岁机场 国内线","q":"新千歳空港国内線ターミナル","y":42.788,"x":141.681,"c":"move","d":[1,7],"a":"d1"},{"k":"manseikaku","n":"洞爷湖万世阁","q":"洞爺湖万世閣ホテルレイクサイドテラス","y":42.565819,"x":140.824675,"c":"hotel","d":[1,2,3],"a":"d1"},{"k":"tunnel","n":"洞爷湖星光隧道","q":"洞爺湖イルミネーショントンネル","y":42.5662,"x":140.8196,"c":"sight","d":[1],"a":"d1"},{"k":"ukimido","n":"浮见堂公园","q":"洞爺湖浮見堂公園","y":42.5676,"x":140.829,"c":"sight","d":[2],"a":"d2"},{"k":"silo","n":"筒仓展望台","q":"サイロ展望台","y":42.626188,"x":140.799441,"c":"sight","d":[2],"a":"d2"},{"k":"sendoan","n":"仙堂庵 荞麦","q":"そば処仙堂庵 洞爺湖","y":42.5653,"x":140.8197,"c":"food","d":[2],"a":"d2"},{"k":"nonokaze","n":"乃之风 私汤","q":"ザ レイクビュー TOYA 乃の風リゾート","y":42.5671,"x":140.8253,"c":"onsen","d":[2],"a":"d2"},{"k":"noboribetsu","n":"JR 登别站","q":"登別駅","y":42.452009,"x":141.180803,"c":"move","d":[3],"a":"d3"},{"k":"jigokudani","n":"登别地狱谷","q":"登別地獄谷","y":42.497572,"x":141.145335,"c":"sight","d":[3],"a":"d3"},{"k":"stream","n":"SAPPORO STREAM HOTEL","q":"SAPPORO STREAM HOTEL","y":43.055177,"x":141.35224,"c":"hotel","d":[3,4,5,6,7],"a":"d3"},{"k":"hanamaru","n":"根室花丸 回转寿司","q":"回転寿司 根室花まる ココノススキノ店","y":43.0553,"x":141.3537,"c":"food","d":[3],"a":"d3"},{"k":"hokudai","n":"北海道大学","q":"北海道大学 ポプラ並木","y":43.0795,"x":141.3373,"c":"sight","d":[4],"a":"d4"},{"k":"rokkatei","n":"六花亭 札幌本店","q":"六花亭 札幌本店","y":43.066023,"x":141.346554,"c":"food","d":[4],"a":"d4"},{"k":"nanga","n":"NANGA · Sapporo Factory","q":"NANGA SHOP SAPPORO サッポロファクトリー","y":43.0646,"x":141.3627,"c":"shop","d":[4],"a":"d4"},{"k":"daimaru","n":"大丸札幌","q":"大丸札幌店","y":43.068,"x":141.3492,"c":"shop","d":[4],"a":"d4"},{"k":"parco","n":"札幌 PARCO","q":"札幌PARCO","y":43.058728,"x":141.353158,"c":"shop","d":[4],"a":"d4"},{"k":"daruma","n":"达摩 成吉思汗烤肉","q":"成吉思汗だるま 5.5店","y":43.0537,"x":141.3518,"c":"food","d":[4],"a":"d4"},{"k":"asari","n":"朝里站","q":"朝里駅","y":43.176908,"x":141.063689,"c":"sight","d":[5],"a":"d5"},{"k":"orgel","n":"小樽音乐盒堂","q":"小樽オルゴール堂 本館","y":43.190579,"x":141.007792,"c":"sight","d":[5],"a":"d5"},{"k":"sankaku","n":"三角市场 泷波食堂","q":"小樽三角市場 滝波食堂","y":43.1975,"x":140.9945,"c":"food","d":[5],"a":"d5"},{"k":"funami","n":"船见坂","q":"船見坂 小樽","y":43.198825,"x":140.993147,"c":"sight","d":[5],"a":"d5"},{"k":"tengu","n":"天狗山缆车","q":"小樽天狗山ロープウェイ","y":43.177937,"x":140.975161,"c":"sight","d":[5],"a":"d5"},{"k":"canal","n":"小樽运河","q":"小樽運河 浅草橋街園","y":43.202023,"x":141.000601,"c":"sight","d":[5],"a":"d5"},{"k":"suage","n":"Suage+ 汤咖喱","q":"スープカレー すあげプラス 本店","y":43.0565,"x":141.351,"c":"food","d":[5],"a":"d5"},{"k":"teine","n":"手稻滑雪场","q":"サッポロテイネ オリンピアスキースクール","y":43.086697,"x":141.204206,"c":"sight","d":[6],"a":"d6"},{"k":"hoheikyo","n":"丰平峡温泉","q":"豊平峡温泉","y":42.948944,"x":141.155875,"c":"onsen","d":[],"a":"toolbox"},{"k":"kani","n":"螃蟹本家 薄野店","q":"札幌かに本家 すすきの店","y":43.0556,"x":141.3554,"c":"food","d":[6],"a":"d6"},{"k":"inari","n":"伏见稻荷神社","q":"札幌伏見稲荷神社","y":43.034966,"x":141.32537,"c":"sight","d":[7],"a":"d7"},{"k":"jrsapporo","n":"JR 札幌站","q":"JR札幌駅","y":43.0687,"x":141.3508,"c":"move","d":[7],"a":"d7"},{"k":"boyotei","n":"望羊蹄 西餐","q":"レストラン望羊蹄 洞爺湖","y":42.565045,"x":140.819057,"c":"food","d":[],"a":"d1"},{"k":"ippontei","n":"一本亭 拉面","q":"ラーメン一本亭 洞爺湖","y":42.565,"x":140.8202,"c":"food","d":[],"a":"d1"},{"k":"okadaya","n":"冈田屋 红豆汤","q":"岡田屋 洞爺湖","y":42.565259,"x":140.818454,"c":"food","d":[],"a":"d2"},{"k":"ponpekora","n":"Ponpekora 湖景汤咖喱","q":"Soup Curry Ponpekora 洞爺湖","y":42.5647,"x":140.8186,"c":"food","d":[],"a":"d1"},{"k":"pal","n":"PaL 夜芭菲","q":"夜パフェ専門店 Parfaiteria PaL","y":43.0558,"x":141.355,"c":"food","d":[],"a":"d3"},{"k":"utari","n":"Utari 炉端烧","q":"炉ばた焼 ウタリ 札幌","y":43.053904,"x":141.352001,"c":"food","d":[],"a":"d3"},{"k":"ichigen","n":"一幻 虾汤拉面","q":"えびそば一幻 総本店","y":43.051275,"x":141.345469,"c":"food","d":[],"a":"d3"},{"k":"naruto","n":"若鸡时代 炸鸡","q":"若鶏時代なると 本店","y":43.1965,"x":140.9985,"c":"food","d":[],"a":"d5"},{"k":"masazushi","n":"政寿司 本店","q":"おたる政寿司 本店","y":43.194175,"x":141.000158,"c":"food","d":[],"a":"d5"},{"k":"toyakanko","n":"洞爷观光酒店 私汤","q":"洞爺観光ホテル","y":42.565692,"x":140.820895,"c":"onsen","d":[],"a":"d2"},{"k":"furukawa","n":"定山溪 ふる川 私汤","q":"定山渓温泉 ぬくもりの宿 ふる川","y":42.965684,"x":141.161158,"c":"onsen","d":[],"a":"toolbox"},{"k":"stellar","n":"Stellar Place","q":"札幌ステラプレイス","y":43.068046,"x":141.350991,"c":"shop","d":[],"a":"d4"},{"k":"kitaichi","n":"北一硝子 三号馆","q":"北一硝子三号館","y":43.192309,"x":141.007317,"c":"shop","d":[],"a":"d5"},{"k":"miffy","n":"Miffy 甜点堂 小樽","q":"みっふぃーおやつ堂 小樽店","y":43.1918,"x":141.006,"c":"shop","d":[],"a":"d5"}];
+  var MAP_ROUTES={"1":["cts","manseikaku","tunnel"],"2":["manseikaku","ukimido","silo","sendoan","nonokaze"],"3":["manseikaku","noboribetsu","jigokudani","stream","hanamaru"],"4":["stream","hokudai","rokkatei","nanga","daimaru","parco","daruma"],"5":["stream","asari","orgel","sankaku","funami","tengu","canal","suage"],"6":["stream","teine","kani"],"7":["stream","inari","jrsapporo","cts"]};
   var MAP_CATS={all:['全部','#57646C',''],sight:['景点','#C0532E','📸'],food:['美食','#C98A1B','🍜'],hotel:['住宿','#285A86','🏨'],onsen:['温泉','#2E8C93','♨️'],shop:['购物','#8A5CB5','🛍️'],move:['交通','#57646C','🚉']};
   var DAY_COLORS=['#C0532E','#285A86','#3C7757','#8A5CB5','#C98A1B','#2E8C93','#B23A6B'];
   var mapOvl=document.getElementById('mapOvl'),mapSvg=document.getElementById('mapSvg'),mapCard=document.getElementById('mapCard'),mapHint=document.getElementById('mapHint');

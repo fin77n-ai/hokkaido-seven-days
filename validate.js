@@ -228,12 +228,26 @@ for (const mid of modalIds) {
 }
 ok(`[交互弹窗] 全部 ${new Set(openTargets).size} 个餐厅点菜弹窗与预设套餐映射 100% 闭合`);
 
-// 8. 步数统计条对称性校验 (D1-D7 严格 7 行)
-const stepRows = [...html.matchAll(/<div class="step-lbl">DAY 0(\d)/g)].map(x => x[1]);
-if (stepRows.join(',') !== '1,2,3,4,5,6,7') {
-  err(`[步数统计] #steps-sec 日程行顺序异常: 期望 1..7，实际为 ${stepRows.join(',')}`);
+// 8. 七天总览对称性校验 (D1-D7 严格 7 行，每行跳到对应日卡并带步数)
+const ovRows = [...html.matchAll(/<a class="ov-row" data-day="(\d)" href="#d(\d)">([\s\S]*?)<\/a>/g)];
+if (ovRows.map(x => x[1]).join(',') !== '1,2,3,4,5,6,7') {
+  err(`[七天总览] #overview 行顺序异常: 期望 1..7，实际为 ${ovRows.map(x => x[1]).join(',')}`);
+} else if (ovRows.some(x => x[1] !== x[2] || !/步<\/small>/.test(x[3]))) {
+  err('[七天总览] #overview 存在跳转锚点与日序不符或缺步数的行');
 } else {
-  ok('[步数统计] #steps-sec 严格对应 DAY 01–DAY 07 共 7 行，无重复或缺失');
+  ok('[七天总览] #overview 严格对应 D1–D7 共 7 行，锚点与步数齐全');
+}
+
+// 8b. 行前清单：待办项必须有唯一 data-chk，避免打勾状态串号
+const prepHtml = (html.match(/<section id="prep">([\s\S]*?)<\/section>/) || [])[1] || '';
+const prepKeys = [...prepHtml.matchAll(/data-chk="([^"]+)"/g)].map(x => x[1]);
+const allKeys = [...html.matchAll(/data-chk="([^"]+)"/g)].map(x => x[1]);
+if (!prepKeys.length) {
+  err('[行前清单] 未找到 #prep 待办项');
+} else if (new Set(allKeys).size !== allKeys.length) {
+  err('[行前清单] data-chk 存在重复键，打勾状态会串号');
+} else {
+  ok(`[行前清单] ${prepKeys.length} 项行前待办，全部 ${allKeys.length} 个勾选项键名唯一`);
 }
 
 // 9. JR北海道特急北斗号真实时刻表核验 (对照官方时刻表原图)
