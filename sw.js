@@ -1,4 +1,6 @@
-const CACHE_NAME = 'hokkaido-seven-days-v11';
+const CACHE_NAME = 'hokkaido-seven-days-v12';
+// Wikimedia photo thumbnails live in their own cache so a new itinerary version does not wipe them
+const PHOTO_CACHE = 'hokkaido-photos-v1';
 const APP_FILES = [
   './',
   './index.html',
@@ -20,7 +22,7 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))
+    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME && key !== PHOTO_CACHE).map(key => caches.delete(key))))
   );
   self.clients.claim();
 });
@@ -33,7 +35,17 @@ function notifyUpdated() {
 
 // Stale-While-Revalidate: serve cache instantly (works on bad snow-day signal), refresh in background
 self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
+  if (event.request.method !== 'GET') return;
+  // Cache-first for photo thumbnails: once seen online, they keep showing on a snowy no-signal day
+  if (new URL(event.request.url).hostname === 'thumb.wikimedia.org') {
+    event.respondWith(caches.open(PHOTO_CACHE).then(cache => cache.match(event.request).then(hit => hit ||
+      fetch(event.request).then(response => {
+        if (response.ok || response.type === 'opaque') cache.put(event.request, response.clone()).catch(() => {});
+        return response;
+      }))));
+    return;
+  }
+  if (new URL(event.request.url).origin !== self.location.origin) return;
   const isPage = event.request.mode === 'navigate';
   const key = isPage ? PAGE_KEY : event.request;
   const work = caches.open(CACHE_NAME).then(cache => cache.match(key, { ignoreSearch: true }).then(cached => {

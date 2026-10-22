@@ -379,6 +379,39 @@
   .budget li b{font-family:var(--font-lat); color:var(--ink); white-space:nowrap;}
   .budget p{margin:0; padding:0 12px 10px; font-size:12px; color:var(--kaki); line-height:1.5;}
   .ov-st .ov-yen{color:var(--moss); font-weight:700;}
+  .m-label{paint-order:stroke; stroke:var(--surface); stroke-width:calc(5px*var(--z,1)); stroke-linejoin:round;}
+  .m-label.sea{stroke:none;}
+  .m-mtn{fill:color-mix(in srgb,var(--moss) 45%,var(--ink-faint)); opacity:.75;}
+  .m-snowcap{fill:#fff; opacity:.9;}
+  .m-mtn-t{font-size:calc(19px*var(--z,1)); fill:var(--moss);}
+  .m-jr{fill:none; stroke:var(--ink-soft); stroke-width:calc(7px*var(--z,1)); stroke-linejoin:round; opacity:.8;}
+  .m-jr-dash{fill:none; stroke:var(--surface); stroke-width:calc(3px*var(--z,1)); stroke-dasharray:calc(12px*var(--z,1)) calc(12px*var(--z,1));}
+  .m-st{fill:var(--surface); stroke:var(--ink); stroke-width:calc(3px*var(--z,1));}
+  .m-st-t{fill:var(--ink); font:800 calc(19px*var(--z,1)) var(--font-cjk); paint-order:stroke; stroke:var(--surface); stroke-width:calc(5px*var(--z,1)); stroke-linejoin:round; pointer-events:none;}
+  .m-subway{fill:none; stroke:#2E9E5B; stroke-width:calc(8px*var(--z,1)); stroke-linecap:round; stroke-linejoin:round; opacity:.85;}
+  .m-sub-st{fill:#fff; stroke:#2E9E5B; stroke-width:calc(4px*var(--z,1));}
+  .m-sub-t{fill:#1F7A45; font:800 calc(18px*var(--z,1)) var(--font-cjk); paint-order:stroke; stroke:var(--surface); stroke-width:calc(5px*var(--z,1)); stroke-linejoin:round; pointer-events:none;}
+  .m-lm{pointer-events:none;}
+  .m-lm circle{fill:var(--surface); stroke:var(--line); stroke-width:2;}
+  .m-lm-i{font-size:19px; text-anchor:middle; dominant-baseline:central;}
+  .m-lm-t{fill:var(--ink-soft); font:700 calc(17px*var(--z,1)) var(--font-cjk); paint-order:stroke; stroke:var(--surface); stroke-width:calc(5px*var(--z,1)); stroke-linejoin:round; pointer-events:none;}
+  .map-legend{position:absolute; left:12px; top:42px; display:flex; gap:10px; font-size:12px; font-weight:700; color:var(--ink-soft); background:color-mix(in srgb,var(--surface) 88%,transparent); padding:5px 10px; border-radius:999px; pointer-events:none;}
+  .map-legend span{display:inline-flex; align-items:center; gap:4px;}
+  .map-legend i{display:inline-block;}
+  .lg-jr{width:16px; height:4px; background:repeating-linear-gradient(90deg,var(--ink-soft) 0 5px,var(--surface) 5px 8px); border:1px solid var(--ink-soft);}
+  .lg-sub{width:16px; height:4px; background:#2E9E5B; border-radius:2px;}
+  .lg-st{width:9px; height:9px; border-radius:50%; border:2px solid var(--ink); background:var(--surface);}
+  .lg-mtn{width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:10px solid color-mix(in srgb,var(--moss) 45%,var(--ink-faint));}
+  .ph{margin:8px 0 2px; border-radius:12px; overflow:hidden; background:var(--surface-2); border:1px solid var(--line);}
+  .ph img{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; background:var(--indigo-soft);}
+  .ph figcaption{padding:4px 9px; font-size:12px; color:var(--ink-faint); line-height:1.4; overflow-wrap:anywhere;}
+  .ph figcaption a{color:var(--ink-faint);}
+  .ph.off{display:none;}
+  .n-nav.n-photo{background:var(--surface-2); color:var(--ink-soft); border:1px solid var(--line);}
+  details.exp.local summary{color:var(--indigo);}
+  details.exp.local summary::before{content:none;}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .m-sub-t{fill:#7BD7A2;} }
+  :root[data-theme="dark"] .m-sub-t{fill:#7BD7A2;}
 </style>
 </head>
 <body>
@@ -482,7 +515,7 @@
       <ul class="chk-list">
         <li class="chk-item" data-chk="pre-kani"><span class="chk-box">□</span><div><b>🦀 订 D6 12/30 19:00 螃蟹宴 · 2 位</b><br>かに本家官网，或冰雪之门 TableCheck（支持中文）。年末现场排不到，备注「個室希望」</div></li>
         <li class="chk-item" data-chk="pre-ski"><span class="chk-box">□</span><div><b>🎿 订 D6 手稻中文滑雪团课 · 2 人（你单板、她双板）</b><br>下单前问清：缆车票含不含、集合点和时间、几点回札幌、手套和雪镜给不给</div></li>
-        <li class="chk-item" data-chk="pre-onsen"><span class="chk-box">□</span><div><b>♨️ 定 D2 下午私汤</b><br>先查万世阁房型带不带展望温泉；不带就约乃之风或洞爷观光酒店的家族汤（约 ¥3,300–4,500 / 50 分钟）</div></li>
+        <li class="chk-item" data-chk="pre-onsen"><span class="chk-box">□</span><div><b>♨️ 订 D2 15:15 私汤</b><br>洞爷观光酒店的贷切露天风吕（万世阁对面，50 分钟约 ¥4,400–5,000，16 点前便宜 ¥1,000），电话确认价格和空档</div></li>
         <li class="chk-item" data-chk="pre-jr"><span class="chk-box">□</span><div><b>🚄 Ekinet 买北斗号指定席</b><br>D1 南千岁→洞爷（北斗 18 号）；D3 洞爷→登别（5 号）、登别→札幌（11 号）</div></li>
         <li class="chk-item" data-chk="pre-suica"><span class="chk-box">□</span><div><b>📱 iPhone 钱包加 Suica，填好 Visit Japan Web</b><br>小樽 JR 和地铁全程刷 Suica</div></li>
         <li class="chk-item" data-chk="pre-daruma"><span class="chk-box">□</span><div><b>🥩（可选）订 D4 达摩 4.4 二阶亭 18:45</b><br>不订就去 5.5 店现场排</div></li>
@@ -545,7 +578,7 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">1</span>
-        <div class="n-top"><span class="n-time">18:45</span><span class="n-name">🍽️ 晚餐 · 望羊蹄 昭和洋食</span><a class="n-nav" href="https://www.google.com/maps/search/レストラン望羊蹄+洞爺湖" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">18:45</span><span class="n-name">🍽️ 晚餐 · 望羊蹄 昭和洋食</span><a class="n-nav" href="https://www.google.com/maps/search/レストラン望羊蹄+洞爺湖" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3%E6%9C%9B%E7%BE%8A%E8%B9%84%20%E6%B4%9E%E7%88%BA%E6%B9%96" target="_blank" rel="noopener">📷照片</a></div>
         <div class="n-jp">レストラン望羊蹄 · 万世阁向西步行 4 分 · 17:00–20:00</div>
         <div class="n-find">如果房费含晚餐就在酒店吃。不含的话就去望羊蹄，这家 1946 年开业，点铁板芝士汉堡排和焦糖布丁。坐北斗 20 号晚到的话，就去一本亭吃拉面。<span class="tags"><span class="tag yen">免预约</span></span></div>
         <details class="exp"><summary>洞爷湖温泉街还能吃什么</summary><div class="exp-bd">
@@ -579,12 +612,13 @@
       <li><b>筒仓展望台在山上，冬天叫不到车。</b>让前台叫车，谈好「往返 + 山上等 30 分钟」，约 ¥5,000</li>
       <li><b>冬天不坐游船：</b>中岛封岛不能下船，不值得</li>
     </ul></div>
-    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥17,400</b><small>约 820 元 · 不含酒店机票购物</small></summary><ul><li><span>筒仓展望台 包车往返</span><b>约 ¥5,000</b></li><li><span>午餐 仙堂庵 帆立天ざる ×2</span><b>¥3,300</b></li><li><span>冈田屋 白色年糕甜汤 ×2</span><b>¥1,100</b></li><li><span>私汤 50 分钟</span><b>约 ¥4,000</b></li><li><span>晚餐 温泉街 两人</span><b>约 ¥4,000</b></li></ul></details>
+    <details class="budget"><summary>💴 今日花费 · 两人 <b>¥17,400</b><small>约 820 元 · 不含酒店机票购物</small></summary><ul><li><span>筒仓展望台 包车往返</span><b>约 ¥5,000</b></li><li><span>午餐 仙堂庵 帆立天ざる ×2</span><b>¥3,300</b></li><li><span>冈田屋 白色年糕甜汤 ×2</span><b>¥1,100</b></li><li><span>私汤 50 分钟（16 点前优惠）</span><b>约 ¥4,000</b></li><li><span>晚餐 温泉街 两人</span><b>约 ¥4,000</b></li></ul></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
         <div class="n-top"><span class="n-time">09:30</span><span class="n-name">📸 浮见堂公园 · 雪中朱红六角亭</span><a class="n-nav" href="https://www.google.com/maps/search/洞爺湖浮見堂公園" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖浮见堂公园" data-taxi-jp="洞爺湖 浮見堂公園（うきみどうこうえん）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉">🚕 给司机看</button></div>
         <div class="n-jp">浮見堂公園 · 沿湖畔散步道向西步行 12 分</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Lake-toya%E3%80%81%E6%B4%9E%E7%88%BA%E6%B9%96_%E6%B5%AE%E8%A6%8B%E5%A0%82%E5%85%AC%E5%9C%92.jpg/500px-Lake-toya%E3%80%81%E6%B4%9E%E7%88%BA%E6%B9%96_%E6%B5%AE%E8%A6%8B%E5%A0%82%E5%85%AC%E5%9C%92.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="浮见堂公园的朱红六角亭" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 我路・幌内画像倉庫 · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Lake-toya%E3%80%81%E6%B4%9E%E7%88%BA%E6%B9%96_%E6%B5%AE%E8%A6%8B%E5%A0%82%E5%85%AC%E5%9C%92.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">伸进湖里的白雪栈桥和朱红六角亭，背后是中岛和雪山。旅行团不来这里。<span class="tags"><span class="tag free">免费</span><span class="tag photo">零团客</span></span></div>
         <details class="exp"><summary>怎么拍</summary><div class="exp-bd">
           <p>一个人站在栈桥尽头的亭子下回头，另一个人在岸边用手机 2x/3x 人像模式拍，白雪、红亭、蓝湖、远山都能拍进去。</p>
@@ -597,6 +631,7 @@
         <span class="r-pin nat">2</span>
         <div class="n-top"><span class="n-time">10:45</span><span class="n-name">🏔 筒仓展望台 · 洞爷湖 + 羊蹄山同框</span><a class="n-nav" href="https://www.google.com/maps/search/サイロ展望台" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷湖筒仓展望台" data-taxi-jp="サイロ展望台（洞爺湖）" data-taxi-addr="北海道虻田郡洞爺湖町成香3-5">🚕 给司机看</button></div>
         <div class="n-jp">サイロ展望台 · 08:30–17:00</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/20181106_Toyako_5246_%2848429791186%29.jpg/500px-20181106_Toyako_5246_%2848429791186%29.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="筒仓展望台和洞爷湖" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 Ray Swi-hymn from Sijhih-Taipei, Taiwan · CC BY-SA 2.0 · <a href="https://commons.wikimedia.org/wiki/File:20181106_Toyako_5246_(48429791186).jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">俯拍洞爷湖全景和「北海道富士山」羊蹄山的最佳机位。买一瓶洞爷湖牧场热牛奶或布丁，拿着拍照很好看。<span class="tags"><span class="tag free">免费</span></span></div>
       </div>
       <div class="r-item r-seg">
@@ -604,18 +639,21 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">12:30</span><span class="n-name">🍤 午餐 · 仙堂庵 → 冈田屋甜汤</span><a class="n-nav" href="https://www.google.com/maps/search/そば処仙堂庵+洞爺湖" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="仙堂庵荞麦面" data-taxi-jp="そば処 仙堂庵（洞爺観光ホテル1F）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉33">🚕 给司机看</button></div>
+        <div class="n-top"><span class="n-time">12:30</span><span class="n-name">🍤 午餐 · 仙堂庵 → 冈田屋甜汤</span><a class="n-nav" href="https://www.google.com/maps/search/そば処仙堂庵+洞爺湖" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E4%BB%99%E5%A0%82%E5%BA%B5%20%E6%B4%9E%E7%88%BA%E6%B9%96%20%E5%B8%86%E7%AB%8B%E5%A4%A9%E3%81%96%E3%82%8B" target="_blank" rel="noopener">📷照片</a><button class="n-nav taxi-trig" type="button" data-taxi-name="仙堂庵荞麦面" data-taxi-jp="そば処 仙堂庵（洞爺観光ホテル1F）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉33">🚕 给司机看</button></div>
         <div class="n-jp">そば処 仙堂庵（万世阁正对面）＋ 岡田屋（步行 3 分）</div>
         <div class="n-find">仙堂庵点「帆立天ざる」，大扇贝天妇罗配手打荞麦面（¥1,650）。吃完去冈田屋喝一碗洞爷湖名物「白いおしるこ」，牛奶白芸豆年糕甜汤（¥550）。遇到仙堂庵店休，就去望羊蹄。<span class="tags"><span class="tag yen">免预约</span></span></div>
+        <details class="exp local"><summary>🧭 本地人私藏 · 若狭芋本铺</summary><div class="exp-bd">
+          <p><b>わかさいも本舗 洞爺湖本店</b>（温泉街湖畔通，步行几分钟）：洞爷湖本地的老牌点心，招牌「わかさいも」是用豆子做馅、做成烤番薯样子的和果子，北海道人从小吃到大。营业约 9:00–17/18 点（各网站写法不一），只有元旦休息。<a class="wx-live" href="https://www.google.com/maps/search/わかさいも本舗+洞爺湖本店" target="_blank" rel="noopener">📍 导航 →</a></p>
+        </div></details>
       </div>
       <div class="r-item r-node">
         <span class="r-pin hotel">♨</span>
-        <div class="n-top"><span class="n-time">15:15</span><span class="n-name">♨️ 私汤 · 日落蓝调时泡汤</span><a class="n-nav" href="https://www.google.com/maps/search/ザ+レイクビュー+TOYA+乃の風リゾート" target="_blank" rel="noopener">📍导航</a></div>
-        <div class="n-jp">万世閣 西館展望風呂付客室 ／ 湖畔貸切風呂</div>
-        <div class="n-find">15:30–16:15 正好是日落和蓝调时刻。私汤是两个人独享，不看纹身，可以架好手机拍。<span class="tags"><span class="tag book">要先订</span><span class="tag photo">蓝调泡汤</span></span></div>
-        <details class="exp"><summary>两种私汤方案</summary><div class="exp-bd">
-          <p><b>① 万世阁西馆「展望風呂付客室」：</b>房间阳台自带面朝湖的温泉池，24 小时随时泡。看你们订的是不是这个房型，不是的话可以写邮件问补差价升级。</p>
-          <p><b>② 隔壁酒店的日归私汤（按小时包间）：</b>洞爷观光酒店的家族风吕，或乃之风（ザ レイクビュー TOYA 乃の風）的貸切露天风吕，步行 2–5 分钟，约 ¥3,300–4,500 / 50 分钟。</p>
+        <div class="n-top"><span class="n-time">15:15</span><span class="n-name">♨️ 私汤 · 洞爷观光酒店 贷切露天风吕</span><a class="n-nav" href="https://www.google.com/maps/search/洞爺観光ホテル" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="洞爷观光酒店 (私汤)" data-taxi-jp="洞爺観光ホテル（貸切風呂）" data-taxi-addr="北海道虻田郡洞爺湖町洞爺湖温泉33">🚕 给司机看</button></div>
+        <div class="n-jp">洞爺観光ホテル 貸切露天風呂 · 万世阁正对面（仙堂庵就在它 1 楼）</div>
+        <div class="n-find">万世阁的房间不带私汤，公共浴场又不让纹身，所以去对面的洞爷观光酒店包一间带露天的私汤（共 2 间）。50 分钟约 ¥4,400–5,000，<b>16:00 前进场便宜 ¥1,000</b>，15:15 去刚好。两个人独享，不看纹身。<span class="tags"><span class="tag book">要先订</span><span class="tag photo">蓝调泡汤</span></span></div>
+        <details class="exp"><summary>预约和备选</summary><div class="exp-bd">
+          <p><b>预约：</b>网上价格有新有旧，以电话确认为准。可以请万世阁前台帮忙打电话，或用工具箱里的「问纹身私汤」语音卡。</p>
+          <p><b>备选：</b>乃之风（ザ レイクビュー TOYA 乃の風）也有贷切露天风吕，但没查到是否接待非住客，要先打电话问。</p>
         </div></details>
       </div>
     </div>
@@ -652,6 +690,7 @@
         <span class="r-pin nat">1</span>
         <div class="n-top"><span class="n-time">12:00</span><span class="n-name">🌋 登别地狱谷 + 温泉街午餐</span><a class="n-nav" href="https://www.google.com/maps/search/登別地獄谷" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="登别地狱谷展望台" data-taxi-jp="登別地獄谷（のぼりべつじごくだに）展望台" data-taxi-addr="北海道登別市登別温泉町無番地">🚕 给司机看</button></div>
         <div class="n-jp">登別地獄谷 · 午餐：味の大王 地狱拉面 / 温泉市场</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Jigokudani_%28Hell_Valley%29%2C_Noboribetsu_Onsen%2C_Hokkaido%2C_April_2023_10.jpg/500px-Jigokudani_%28Hell_Valley%29%2C_Noboribetsu_Onsen%2C_Hokkaido%2C_April_2023_10.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="登别地狱谷火山口" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 Calistemon · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Jigokudani_(Hell_Valley),_Noboribetsu_Onsen,_Hokkaido,_April_2023_10.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">铺满白雪的火山口冒着硫磺蒸汽，沿木栈道走到铁泉池约 50 分钟，回温泉街吃碗拉面。熊牧场团客多、气味重，跳过。<span class="tags"><span class="tag free">免费</span><span class="tag photo">冰火同框</span></span></div>
       </div>
       <div class="r-item r-seg">
@@ -668,7 +707,7 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">2</span>
-        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-hanamaru">🍣 根室花丸（酒店楼下）<span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/回転寿司+根室花まる+ココノススキノ店" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-hanamaru">🍣 根室花丸（酒店楼下）<span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/回転寿司+根室花まる+ココノススキノ店" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E6%A0%B9%E5%AE%A4%E8%8A%B1%E3%81%BE%E3%82%8B%20%E3%82%B3%E3%82%B3%E3%83%8E%E3%82%B9%E3%82%B9%E3%82%AD%E3%83%8E" target="_blank" rel="noopener">📷照片</a></div>
         <div class="n-jp">根室花まる ココノススキノ店 → 饭后 NIKKA 霓虹牌 + 夜芭菲</div>
         <div class="n-find">下楼抽号，扫码看进度，回房间等。必点双层干贝和帝王蟹。12/31 这家店基本吃不上，所以排在今天。饭后出门就是 NIKKA 威士忌大叔霓虹牌，2 楼露台能平视合影。<span class="tags"><span class="tag queue">现场抽号</span></span></div>
         <details class="exp"><summary>排太久？薄野还能吃什么（4 晚通用）</summary><div class="exp-bd">
@@ -703,6 +742,7 @@
         <span class="r-pin nat">1</span>
         <div class="n-top"><span class="n-time">10:00</span><span class="n-name">🌲 北海道大学 · 白杨林雪景</span><a class="n-nav" href="https://www.google.com/maps/search/北海道大学+ポプラ並木" target="_blank" rel="noopener">📍导航</a></div>
         <div class="n-jp">北海道大学（正門 → 古河講堂 → ポプラ並木）</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Hokkaido-Univ-Furukawa-Hall-01.jpg/500px-Hokkaido-Univ-Furukawa-Hall-01.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="北海道大学古河讲堂" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 J o · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Hokkaido-Univ-Furukawa-Hall-01.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">南北线 3 站到「北12条駅」，走 5 分钟。雪里的木造古河讲堂和白杨林道，安静到只听得见踩雪声。<span class="tags"><span class="tag free">免费</span></span></div>
       </div>
       <div class="r-item r-seg">
@@ -710,7 +750,7 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">2</span>
-        <div class="n-top"><span class="n-time">11:45</span><span class="n-name">🍰 午餐 · 六花亭 札幌本店 2F</span><a class="n-nav" href="https://www.google.com/maps/search/六花亭+札幌本店" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">11:45</span><span class="n-name">🍰 午餐 · 六花亭 札幌本店 2F</span><a class="n-nav" href="https://www.google.com/maps/search/六花亭+札幌本店" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E5%85%AD%E8%8A%B1%E4%BA%AD%20%E6%9C%AD%E5%B9%8C%E6%9C%AC%E5%BA%97%20%E5%96%AB%E8%8C%B6%E5%AE%A4" target="_blank" rel="noopener">📷照片</a></div>
         <div class="n-jp">六花亭 札幌本店 2F 喫茶室 · 11:00–16:30（周三休，今天周一）</div>
         <div class="n-find">必点只能在店里现吃的「マルセイアイスサンド」（朗姆葡萄冰淇淋夹心饼 ¥300），再加一份现烤芝士蛋糕和热披萨。<span class="tags"><span class="tag yen">免预约</span></span></div>
       </div>
@@ -721,6 +761,7 @@
         <span class="r-pin">🛍</span>
         <div class="n-top"><span class="n-time">13:30</span><span class="n-name">🧥 NANGA ＋ Mont-bell · 滑雪前买装备</span><a class="n-nav" href="https://www.google.com/maps/search/NANGA+SHOP+SAPPORO+サッポロファクトリー" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="Sapporo Factory (NANGA札幌店)" data-taxi-jp="サッポロファクトリー 2条館（NANGA SHOP SAPPORO）" data-taxi-addr="北海道札幌市中央区北2条東4丁目 サッポロファクトリー2条館 2F">🚕 给司机看</button></div>
         <div class="n-jp">サッポロファクトリー 2条館 2F · 10:00–20:00（12/31 休馆）</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/SapporoFactory04.jpg/500px-SapporoFactory04.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="Sapporo Factory 外观" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 モンモン · Public domain · <a href="https://commons.wikimedia.org/wiki/File:SapporoFactory04.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find"><b>NANGA：</b>试 Aurora Tex 羽绒服或情侣款 Takibi，免税后约 ¥45,000–55,000（约 2,100–2,600 元）。<br><b>Mont-bell（隔壁）：</b>防水手套、雪镜、美利奴雪袜、简易冰爪（スノースパイク）。买完明天穿去小樽，后天穿去滑雪。<span class="tags"><span class="tag book">今天必买</span><span class="tag yen">当场免税</span></span></div>
       </div>
       <div class="r-item r-seg">
@@ -750,7 +791,7 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">18:45</span><span class="n-name menu-link" data-open="mm-daruma">🥩 晚餐 · 成吉思汗 达摩 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/成吉思汗だるま+5.5店" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">18:45</span><span class="n-name menu-link" data-open="mm-daruma">🥩 晚餐 · 成吉思汗 达摩 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/成吉思汗だるま+5.5店" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E6%88%90%E5%90%89%E6%80%9D%E6%B1%97%E3%81%A0%E3%82%8B%E3%81%BE%205.5%E5%BA%97" target="_blank" rel="noopener">📷照片</a></div>
         <div class="n-jp">成吉思汗だるま 5.5店 ／ 4.4二階亭（酒店步行 4 分）</div>
         <div class="n-find">1954 年开业的札幌炭烤羊肉老店。去座位多的 5.5 店，或者能网上订位的 4.4 二阶亭，比本店少排一半队。年末部分分店休息，所以排在今天。<span class="tags"><span class="tag queue">二阶亭可预约</span></span></div>
       </div>
@@ -788,6 +829,7 @@
         <span class="r-pin nat">1</span>
         <div class="n-top"><span class="n-time">10:15</span><span class="n-name">🌊 朝里站 · 《情书》看海雪站</span><a class="n-nav" href="https://www.google.com/maps/search/朝里駅" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="JR朝里站" data-taxi-jp="JR朝里駅（あさりえき）" data-taxi-addr="北海道小樽市朝里1丁目">🚕 给司机看</button></div>
         <div class="n-jp">朝里駅 · 映画『Love Letter』ロケ地</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Asari-st-name-bord.jpg/500px-Asari-st-name-bord.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="朝里站站名牌" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 みかま · CC0 · <a href="https://commons.wikimedia.org/wiki/File:Asari-st-name-bord.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">月台栏杆后面就是石狩湾，没什么人。拍 30 分钟，<b>下车先看下一班去南小樽的时间</b>（20–30 分钟一班）。<span class="tags"><span class="tag free">刷 Suica 进出</span><span class="tag photo">停 30 分钟</span></span></div>
         <details class="exp"><summary>三个机位</summary><div class="exp-bd">
           <p><b>① 跨线天桥：</b>从天桥窗户或楼梯转角往下拍，月台、大海、进站列车同框。</p>
@@ -802,7 +844,11 @@
         <span class="r-pin">2</span>
         <div class="n-top"><span class="n-time">11:15</span><span class="n-name">🎐 堺町通 · 玻璃、音乐盒、甜品</span><a class="n-nav" href="https://www.google.com/maps/search/小樽オルゴール堂+本館" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽八音盒堂本馆 (童话十字路口)" data-taxi-jp="小樽オルゴール堂 本館（メルヘン交差点）" data-taxi-addr="北海道小樽市住吉町4-1">🚕 给司机看</button></div>
         <div class="n-jp">オルゴール堂 → 北一硝子 / 大正硝子 → SNOOPY / Miffy → LeTAO / 北菓楼</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Otaru_Music_Box_Museum_2014.jpg/500px-Otaru_Music_Box_Museum_2014.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="小樽音乐盒堂本馆" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 Wpcpey · CC BY 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Otaru_Music_Box_Museum_2014.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">从南小樽站走 6 分钟到童话十字路口，一路逛下去：<b>音乐盒堂本馆</b>（门口蒸汽钟每 15 分钟奏乐），<b>北一硝子</b>手作玻璃（倒冷水会浮现雪花的杯子、琉璃耳环），<b>SNOOPY 茶屋 / Miffy</b> 北海道限定挂件，最后在 LeTAO 吃现做的双层芝士蛋糕。<span class="tags"><span class="tag photo">手作孤品</span></span></div>
+        <details class="exp local"><summary>🧭 本地人私藏 · かま栄 炸鱼板面包卷</summary><div class="exp-bd">
+          <p><b>かま栄 工場直売店</b>（堺町通上，音乐盒堂往运河方向走几分钟）：小樽本地 1905 年创业的鱼板老店，小樽人边走边吃的是「パンロール」，鱼浆裹面包皮炸出来，热乎乎的。冬季约 9:00–18:00，只有元旦休息。<a class="wx-live" href="https://www.google.com/maps/search/かま栄+工場直売店" target="_blank" rel="noopener">📍 导航 →</a></p>
+        </div></details>
         <details class="exp"><summary>伴手礼别在这里买</summary><div class="exp-bd">
           <p>北菓楼、六花亭、LeTAO 冷冻蛋糕在 D7 新千岁机场 2F 都有，而且免税。今天只吃现做的，别拎着大盒子逛小樽。</p>
           <p>顺路的北一硝子三号馆是 167 盏煤油灯照明的百年仓库咖啡厅，进去拍张照很值。</p>
@@ -810,18 +856,22 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">13:00</span><span class="n-name menu-link" data-open="mm-otaru">🦀 午餐 · 三角市场海鲜丼 或 若鸡时代 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/小樽三角市場+滝波食堂" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽三角市场 / 若鸡时代本店" data-taxi-jp="小樽三角市場（さんかくいちば） / 若鶏時代なると 本店" data-taxi-addr="北海道小樽市稲穂3丁目10-16（三角市場）">🚕 给司机看</button></div>
+        <div class="n-top"><span class="n-time">13:00</span><span class="n-name menu-link" data-open="mm-otaru">🦀 午餐 · 三角市场海鲜丼 或 若鸡时代 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/小樽三角市場+滝波食堂" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E6%BB%9D%E6%B3%A2%E9%A3%9F%E5%A0%82%20%E3%82%8F%E3%81%8C%E3%81%BE%E3%81%BE%E4%B8%BC" target="_blank" rel="noopener">📷照片</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽三角市场 / 若鸡时代本店" data-taxi-jp="小樽三角市場（さんかくいちば） / 若鶏時代なると 本店" data-taxi-addr="北海道小樽市稲穂3丁目10-16（三角市場）">🚕 给司机看</button></div>
         <div class="n-jp">三角市場「滝波食堂 / 武田鮮魚店」 ／ 「若鶏時代なると 本店」</div>
         <div class="n-find"><b>A · 泷波食堂：</b>「わがまま丼」自选海胆、甜虾、帆立贝、鲑鱼籽，约 ¥3,300。<br><b>B · 若鸡时代：</b>小樽名物现炸半只鸡定食，约 ¥1,600，座位多、翻台快。<span class="tags"><span class="tag queue">泷波现场取号</span></span></div>
         <details class="exp"><summary>排队太长怎么办</summary><div class="exp-bd">
           <p>泷波门口取号，等超过 40 分钟就去隔壁<b>武田鲜鱼店</b>，水产直营，一般 15 分钟内有位。不想在市场站着等，就走 5 分钟去若鸡时代。</p>
           <p>想吃正经寿司的话，<b>政寿司本店</b>（《将太的寿司》原型）要提前在官网订吧台。</p>
         </div></details>
+        <details class="exp local"><summary>🧭 本地人私藏 · あまとう 奶油红豆汤</summary><div class="exp-bd">
+          <p><b>あまとう 本店</b>（小樽站附近的都通り商店街）：小樽人从小去的老甜品店，招牌「クリームぜんざい」，冰淇淋配红豆，S ¥580 / M ¥800。2 楼喫茶 12:00–17:00，<b>周三周四休息</b>，12/29 是周二，可以去。年末是否临时休息，去之前打电话 0134-22-3942 问一下。<a class="wx-live" href="https://www.google.com/maps/search/あまとう+小樽+本店" target="_blank" rel="noopener">📍 导航 →</a></p>
+        </div></details>
       </div>
       <div class="r-item r-node">
         <span class="r-pin nat">4</span>
         <div class="n-top"><span class="n-time">14:30</span><span class="n-name">📸 船见坂 · 坡道尽头是海</span><a class="n-nav" href="https://www.google.com/maps/search/船見坂+小樽" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽 船见坂 (上坡拍照点)" data-taxi-jp="船見坂（ふなみざか）上の交差点付近" data-taxi-addr="北海道小樽市富岡1丁目・稲穂3丁目境界">🚕 给司机看</button></div>
         <div class="n-jp">船見坂 · 三角市场旁步行 3 分</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Funamizaka_31499166415_d62859617d_o.jpg/500px-Funamizaka_31499166415_d62859617d_o.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="船见坂坡道和 15% 路牌" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 Toomore Chiang · CC BY 2.0 · <a href="https://commons.wikimedia.org/wiki/File:Funamizaka_31499166415_d62859617d_o.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">《情书》里邮递员骑车冲上来的陡坡。站在高处往下拍，用 3x/5x 长焦把海拉近。<span class="tags"><span class="tag photo">3x 长焦</span><span class="tag free">注意避车</span></span></div>
       </div>
       <div class="r-item r-seg">
@@ -831,6 +881,7 @@
         <span class="r-pin nat">5</span>
         <div class="n-top"><span class="n-time">15:15</span><span class="n-name">🚠 天狗山缆车 · 日落和夜景</span><a class="n-nav" href="https://www.google.com/maps/search/小樽天狗山ロープウェイ" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽天狗山缆车站" data-taxi-jp="小樽天狗山ロープウェイ 山麓駅" data-taxi-addr="北海道小樽市最上2丁目16-15">🚕 给司机看</button></div>
         <div class="n-jp">小樽天狗山ロープウェイ · 北海道三大夜景之一</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Otaru-Tenguyama_20220625.jpg/500px-Otaru-Tenguyama_20220625.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="天狗山展望台看小樽市区和海" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 皓月旗 · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Otaru-Tenguyama_20220625.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">15:20–15:55 趁天亮拍雪山和海湾；进 TENGUU CAFE 喝热可可等 16:03 日落；16:00–16:25 出来拍蓝调和亮起来的港口灯火。<span class="tags"><span class="tag yen">往返 ¥1,800</span><span class="tag photo">蓝调夜景</span></span></div>
         <details class="exp"><summary>机位和停运 Plan B</summary><div class="exp-bd">
           <p><b>机位：</b>屋顶展望台看整个港湾；天狗桜展望台有弧形沙发；下山时站车厢最前排靠海的一侧拍视频。</p>
@@ -844,6 +895,7 @@
         <span class="r-pin nat">6</span>
         <div class="n-top"><span class="n-time">16:45</span><span class="n-name">✨ 小樽运河 · 青之运河</span><a class="n-nav" href="https://www.google.com/maps/search/小樽運河+浅草橋街園" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="小樽运河 浅草桥观景台" data-taxi-jp="小樽運河 浅草橋街園（あさくさばし）" data-taxi-addr="北海道小樽市港町5">🚕 给司机看</button></div>
         <div class="n-jp">小樽ゆき物語「青の運河」· 浅草橋 ～ 中央橋</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Otaru_Canal_HDR1.jpg/500px-Otaru_Canal_HDR1.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="小樽运河夜景" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 Tan Wei Liang Byorn · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Otaru_Canal_HDR1.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">冬季限定的蓝色灯光加煤气灯。浅草桥拍完标准照，下台阶往中央桥方向走，桥洞下没什么人。再走 8 分钟到小樽站。<span class="tags"><span class="tag free">冬季限定</span></span></div>
       </div>
       <div class="r-item r-seg">
@@ -851,7 +903,7 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">7</span>
-        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-soupcurry">🍲 晚餐 · 汤咖喱 Suage+ 本店 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/スープカレー+すあげプラス+本店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="汤咖喱 Suage+ 本店 (薄野)" data-taxi-jp="スープカレー Suage+（すあげプラス）本店" data-taxi-addr="北海道札幌市中央区南4条西5丁目6-1 都志松ビル2F">🚕 给司机看</button></div>
+        <div class="n-top"><span class="n-time">18:30</span><span class="n-name menu-link" data-open="mm-soupcurry">🍲 晚餐 · 汤咖喱 Suage+ 本店 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/スープカレー+すあげプラス+本店" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E3%81%99%E3%81%82%E3%81%92%E3%83%97%E3%83%A9%E3%82%B9%20%E6%9C%AC%E5%BA%97%20%E3%82%B9%E3%83%BC%E3%83%97%E3%82%AB%E3%83%AC%E3%83%BC" target="_blank" rel="noopener">📷照片</a><button class="n-nav taxi-trig" type="button" data-taxi-name="汤咖喱 Suage+ 本店 (薄野)" data-taxi-jp="スープカレー Suage+（すあげプラス）本店" data-taxi-addr="北海道札幌市中央区南4条西5丁目6-1 都志松ビル2F">🚕 给司机看</button></div>
         <div class="n-jp">Soup Curry Suage+ 本店（酒店步行 2 分）／ GARAKU</div>
         <div class="n-find">吹了一天海风，回来喝一碗汤咖喱。点脆皮知床鸡腿 + 炙烧角煮，辣度 3 号，米饭加炙烧芝士。人均约 ¥1,750。<span class="tags"><span class="tag queue">现场取号</span></span></div>
         <details class="exp"><summary>排队技巧</summary><div class="exp-bd">
@@ -895,6 +947,7 @@
         <span class="r-pin nat">1</span>
         <div class="n-top"><span class="n-time">09:30</span><span class="n-name">🎿 上午课 · 单板班 / 双板班</span><a class="n-nav" href="https://www.google.com/maps/search/サッポロテイネ+オリンピアスキースクール" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌手稻滑雪场 (奥林匹亚区)" data-taxi-jp="サッポロテイネ オリンピアゾーン（聖火台エリア）" data-taxi-addr="北海道札幌市手稲区手稲本町593-3">🚕 给司机看</button></div>
         <div class="n-jp">サッポロテイネ オリンピアゾーン · 1972 年冬奥会场地</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Sapporo_Teine_Ski_Resort._%2831250544382%29.jpg/500px-Sapporo_Teine_Ski_Resort._%2831250544382%29.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="手稻滑雪场雪道和远处的札幌" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN · CC BY 2.0 · <a href="https://commons.wikimedia.org/wiki/File:Sapporo_Teine_Ski_Resort._(31250544382).jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">新手课在 Olympia 区的白桦新手道，坡度只有 7–9 度，有魔毯。北海道粉雪很软，摔了也不疼。<span class="tags"><span class="tag photo">雪服合照</span></span></div>
         <details class="exp"><summary>第一次滑雪的小提示</summary><div class="exp-bd">
           <p><b>单板</b>第一天基本在练站立和后刃刹车，摔得多，护臀护膝有就戴上。<b>双板</b>先学「八字」刹车，下午一般就能滑一小段缓坡。</p>
@@ -930,7 +983,7 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">4</span>
-        <div class="n-top"><span class="n-time">19:00</span><span class="n-name menu-link" data-open="mm-kani">🦀 跨年前夜 · 三大蟹会席 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/札幌かに本家+すすきの店" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌螃蟹本家 薄野店 (或冰雪之门)" data-taxi-jp="札幌かに本家 すすきの店 ／ 氷雪の門（ひょうせつのもん）" data-taxi-addr="北海道札幌市中央区南4条西2丁目11（かに本家すすきの店）">🚕 给司机看</button></div>
+        <div class="n-top"><span class="n-time">19:00</span><span class="n-name menu-link" data-open="mm-kani">🦀 跨年前夜 · 三大蟹会席 <span class="ml-badge">📖点单</span></span><a class="n-nav" href="https://www.google.com/maps/search/札幌かに本家+すすきの店" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E6%9C%AD%E5%B9%8C%E3%81%8B%E3%81%AB%E6%9C%AC%E5%AE%B6%20%E3%81%99%E3%81%99%E3%81%8D%E3%81%AE%E5%BA%97" target="_blank" rel="noopener">📷照片</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌螃蟹本家 薄野店 (或冰雪之门)" data-taxi-jp="札幌かに本家 すすきの店 ／ 氷雪の門（ひょうせつのもん）" data-taxi-addr="北海道札幌市中央区南4条西2丁目11（かに本家すすきの店）">🚕 给司机看</button></div>
         <div class="n-jp">札幌かに本家 すすきの店 ／ 氷雪の門（酒店步行 3–4 分）</div>
         <div class="n-find">帝王蟹、松叶蟹、毛蟹一次吃齐。最划算的点法：1 套三大蟹火锅会席 + 1 份炭烤帝王蟹腿 + 1 个蟹黄甲罗烧，两个人刚好。<span class="tags"><span class="tag book">必须提前订</span><span class="tag yen">¥11,000–18,000/人</span></span></div>
         <details class="exp"><summary>三种蟹怎么吃</summary><div class="exp-bd">
@@ -963,6 +1016,7 @@
         <span class="r-pin nat">1</span>
         <div class="n-top"><span class="n-time">09:30</span><span class="n-name">⛩️ 伏见稻荷神社 · 雪中红鸟居</span><a class="n-nav" href="https://www.google.com/maps/search/札幌伏見稲荷神社" target="_blank" rel="noopener">📍导航</a><button class="n-nav taxi-trig" type="button" data-taxi-name="札幌伏见稻荷神社 (或北海道神宫)" data-taxi-jp="札幌伏見稲荷神社（ふしみいなりじんじゃ） ／ 北海道神宮" data-taxi-addr="北海道札幌市中央区伏見2丁目2-17">🚕 给司机看</button></div>
         <div class="n-jp">札幌伏見稲荷神社 ／ 北海道神宮（打车相距 8 分）</div>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/20200120_Sapporo_Fushimi_Inari-1.jpg/500px-20200120_Sapporo_Fushimi_Inari-1.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="札幌伏见稻荷神社的雪中鸟居" loading="lazy" decoding="async" width="500" height="333"><figcaption>📷 Balon Greyjoy · CC0 · <a href="https://commons.wikimedia.org/wiki/File:20200120_Sapporo_Fushimi_Inari-1.jpg" target="_blank" rel="noopener">Wikimedia</a></figcaption></figure>
         <div class="n-find">先退房寄存行李，打车 12–15 分钟（约 ¥1,800）。白雪里一排朱红鸟居，上午人少。时间够就顺路去北海道神宫，吃现烤判官饼，求一个雪景御守。<span class="tags"><span class="tag free">免费参拜</span><span class="tag photo">红白鸟居</span></span></div>
         <details class="exp"><summary>怎么拍 · 神宫大晦日开放时间</summary><div class="exp-bd">
           <p>她走在鸟居台阶中段回头，你站在低处用 2x/3x 往上拍，能避开地上的脚印。</p>
@@ -989,7 +1043,7 @@
       </div>
       <div class="r-item r-node">
         <span class="r-pin food">3</span>
-        <div class="n-top"><span class="n-time">16:30</span><span class="n-name">🍜 晚餐 · 机场 3F 拉面道场 + Kinotoya 冰淇淋</span><a class="n-nav" href="https://www.google.com/maps/search/新千歳空港+北海道ラーメン道場" target="_blank" rel="noopener">📍导航</a></div>
+        <div class="n-top"><span class="n-time">16:30</span><span class="n-name">🍜 晚餐 · 机场 3F 拉面道场 + Kinotoya 冰淇淋</span><a class="n-nav" href="https://www.google.com/maps/search/新千歳空港+北海道ラーメン道場" target="_blank" rel="noopener">📍导航</a><a class="n-nav n-photo" href="https://www.google.com/search?tbm=isch&amp;q=%E6%96%B0%E5%8D%83%E6%AD%B3%E7%A9%BA%E6%B8%AF%20%E5%8C%97%E6%B5%B7%E9%81%93%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E9%81%93%E5%A0%B4" target="_blank" rel="noopener">📷照片</a></div>
         <div class="n-jp">国内線 3F 北海道ラーメン道場（えびそば一幻 / 弟子屈 / 梅光軒）</div>
         <div class="n-find">一幻虾汤拉面（约 ¥1,000），或者 3F 根室花丸再吃一次寿司。饭后下 2F 吃 Kinotoya 极上牛乳冰淇淋（¥450）。<span class="tags"><span class="tag yen">免预约</span></span></div>
       </div>
@@ -1107,6 +1161,7 @@
     <div class="map-stage">
       <svg id="mapSvg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
       <div class="map-hint" id="mapHint"></div>
+      <div class="map-legend" id="mapLegend"></div>
       <button class="map-locate" id="mapLocate" type="button" aria-label="显示我的位置" aria-pressed="false">📍</button>
       <div class="map-card" id="mapCard" hidden></div>
     </div>
@@ -1327,6 +1382,12 @@
     });
   });
 
+  // Photos come from Wikimedia; when offline and not cached yet, hide the frame instead of showing a broken image
+  document.querySelectorAll('.ph img').forEach(function(img){
+    function off(){ img.closest('.ph').classList.add('off'); }
+    if(img.complete&&!img.naturalWidth&&img.src) off(); else img.addEventListener('error',off);
+  });
+
   // Interactive Day Tasks Checkboxes
   document.querySelectorAll('.day-tasks li').forEach(function(li,idx){
     var key='hokkaido-task-v2:'+idx;
@@ -1488,8 +1549,14 @@
   });
   // Offline trip map: SVG basemap (Natural Earth-level coastline + OSM lakes/river/rail), pins by real lat/lon
   var MAP_BASE={"views":{"region":{"lon0":140.35,"lon1":142.05,"lat0":42.2,"lat1":43.5,"W":1328,"kx":781.176471,"H":1385,"ky":1065.384615},"city":{"lon0":141.31,"lon1":141.378,"lat0":43.022,"lat1":43.092,"W":850,"kx":12500.0,"H":1198,"ky":17114.285714}},"region":{"land":"M1348,-20L1348,1094L1345,1089L1312,1082L1299,1064L1296,1063L1297,1059L1278,1050L1262,1035L1254,1024L1243,1015L1242,1012L1238,1009L1226,1004L1211,982L1189,969L1151,952L1147,957L1146,957L1148,953L1145,949L1141,947L1134,956L1131,955L1133,947L1132,945L1091,934L1058,928L1034,929L1033,926L1001,928L1006,925L1009,924L1007,923L1008,922L1028,912L1030,913L1034,911L1034,909L1045,904L1048,905L1053,902L1051,897L1030,907L1028,904L1026,905L1028,908L1001,919L997,911L993,914L996,920L996,926L993,926L993,927L995,928L993,928L993,929L991,927L988,927L989,928L990,928L990,933L988,933L988,931L985,930L978,930L927,943L896,955L856,973L835,985L798,1008L782,1020L760,1038L761,1039L760,1040L758,1039L728,1062L670,1113L665,1115L658,1116L656,1115L638,1129L635,1127L632,1127L605,1151L580,1176L549,1217L551,1222L543,1224L534,1236L535,1240L534,1240L533,1238L529,1240L522,1249L514,1264L516,1267L515,1272L514,1272L509,1276L505,1276L505,1277L498,1273L494,1270L487,1271L489,1269L484,1270L483,1267L483,1264L481,1262L470,1259L467,1259L463,1256L462,1251L454,1240L454,1238L458,1236L457,1234L463,1235L463,1228L470,1227L471,1231L471,1232L473,1231L474,1235L477,1232L478,1234L476,1235L478,1240L479,1240L480,1236L481,1241L482,1239L483,1240L482,1242L483,1243L484,1241L485,1242L485,1248L487,1249L487,1252L489,1253L489,1251L491,1250L492,1253L493,1252L492,1248L496,1249L494,1246L496,1247L498,1243L494,1242L493,1232L514,1227L511,1224L490,1226L489,1222L496,1221L498,1220L494,1218L494,1215L493,1217L490,1216L486,1219L485,1216L472,1214L466,1211L461,1209L461,1207L459,1206L457,1209L449,1205L443,1204L443,1202L438,1196L436,1193L435,1180L430,1151L421,1130L408,1107L401,1102L397,1102L394,1100L382,1097L367,1079L358,1074L353,1066L341,1063L337,1065L338,1062L336,1050L337,1049L336,1047L341,1050L341,1046L337,1044L335,1047L333,1046L333,1045L335,1045L331,1043L330,1042L333,1036L331,1033L334,1035L332,1032L334,1030L332,1026L318,1008L310,1004L300,993L294,988L292,986L286,984L283,986L282,979L281,976L274,973L257,972L246,972L235,974L233,973L229,973L212,980L201,985L197,985L196,984L189,987L188,990L182,993L171,990L168,986L165,984L159,981L144,971L139,971L131,969L126,973L125,975L121,975L117,973L115,973L112,975L99,970L93,973L86,979L48,1019L17,1063L-1,1094L-20,1136L-20,1349L-7,1356L14,1360L26,1359L38,1367L46,1381L52,1385L63,1395L66,1395L72,1404L73,1405L-20,1405L-20,700L-18,697L-17,697L-5,686L6,669L7,662L10,663L21,643L22,635L23,635L32,618L32,615L35,615L39,613L42,609L48,603L51,596L63,586L65,586L77,580L79,577L80,577L105,561L109,557L118,553L122,547L124,547L128,549L129,547L126,547L127,546L129,547L129,544L130,545L135,542L139,529L140,502L138,498L127,496L124,492L122,493L124,487L122,486L118,476L115,470L113,467L114,464L107,452L100,446L95,445L90,441L88,429L86,420L78,416L79,412L76,411L74,402L72,401L72,399L73,398L72,396L71,395L69,395L68,393L67,393L64,390L62,387L63,380L58,380L42,364L31,358L23,352L21,351L19,349L17,347L17,346L8,340L-1,328L-2,323L-4,322L-3,320L-8,311L-8,308L-12,306L-19,296L-19,295L-18,288L-13,272L-13,263L-10,261L-14,255L-17,256L-15,253L-14,254L-12,252L-11,252L-7,249L-8,246L-8,243L-6,243L-5,238L-10,232L-8,231L-6,232L-4,230L0,219L3,214L6,199L8,196L5,186L-3,176L1,178L7,178L13,180L19,179L20,177L23,181L32,178L34,177L36,180L39,180L40,177L42,177L44,175L46,177L48,176L49,178L58,181L75,174L80,171L81,169L86,164L86,160L88,155L91,146L95,143L87,140L88,136L91,134L95,135L97,133L98,134L102,132L105,133L106,132L109,134L111,134L111,135L115,135L117,138L119,137L122,140L125,149L128,152L138,149L140,150L138,154L142,160L147,165L148,165L149,170L153,171L155,171L155,174L166,185L167,187L171,188L180,201L181,201L185,204L188,203L189,206L192,209L193,210L196,209L199,210L197,210L197,212L199,214L198,215L201,217L209,216L215,218L219,215L219,218L223,227L228,227L231,228L231,231L226,238L224,238L227,248L238,253L259,260L263,260L270,265L272,264L274,265L281,263L282,268L288,266L295,274L301,274L301,280L305,283L308,281L310,281L310,283L313,287L316,286L319,291L322,290L329,291L330,290L334,292L335,305L333,305L332,308L333,315L340,320L342,319L345,325L363,325L386,321L387,318L390,320L397,316L394,306L398,309L398,307L396,304L394,303L394,301L399,302L400,300L403,302L404,309L408,313L419,310L423,310L426,307L441,307L447,303L445,293L447,295L451,290L458,291L460,291L460,289L469,290L483,281L494,277L521,277L519,283L521,292L523,291L524,293L519,299L520,304L518,306L512,308L510,312L512,312L513,313L509,315L509,318L514,316L512,319L515,318L513,321L516,320L514,322L516,325L519,324L520,326L517,328L519,329L523,328L529,332L526,335L532,338L532,336L535,337L539,341L550,340L562,344L565,347L575,349L586,354L593,358L607,367L616,369L634,378L650,373L690,352L701,345L722,330L727,322L729,324L733,322L734,320L735,313L739,308L738,311L739,312L742,309L743,310L748,305L746,302L743,305L741,303L746,299L749,303L749,302L754,299L784,263L798,241L807,230L826,204L829,197L839,182L838,170L839,160L843,149L841,145L841,134L845,118L843,85L829,54L821,41L819,33L815,29L814,23L812,23L799,5L798,-3L793,-12L788,-20ZM198,205L196,205L196,204L198,204ZM714,317L721,311L733,294L734,288L733,294L721,311Z","lake":"M766,742L771,742L777,742L788,747L796,753L810,766L815,768L816,770L819,771L821,773L823,776L822,778L823,780L822,783L821,790L822,792L822,795L824,798L825,799L827,802L827,805L826,806L824,807L822,807L814,808L809,808L805,810L802,813L800,814L797,812L794,813L792,813L788,812L783,812L781,814L779,814L776,816L772,818L770,822L767,824L765,828L763,832L759,834L757,836L752,842L748,844L745,847L739,848L736,847L733,844L730,840L727,839L724,837L722,837L718,834L714,831L713,829L713,827L716,822L716,820L715,819L712,815L710,812L709,808L708,807L707,806L707,805L705,800L704,796L706,794L707,786L709,782L712,779L715,777L718,778L721,776L724,777L725,778L727,777L728,778L729,781L728,782L729,782L734,779L736,781L737,781L740,779L743,779L745,779L746,777L745,774L745,772L746,771L748,770L750,769L751,766L752,765L753,761L752,759L753,757L755,755L761,751L761,749L762,748L764,743ZM649,1054L654,1054L658,1056L661,1061L662,1066L661,1070L660,1073L657,1075L651,1077L649,1077L644,1076L640,1072L638,1067L639,1061L640,1059L644,1055ZM424,989L424,992L423,992L422,992L421,992L421,994L420,996L419,996L419,997L418,998L417,997L415,996L413,998L412,998L412,1001L410,1004L400,1004L397,1005L393,1001L388,999L386,1002L388,999L385,997L378,995L374,996L371,994L359,995L356,992L355,990L356,989L353,991L351,989L350,986L350,983L349,979L346,970L346,966L343,963L343,962L343,962L344,957L343,955L344,952L346,950L348,950L352,947L354,947L354,942L356,938L359,939L360,934L362,932L364,932L365,930L366,930L367,925L366,924L367,922L370,918L371,917L372,918L371,916L372,915L374,912L379,908L381,909L382,910L384,910L386,911L388,914L391,917L396,917L400,914L400,913L402,910L404,909L405,910L408,910L410,913L412,913L416,916L417,915L419,916L422,920L422,922L424,923L427,924L432,930L433,931L432,933L433,936L439,939L441,942L442,946L443,947L445,947L446,947L447,950L447,955L447,962L444,967L444,969L441,974L436,978L435,978L433,983L432,987L430,989L424,989Z"},"city":{"river":"M532,1209L529,1201L530,1181M530,1181L541,1129L568,1049L572,979L580,949L590,925M590,925L611,875M611,875L620,853L624,832L627,782L632,753L641,722L648,710L653,694L657,666L676,627L707,588M707,588L715,580L727,556L737,524L748,513L765,502L803,492L813,482L833,472L861,467","rail":"M287,371L305,382M283,369L287,371M562,395L597,396M15,211L155,294M155,294L263,358M597,396L708,399M708,399L799,400L866,392M267,360L283,369M263,358L267,360M262,359L-7,197M282,370L266,361M-10,194L15,211M447,420L455,417M463,414L493,401M707,400L597,397M597,397L588,397M708,398L787,399L865,392M866,394L798,402L708,399M869,394L796,404L707,400M708,399L597,397M458,416L463,414M434,423L447,420M588,397L577,397M455,417L458,416M577,397L560,397M557,397L542,399M494,408L478,412M493,401L512,396M513,404L494,408M527,393L547,394M286,372L282,370M266,361L262,359M-7,197L-11,195M305,382L365,416L384,423L410,426L434,423M452,420L413,428L384,424L365,416L286,372M547,394L708,398M528,401L513,404M512,396L527,393M560,397L557,397M465,417L452,420M473,414L478,412M557,395L562,395","park":"M583,524L585,532L577,534L553,537L544,540L373,573L333,580L331,570L552,529L552,530L558,529L559,528Z"}};
-  var MAP_SPOTS=[{"k":"cts","n":"新千岁机场 国内线","q":"新千歳空港国内線ターミナル","y":42.788,"x":141.681,"c":"move","d":[1,7],"a":"d1"},{"k":"manseikaku","n":"洞爷湖万世阁","q":"洞爺湖万世閣ホテルレイクサイドテラス","y":42.565819,"x":140.824675,"c":"hotel","d":[1,2,3],"a":"d1"},{"k":"tunnel","n":"洞爷湖星光隧道","q":"洞爺湖イルミネーショントンネル","y":42.5662,"x":140.8196,"c":"sight","d":[1],"a":"d1"},{"k":"ukimido","n":"浮见堂公园","q":"洞爺湖浮見堂公園","y":42.5676,"x":140.829,"c":"sight","d":[2],"a":"d2"},{"k":"silo","n":"筒仓展望台","q":"サイロ展望台","y":42.626188,"x":140.799441,"c":"sight","d":[2],"a":"d2"},{"k":"sendoan","n":"仙堂庵 荞麦","q":"そば処仙堂庵 洞爺湖","y":42.5653,"x":140.8197,"c":"food","d":[2],"a":"d2"},{"k":"nonokaze","n":"乃之风 私汤","q":"ザ レイクビュー TOYA 乃の風リゾート","y":42.5671,"x":140.8253,"c":"onsen","d":[2],"a":"d2"},{"k":"noboribetsu","n":"JR 登别站","q":"登別駅","y":42.452009,"x":141.180803,"c":"move","d":[3],"a":"d3"},{"k":"jigokudani","n":"登别地狱谷","q":"登別地獄谷","y":42.497572,"x":141.145335,"c":"sight","d":[3],"a":"d3"},{"k":"stream","n":"SAPPORO STREAM HOTEL","q":"SAPPORO STREAM HOTEL","y":43.055177,"x":141.35224,"c":"hotel","d":[3,4,5,6,7],"a":"d3"},{"k":"hanamaru","n":"根室花丸 回转寿司","q":"回転寿司 根室花まる ココノススキノ店","y":43.0553,"x":141.3537,"c":"food","d":[3],"a":"d3"},{"k":"hokudai","n":"北海道大学","q":"北海道大学 ポプラ並木","y":43.0795,"x":141.3373,"c":"sight","d":[4],"a":"d4"},{"k":"rokkatei","n":"六花亭 札幌本店","q":"六花亭 札幌本店","y":43.066023,"x":141.346554,"c":"food","d":[4],"a":"d4"},{"k":"nanga","n":"NANGA · Sapporo Factory","q":"NANGA SHOP SAPPORO サッポロファクトリー","y":43.0646,"x":141.3627,"c":"shop","d":[4],"a":"d4"},{"k":"daimaru","n":"大丸札幌","q":"大丸札幌店","y":43.068,"x":141.3492,"c":"shop","d":[4],"a":"d4"},{"k":"parco","n":"札幌 PARCO","q":"札幌PARCO","y":43.058728,"x":141.353158,"c":"shop","d":[4],"a":"d4"},{"k":"daruma","n":"达摩 成吉思汗烤肉","q":"成吉思汗だるま 5.5店","y":43.0537,"x":141.3518,"c":"food","d":[4],"a":"d4"},{"k":"asari","n":"朝里站","q":"朝里駅","y":43.176908,"x":141.063689,"c":"sight","d":[5],"a":"d5"},{"k":"orgel","n":"小樽音乐盒堂","q":"小樽オルゴール堂 本館","y":43.190579,"x":141.007792,"c":"sight","d":[5],"a":"d5"},{"k":"sankaku","n":"三角市场 泷波食堂","q":"小樽三角市場 滝波食堂","y":43.1975,"x":140.9945,"c":"food","d":[5],"a":"d5"},{"k":"funami","n":"船见坂","q":"船見坂 小樽","y":43.198825,"x":140.993147,"c":"sight","d":[5],"a":"d5"},{"k":"tengu","n":"天狗山缆车","q":"小樽天狗山ロープウェイ","y":43.177937,"x":140.975161,"c":"sight","d":[5],"a":"d5"},{"k":"canal","n":"小樽运河","q":"小樽運河 浅草橋街園","y":43.202023,"x":141.000601,"c":"sight","d":[5],"a":"d5"},{"k":"suage","n":"Suage+ 汤咖喱","q":"スープカレー すあげプラス 本店","y":43.0565,"x":141.351,"c":"food","d":[5],"a":"d5"},{"k":"teine","n":"手稻滑雪场","q":"サッポロテイネ オリンピアスキースクール","y":43.086697,"x":141.204206,"c":"sight","d":[6],"a":"d6"},{"k":"hoheikyo","n":"丰平峡温泉","q":"豊平峡温泉","y":42.948944,"x":141.155875,"c":"onsen","d":[],"a":"toolbox"},{"k":"kani","n":"螃蟹本家 薄野店","q":"札幌かに本家 すすきの店","y":43.0556,"x":141.3554,"c":"food","d":[6],"a":"d6"},{"k":"inari","n":"伏见稻荷神社","q":"札幌伏見稲荷神社","y":43.034966,"x":141.32537,"c":"sight","d":[7],"a":"d7"},{"k":"jrsapporo","n":"JR 札幌站","q":"JR札幌駅","y":43.0687,"x":141.3508,"c":"move","d":[7],"a":"d7"},{"k":"boyotei","n":"望羊蹄 西餐","q":"レストラン望羊蹄 洞爺湖","y":42.565045,"x":140.819057,"c":"food","d":[],"a":"d1"},{"k":"ippontei","n":"一本亭 拉面","q":"ラーメン一本亭 洞爺湖","y":42.565,"x":140.8202,"c":"food","d":[],"a":"d1"},{"k":"okadaya","n":"冈田屋 红豆汤","q":"岡田屋 洞爺湖","y":42.565259,"x":140.818454,"c":"food","d":[],"a":"d2"},{"k":"ponpekora","n":"Ponpekora 湖景汤咖喱","q":"Soup Curry Ponpekora 洞爺湖","y":42.5647,"x":140.8186,"c":"food","d":[],"a":"d1"},{"k":"pal","n":"PaL 夜芭菲","q":"夜パフェ専門店 Parfaiteria PaL","y":43.0558,"x":141.355,"c":"food","d":[],"a":"d3"},{"k":"utari","n":"Utari 炉端烧","q":"炉ばた焼 ウタリ 札幌","y":43.053904,"x":141.352001,"c":"food","d":[],"a":"d3"},{"k":"ichigen","n":"一幻 虾汤拉面","q":"えびそば一幻 総本店","y":43.051275,"x":141.345469,"c":"food","d":[],"a":"d3"},{"k":"naruto","n":"若鸡时代 炸鸡","q":"若鶏時代なると 本店","y":43.1965,"x":140.9985,"c":"food","d":[],"a":"d5"},{"k":"masazushi","n":"政寿司 本店","q":"おたる政寿司 本店","y":43.194175,"x":141.000158,"c":"food","d":[],"a":"d5"},{"k":"toyakanko","n":"洞爷观光酒店 私汤","q":"洞爺観光ホテル","y":42.565692,"x":140.820895,"c":"onsen","d":[],"a":"d2"},{"k":"furukawa","n":"定山溪 ふる川 私汤","q":"定山渓温泉 ぬくもりの宿 ふる川","y":42.965684,"x":141.161158,"c":"onsen","d":[],"a":"toolbox"},{"k":"stellar","n":"Stellar Place","q":"札幌ステラプレイス","y":43.068046,"x":141.350991,"c":"shop","d":[],"a":"d4"},{"k":"kitaichi","n":"北一硝子 三号馆","q":"北一硝子三号館","y":43.192309,"x":141.007317,"c":"shop","d":[],"a":"d5"},{"k":"miffy","n":"Miffy 甜点堂 小樽","q":"みっふぃーおやつ堂 小樽店","y":43.1918,"x":141.006,"c":"shop","d":[],"a":"d5"}];
+  var MAP_SPOTS=[{"k":"cts","n":"新千岁机场 国内线","q":"新千歳空港国内線ターミナル","y":42.788,"x":141.681,"c":"move","d":[1,7],"a":"d1"},{"k":"manseikaku","n":"洞爷湖万世阁","q":"洞爺湖万世閣ホテルレイクサイドテラス","y":42.565819,"x":140.824675,"c":"hotel","d":[1,2,3],"a":"d1"},{"k":"tunnel","n":"洞爷湖星光隧道","q":"洞爺湖イルミネーショントンネル","y":42.5662,"x":140.8196,"c":"sight","d":[1],"a":"d1"},{"k":"ukimido","n":"浮见堂公园","q":"洞爺湖浮見堂公園","y":42.5676,"x":140.829,"c":"sight","d":[2],"a":"d2"},{"k":"silo","n":"筒仓展望台","q":"サイロ展望台","y":42.626188,"x":140.799441,"c":"sight","d":[2],"a":"d2"},{"k":"sendoan","n":"仙堂庵 荞麦","q":"そば処仙堂庵 洞爺湖","y":42.5653,"x":140.8197,"c":"food","d":[2],"a":"d2"},{"k":"nonokaze","n":"乃之风 私汤","q":"ザ レイクビュー TOYA 乃の風リゾート","y":42.5671,"x":140.8253,"c":"onsen","d":[2],"a":"d2"},{"k":"noboribetsu","n":"JR 登别站","q":"登別駅","y":42.452009,"x":141.180803,"c":"move","d":[3],"a":"d3"},{"k":"jigokudani","n":"登别地狱谷","q":"登別地獄谷","y":42.497572,"x":141.145335,"c":"sight","d":[3],"a":"d3"},{"k":"stream","n":"SAPPORO STREAM HOTEL","q":"SAPPORO STREAM HOTEL","y":43.055177,"x":141.35224,"c":"hotel","d":[3,4,5,6,7],"a":"d3"},{"k":"hanamaru","n":"根室花丸 回转寿司","q":"回転寿司 根室花まる ココノススキノ店","y":43.0553,"x":141.3537,"c":"food","d":[3],"a":"d3"},{"k":"hokudai","n":"北海道大学","q":"北海道大学 ポプラ並木","y":43.0795,"x":141.3373,"c":"sight","d":[4],"a":"d4"},{"k":"rokkatei","n":"六花亭 札幌本店","q":"六花亭 札幌本店","y":43.066023,"x":141.346554,"c":"food","d":[4],"a":"d4"},{"k":"nanga","n":"NANGA · Sapporo Factory","q":"NANGA SHOP SAPPORO サッポロファクトリー","y":43.0646,"x":141.3627,"c":"shop","d":[4],"a":"d4"},{"k":"daimaru","n":"大丸札幌","q":"大丸札幌店","y":43.068,"x":141.3492,"c":"shop","d":[4],"a":"d4"},{"k":"parco","n":"札幌 PARCO","q":"札幌PARCO","y":43.058728,"x":141.353158,"c":"shop","d":[4],"a":"d4"},{"k":"daruma","n":"达摩 成吉思汗烤肉","q":"成吉思汗だるま 5.5店","y":43.0537,"x":141.3518,"c":"food","d":[4],"a":"d4"},{"k":"asari","n":"朝里站","q":"朝里駅","y":43.176908,"x":141.063689,"c":"sight","d":[5],"a":"d5"},{"k":"orgel","n":"小樽音乐盒堂","q":"小樽オルゴール堂 本館","y":43.190579,"x":141.007792,"c":"sight","d":[5],"a":"d5"},{"k":"sankaku","n":"三角市场 泷波食堂","q":"小樽三角市場 滝波食堂","y":43.1975,"x":140.9945,"c":"food","d":[5],"a":"d5"},{"k":"funami","n":"船见坂","q":"船見坂 小樽","y":43.198825,"x":140.993147,"c":"sight","d":[5],"a":"d5"},{"k":"tengu","n":"天狗山缆车","q":"小樽天狗山ロープウェイ","y":43.177937,"x":140.975161,"c":"sight","d":[5],"a":"d5"},{"k":"canal","n":"小樽运河","q":"小樽運河 浅草橋街園","y":43.202023,"x":141.000601,"c":"sight","d":[5],"a":"d5"},{"k":"suage","n":"Suage+ 汤咖喱","q":"スープカレー すあげプラス 本店","y":43.0565,"x":141.351,"c":"food","d":[5],"a":"d5"},{"k":"teine","n":"手稻滑雪场","q":"サッポロテイネ オリンピアスキースクール","y":43.086697,"x":141.204206,"c":"sight","d":[6],"a":"d6"},{"k":"hoheikyo","n":"丰平峡温泉","q":"豊平峡温泉","y":42.948944,"x":141.155875,"c":"onsen","d":[],"a":"toolbox"},{"k":"kani","n":"螃蟹本家 薄野店","q":"札幌かに本家 すすきの店","y":43.0556,"x":141.3554,"c":"food","d":[6],"a":"d6"},{"k":"inari","n":"伏见稻荷神社","q":"札幌伏見稲荷神社","y":43.034966,"x":141.32537,"c":"sight","d":[7],"a":"d7"},{"k":"jrsapporo","n":"JR 札幌站","q":"JR札幌駅","y":43.0687,"x":141.3508,"c":"move","d":[7],"a":"d7"},{"k":"boyotei","n":"望羊蹄 西餐","q":"レストラン望羊蹄 洞爺湖","y":42.565045,"x":140.819057,"c":"food","d":[],"a":"d1"},{"k":"ippontei","n":"一本亭 拉面","q":"ラーメン一本亭 洞爺湖","y":42.565,"x":140.8202,"c":"food","d":[],"a":"d1"},{"k":"okadaya","n":"冈田屋 红豆汤","q":"岡田屋 洞爺湖","y":42.565259,"x":140.818454,"c":"food","d":[],"a":"d2"},{"k":"ponpekora","n":"Ponpekora 湖景汤咖喱","q":"Soup Curry Ponpekora 洞爺湖","y":42.5647,"x":140.8186,"c":"food","d":[],"a":"d1"},{"k":"pal","n":"PaL 夜芭菲","q":"夜パフェ専門店 Parfaiteria PaL","y":43.0558,"x":141.355,"c":"food","d":[],"a":"d3"},{"k":"utari","n":"Utari 炉端烧","q":"炉ばた焼 ウタリ 札幌","y":43.053904,"x":141.352001,"c":"food","d":[],"a":"d3"},{"k":"ichigen","n":"一幻 虾汤拉面","q":"えびそば一幻 総本店","y":43.051275,"x":141.345469,"c":"food","d":[],"a":"d3"},{"k":"naruto","n":"若鸡时代 炸鸡","q":"若鶏時代なると 本店","y":43.1965,"x":140.9985,"c":"food","d":[],"a":"d5"},{"k":"masazushi","n":"政寿司 本店","q":"おたる政寿司 本店","y":43.194175,"x":141.000158,"c":"food","d":[],"a":"d5"},{"k":"toyakanko","n":"洞爷观光酒店 私汤","q":"洞爺観光ホテル","y":42.565692,"x":140.820895,"c":"onsen","d":[],"a":"d2"},{"k":"furukawa","n":"定山溪 ふる川 私汤","q":"定山渓温泉 ぬくもりの宿 ふる川","y":42.965684,"x":141.161158,"c":"onsen","d":[],"a":"toolbox"},{"k":"stellar","n":"Stellar Place","q":"札幌ステラプレイス","y":43.068046,"x":141.350991,"c":"shop","d":[],"a":"d4"},{"k":"kitaichi","n":"北一硝子 三号馆","q":"北一硝子三号館","y":43.192309,"x":141.007317,"c":"shop","d":[],"a":"d5"},{"k":"wakasaimo","n":"若狭芋本铺","q":"わかさいも本舗 洞爺湖本店","y":42.56543,"x":140.81521,"c":"food","d":[],"a":"d2"},{"k":"kamaei","n":"かま栄 鱼板面包卷","q":"かま栄 工場直売店","y":43.19571,"x":141.00507,"c":"food","d":[],"a":"d5"},{"k":"miffy","n":"Miffy 甜点堂 小樽","q":"みっふぃーおやつ堂 小樽店","y":43.1918,"x":141.006,"c":"shop","d":[],"a":"d5"}];
   var MAP_ROUTES={"1":["cts","manseikaku","tunnel"],"2":["manseikaku","ukimido","silo","sendoan","nonokaze"],"3":["manseikaku","noboribetsu","jigokudani","stream","hanamaru"],"4":["stream","hokudai","rokkatei","nanga","daimaru","parco","daruma"],"5":["stream","asari","orgel","sankaku","funami","tengu","canal","suage"],"6":["stream","teine","kani"],"7":["stream","inari","jrsapporo","cts"]};
+  // Wayfinding layer: JR stations & lines, mountains, downtown landmarks and the Namboku subway (coords from OpenStreetMap)
+  var MAP_STATIONS={cts:['新千岁机场',42.78781,141.68087,1],mchitose:['南千岁',42.80853,141.67495,1],chitose:['千岁',42.82826,141.65186,2],kitahiro:['北广岛',42.97877,141.56318,2],shinsap:['新札幌',43.03923,141.47204,2],sapporo:['札幌',43.06866,141.35079,0],teine:['手稻',43.12026,141.24361,1],zenibako:['钱函',43.14348,141.15972,2],asari:['朝里',43.17691,141.06369,1],motaru:['南小樽',43.18708,141.00764,2],otaru:['小樽',43.19734,140.99415,1],numanohata:['沼之端',42.67196,141.69343,0],tomakomai:['苫小牧',42.63982,141.59677,2],shiraoi:['白老',42.55476,141.36004,2],noboribetsu:['登别',42.45201,141.1808,1],higashimuroran:['东室兰',42.34907,141.02559,2],date:['伊达纹别',42.46939,140.85616,2],toya:['洞爷',42.55089,140.7635,1]};
+  var MAP_JR=[['otaru','motaru','asari','zenibako','teine','sapporo'],['sapporo','shinsap','kitahiro','chitose','mchitose','cts'],['mchitose','numanohata','tomakomai','shiraoi','noboribetsu','higashimuroran','date','toya']];
+  var MAP_MOUNTAINS=[['羊蹄山',42.8267,140.8114,1.2],['有珠山',42.54277,140.83435,0.8],['昭和新山',42.54255,140.86435,0.6],['手稻山',43.07661,141.19319,0.8]];
+  var MAP_SUBWAY=[['北12条',43.07477,141.34847],['さっぽろ',43.06866,141.35079],['大通',43.06025,141.35215],['すすきの',43.05536,141.35338],['中岛公园',43.04833,141.35512]];
+  var MAP_LANDMARKS=[['📺','电视塔',43.06111,141.35645],['🕰','时计台',43.06255,141.35364],['🏮','狸小路',43.05726,141.3527],['🐟','二条市场',43.05825,141.35846],['🌳','中岛公园',43.04393,141.3542]];
   var MAP_CATS={all:['全部','#57646C',''],sight:['景点','#C0532E','📸'],food:['美食','#C98A1B','🍜'],hotel:['住宿','#285A86','🏨'],onsen:['温泉','#2E8C93','♨️'],shop:['购物','#8A5CB5','🛍️'],move:['交通','#57646C','🚉']};
   var DAY_COLORS=['#C0532E','#285A86','#3C7757','#8A5CB5','#C98A1B','#2E8C93','#B23A6B'];
   var mapOvl=document.getElementById('mapOvl'),mapSvg=document.getElementById('mapSvg'),mapCard=document.getElementById('mapCard'),mapHint=document.getElementById('mapHint');
@@ -1576,7 +1643,7 @@
   function mapRender(){
     var view=mapState.view,v=MAP_BASE.views[view],isRegion=view==='region',f=mapFrame(v,isRegion),z=f.w/(isRegion?1000:850);
     mapSvg.parentNode.classList.toggle('city',!isRegion);
-    var r=(isRegion?30:20)*z,gap=(isRegion?58:38)*z,out=[];
+    var r=(isRegion?30:20)*z,gap=(isRegion?58:38)*z,out=[],lbls=[];
     mapSvg.setAttribute('viewBox',f.x+' '+f.y+' '+f.w+' '+f.h);
     mapSvg.style.setProperty('--z',z);
     out.push('<defs>'+DAY_COLORS.map(function(c,i){return '<marker id="mArr'+i+'" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="'+c+'"/></marker>';}).join('')+'</defs>');
@@ -1585,12 +1652,38 @@
       [['石狩湾',141.22,43.26,'sea'],['太平洋',141.62,42.45,'sea'],['内浦湾',140.70,42.41,'sea'],['支笏湖',141.33,42.80,''],['洞爷湖',140.86,42.645,''],['小樽',141.0,43.235,''],['定山溪',141.165,42.99,'']].forEach(function(l){
         var p=mapProj(v,{x:l[1],y:l[2]}); out.push('<text class="m-label '+l[3]+'" x="'+p[0]+'" y="'+p[1]+'">'+l[0]+'</text>');
       });
-      var yotei=mapProj(v,{x:140.8114,y:42.8267});
-      out.push('<path class="m-mtn" d="M'+(yotei[0]-34*z)+','+(yotei[1]+22*z)+' L'+yotei[0]+','+(yotei[1]-26*z)+' L'+(yotei[0]+34*z)+','+(yotei[1]+22*z)+' Z"/><text class="m-label" x="'+yotei[0]+'" y="'+(yotei[1]+50*z)+'">羊蹄山</text>');
+      MAP_MOUNTAINS.forEach(function(m){
+        var p=mapProj(v,{x:m[2],y:m[1]}),k=m[3]*z;
+        out.push('<path class="m-mtn" d="M'+(p[0]-30*k)+','+(p[1]+20*k)+' L'+p[0]+','+(p[1]-24*k)+' L'+(p[0]+30*k)+','+(p[1]+20*k)+' Z"/><path class="m-snowcap" d="M'+(p[0]-10*k)+','+(p[1]-9*k)+' L'+p[0]+','+(p[1]-24*k)+' L'+(p[0]+10*k)+','+(p[1]-9*k)+' Z"/>');
+        lbls.push({x:p[0],y:p[1]+44*z,t:m[0],cls:'m-label m-mtn-t',fs:19*z,anchor:'middle',pri:3-m[3]});
+      });
+      // JR lines: dark casing + light dashes, the way railway maps draw them
+      MAP_JR.forEach(function(line){
+        var d='M'+line.map(function(k){var st=MAP_STATIONS[k],p=mapProj(v,{x:st[2],y:st[1]});return p[0]+','+p[1];}).join(' L');
+        out.push('<path class="m-jr" d="'+d+'"/><path class="m-jr-dash" d="'+d+'"/>');
+      });
+      Object.keys(MAP_STATIONS).forEach(function(k){
+        var st=MAP_STATIONS[k]; if(!st[3]) return;
+        var p=mapProj(v,{x:st[2],y:st[1]});
+        if(mapInCity({x:st[2],y:st[1]})) return;
+        out.push('<circle class="m-st" cx="'+p[0]+'" cy="'+p[1]+'" r="'+(9*z)+'"/>');
+        lbls.push({x:p[0]+14*z,y:p[1]+7*z,t:st[0],cls:'m-st-t',fs:19*z,anchor:'start',alt:{x:p[0]-14*z,anchor:'end'},pri:st[3]});
+      });
     }else{
       out.push('<rect class="m-land" width="'+v.W+'" height="'+v.H+'" style="stroke:none"/><path class="m-park" d="'+MAP_BASE.city.park+'"/><path class="m-river" d="'+MAP_BASE.city.river+'"/><path class="m-rail" d="'+MAP_BASE.city.rail+'"/>');
-      [['大通公园',141.3505,43.0618],['丰平川',141.3625,43.0435],['JR 线',141.330,43.0712],['薄野',141.3600,43.0500]].forEach(function(l){
+      [['大通公园',141.3445,43.0632],['丰平川',141.3625,43.0435],['JR 函馆本线',141.326,43.0722]].forEach(function(l){
         var p=mapProj(v,{x:l[1],y:l[2]}); out.push('<text class="m-label" x="'+p[0]+'" y="'+p[1]+'">'+l[0]+'</text>');
+      });
+      var sub=MAP_SUBWAY.map(function(st){return mapProj(v,{x:st[2],y:st[1]});});
+      out.push('<path class="m-subway" d="M'+sub.map(function(p){return p[0]+','+p[1];}).join(' L')+'"/>');
+      sub.forEach(function(p,i){
+        out.push('<circle class="m-sub-st" cx="'+p[0]+'" cy="'+p[1]+'" r="'+(10*z)+'"/>');
+        lbls.push({x:p[0]-18*z,y:p[1]+7*z,t:MAP_SUBWAY[i][0],cls:'m-sub-t',fs:18*z,anchor:'end',alt:{x:p[0]+18*z,anchor:'start'},pri:2});
+      });
+      MAP_LANDMARKS.forEach(function(l){
+        var p=mapProj(v,{x:l[3],y:l[2]});
+        out.push('<g class="m-lm" transform="translate('+p[0]+','+p[1]+') scale('+z+')"><circle r="17"/><text class="m-lm-i">'+l[0]+'</text></g>');
+        lbls.push({x:p[0],y:p[1]+40*z,t:l[1],cls:'m-lm-t',fs:17*z,anchor:'middle',alt:{x:p[0]+22*z,y:p[1]+6*z,anchor:'start'},pri:1,dot:[p[0],p[1],17*z]});
       });
     }
     // routes: one leg per hop, arrowhead at the midpoint shows direction
@@ -1616,12 +1709,31 @@
       out.push('<g data-city="1"><rect class="m-citybox" x="'+a[0]+'" y="'+a[1]+'" width="'+(b[0]-a[0])+'" height="'+(b[1]-a[1])+'" rx="8"/>'+
         '<g class="m-citytag" transform="translate('+(b[0]+204*z>f.x+f.w?a[0]-204*z:b[0]+8*z)+','+(a[1]-6*z)+') scale('+z+')"><rect width="196" height="40" rx="20"/><text x="98" y="28">札幌市区 '+cityCount+' 处 ›</text></g></g>');
     }
+    // wayfinding labels: place most important first, drop any that would sit on a pin or another label
+    var boxes=[];
+    function hit(b){ return boxes.some(function(o){return b.x0<o.x1&&b.x1>o.x0&&b.y0<o.y1&&b.y1>o.y0;}); }
+    mapClusters.forEach(function(cl){
+      var s0=cl.items[0],rr=(s0.c==='hotel'?r*1.2:r)*1.05;
+      boxes.push({x0:cl.p[0]-rr,x1:cl.p[0]+rr,y0:cl.p[1]-rr,y1:cl.p[1]+rr});
+      if(s0.c==='hotel'||(mapState.day&&cl.items.length===1)){ var w=(s0.c==='hotel'?7:s0.n.length)*19*z*0.55; boxes.push({x0:cl.p[0]-w,x1:cl.p[0]+w,y0:cl.p[1]+rr,y1:cl.p[1]+rr+24*z}); }
+    });
+    lbls.forEach(function(l){ if(l.dot) boxes.push({x0:l.dot[0]-l.dot[2],x1:l.dot[0]+l.dot[2],y0:l.dot[1]-l.dot[2],y1:l.dot[1]+l.dot[2]}); });
+    lbls.sort(function(a,b){return a.pri-b.pri;}).forEach(function(l){
+      [l,l.alt].some(function(o){
+        if(!o) return false;
+        var x=o.x!==undefined?o.x:l.x,y=o.y!==undefined?o.y:l.y,an=o.anchor||l.anchor,w=l.t.length*l.fs*0.92;
+        var x0=an==='start'?x:an==='end'?x-w:x-w/2,b={x0:x0-2*z,x1:x0+w+2*z,y0:y-l.fs,y1:y+l.fs*0.3};
+        if(b.x0<f.x||b.x1>f.x+f.w||hit(b)) return false;
+        boxes.push(b); out.push('<text class="'+l.cls+'" x="'+x+'" y="'+y+'" text-anchor="'+an+'">'+l.t+'</text>'); return true;
+      });
+    });
     mapClusters.forEach(function(cl,i){
       var s=cl.items[0],n=cl.items.length,hotel=s.c==='hotel',rr=hotel?r*1.2:r,sel=mapState.sel===i;
       var g='<g class="m-pin'+(sel?' sel':'')+'" data-i="'+i+'" transform="translate('+cl.p[0]+','+cl.p[1]+')">'+
         '<circle class="dot" r="'+rr+'" fill="'+MAP_CATS[s.c][1]+'"/><text font-size="'+(rr*1.05)+'">'+mapIcon(s)+'</text>';
       if(n>1) g+='<circle class="badge" cx="'+(rr*0.8)+'" cy="'+(-rr*0.8)+'" r="'+(13*z)+'"/><text class="badge-t" x="'+(rr*0.8)+'" y="'+(-rr*0.8)+'">'+n+'</text>';
       if(hotel) g+='<text class="name" y="'+(rr+18*z)+'">'+(s.k==='stream'?'STREAM 酒店':'万世阁')+'</text>';
+      else if(mapState.day&&n===1) g+='<text class="name" y="'+(rr+18*z)+'">'+mapEsc(s.n)+'</text>';
       out.push(g+'</g>');
     });
     if(mapGeo.pos&&mapInRegion(mapGeo.pos)){
@@ -1635,6 +1747,7 @@
     out.push('<g class="m-compass" transform="translate('+(f.x+f.w-50*z)+','+(f.y+60*z)+') scale('+z+')"><circle r="34" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><path d="M0,-26 L10,6 L0,0 L-10,6 Z" fill="var(--kaki)"/><path d="M0,26 L10,6 L0,0 L-10,6 Z" fill="var(--ink-faint)"/><text y="-40">N</text></g>');
     out.push('<g class="m-scale" transform="translate('+(f.x+24*z)+','+(f.y+f.h-30*z)+') scale('+z+')"><line x1="0" y1="0" x2="'+kmPx+'" y2="0"/><line x1="0" y1="-8" x2="0" y2="8"/><line x1="'+kmPx+'" y1="-8" x2="'+kmPx+'" y2="8"/><text x="'+(kmPx+10)+'" y="6">'+(km<1?km*1000+' m':km+' km')+'</text></g>');
     mapSvg.innerHTML=out.join('');
+    document.getElementById('mapLegend').innerHTML=isRegion?'<span><i class="lg-jr"></i>JR 线</span><span><i class="lg-st"></i>车站</span><span><i class="lg-mtn"></i>山</span>':'<span><i class="lg-sub"></i>地铁南北线</span><span><i class="lg-jr"></i>JR</span><span>📺 地标</span>';
     var total=MAP_SPOTS.filter(mapVisible).length;
     mapHint.textContent=(mapGeo.on&&mapGeoHint(v,f))||(mapState.day?'D'+mapState.day+' · ':'全程 · ')+total+' 个点'+(isRegion?' · 点数字气泡看清单':' · 点图钉看详情');
     document.querySelectorAll('#mapViews .map-view').forEach(function(b){ b.classList.toggle('active',b.dataset.view===view); });

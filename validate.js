@@ -234,6 +234,28 @@ for (const mid of modalIds) {
 }
 ok(`[交互弹窗] 全部 ${new Set(openTargets).size} 个餐厅点菜弹窗与预设套餐映射 100% 闭合`);
 
+// 7b. 照片：只用 Wikimedia 缩略图，必须带 alt、懒加载和作者/许可署名
+const figs = [...html.matchAll(/<figure class="ph">([\s\S]*?)<\/figure>/g)].map(x => x[1]);
+const badFig = figs.find(f => !/<img src="https:\/\/thumb\.wikimedia\.org\/[^"]+" alt="[^"]+" loading="lazy"/.test(f) || !/<figcaption>📷 [^<]+ · [^<]+ · <a href="https:\/\/commons\.wikimedia\.org\//.test(f));
+if (!figs.length) {
+  err('[照片署名] 未找到任何景点照片');
+} else if (badFig) {
+  err(`[照片署名] 存在缺 alt/懒加载/署名或非 Wikimedia 来源的照片: ${badFig.slice(0, 120)}`);
+} else if ((html.match(/<img /g) || []).length !== figs.length) {
+  err('[照片署名] 存在不在 <figure class="ph"> 里的 <img>，无法保证署名');
+} else {
+  ok(`[照片署名] ${figs.length} 张景点照片均来自 Wikimedia，带 alt、懒加载与作者许可署名`);
+}
+
+// 7c. 地图点位的「看行程」跳转锚点必须存在
+const spotsJson = (html.match(/var MAP_SPOTS=(\[[\s\S]*?\]);/) || [])[1];
+const deadAnchors = spotsJson ? JSON.parse(spotsJson).filter(s => !html.includes(`id="${s.a}"`)).map(s => `${s.k}→#${s.a}`) : ['MAP_SPOTS 缺失'];
+if (deadAnchors.length) {
+  err(`[地图锚点] 跳转目标不存在: ${deadAnchors.join(', ')}`);
+} else {
+  ok(`[地图锚点] ${JSON.parse(spotsJson).length} 个地图点位的跳转锚点全部存在`);
+}
+
 // 8. 七天总览对称性校验 (D1-D7 严格 7 行，每行跳到对应日卡并带步数)
 const ovRows = [...html.matchAll(/<a class="ov-row" data-day="(\d)" href="#d(\d)">([\s\S]*?)<\/a>/g)];
 if (ovRows.map(x => x[1]).join(',') !== '1,2,3,4,5,6,7') {
