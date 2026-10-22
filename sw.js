@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hokkaido-seven-days-v14';
+const CACHE_NAME = 'hokkaido-seven-days-v15';
 // Wikimedia photo thumbnails live in their own cache so a new itinerary version does not wipe them
 const PHOTO_CACHE = 'hokkaido-photos-v1';
 const APP_FILES = [

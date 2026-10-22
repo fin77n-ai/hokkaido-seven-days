@@ -267,6 +267,29 @@ if (stale.length) {
   ok('[过时内容与存储容错] 无失效说法，localStorage 全部经 store 包装');
 }
 
+// 7e. 预算算术：每天明细之和 ≈ 当天合计，七天合计 ≈ 各天之和（区间按低/高分别算，允许凑整误差 ¥500）
+const yen = t => { const m = t.replace(/,/g, '').match(/¥(\d+)(?:–(\d+))?/); return m ? [+m[1], +(m[2] || m[1])] : null; };
+const dayTotals = [];
+let budgetBad = '';
+dayIds.forEach(did => {
+  const day = (html.match(new RegExp(`<article class="day-card" id="${did}"[^>]*>([\\s\\S]*?)<\\/article>`)) || [])[1] || '';
+  const b = day.match(/<details class="budget"><summary>[^<]*<b>([^<]+)<\/b>[\s\S]*?<ul>([\s\S]*?)<\/ul>/);
+  if (!b) return;
+  const total = yen(b[1]);
+  const items = [...b[2].matchAll(/<b>([^<]+)<\/b>/g)].map(x => yen(x[1])).filter(Boolean);
+  const sum = items.reduce((a, x) => [a[0] + x[0], a[1] + x[1]], [0, 0]);
+  if (!total || Math.abs(sum[0] - total[0]) > 500 || Math.abs(sum[1] - total[1]) > 500) budgetBad += ` #${did} 明细合计 ¥${sum.join('–')} ≠ 标注 ${b[1]};`;
+  dayTotals.push(sum);
+});
+const grand = (html.match(/合计约 <b>([^<]+)<\/b>/) || [])[1];
+const gsum = dayTotals.reduce((a, x) => [a[0] + x[0], a[1] + x[1]], [0, 0]);
+if (grand && (Math.abs(yen(grand)[0] - gsum[0]) > 1000 || Math.abs(yen(grand)[1] - gsum[1]) > 1000)) budgetBad += ` 七天合计 ${grand} ≠ 各天之和 ¥${gsum.join('–')};`;
+if (dayTotals.length !== 7 || budgetBad) {
+  err(`[预算算术]${budgetBad || ' 不是 7 天都有预算'}`);
+} else {
+  ok(`[预算算术] 7 天明细与当天合计、七天合计 ¥${gsum.join('–')} 全部对得上`);
+}
+
 // 8. 七天总览对称性校验 (D1-D7 严格 7 行，每行跳到对应日卡并带步数)
 const ovRows = [...html.matchAll(/<a class="ov-row" data-day="(\d)" href="#d(\d)">([\s\S]*?)<\/a>/g)];
 if (ovRows.map(x => x[1]).join(',') !== '1,2,3,4,5,6,7') {
