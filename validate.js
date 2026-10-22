@@ -256,6 +256,17 @@ if (deadAnchors.length) {
   ok(`[地图锚点] ${JSON.parse(spotsJson).length} 个地图点位的跳转锚点全部存在`);
 }
 
+// 7d. 过时说法与脆弱写法：免税已改退税、万世阁房间无私汤、localStorage 必须走 store 包装（被禁用时页面不能整体失效）
+const stale = ['当场免税', '而且免税', '西馆展望', '泡汤吃夜宵'].filter(w => html.includes(w));
+const rawStorage = (html.match(/localStorage\.(getItem|setItem)\(/g) || []).length;
+if (stale.length) {
+  err(`[过时内容] 页面仍包含已失效的说法: ${stale.join('、')}`);
+} else if (rawStorage !== 2) {
+  err(`[存储容错] 发现 ${rawStorage - 2} 处绕过 store 包装直接调用 localStorage`);
+} else {
+  ok('[过时内容与存储容错] 无失效说法，localStorage 全部经 store 包装');
+}
+
 // 8. 七天总览对称性校验 (D1-D7 严格 7 行，每行跳到对应日卡并带步数)
 const ovRows = [...html.matchAll(/<a class="ov-row" data-day="(\d)" href="#d(\d)">([\s\S]*?)<\/a>/g)];
 if (ovRows.map(x => x[1]).join(',') !== '1,2,3,4,5,6,7') {

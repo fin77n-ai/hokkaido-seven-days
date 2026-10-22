@@ -412,6 +412,7 @@
   details.exp.local summary::before{content:none;}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .m-sub-t{fill:#7BD7A2;} }
   :root[data-theme="dark"] .m-sub-t{fill:#7BD7A2;}
+  .map-stage:has(> .map-card:not([hidden])) .map-locate{bottom:auto; top:92px;}
 </style>
 </head>
 <body>
@@ -518,7 +519,7 @@
         <li class="chk-item" data-chk="pre-onsen"><span class="chk-box">□</span><div><b>♨️ 订 D2 15:15 私汤</b><br>洞爷观光酒店的贷切露天风吕（万世阁对面，50 分钟约 ¥4,400–5,000，16 点前便宜 ¥1,000），电话确认价格和空档</div></li>
         <li class="chk-item" data-chk="pre-jr"><span class="chk-box">□</span><div><b>🚄 Ekinet 买北斗号指定席</b><br>D1 南千岁→洞爷（北斗 18 号）；D3 洞爷→登别（5 号）、登别→札幌（11 号）</div></li>
         <li class="chk-item" data-chk="pre-suica"><span class="chk-box">□</span><div><b>📱 iPhone 钱包加 Suica，填好 Visit Japan Web</b><br>小樽 JR 和地铁全程刷 Suica</div></li>
-        <li class="chk-item" data-chk="pre-taxfree"><span class="chk-box">□</span><div><b>🧾 问清退税怎么办</b><br>2026/11 起日本免税改成「先付全价、出境时税关确认后退钱」，要在托运前确认。你们行李从新千岁直挂浦东，羽田看不到托运的东西：出发前问 ANA 或税关，NANGA 这类免税品是不是要随身带、到羽田 T2 哪里办</div></li>
+        <li class="chk-item" data-chk="pre-taxfree"><span class="chk-box">□</span><div><b>🧾 问清退税怎么办</b><br>2026/11 起日本免税改成「先付全价、出境时税关确认后退钱」，要在托运前确认。你们行李从新千岁直挂浦东，羽田看不到托运的东西：出发前问 ANA：「新千歳から羽田乗り継ぎで国際線に乗る場合、免税品の税関確認はどこでできますか？」</div></li>
         <li class="chk-item" data-chk="pre-daruma"><span class="chk-box">□</span><div><b>🥩（可选）订 D4 达摩 4.4 二阶亭 18:45</b><br>不订就去 5.5 店现场排</div></li>
       </ul>
     </details>
@@ -1052,7 +1053,7 @@
         <span class="r-pin air">✈</span>
         <div class="n-top"><span class="n-time">19:30</span><span class="n-name">✈️ NH78 → 羽田 T2 同楼转 NH967 → 跨年回上海</span></div>
         <div class="n-jp">CTS 19:30 (NH78) → HND T2 21:10 ／ HND T2 22:40 (NH967) → PVG T2 01:15+1</div>
-        <div class="n-find"><b>18:45 前进安检。</b>免税买的东西别托运，随身带（羽绒服直接穿上），到羽田 T2 转国际线时先办退税确认。羽田 T2 不用换航站楼也不用取行李，跟着「国際線乗り継ぎ」蓝色标志上 3F，过关约 15–20 分钟。22:40 起飞，在空中迎接 2027 年 🎉</div>
+        <div class="n-find"><b>18:45 前进安检。</b><b>退税：</b>免税买的东西别托运，随身带（羽绒服直接穿上）。到羽田 T2 转国际线时，<b>过安检前</b>先办税关确认（自助机，或用 Visit Japan Web 在线办），显示 GREEN 才算办完，钱之后退到卡上。羽田 T2 不用换航站楼也不用取行李，跟着「国際線乗り継ぎ」蓝色标志上 3F，过关约 15–20 分钟。22:40 起飞，在空中迎接 2027 年 🎉</div>
       </div>
     </div>
     <a class="gmap" href="https://www.google.com/maps/dir/SAPPORO+STREAM+HOTEL/札幌伏見稲荷神社/北海道神宮/札幌駅/新千歳空港" target="_blank" rel="noopener">
@@ -1302,6 +1303,8 @@
 
 <script>
 (function(){
+  // localStorage can throw (blocked storage, private modes); ticks and theme just won't persist then
+  var store={get:function(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },set:function(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }};
   var storagePrefix='hokkaido-order-v1:';
   var ovl=document.getElementById('ordOvl');
   var list=document.getElementById('ordList');
@@ -1320,11 +1323,11 @@
     }
     items.forEach(function(li,itemIndex){
       var storageKey=storagePrefix+cardIndex+':'+itemIndex;
-      li.dataset.q=localStorage.getItem(storageKey)||'0';
+      li.dataset.q=store.get(storageKey)||'0';
       var q=li.querySelector('.st-q');
       function setQuantity(value){
         value=Math.max(0,value|0); li.dataset.q=String(value); q.textContent=String(value);
-        localStorage.setItem(storageKey,String(value)); li.classList.toggle('sel',value>0); refresh();
+        store.set(storageKey,String(value)); li.classList.toggle('sel',value>0); refresh();
       }
       li._setQuantity=setQuantity;
       q.textContent=li.dataset.q; if(+li.dataset.q>0) li.classList.add('sel');
@@ -1392,12 +1395,14 @@
   // Interactive Day Tasks Checkboxes
   document.querySelectorAll('.day-tasks li').forEach(function(li,idx){
     var key='hokkaido-task-v2:'+idx;
-    if(localStorage.getItem(key)==='1') li.classList.add('done');
+    if(store.get(key)==='1') li.classList.add('done');
+    li.setAttribute('aria-checked',li.classList.contains('done'));
     li.addEventListener('click',function(e){
       if(e.target.tagName==='A') return;
       var next=!li.classList.contains('done');
       li.classList.toggle('done',next);
-      localStorage.setItem(key,next?'1':'0');
+      li.setAttribute('aria-checked',next);
+      store.set(key,next?'1':'0');
     });
   });
 
@@ -1425,16 +1430,24 @@
     function renderChk(done){
       item.classList.toggle('done',done);
       item.querySelector('.chk-box').textContent=done?'☑':'□';
+      item.setAttribute('aria-checked',done);
     }
-    renderChk(localStorage.getItem(key)==='1');
+    renderChk(store.get(key)==='1');
     item.addEventListener('click',function(){
-      var next=localStorage.getItem(key)!=='1';
-      localStorage.setItem(key,next?'1':'0');
+      var next=!item.classList.contains('done');
+      store.set(key,next?'1':'0');
       renderChk(next);
       refreshPrep();
     });
   });
   refreshPrep();
+
+  // Keyboard / screen-reader access for tappable rows that are not real buttons
+  document.querySelectorAll('.chk-item,.day-tasks li,.n-name.menu-link').forEach(function(el){
+    el.tabIndex=0;
+    el.setAttribute('role',el.classList.contains('menu-link')?'button':'checkbox');
+    el.addEventListener('keydown',function(e){ if(e.target===el&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); el.click(); } });
+  });
 
   // Taxi Driver Overlay
   var taxiOvl=document.getElementById('taxiOvl');
@@ -1476,13 +1489,13 @@
 
   // TODAY MODE (2026-12-25 .. 2026-12-31)
   var tripDays=[
-    {date:'2026-12-25',id:'d1',title:'D1 圣诞降落 · 直奔洞爷湖万世阁',alert:'✈️ 羽田 T3 先提行李入境转 T2；新千岁国内线 D 口下 B1 坐 JR 到南千岁换北斗号！'},
-    {date:'2026-12-26',id:'d2',title:'D2 洞爷湖雪景大片 × 湖景私汤',alert:'♨️ 浮见堂雪栈桥零团客；15:15 泡进私汤看洞爷湖日落蓝调！'},
-    {date:'2026-12-27',id:'d3',title:'D3 顺游登别地狱谷 → 札幌 Stream',alert:'🍣 入住薄野 Stream 后先下楼去根室花丸抽号，回房间躺等叫号！'},
-    {date:'2026-12-28',id:'d4',title:'D4 北大雪林 × 买 NANGA × 烤羊肉',alert:'🧥 带上护照原件！今天在 Sapporo Factory 2F 把 NANGA 和 Mont-bell 拿下（12/31休馆）！'},
-    {date:'2026-12-29',id:'d5',title:'D5 《情书》朝里看海雪站 × 小樽蓝调',alert:'🌊 JR 往小樽坐右侧靠窗！10:15 朝里站下车拍照，15:15 上天狗山看日落！'},
+    {date:'2026-12-25',id:'d1',title:'D1 圣诞夜抵达洞爷湖',alert:'✈️ 羽田 T3 入境后拎箱出海关，右手 10 米交给 ANA 转机柜台；新千岁下 B1 坐 JR 到南千岁换北斗号'},
+    {date:'2026-12-26',id:'d2',title:'D2 洞爷湖雪景 × 湖景私汤',alert:'♨️ 上午请前台确认私汤；15:15 去洞爷观光酒店，16 点前进场便宜 ¥1,000'},
+    {date:'2026-12-27',id:'d3',title:'D3 顺路登别 → 搬去札幌',alert:'🍣 09:50 万世阁门口坐巴士；到 Stream 后先下楼去根室花丸抽号'},
+    {date:'2026-12-28',id:'d4',title:'D4 北大雪景 × 买装备 × 女友购物',alert:'🧥 带护照原件；NANGA 和滑雪手套雪镜今天买齐（Sapporo Factory 12/31 休馆）'},
+    {date:'2026-12-29',id:'d5',title:'D5 《情书》朝里站 × 小樽蓝调',alert:'🌊 坐普通列车、右侧靠窗；15:15 前上天狗山看 16:03 日落'},
     {date:'2026-12-30',id:'d6',title:'D6 手稻滑雪团课 × 跨年前夜蟹宴',alert:'🎿 带上手套、雪镜、毛线帽！集合时间看团课订单，19:00 螃蟹宴'},
-    {date:'2026-12-31',id:'d7',title:'D7 大晦日红鸟居 × 新千岁机场扫货跨年',alert:'🛍️ 12/31 市区商场早关门！13:15 进驻新千岁国内线 2F 抢 SNOWS 伴手礼再托运！'}
+    {date:'2026-12-31',id:'d7',title:'D7 雪中鸟居 × 机场扫货 × 空中跨年',alert:'🧾 免税品别托运、随身带；13:15 到新千岁 2F 买伴手礼再托运'}
   ];
   var parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
   function part(type){ return parts.find(function(p){return p.type===type;}).value; }
@@ -1510,7 +1523,7 @@
       if(next) return; var time=node.querySelector('.n-time'); if(!time) return;
       var match=time.textContent.match(/(\d{1,2}):(\d{2})/); if(match&&(+match[1]*60+(+match[2]))>=japanMinutes) next=node.querySelector('.n-name');
     });
-    todaySub.textContent=next?'下一站：'+next.textContent.trim():'今日行程已圆满走完，回酒店泡汤吃夜宵！';
+    todaySub.textContent=next?'下一站：'+next.textContent.trim():(today.id==='d7'?'已经起飞 ✈️ 空中跨年，01:15 到上海':'今天的行程走完了，回酒店好好休息 🛌');
   }
   // once the trip starts the pre-trip list folds away so today's route sits right under the card
   if(japanDate>='2026-12-25') document.getElementById('prepCard').open=false;
@@ -1541,12 +1554,12 @@
 
   // Theme & Offline & PWA
   var root=document.documentElement;
-  var savedTheme=localStorage.getItem('hokkaido-theme');
+  var savedTheme=store.get('hokkaido-theme');
   if(savedTheme) root.dataset.theme=savedTheme;
   document.getElementById('themeToggle').addEventListener('click',function(){
     var dark=root.dataset.theme==='dark'||(!root.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);
     root.dataset.theme=dark?'light':'dark';
-    localStorage.setItem('hokkaido-theme',root.dataset.theme);
+    store.set('hokkaido-theme',root.dataset.theme);
   });
   // Offline trip map: SVG basemap (Natural Earth-level coastline + OSM lakes/river/rail), pins by real lat/lon
   var MAP_BASE={"views":{"region":{"lon0":140.35,"lon1":142.05,"lat0":42.2,"lat1":43.5,"W":1328,"kx":781.176471,"H":1385,"ky":1065.384615},"city":{"lon0":141.31,"lon1":141.378,"lat0":43.022,"lat1":43.092,"W":850,"kx":12500.0,"H":1198,"ky":17114.285714}},"region":{"land":"M1348,-20L1348,1094L1345,1089L1312,1082L1299,1064L1296,1063L1297,1059L1278,1050L1262,1035L1254,1024L1243,1015L1242,1012L1238,1009L1226,1004L1211,982L1189,969L1151,952L1147,957L1146,957L1148,953L1145,949L1141,947L1134,956L1131,955L1133,947L1132,945L1091,934L1058,928L1034,929L1033,926L1001,928L1006,925L1009,924L1007,923L1008,922L1028,912L1030,913L1034,911L1034,909L1045,904L1048,905L1053,902L1051,897L1030,907L1028,904L1026,905L1028,908L1001,919L997,911L993,914L996,920L996,926L993,926L993,927L995,928L993,928L993,929L991,927L988,927L989,928L990,928L990,933L988,933L988,931L985,930L978,930L927,943L896,955L856,973L835,985L798,1008L782,1020L760,1038L761,1039L760,1040L758,1039L728,1062L670,1113L665,1115L658,1116L656,1115L638,1129L635,1127L632,1127L605,1151L580,1176L549,1217L551,1222L543,1224L534,1236L535,1240L534,1240L533,1238L529,1240L522,1249L514,1264L516,1267L515,1272L514,1272L509,1276L505,1276L505,1277L498,1273L494,1270L487,1271L489,1269L484,1270L483,1267L483,1264L481,1262L470,1259L467,1259L463,1256L462,1251L454,1240L454,1238L458,1236L457,1234L463,1235L463,1228L470,1227L471,1231L471,1232L473,1231L474,1235L477,1232L478,1234L476,1235L478,1240L479,1240L480,1236L481,1241L482,1239L483,1240L482,1242L483,1243L484,1241L485,1242L485,1248L487,1249L487,1252L489,1253L489,1251L491,1250L492,1253L493,1252L492,1248L496,1249L494,1246L496,1247L498,1243L494,1242L493,1232L514,1227L511,1224L490,1226L489,1222L496,1221L498,1220L494,1218L494,1215L493,1217L490,1216L486,1219L485,1216L472,1214L466,1211L461,1209L461,1207L459,1206L457,1209L449,1205L443,1204L443,1202L438,1196L436,1193L435,1180L430,1151L421,1130L408,1107L401,1102L397,1102L394,1100L382,1097L367,1079L358,1074L353,1066L341,1063L337,1065L338,1062L336,1050L337,1049L336,1047L341,1050L341,1046L337,1044L335,1047L333,1046L333,1045L335,1045L331,1043L330,1042L333,1036L331,1033L334,1035L332,1032L334,1030L332,1026L318,1008L310,1004L300,993L294,988L292,986L286,984L283,986L282,979L281,976L274,973L257,972L246,972L235,974L233,973L229,973L212,980L201,985L197,985L196,984L189,987L188,990L182,993L171,990L168,986L165,984L159,981L144,971L139,971L131,969L126,973L125,975L121,975L117,973L115,973L112,975L99,970L93,973L86,979L48,1019L17,1063L-1,1094L-20,1136L-20,1349L-7,1356L14,1360L26,1359L38,1367L46,1381L52,1385L63,1395L66,1395L72,1404L73,1405L-20,1405L-20,700L-18,697L-17,697L-5,686L6,669L7,662L10,663L21,643L22,635L23,635L32,618L32,615L35,615L39,613L42,609L48,603L51,596L63,586L65,586L77,580L79,577L80,577L105,561L109,557L118,553L122,547L124,547L128,549L129,547L126,547L127,546L129,547L129,544L130,545L135,542L139,529L140,502L138,498L127,496L124,492L122,493L124,487L122,486L118,476L115,470L113,467L114,464L107,452L100,446L95,445L90,441L88,429L86,420L78,416L79,412L76,411L74,402L72,401L72,399L73,398L72,396L71,395L69,395L68,393L67,393L64,390L62,387L63,380L58,380L42,364L31,358L23,352L21,351L19,349L17,347L17,346L8,340L-1,328L-2,323L-4,322L-3,320L-8,311L-8,308L-12,306L-19,296L-19,295L-18,288L-13,272L-13,263L-10,261L-14,255L-17,256L-15,253L-14,254L-12,252L-11,252L-7,249L-8,246L-8,243L-6,243L-5,238L-10,232L-8,231L-6,232L-4,230L0,219L3,214L6,199L8,196L5,186L-3,176L1,178L7,178L13,180L19,179L20,177L23,181L32,178L34,177L36,180L39,180L40,177L42,177L44,175L46,177L48,176L49,178L58,181L75,174L80,171L81,169L86,164L86,160L88,155L91,146L95,143L87,140L88,136L91,134L95,135L97,133L98,134L102,132L105,133L106,132L109,134L111,134L111,135L115,135L117,138L119,137L122,140L125,149L128,152L138,149L140,150L138,154L142,160L147,165L148,165L149,170L153,171L155,171L155,174L166,185L167,187L171,188L180,201L181,201L185,204L188,203L189,206L192,209L193,210L196,209L199,210L197,210L197,212L199,214L198,215L201,217L209,216L215,218L219,215L219,218L223,227L228,227L231,228L231,231L226,238L224,238L227,248L238,253L259,260L263,260L270,265L272,264L274,265L281,263L282,268L288,266L295,274L301,274L301,280L305,283L308,281L310,281L310,283L313,287L316,286L319,291L322,290L329,291L330,290L334,292L335,305L333,305L332,308L333,315L340,320L342,319L345,325L363,325L386,321L387,318L390,320L397,316L394,306L398,309L398,307L396,304L394,303L394,301L399,302L400,300L403,302L404,309L408,313L419,310L423,310L426,307L441,307L447,303L445,293L447,295L451,290L458,291L460,291L460,289L469,290L483,281L494,277L521,277L519,283L521,292L523,291L524,293L519,299L520,304L518,306L512,308L510,312L512,312L513,313L509,315L509,318L514,316L512,319L515,318L513,321L516,320L514,322L516,325L519,324L520,326L517,328L519,329L523,328L529,332L526,335L532,338L532,336L535,337L539,341L550,340L562,344L565,347L575,349L586,354L593,358L607,367L616,369L634,378L650,373L690,352L701,345L722,330L727,322L729,324L733,322L734,320L735,313L739,308L738,311L739,312L742,309L743,310L748,305L746,302L743,305L741,303L746,299L749,303L749,302L754,299L784,263L798,241L807,230L826,204L829,197L839,182L838,170L839,160L843,149L841,145L841,134L845,118L843,85L829,54L821,41L819,33L815,29L814,23L812,23L799,5L798,-3L793,-12L788,-20ZM198,205L196,205L196,204L198,204ZM714,317L721,311L733,294L734,288L733,294L721,311Z","lake":"M766,742L771,742L777,742L788,747L796,753L810,766L815,768L816,770L819,771L821,773L823,776L822,778L823,780L822,783L821,790L822,792L822,795L824,798L825,799L827,802L827,805L826,806L824,807L822,807L814,808L809,808L805,810L802,813L800,814L797,812L794,813L792,813L788,812L783,812L781,814L779,814L776,816L772,818L770,822L767,824L765,828L763,832L759,834L757,836L752,842L748,844L745,847L739,848L736,847L733,844L730,840L727,839L724,837L722,837L718,834L714,831L713,829L713,827L716,822L716,820L715,819L712,815L710,812L709,808L708,807L707,806L707,805L705,800L704,796L706,794L707,786L709,782L712,779L715,777L718,778L721,776L724,777L725,778L727,777L728,778L729,781L728,782L729,782L734,779L736,781L737,781L740,779L743,779L745,779L746,777L745,774L745,772L746,771L748,770L750,769L751,766L752,765L753,761L752,759L753,757L755,755L761,751L761,749L762,748L764,743ZM649,1054L654,1054L658,1056L661,1061L662,1066L661,1070L660,1073L657,1075L651,1077L649,1077L644,1076L640,1072L638,1067L639,1061L640,1059L644,1055ZM424,989L424,992L423,992L422,992L421,992L421,994L420,996L419,996L419,997L418,998L417,997L415,996L413,998L412,998L412,1001L410,1004L400,1004L397,1005L393,1001L388,999L386,1002L388,999L385,997L378,995L374,996L371,994L359,995L356,992L355,990L356,989L353,991L351,989L350,986L350,983L349,979L346,970L346,966L343,963L343,962L343,962L344,957L343,955L344,952L346,950L348,950L352,947L354,947L354,942L356,938L359,939L360,934L362,932L364,932L365,930L366,930L367,925L366,924L367,922L370,918L371,917L372,918L371,916L372,915L374,912L379,908L381,909L382,910L384,910L386,911L388,914L391,917L396,917L400,914L400,913L402,910L404,909L405,910L408,910L410,913L412,913L416,916L417,915L419,916L422,920L422,922L424,923L427,924L432,930L433,931L432,933L433,936L439,939L441,942L442,946L443,947L445,947L446,947L447,950L447,955L447,962L444,967L444,969L441,974L436,978L435,978L433,983L432,987L430,989L424,989Z"},"city":{"river":"M532,1209L529,1201L530,1181M530,1181L541,1129L568,1049L572,979L580,949L590,925M590,925L611,875M611,875L620,853L624,832L627,782L632,753L641,722L648,710L653,694L657,666L676,627L707,588M707,588L715,580L727,556L737,524L748,513L765,502L803,492L813,482L833,472L861,467","rail":"M287,371L305,382M283,369L287,371M562,395L597,396M15,211L155,294M155,294L263,358M597,396L708,399M708,399L799,400L866,392M267,360L283,369M263,358L267,360M262,359L-7,197M282,370L266,361M-10,194L15,211M447,420L455,417M463,414L493,401M707,400L597,397M597,397L588,397M708,398L787,399L865,392M866,394L798,402L708,399M869,394L796,404L707,400M708,399L597,397M458,416L463,414M434,423L447,420M588,397L577,397M455,417L458,416M577,397L560,397M557,397L542,399M494,408L478,412M493,401L512,396M513,404L494,408M527,393L547,394M286,372L282,370M266,361L262,359M-7,197L-11,195M305,382L365,416L384,423L410,426L434,423M452,420L413,428L384,424L365,416L286,372M547,394L708,398M528,401L513,404M512,396L527,393M560,397L557,397M465,417L452,420M473,414L478,412M557,395L562,395","park":"M583,524L585,532L577,534L553,537L544,540L373,573L333,580L331,570L552,529L552,530L558,529L559,528Z"}};
@@ -1587,7 +1600,7 @@
     document.getElementById('mapDays').innerHTML=days;
   }
   // My location: GPS works without network; the position never leaves the phone
-  var mapGeo={on:localStorage.getItem('hokkaido-map-geo')==='1',watch:null,pos:null,err:''};
+  var mapGeo={on:store.get('hokkaido-map-geo')==='1',watch:null,pos:null,err:''};
   var mapLocate=document.getElementById('mapLocate');
   function mapInRegion(s){ var r=MAP_BASE.views.region; return s.x>r.lon0&&s.x<r.lon1&&s.y>r.lat0&&s.y<r.lat1; }
   function mapDistKm(a,b){
@@ -1803,14 +1816,18 @@
       mapState.sel=null; mapCard.hidden=true; mapChips(); mapRender();
     });
   });
-  function mapOpenOvl(){ mapOvl.hidden=false; mapLocate.setAttribute('aria-pressed',mapGeo.on); if(mapGeo.on) mapGeoStart(); mapChips(); mapRender(); }
+  function mapOpenOvl(){ mapOvl.hidden=false; mapState.sel=null; mapCard.hidden=true; mapLocate.setAttribute('aria-pressed',mapGeo.on); if(mapGeo.on) mapGeoStart(); mapChips(); mapRender(); }
   function mapCloseOvl(){ mapOvl.hidden=true; mapGeoStop(); }
   document.getElementById('mapOpen').addEventListener('click',mapOpenOvl);
   document.getElementById('mapClose').addEventListener('click',mapCloseOvl);
-  addEventListener('keydown',function(e){ if(e.key==='Escape'&&!mapOvl.hidden) mapCloseOvl(); });
+  addEventListener('keydown',function(e){
+    if(e.key!=='Escape') return;
+    var top=[phraseOvl,taxiOvl,ovl].concat([].slice.call(document.querySelectorAll('.menu-modal'))).find(function(o){return !o.hidden;});
+    if(top) top.hidden=true; else if(!mapOvl.hidden) mapCloseOvl();
+  });
   mapLocate.addEventListener('click',function(){
     mapGeo.on=!mapGeo.on;
-    localStorage.setItem('hokkaido-map-geo',mapGeo.on?'1':'0');
+    store.set('hokkaido-map-geo',mapGeo.on?'1':'0');
     mapLocate.setAttribute('aria-pressed',mapGeo.on);
     if(mapGeo.on) mapGeoStart(); else { mapGeoStop(); mapGeo.pos=null; mapGeo.err=''; }
     mapRender();

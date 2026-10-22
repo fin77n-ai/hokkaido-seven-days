@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hokkaido-seven-days-v13';
+const CACHE_NAME = 'hokkaido-seven-days-v14';
 // Wikimedia photo thumbnails live in their own cache so a new itinerary version does not wipe them
 const PHOTO_CACHE = 'hokkaido-photos-v1';
 const APP_FILES = [
@@ -28,9 +28,11 @@ self.addEventListener('activate', event => {
 });
 
 // Tell open pages that a newer itinerary just landed in the cache, so they can offer a one-tap reload
+// The refresh often finishes while the reloaded page is still loading (not yet a client), so tell again a moment later
 function notifyUpdated() {
-  return self.clients.matchAll({ type: 'window' })
+  const post = () => self.clients.matchAll({ type: 'window' })
     .then(clients => clients.forEach(client => client.postMessage({ type: 'itinerary-updated' })));
+  return post().then(() => new Promise(resolve => setTimeout(resolve, 2500))).then(post);
 }
 
 // Stale-While-Revalidate: serve cache instantly (works on bad snow-day signal), refresh in background
