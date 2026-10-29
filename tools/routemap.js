@@ -106,8 +106,10 @@
   function fit(){
     var svg=pan.querySelector('svg'); if(!svg) return;
     var vb=svg.viewBox.baseVal,W=stage.clientWidth,H=stage.clientHeight;
-    svg.setAttribute('width',vb.width); svg.setAttribute('height',vb.height);
-    view.base=Math.min(W/vb.width,H/vb.height); view.s=view.base;
+    svg.style.width=vb.width+'px'; svg.style.height=vb.height+'px';
+    view.base=Math.min(W/vb.width,H/vb.height);
+    // wide maps (e.g. Otaru) start zoomed to fill most of the height; drag sideways to see the rest
+    view.s=Math.min(Math.max(view.base,H*0.82/vb.height),view.base*2.2);
     view.x=(W-vb.width*view.s)/2; view.y=(H-vb.height*view.s)/2; apply();
   }
   function zoomAt(f,cx,cy){
@@ -130,7 +132,7 @@
     sheet.style.setProperty('--day',card.style.getPropertyValue('--day'));
     sheet.innerHTML=''; sheet.appendChild(more);
     var gm=document.querySelector('#d'+d+' a.gmap'); if(gm){ var a=gm.cloneNode(true); sheet.appendChild(a); }
-    requestAnimationFrame(fit);
+    requestAnimationFrame(function(){ requestAnimationFrame(fit); });
   }
   function openRm(d){ ovl.hidden=false; document.body.style.overflow='hidden'; show(d||view.day); }
   function closeRm(){ ovl.hidden=true; document.body.style.overflow=''; }
