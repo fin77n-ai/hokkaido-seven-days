@@ -36,7 +36,7 @@
 
 ## 照片、本地人私藏、地图路标
 
-- **照片**：景点只用 Wikimedia Commons 缩略图（thumb.wikimedia.org），放在 `<figure class="ph">` 里，必须带 alt、`loading="lazy"` 和 `📷 作者 · 许可 · Wikimedia 链接` 署名；换图前先看 Commons 文件页确认拍的是那个地方，避免可识别的人脸。餐厅不放图，只给「📷照片」按钮链到 Google 图片搜索，不盗链商业图片。sw.js 把缩略图存在单独的 `PHOTO_CACHE`，换行程版本不清掉。
+- **照片**：景点只用 Wikimedia Commons 缩略图（thumb.wikimedia.org），放在 `<figure class="ph">` 里，必须带 alt、`loading="lazy"` 和 `📷 作者 · 许可 · Wikimedia 链接` 署名；换图前先看 Commons 文件页确认拍的是那个地方，避免可识别的人脸。优先用冬季、近几年拍的；Commons 上找不到合适新照片的景点也不放旧图，改成「📷看最新照片（冬天）」按钮（`.ph-link`）链到 Google 图片搜索。餐厅不放图，只给「📷照片」按钮链到 Google 图片搜索。不盗链 Google 地图、小红书等商业或用户上传的图片。sw.js 把缩略图存在单独的 `PHOTO_CACHE`，换行程版本不清掉。
 - **🧭 本地人私藏**：每天 0–2 个，放在当天相关站点的 `<details class="exp local">` 里；必须核实 12/25–31 当天营业（写出定休日）、给出 Google Maps 链接，有可靠坐标才进 MAP_SPOTS。查不到就不加。
 - **地图路标**：车站、JR 线、山、市区地标、地铁南北线的数据在脚本 `MAP_STATIONS / MAP_JR / MAP_MOUNTAINS / MAP_LANDMARKS / MAP_SUBWAY`（坐标来自 OpenStreetMap）。标签按 `pri` 依次摆放，压到图钉或其他标签就不画，所以新增标签不用手调位置。
 
