@@ -91,10 +91,97 @@
       g.innerHTML=html; g.setAttribute('data-state','ok');
     }).catch(function(){ g.setAttribute('data-state','off'); store.set('hokkaido-tile-tpl',''); });
   }
-  document.querySelectorAll('details.route-map').forEach(function(d){
-    d.addEventListener('toggle',function(){
-      var g=d.querySelector('.rm-base');
-      if(d.open&&g&&g.getAttribute('data-state')!=='ok'&&g.getAttribute('data-state')!=='loading') draw(g);
-    });
+  function ensure(g){ var st=g&&g.getAttribute('data-state'); if(g&&st!=='ok'&&st!=='loading') return draw(g); return Promise.resolve(); }
+  // card thumbnails draw their base map when they scroll into view (that also warms the offline cache)
+  var thumbs=[].slice.call(document.querySelectorAll('.rm-thumb'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ ensure(e.target.querySelector('.rm-base')); io.unobserve(e.target); } }); },{rootMargin:'200px'});
+    thumbs.forEach(function(t){ io.observe(t); });
+  } else thumbs.forEach(function(t){ ensure(t.querySelector('.rm-base')); });
+
+  // ---- big map: one floating button, D1–D7 tabs + 全程 ----
+  var ovl=document.getElementById('rmOvl'),stage=document.getElementById('rmStage'),pan=document.getElementById('rmPan'),sheet=document.getElementById('rmSheet'),tabs=document.getElementById('rmTabs');
+  var view={s:1,x:0,y:0,base:1,day:1},backToRm=false;
+  function apply(){ pan.style.transform='translate('+view.x+'px,'+view.y+'px) scale('+view.s+')'; }
+  function fit(){
+    var svg=pan.querySelector('svg'); if(!svg) return;
+    var vb=svg.viewBox.baseVal,W=stage.clientWidth,H=stage.clientHeight;
+    svg.style.width=vb.width+'px'; svg.style.height=vb.height+'px';
+    view.base=Math.min(W/vb.width,H/vb.height);
+    // wide maps (e.g. Otaru) start zoomed to fill most of the height; drag sideways to see the rest
+    view.s=Math.min(Math.max(view.base,H*0.82/vb.height),view.base*1.35);
+    view.x=(W-vb.width*view.s)/2; view.y=(H-vb.height*view.s)/2; apply();
+  }
+  function zoomAt(f,cx,cy){
+    var s=Math.max(view.base*0.8,Math.min(view.base*6,view.s*f)); f=s/view.s;
+    view.x=cx-(cx-view.x)*f; view.y=cy-(cy-view.y)*f; view.s=s; apply();
+  }
+  function rmTabs(){
+    var h='<button class="map-chip" type="button" data-day="0">全程 · 全道</button>';
+    for(var d=1;d<=7;d++){ var c=document.querySelector('.route-map[data-day="'+d+'"]'); if(!c) continue;
+      h+='<button class="map-chip'+(view.day===d?' active':'')+'" type="button" data-day="'+d+'"><i style="background:'+c.style.getPropertyValue('--day')+'"></i>D'+d+'</button>'; }
+    tabs.innerHTML=h;
+  }
+  function show(d){
+    var card=document.querySelector('.route-map[data-day="'+d+'"]'); if(!card) return;
+    view.day=d; rmTabs();
+    var svg=card.querySelector('.rm-svg').cloneNode(true); svg.removeAttribute('preserveAspectRatio');
+    pan.innerHTML=''; pan.appendChild(svg);
+    var g=svg.querySelector('.rm-base'); if(g.getAttribute('data-state')!=='ok'){ g.removeAttribute('data-state'); ensure(g); }
+    var more=card.querySelector('.rm-more').cloneNode(true); more.hidden=false;
+    sheet.style.setProperty('--day',card.style.getPropertyValue('--day'));
+    sheet.innerHTML=''; sheet.appendChild(more);
+    var gm=document.querySelector('#d'+d+' a.gmap'); if(gm){ var a=gm.cloneNode(true); sheet.appendChild(a); }
+    requestAnimationFrame(function(){ requestAnimationFrame(fit); });
+  }
+  function openRm(d){ ovl.hidden=false; document.body.style.overflow='hidden'; show(d||view.day); }
+  function closeRm(){ ovl.hidden=true; document.body.style.overflow=''; }
+  var todayN=today?tripDays.indexOf(today)+1:1; view.day=todayN;
+  document.getElementById('rmFab').addEventListener('click',function(){ openRm(); });
+  document.getElementById('rmClose').addEventListener('click',closeRm);
+  thumbs.forEach(function(t){ t.addEventListener('click',function(){ openRm(+t.getAttribute('data-day')); }); });
+  tabs.addEventListener('click',function(e){
+    var b=e.target.closest('[data-day]'); if(!b) return;
+    var d=+b.getAttribute('data-day');
+    if(d===0){ closeRm(); backToRm=true; mapPickDay(0); mapOpenOvl(); return; }
+    show(d);
   });
+  // the old top-bar 地图 chip now opens the same big map
+  var oldOpen=document.getElementById('mapOpen');
+  if(oldOpen){ var nb=oldOpen.cloneNode(true); oldOpen.parentNode.replaceChild(nb,oldOpen); nb.addEventListener('click',function(){ openRm(); }); }
+  // back from 全程 to the big map
+  document.getElementById('mapClose').addEventListener('click',function(){ if(backToRm){ backToRm=false; openRm(); } });
+  addEventListener('keydown',function(e){
+    if(e.key!=='Escape') return;
+    if(!mapOvl.hidden){ if(backToRm){ backToRm=false; setTimeout(function(){ openRm(); },0); } return; }
+    if(!ovl.hidden&&![].slice.call(document.querySelectorAll('.menu-modal,.phrase-ovl,.taxi-ovl,.ord-ovl')).some(function(o){return !o.hidden;})){ closeRm(); e.stopImmediatePropagation(); }
+  },true);
+  document.querySelector('.rm-zoom').addEventListener('click',function(e){
+    var b=e.target.closest('[data-z]'); if(!b) return;
+    var z=+b.getAttribute('data-z'); if(!z){ fit(); return; }
+    zoomAt(z,stage.clientWidth/2,stage.clientHeight/2);
+  });
+  // drag to pan, pinch / wheel / double-tap to zoom
+  var pts={},last=null,lastTap=0;
+  function rel(e){ var r=stage.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; }
+  stage.addEventListener('pointerdown',function(e){
+    if(e.target.closest('.rm-zoom')) return;
+    stage.setPointerCapture(e.pointerId); pts[e.pointerId]=rel(e); last=null;
+    var now=Date.now(); if(now-lastTap<300&&Object.keys(pts).length===1){ var p=rel(e); zoomAt(2,p.x,p.y); } lastTap=now;
+  });
+  stage.addEventListener('pointermove',function(e){
+    if(!pts[e.pointerId]) return;
+    var p=rel(e),ids=Object.keys(pts);
+    if(ids.length===1){ view.x+=p.x-pts[e.pointerId].x; view.y+=p.y-pts[e.pointerId].y; apply(); }
+    else if(ids.length===2){
+      pts[e.pointerId]=p; var a=pts[ids[0]],b=pts[ids[1]],d=Math.hypot(a.x-b.x,a.y-b.y),c={x:(a.x+b.x)/2,y:(a.y+b.y)/2};
+      if(last){ zoomAt(d/last.d,c.x,c.y); view.x+=c.x-last.c.x; view.y+=c.y-last.c.y; apply(); }
+      last={d:d,c:c}; return;
+    }
+    pts[e.pointerId]=p;
+  });
+  function up(e){ delete pts[e.pointerId]; last=null; }
+  stage.addEventListener('pointerup',up); stage.addEventListener('pointercancel',up);
+  stage.addEventListener('wheel',function(e){ e.preventDefault(); var p=rel(e); zoomAt(e.deltaY<0?1.15:0.87,p.x,p.y); },{passive:false});
+  addEventListener('resize',function(){ if(!ovl.hidden) fit(); });
 })();
