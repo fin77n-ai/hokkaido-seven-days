@@ -294,15 +294,53 @@ def panel(d, idx):
     legend = ''.join(f'<span><i class="lg-{m}"></i>{MODE[m][0]}</span>' for m in used)
     head = (f'<div class="rm-head"><span class="rm-day">D{idx+1}</span><b>{html.escape(spec["title"])}</b>'
             f'<small>{spec.get("date", "")} · {n} 站</small></div>')
-    return (f'<details class="exp route-map" data-day="{idx+1}" style="--day:{col}"><summary>🗺️ 今日路线图 · {n} 站 · 带距离</summary><div class="exp-bd">'
-            + head + ''.join(out) + f'<div class="rm-legend">{legend}</div><ol class="rm-list">' + ''.join(li) + '</ol></div></details>')
+    svg = ''.join(out)
+    thumb = svg.replace('<svg class="rm-svg" ', '<svg class="rm-svg" preserveAspectRatio="xMidYMid slice" ', 1)
+    return (f'<div class="route-map" data-day="{idx+1}" style="--day:{col}">'
+            f'<button class="rm-thumb" type="button" data-day="{idx+1}" aria-label="打开 D{idx+1} 路线大地图">{thumb}'
+            f'<span class="rm-open">🔍 看大地图 · {n} 站 · 带距离</span></button>'
+            f'<div class="rm-more" hidden>{head}<div class="rm-legend">{legend}</div><ol class="rm-list">{"".join(li)}</ol></div></div>')
+
+
+OVERLAY = """  <!-- >>> rm-ovl -->
+  <button class="rm-fab" id="rmFab" type="button" aria-label="打开路线大地图">🗺️<span>地图</span></button>
+  <div class="rm-ovl" id="rmOvl" role="dialog" aria-label="路线大地图" hidden>
+    <div class="rm-top">
+      <h3>🗺️ 路线大地图</h3>
+      <button class="map-close" id="rmClose" type="button" aria-label="关闭大地图">✕</button>
+    </div>
+    <div class="map-chips rm-tabs" id="rmTabs"></div>
+    <div class="rm-stage" id="rmStage"><div class="rm-pan" id="rmPan"></div>
+      <div class="rm-zoom"><button type="button" data-z="1.4" aria-label="放大">＋</button><button type="button" data-z="0.7" aria-label="缩小">－</button><button type="button" data-z="0" aria-label="还原">⟲</button></div>
+      <div class="rm-hint">双指放大 · 拖动看细节</div>
+    </div>
+    <div class="rm-sheet" id="rmSheet"></div>
+  </div>
+  <!-- <<< rm-ovl -->
+"""
 
 
 CSS = """
   /* 每日路线图 */
-  details.route-map{margin:10px 0 4px;border-color:color-mix(in srgb,var(--day) 35%,var(--line));}
-  details.route-map summary{color:var(--day);}
-  details.route-map summary::before{content:none;}
+  .route-map{margin:10px 0 6px;}
+  .rm-thumb{display:block;width:100%;padding:0;border:none;background:none;cursor:pointer;position:relative;border-radius:18px;overflow:hidden;-webkit-tap-highlight-color:transparent;}
+  .rm-thumb .rm-svg{height:150px;border-radius:18px;}
+  .rm-thumb .rm-name,.rm-thumb .rm-pill,.rm-thumb .rm-dist,.rm-thumb .rm-dist-t,.rm-thumb .rm-osm,.rm-thumb .rm-edge-t,.rm-thumb .rm-chip{display:none;}
+  .rm-open{position:absolute;right:10px;bottom:10px;background:var(--day);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:5px 11px;box-shadow:0 3px 10px rgba(0,0,0,.2);}
+  .rm-fab{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:110;width:58px;height:58px;border-radius:50%;border:none;background:var(--indigo,#285A86);color:#fff;font-size:22px;line-height:1;box-shadow:0 6px 18px rgba(20,40,60,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer;}
+  .rm-fab span{font-size:12px;font-weight:700;}
+  .rm-ovl{position:fixed;inset:0;z-index:125;background:var(--paper);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);}
+  .rm-ovl[hidden],.rm-more[hidden]{display:none!important;}
+  .rm-top{display:flex;align-items:center;gap:10px;padding:10px 14px 4px;} .rm-top h3{margin:0;font-size:17px;flex:1;}
+  .rm-tabs{padding:4px 12px 8px;}
+  .rm-stage{position:relative;flex:1 1 auto;min-height:0;overflow:hidden;touch-action:none;margin:0 10px;border-radius:18px;background:#F3EFE7;}
+  .rm-pan{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;}
+  .rm-pan .rm-svg{box-shadow:none;border-radius:0;}
+  .rm-zoom{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px;}
+  .rm-zoom button{width:40px;height:40px;border-radius:12px;border:none;background:rgba(255,255,255,.95);color:#2A2E35;font-size:20px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;}
+  .rm-hint{position:absolute;left:10px;top:10px;font-size:12px;color:#5A606A;background:rgba(255,255,255,.9);border-radius:999px;padding:3px 10px;pointer-events:none;}
+  .rm-sheet{flex:0 0 auto;max-height:36vh;overflow:auto;padding:4px 16px calc(14px + env(safe-area-inset-bottom,0px));}
+  .rm-sheet .gmap{margin-top:10px;}
   .rm-head{display:flex;align-items:center;gap:8px;margin:8px 0 6px;flex-wrap:wrap;}
   .rm-head .rm-day{background:var(--day);color:#fff;font-weight:800;font-size:12px;border-radius:999px;padding:2px 9px;}
   .rm-head b{font-size:14px;color:var(--ink);} .rm-head small{font-size:12px;color:var(--ink-faint);margin-left:auto;}
@@ -351,11 +389,16 @@ def main():
     s = INDEX.read_text()
     # remove a previous build
     s = re.sub(r'<details class="exp route-map".*?</ol></div></details>\n    ', '', s, flags=re.S)
+    s = re.sub(r'<div class="route-map" data-day=.*?</ol></div></div>\n    ', '', s, flags=re.S)
+    s = re.sub(r'  <!-- >>> rm-ovl -->.*?<!-- <<< rm-ovl -->\n', '', s, flags=re.S)
     s = re.sub(r'\n  /\* 每日路线图 \*/.*?@media \(prefers-color-scheme:dark\)\{ :root:not\(\[data-theme="light"\]\) \.rm-svg\{filter:brightness\(\.9\d?\);\} \}\n', '\n', s, flags=re.S)
     for i, d in enumerate(DAYS):
         m = re.search(r'(<article class="day-card" id="%s">.*?)(<div class="route">)' % d, s, re.S)
         assert m, d
         s = s[:m.end(1)] + panel(d, i) + '\n    ' + s[m.end(1):]
+    ovl_anchor = '  <div class="map-ovl" id="mapOvl"'
+    assert s.count(ovl_anchor) == 1
+    s = s.replace(ovl_anchor, OVERLAY + ovl_anchor)
     anchor = '  .ph-link{margin:8px 0 6px;}\n'
     assert anchor in s
     s = s.replace(anchor, anchor + CSS.lstrip('\n'), 1)
