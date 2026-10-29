@@ -1,6 +1,9 @@
-const CACHE_NAME = 'hokkaido-seven-days-v20';
+const CACHE_NAME = 'hokkaido-seven-days-v21';
 // Wikimedia photo thumbnails live in their own cache so a new itinerary version does not wipe them
 const PHOTO_CACHE = 'hokkaido-photos-v1';
+// OpenFreeMap vector tiles for the 每日路线图 base map: once a day's map has been opened online, it works offline
+const MAP_CACHE = 'hokkaido-maptiles-v1';
+const CACHE_FIRST = { 'thumb.wikimedia.org': PHOTO_CACHE, 'tiles.openfreemap.org': MAP_CACHE };
 const APP_FILES = [
   './',
   './index.html',
@@ -22,7 +25,7 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME && key !== PHOTO_CACHE).map(key => caches.delete(key))))
+    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME && key !== PHOTO_CACHE && key !== MAP_CACHE).map(key => caches.delete(key))))
   );
   self.clients.claim();
 });
@@ -38,9 +41,10 @@ function notifyUpdated() {
 // Stale-While-Revalidate: serve cache instantly (works on bad snow-day signal), refresh in background
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
-  // Cache-first for photo thumbnails: once seen online, they keep showing on a snowy no-signal day
-  if (new URL(event.request.url).hostname === 'thumb.wikimedia.org') {
-    event.respondWith(caches.open(PHOTO_CACHE).then(cache => cache.match(event.request).then(hit => hit ||
+  // Cache-first for photo thumbnails and map tiles: once seen online, they keep showing on a snowy no-signal day
+  const sideCache = CACHE_FIRST[new URL(event.request.url).hostname];
+  if (sideCache) {
+    event.respondWith(caches.open(sideCache).then(cache => cache.match(event.request).then(hit => hit ||
       fetch(event.request).then(response => {
         if (response.ok) cache.put(event.request, response.clone()).catch(() => {});
         return response;

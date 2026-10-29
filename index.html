@@ -409,6 +409,39 @@
   .ph.off{display:none;}
   .n-nav.n-photo{background:var(--surface-2); color:var(--ink-soft); border:1px solid var(--line);}
   .ph-link{margin:8px 0 6px;}
+  /* 每日路线图 */
+  details.route-map{margin:10px 0 4px;}
+  .rm-svg{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);margin-top:6px;}
+  .rm-bg{fill:#F4F1EA;} .rm-park{fill:#DCE8D2;} .rm-water{fill:#C9DDEB;} .rm-coast{fill:none;stroke:#9EC3DC;stroke-width:6;stroke-linejoin:round;}
+  .rm-river{fill:none;stroke:#A8CBE3;stroke-width:4;stroke-linecap:round;}
+  .rm-r3{fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+  .rm-r2{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;}
+  .rm-r1{fill:none;stroke:#F2D9A6;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;}
+  .rm-rail{fill:none;stroke:#8A8F98;stroke-width:4;} .rm-rail-d{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:8 8;}
+  .rm-lbl{font-size:22px;fill:#8A8F98;font-weight:700;text-anchor:middle;font-family:var(--font-cjk);paint-order:stroke;stroke:#F4F1EA;stroke-width:5px;}
+  .rm-lbl.lake,.rm-lbl.sea{fill:#5D8DB0;stroke:#C9DDEB;letter-spacing:4px;}
+  .rm-leg{fill:none;stroke-width:5;stroke-linecap:round;opacity:.92;}
+  .rm-edge{fill:none;stroke-width:5;stroke-dasharray:3 7;stroke-linecap:round;}
+  .rm-edge-t{font-size:21px;font-weight:700;fill:#3A3F47;font-family:var(--font-cjk);paint-order:stroke;stroke:#F4F1EA;stroke-width:6px;}
+  .rm-pin circle{stroke:#fff;stroke-width:4;} .rm-pin text{fill:#fff;font-size:22px;font-weight:800;text-anchor:middle;font-family:var(--font-ui,sans-serif);}
+  .rm-way circle{fill:#fff;stroke:#3A3F47;stroke-width:4;}
+  .rm-name{font-size:22px;font-weight:700;fill:#2A2E35;font-family:var(--font-cjk);paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round;}
+  .rm-osm{font-size:16px;fill:#8A8F98;}
+  .rm-lead{stroke-width:3;} details.route-map summary::before{content:none;}
+  .rm-base[data-state="loading"]+.rm-lbl{opacity:.5;}
+  .rm-legend{display:flex;flex-wrap:wrap;gap:12px;margin:8px 2px 2px;font-size:12px;color:var(--ink-soft);}
+  .rm-legend i{display:inline-block;width:26px;height:0;border-top:3px solid var(--c);vertical-align:middle;margin-right:5px;}
+  .rm-legend i.lg-car{border-top-style:dashed;} .rm-legend i.lg-train{border-top-style:dotted;border-top-width:4px;}
+  .rm-list{list-style:none;margin:8px 0 0;padding:0;font-size:13px;line-height:1.5;}
+  .rm-list li{display:flex;align-items:baseline;gap:7px;padding:5px 0;border-top:1px dashed var(--line);flex-wrap:wrap;}
+  .rm-list li:first-child{border-top:none;}
+  .rm-list b{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;border-radius:50%;color:#fff;font-size:12px;}
+  .rm-list b.w{background:none;color:var(--ink-faint);}
+  .rm-list time{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .rm-list li.after{color:var(--ink-soft);}
+  .rm-via{flex-basis:100%;font-size:12px;color:var(--ink-faint);padding-left:27px;}
+  .rm-via::before{content:"↓ ";}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .rm-svg{filter:brightness(.9);} }
   details.exp.local summary{color:var(--indigo);}
   details.exp.local summary::before{content:none;}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .m-sub-t{fill:#7BD7A2;} }
@@ -568,6 +601,7 @@
       <li><b>星光隧道就在酒店正门对面，</b>开到 22:00，吃完饭下楼就能拍</li>
     </ul></div>
     <details class="budget"><summary>💴 今日花费 · 两人 <b>¥19,600</b><small>约 920 元 · 不含酒店机票购物</small></summary><ul><li><span>JR 新千岁→洞爷（北斗号指定席）×2</span><b>约 ¥12,000</b></li><li><span>洞爷站→酒店 打车</span><b>¥2,600</b></li><li><span>机场零食</span><b>约 ¥1,000</b></li><li><span>晚餐 望羊蹄 两人</span><b>约 ¥4,000</b></li></ul></details>
+    <details class="exp route-map" data-day="1"><summary>🗺️ 今日路线图 · 2 站</summary><div class="exp-bd"><svg class="rm-svg" viewBox="0 0 600 429" role="img" aria-label="D1 路线图：抵达洞爷湖"><defs><clipPath id="rmCd1"><rect width="600" height="429" rx="14"/></clipPath><marker id="rmAC0532E" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="#C0532E"/></marker></defs><g clip-path="url(#rmCd1)"><rect class="rm-bg" width="600" height="429"/><g class="rm-base" data-bb="140.8115,42.5605,140.8305,42.5705" data-w="600" data-h="429" data-minor="1"></g><text class="rm-lbl lake" x="394.7" y="64.3">洞爷湖</text><path class="rm-leg" d="M416.1 200.8Q321.4 185.4 238.6 234.0" stroke="#C0532E" marker-mid="url(#rmAC0532E)"/><path class="rm-leg" d="M238.6 234.0Q256.1 212.3 255.8 184.5" stroke="#C0532E" marker-mid="url(#rmAC0532E)"/><path class="rm-edge" d="M0 429L49 380" stroke="#C0532E" marker-end="url(#rmAC0532E)"/><text class="rm-edge-t" x="59" y="394" text-anchor="start">从洞爷站 🚕 12 分</text></g><g class="rm-way" transform="translate(416.1 200.8)"><circle r="10"/></g><g class="rm-pin" transform="translate(238.6 234.0)"><circle r="17" fill="#C0532E"/><text y="8">1</text></g><g class="rm-pin" transform="translate(255.8 184.5)"><circle r="17" fill="#C0532E"/><text y="8">2</text></g><text class="rm-name" x="440" y="209" text-anchor="start">万世阁</text><text class="rm-name" x="271" y="242" text-anchor="start">望羊蹄</text><text class="rm-name" x="288" y="192" text-anchor="start">星光隧道</text><text class="rm-osm" x="590" y="419" text-anchor="end">© OpenStreetMap · OpenFreeMap</text></svg><div class="rm-legend"><span><i class="lg-walk" style="--c:#C0532E"></i>走路</span><span><i class="lg-car" style="--c:#C0532E"></i>打车/巴士</span></div><ol class="rm-list"><li><span class="rm-via">打车/巴士</span><b class="w">·</b><time>18:15</time>入住万世阁</li><li><span class="rm-via">走路</span><b style="background:#C0532E">1</b><time>18:45</time>晚餐 望羊蹄</li><li><span class="rm-via">走路</span><b style="background:#C0532E">2</b><time>20:00</time>星光隧道</li></ol></div></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin air">✈</span>
@@ -630,6 +664,7 @@
       <li><b>冬天不坐游船：</b>中岛封岛不能下船，不值得</li>
     </ul></div>
     <details class="budget"><summary>💴 今日花费 · 两人 <b>¥17,400</b><small>约 820 元 · 不含酒店机票购物</small></summary><ul><li><span>筒仓展望台 包车往返</span><b>约 ¥5,000</b></li><li><span>午餐 仙堂庵 帆立天ざる ×2</span><b>¥3,300</b></li><li><span>冈田屋 白色年糕甜汤 ×2</span><b>¥1,100</b></li><li><span>私汤 50 分钟（16 点前优惠）</span><b>约 ¥4,000</b></li><li><span>晚餐 温泉街 两人</span><b>约 ¥4,000</b></li></ul></details>
+    <details class="exp route-map" data-day="2"><summary>🗺️ 今日路线图 · 4 站</summary><div class="exp-bd"><svg class="rm-svg" viewBox="0 0 600 860" role="img" aria-label="D2 路线图：洞爷湖雪景 × 私汤"><defs><clipPath id="rmCd2"><rect width="600" height="860" rx="14"/></clipPath><marker id="rmA285A86" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="#285A86"/></marker></defs><g clip-path="url(#rmCd2)"><rect class="rm-bg" width="600" height="860"/><g class="rm-base" data-bb="140.78,42.556,140.852,42.632" data-w="600" data-h="860" data-minor="1"></g><text class="rm-lbl lake" x="416.7" y="418.7">洞 爷 湖</text><path class="rm-leg" d="M372.3 748.9Q393.9 745.3 408.3 728.7" stroke="#285A86" marker-mid="url(#rmA285A86)"/><path class="rm-leg" d="M408 729L238 702L158 498L108 272L162 66" stroke="#285A86" stroke-dasharray="10 8"/><path class="rm-leg" d="M162 66L108 272L158 498L238 702L331 755" stroke="#285A86" stroke-dasharray="10 8"/><path class="rm-leg" d="M330.8 754.8Q336.6 754.3 340.8 750.3" stroke="#285A86" marker-mid="url(#rmA285A86)"/></g><g class="rm-way" transform="translate(372.3 748.9)"><circle r="10"/></g><g class="rm-pin" transform="translate(408.3 728.7)"><circle r="17" fill="#285A86"/><text y="8">1</text></g><g class="rm-pin" transform="translate(162.0 65.8)"><circle r="17" fill="#285A86"/><text y="8">2</text></g><g class="rm-pin" transform="translate(330.8 754.8)"><circle r="17" fill="#285A86"/><text y="8">3</text></g><path class="rm-lead" d="M340.8 750.3L310.8 724.3" stroke="#285A86"/><circle class="rm-dot" cx="340.8" cy="750.3" r="5" fill="#285A86"/><g class="rm-pin" transform="translate(310.8 724.3)"><circle r="17" fill="#285A86"/><text y="8">4</text></g><text class="rm-name" x="440" y="737" text-anchor="start">浮见堂</text><text class="rm-name" x="194" y="74" text-anchor="start">筒仓展望台</text><text class="rm-name" x="331" y="807" text-anchor="middle">仙堂庵</text><text class="rm-name" x="279" y="732" text-anchor="end">洞爷观光酒店私汤</text><text class="rm-osm" x="590" y="850" text-anchor="end">© OpenStreetMap · OpenFreeMap</text></svg><div class="rm-legend"><span><i class="lg-walk" style="--c:#285A86"></i>走路</span><span><i class="lg-car" style="--c:#285A86"></i>打车/巴士</span></div><ol class="rm-list"><li><b class="w">·</b><time>09:15</time>万世阁出发</li><li><span class="rm-via">走路</span><b style="background:#285A86">1</b><time>09:30</time>浮见堂公园</li><li><span class="rm-via">打车/巴士</span><b style="background:#285A86">2</b><time>10:45</time>筒仓展望台</li><li><span class="rm-via">打车/巴士</span><b style="background:#285A86">3</b><time>12:30</time>仙堂庵 · 冈田屋</li><li><span class="rm-via">走路</span><b style="background:#285A86">4</b><time>15:15</time>洞爷观光酒店私汤</li></ol></div></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
@@ -693,6 +728,7 @@
       <li><b>到酒店先下楼去根室花丸抽号，</b>回房间躺着等叫号</li>
     </ul></div>
     <details class="budget"><summary>💴 今日花费 · 两人 <b>¥22,000</b><small>约 1,030 元 · 不含酒店机票购物</small></summary><ul><li><span>巴士 万世阁→洞爷站 ×2</span><b>约 ¥700</b></li><li><span>JR 洞爷→登别→札幌 ×2</span><b>约 ¥10,000</b></li><li><span>道南巴士 登别站⇄温泉 ×2</span><b>¥1,800</b></li><li><span>登别站寄存行李</span><b>约 ¥700</b></li><li><span>午餐 地狱拉面 ×2</span><b>约 ¥2,400</b></li><li><span>地铁 札幌→薄野 ×2</span><b>约 ¥400</b></li><li><span>晚餐 根室花丸 两人</span><b>约 ¥6,000</b></li></ul></details>
+    <details class="exp route-map" data-day="3"><summary>🗺️ 今日路线图 · 2 站</summary><div class="exp-bd"><svg class="rm-svg" viewBox="0 0 600 786" role="img" aria-label="D3 路线图：登别地狱谷 → 札幌"><defs><clipPath id="rmCd3"><rect width="600" height="786" rx="14"/></clipPath><marker id="rmA3C7757" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="#3C7757"/></marker></defs><g clip-path="url(#rmCd3)"><rect class="rm-bg" width="600" height="786"/><g class="rm-base" data-bb="141.133,42.446,141.192,42.503" data-w="600" data-h="786" data-minor="1"></g><text class="rm-lbl town" x="233.9" y="124.1">登别温泉</text><text class="rm-lbl sea" x="325.4" y="730.8">太平洋</text><path class="rm-leg" d="M486.1 703.1Q340.4 369.0 125.4 74.8" stroke="#3C7757" stroke-dasharray="10 8" marker-mid="url(#rmA3C7757)"/><path class="rm-leg" d="M125.4 74.8Q271.1 408.9 486.1 703.1" stroke="#3C7757" stroke-dasharray="10 8" marker-mid="url(#rmA3C7757)"/></g><g class="rm-way" transform="translate(486.1 703.1)"><circle r="10"/></g><path class="rm-lead" d="M486.1 703.1L516.1 677.1" stroke="#3C7757"/><circle class="rm-dot" cx="486.1" cy="703.1" r="5" fill="#3C7757"/><g class="rm-pin" transform="translate(516.1 677.1)"><circle r="17" fill="#3C7757"/><text y="8">1</text></g><g class="rm-pin" transform="translate(125.4 74.8)"><circle r="17" fill="#3C7757"/><text y="8">2</text></g><text class="rm-name" x="462" y="711" text-anchor="end">JR 登别站</text><text class="rm-name" x="157" y="83" text-anchor="start">地狱谷</text><text class="rm-osm" x="590" y="776" text-anchor="end">© OpenStreetMap · OpenFreeMap</text></svg><div class="rm-legend"><span><i class="lg-car" style="--c:#3C7757"></i>打车/巴士</span><span><i class="lg-train" style="--c:#3C7757"></i>JR/地铁</span></div><ol class="rm-list"><li class="after"><b class="w">·</b><time>09:50</time>万世阁 → 洞爷站 · 🚄 北斗 5 号</li><li><span class="rm-via">JR/地铁</span><b style="background:#3C7757">1</b><time>11:28</time>登别站 · 存行李</li><li><span class="rm-via">打车/巴士</span><b style="background:#3C7757">2</b><time>12:00</time>地狱谷 + 拉面</li><li><span class="rm-via">打车/巴士</span><b class="w">·</b><time>14:48</time>回登别站取行李</li><li class="after"><b class="w">·</b><time>14:48</time>🚄 北斗 11 号去札幌</li><li class="after"><b class="w">·</b><time>17:15</time>STREAM 酒店入住</li><li class="after"><b class="w">·</b><time>18:30</time>根室花丸 · 酒店楼下</li></ol></div></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin">JR</span>
@@ -758,6 +794,7 @@
       <li><b>顺手买齐滑雪小件：</b>防水手套、雪镜、毛线帽，租雪服一般不含这些</li>
     </ul></div>
     <details class="budget"><summary>💴 今日花费 · 两人 <b>¥12,600</b><small>约 590 元 · 不含酒店机票购物</small></summary><ul><li><span>地铁</span><b>约 ¥500</b></li><li><span>午餐 六花亭本店 ×2</span><b>约 ¥3,000</b></li><li><span>打车两段（含冬季加价）</span><b>¥2,100</b></li><li><span>晚餐 达摩（点菜器两人套餐）</span><b>约 ¥7,000</b></li></ul><p>购物另算：NANGA 羽绒服约 ¥45,000–55,000，Mont-bell 滑雪小件另计</p></details>
+    <details class="exp route-map" data-day="4"><summary>🗺️ 今日路线图 · 6 站</summary><div class="exp-bd"><svg class="rm-svg" viewBox="0 0 600 753" role="img" aria-label="D4 路线图：北大 × 买装备 × 购物"><defs><clipPath id="rmCd4"><rect width="600" height="753" rx="14"/></clipPath><marker id="rmA8A5CB5" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="#8A5CB5"/></marker></defs><g clip-path="url(#rmCd4)"><rect class="rm-bg" width="600" height="753"/><g class="rm-base" data-bb="141.332,43.05,141.368,43.083" data-w="600" data-h="753" data-minor="1"></g><text class="rm-lbl town" x="150.0" y="513.4">大通公园</text><text class="rm-lbl town" x="466.7" y="296.6">札幌站</text><path class="rm-leg" d="M337.3 634.9Q249.3 341.0 88.3 79.9" stroke="#8A5CB5" stroke-dasharray="3 7" marker-mid="url(#rmA8A5CB5)"/><path class="rm-leg" d="M88.3 79.9Q129.7 251.6 242.6 387.4" stroke="#8A5CB5" marker-mid="url(#rmA8A5CB5)"/><path class="rm-leg" d="M242.6 387.4Q372.4 443.4 511.7 419.9" stroke="#8A5CB5" stroke-dasharray="10 8" marker-mid="url(#rmA8A5CB5)"/><path class="rm-leg" d="M511.7 419.9Q412.2 343.3 286.7 342.3" stroke="#8A5CB5" stroke-dasharray="10 8" marker-mid="url(#rmA8A5CB5)"/><path class="rm-leg" d="M286.7 342.3Q281.6 459.9 352.6 553.8" stroke="#8A5CB5" marker-mid="url(#rmA8A5CB5)"/><path class="rm-leg" d="M352.6 553.8Q320.6 607.1 330.0 668.6" stroke="#8A5CB5" marker-mid="url(#rmA8A5CB5)"/></g><g class="rm-way" transform="translate(337.3 634.9)"><circle r="10"/></g><g class="rm-pin" transform="translate(88.3 79.9)"><circle r="17" fill="#8A5CB5"/><text y="8">1</text></g><g class="rm-pin" transform="translate(242.6 387.4)"><circle r="17" fill="#8A5CB5"/><text y="8">2</text></g><g class="rm-pin" transform="translate(511.7 419.9)"><circle r="17" fill="#8A5CB5"/><text y="8">3</text></g><g class="rm-pin" transform="translate(286.7 342.3)"><circle r="17" fill="#8A5CB5"/><text y="8">4</text></g><g class="rm-pin" transform="translate(352.6 553.8)"><circle r="17" fill="#8A5CB5"/><text y="8">5</text></g><g class="rm-pin" transform="translate(330.0 668.6)"><circle r="17" fill="#8A5CB5"/><text y="8">6</text></g><text class="rm-name" x="361" y="643" text-anchor="start">STREAM 酒店</text><text class="rm-name" x="120" y="88" text-anchor="start">北海道大学</text><text class="rm-name" x="275" y="395" text-anchor="start">六花亭</text><text class="rm-name" x="319" y="350" text-anchor="start">大丸 · 札幌站</text><text class="rm-name" x="321" y="562" text-anchor="end">PARCO · 狸小路</text><text class="rm-name" x="362" y="677" text-anchor="start">达摩</text><text class="rm-osm" x="590" y="743" text-anchor="end">© OpenStreetMap · OpenFreeMap</text></svg><div class="rm-legend"><span><i class="lg-walk" style="--c:#8A5CB5"></i>走路</span><span><i class="lg-car" style="--c:#8A5CB5"></i>打车/巴士</span><span><i class="lg-train" style="--c:#8A5CB5"></i>JR/地铁</span></div><ol class="rm-list"><li><b class="w">·</b><time>09:40</time>STREAM 酒店</li><li><span class="rm-via">JR/地铁</span><b style="background:#8A5CB5">1</b><time>10:00</time>北海道大学</li><li><span class="rm-via">走路</span><b style="background:#8A5CB5">2</b><time>11:45</time>六花亭 午餐</li><li><span class="rm-via">打车/巴士</span><b style="background:#8A5CB5">3</b><time>13:30</time>NANGA · Mont-bell</li><li><span class="rm-via">打车/巴士</span><b style="background:#8A5CB5">4</b><time>15:30</time>大丸 · Stellar Place</li><li><span class="rm-via">走路</span><b style="background:#8A5CB5">5</b><time>17:15</time>PARCO · 狸小路</li><li><span class="rm-via">走路</span><b style="background:#8A5CB5">6</b><time>18:45</time>达摩 成吉思汗</li></ol></div></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
@@ -836,6 +873,7 @@
       <li><b>15:00 前到天狗山缆车站，</b>下午看蓝调的人多，晚到就只能在队里看日落（16:03）</li>
     </ul></div>
     <details class="budget"><summary>💴 今日花费 · 两人 <b>¥22,100</b><small>约 1,040 元 · 不含酒店机票购物</small></summary><ul><li><span>地铁 + JR 札幌⇄小樽 ×2</span><b>约 ¥3,800</b></li><li><span>午餐 海鲜丼 + 炸半鸡</span><b>约 ¥5,000</b></li><li><span>LeTAO / 堺町通甜品</span><b>约 ¥1,500</b></li><li><span>打车两段（含冬季加价）</span><b>¥3,300</b></li><li><span>天狗山缆车往返 ×2（冬季价）</span><b>¥4,000</b></li><li><span>TENGUU CAFE 热可可</span><b>约 ¥1,000</b></li><li><span>晚餐 汤咖喱 ×2</span><b>¥3,500</b></li></ul></details>
+    <details class="exp route-map" data-day="5"><summary>🗺️ 今日路线图 · 6 站</summary><div class="exp-bd"><svg class="rm-svg" viewBox="0 0 600 295" role="img" aria-label="D5 路线图：朝里站 × 小樽蓝调"><defs><clipPath id="rmCd5"><rect width="600" height="295" rx="14"/></clipPath><marker id="rmAC98A1B" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="#C98A1B"/></marker></defs><g clip-path="url(#rmCd5)"><rect class="rm-bg" width="600" height="295"/><g class="rm-base" data-bb="140.966,43.17,141.072,43.208" data-w="600" data-h="295" data-minor="1"></g><text class="rm-lbl sea" x="418.9" y="31.1">石 狩 湾</text><path class="rm-leg" d="M553.0 241.4Q404.0 163.1 235.7 162.4" stroke="#C98A1B" stroke-dasharray="3 7" marker-mid="url(#rmAC98A1B)"/><path class="rm-leg" d="M235.7 162.4Q241.0 149.0 236.6 135.2" stroke="#C98A1B" marker-mid="url(#rmAC98A1B)"/><path class="rm-leg" d="M236.6 135.2Q208.6 94.8 161.3 81.5" stroke="#C98A1B" marker-mid="url(#rmAC98A1B)"/><path class="rm-leg" d="M161.3 81.5Q159.4 75.0 153.7 71.2" stroke="#C98A1B" marker-mid="url(#rmAC98A1B)"/><path class="rm-leg" d="M153.7 71.2Q73.6 134.0 51.9 233.4" stroke="#C98A1B" stroke-dasharray="10 8" marker-mid="url(#rmAC98A1B)"/><path class="rm-leg" d="M51.9 233.4Q155.6 164.3 195.9 46.4" stroke="#C98A1B" stroke-dasharray="10 8" marker-mid="url(#rmAC98A1B)"/><path class="rm-leg" d="M195.9 46.4Q171.0 58.0 159.3 82.8" stroke="#C98A1B" marker-mid="url(#rmAC98A1B)"/><path class="rm-edge" d="M600 177L530 177" stroke="#C98A1B" marker-end="url(#rmAC98A1B)"/><text class="rm-edge-t" x="590" y="161" text-anchor="end">⇄ 札幌</text></g><g class="rm-way" transform="translate(235.7 162.4)"><circle r="10"/></g><g class="rm-way" transform="translate(159.3 82.8)"><circle r="10"/></g><g class="rm-pin" transform="translate(553.0 241.4)"><circle r="17" fill="#C98A1B"/><text y="8">1</text></g><path class="rm-lead" d="M236.6 135.2L266.6 109.19999999999999" stroke="#C98A1B"/><circle class="rm-dot" cx="236.6" cy="135.2" r="5" fill="#C98A1B"/><g class="rm-pin" transform="translate(266.6 109.19999999999999)"><circle r="17" fill="#C98A1B"/><text y="8">2</text></g><path class="rm-lead" d="M161.3 81.5L191.3 55.5" stroke="#C98A1B"/><circle class="rm-dot" cx="161.3" cy="81.5" r="5" fill="#C98A1B"/><g class="rm-pin" transform="translate(191.3 55.5)"><circle r="17" fill="#C98A1B"/><text y="8">3</text></g><path class="rm-lead" d="M153.7 71.2L123.69999999999999 45.2" stroke="#C98A1B"/><circle class="rm-dot" cx="153.7" cy="71.2" r="5" fill="#C98A1B"/><g class="rm-pin" transform="translate(123.69999999999999 45.2)"><circle r="17" fill="#C98A1B"/><text y="8">4</text></g><g class="rm-pin" transform="translate(51.9 233.4)"><circle r="17" fill="#C98A1B"/><text y="8">5</text></g><path class="rm-lead" d="M195.9 46.4L225.9 20.4" stroke="#C98A1B"/><circle class="rm-dot" cx="195.9" cy="46.4" r="5" fill="#C98A1B"/><g class="rm-pin" transform="translate(225.9 20.4)"><circle r="17" fill="#C98A1B"/><text y="8">6</text></g><text class="rm-name" x="260" y="170" text-anchor="start">南小樽站</text><text class="rm-name" x="159" y="127" text-anchor="middle">小樽站</text><text class="rm-name" x="521" y="249" text-anchor="end">朝里站</text><text class="rm-name" x="299" y="117" text-anchor="start">堺町通</text><text class="rm-name" x="92" y="53" text-anchor="end">船见坂</text><text class="rm-name" x="84" y="241" text-anchor="start">天狗山缆车</text><text class="rm-name" x="258" y="28" text-anchor="start">小樽运河</text><text class="rm-osm" x="590" y="285" text-anchor="end">© OpenStreetMap · OpenFreeMap</text></svg><div class="rm-legend"><span><i class="lg-walk" style="--c:#C98A1B"></i>走路</span><span><i class="lg-car" style="--c:#C98A1B"></i>打车/巴士</span><span><i class="lg-train" style="--c:#C98A1B"></i>JR/地铁</span></div><ol class="rm-list"><li><span class="rm-via">JR/地铁</span><b style="background:#C98A1B">1</b><time>10:30</time>朝里站 看海</li><li><span class="rm-via">JR/地铁</span><b class="w">·</b><time>11:10</time>南小樽站</li><li><span class="rm-via">走路</span><b style="background:#C98A1B">2</b><time>11:15</time>堺町通 · 音乐盒堂</li><li><span class="rm-via">走路</span><b style="background:#C98A1B">3</b><time>13:00</time>三角市场 午餐</li><li><span class="rm-via">走路</span><b style="background:#C98A1B">4</b><time>14:15</time>船见坂</li><li><span class="rm-via">打车/巴士</span><b style="background:#C98A1B">5</b><time>14:45</time>天狗山缆车</li><li><span class="rm-via">打车/巴士</span><b style="background:#C98A1B">6</b><time>16:45</time>小樽运河</li><li><span class="rm-via">走路</span><b class="w">·</b><time>17:30</time>小樽站</li><li class="after"><b class="w">·</b><time>18:30</time>汤咖喱 Suage+ · 酒店旁</li></ol></div></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin hotel">🏨</span>
@@ -951,6 +989,7 @@
       <li><b>带上 D4 买的手套、雪镜、毛线帽；</b>里面穿速干保暖内衣加薄抓绒，别穿纯棉</li>
     </ul></div>
     <details class="budget"><summary>💴 今日花费 · 两人 <b>¥50,000–79,000</b><small>约 2,350–3,700 元 · 不含酒店机票购物</small></summary><ul><li><span>中文滑雪团课 ×2</span><b>约 ¥23,000–34,000</b></li><li><span>缆车一日票 ×2（团课不含时）</span><b>¥0–17,600</b></li><li><span>雪场午饭 ×2</span><b>约 ¥3,000</b></li><li><span>螃蟹宴（点菜器两人套餐 + 饮料）</span><b>约 ¥24,000</b></li></ul><p>区间大是因为团课还没订：按订单价格和含不含缆车票再定</p></details>
+    <details class="exp route-map" data-day="6"><summary>🗺️ 今日路线图 · 2 站</summary><div class="exp-bd"><svg class="rm-svg" viewBox="0 0 600 243" role="img" aria-label="D6 路线图：手稻滑雪 × 蟹宴"><defs><clipPath id="rmCd6"><rect width="600" height="243" rx="14"/></clipPath><marker id="rmA2E8C93" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="#2E8C93"/></marker></defs><g clip-path="url(#rmCd6)"><rect class="rm-bg" width="600" height="243"/><g class="rm-base" data-bb="141.192,43.044,141.368,43.096" data-w="600" data-h="243" data-minor="0"></g><text class="rm-lbl town" x="197.7" y="121.5">手稻</text><text class="rm-lbl town" x="470.5" y="65.4">札幌市区</text><path class="rm-leg" d="M546.3 190.8Q305.2 78.8 41.6 43.5" stroke="#2E8C93" stroke-dasharray="10 8" marker-mid="url(#rmA2E8C93)"/><path class="rm-leg" d="M41.6 43.5Q282.7 155.5 546.3 190.8" stroke="#2E8C93" stroke-dasharray="10 8" marker-mid="url(#rmA2E8C93)"/><path class="rm-leg" d="M546.3 190.8Q552.0 191.7 557.0 188.8" stroke="#2E8C93" marker-mid="url(#rmA2E8C93)"/></g><g class="rm-way" transform="translate(546.3 190.8)"><circle r="10"/></g><g class="rm-pin" transform="translate(41.6 43.5)"><circle r="17" fill="#2E8C93"/><text y="8">1</text></g><path class="rm-lead" d="M557.0 188.8L527.0 162.8" stroke="#2E8C93"/><circle class="rm-dot" cx="557.0" cy="188.8" r="5" fill="#2E8C93"/><g class="rm-pin" transform="translate(527.0 162.8)"><circle r="17" fill="#2E8C93"/><text y="8">2</text></g><text class="rm-name" x="74" y="52" text-anchor="start">手稻滑雪场</text><text class="rm-name" x="495" y="171" text-anchor="end">螃蟹本家</text><text class="rm-osm" x="590" y="233" text-anchor="end">© OpenStreetMap · OpenFreeMap</text></svg><div class="rm-legend"><span><i class="lg-walk" style="--c:#2E8C93"></i>走路</span><span><i class="lg-car" style="--c:#2E8C93"></i>打车/巴士</span></div><ol class="rm-list"><li><b class="w">·</b><time>08:00</time>集合上车</li><li><span class="rm-via">打车/巴士</span><b style="background:#2E8C93">1</b><time>09:30</time>手稻 团课</li><li><span class="rm-via">打车/巴士</span><b class="w">·</b><time>17:00</time>回酒店休息</li><li><span class="rm-via">走路</span><b style="background:#2E8C93">2</b><time>19:00</time>三大蟹会席</li></ol></div></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin hotel">🚌</span>
@@ -1032,6 +1071,7 @@
       <li><b>JR 去机场买 u-seat 指定席：</b>12/31 人多，保证两人并排还有大行李架</li>
     </ul></div>
     <details class="budget"><summary>💴 今日花费 · 两人 <b>¥14,000</b><small>约 660 元 · 不含酒店机票购物</small></summary><ul><li><span>打车 薄野⇄伏见稻荷（含冬季加价）</span><b>约 ¥4,400</b></li><li><span>判官饼 / 御守</span><b>约 ¥1,000</b></li><li><span>去札幌站 地铁或打车</span><b>约 ¥1,200</b></li><li><span>JR 快速 Airport u-seat ×2</span><b>¥4,460</b></li><li><span>机场拉面 + Kinotoya 冰淇淋 ×2</span><b>约 ¥2,900</b></li></ul><p>伴手礼另算</p></details>
+    <details class="exp route-map" data-day="7"><summary>🗺️ 今日路线图 · 2 站</summary><div class="exp-bd"><svg class="rm-svg" viewBox="0 0 600 802" role="img" aria-label="D7 路线图：伏见稻荷 → 机场"><defs><clipPath id="rmCd7"><rect width="600" height="802" rx="14"/></clipPath><marker id="rmAB23A6B" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9 Z" fill="#B23A6B"/></marker></defs><g clip-path="url(#rmCd7)"><rect class="rm-bg" width="600" height="802"/><g class="rm-base" data-bb="141.316,43.03,141.36,43.073" data-w="600" data-h="802" data-minor="1"></g><text class="rm-lbl town" x="340.9" y="233.1">大通公园</text><text class="rm-lbl town" x="286.4" y="578.2">中岛公园</text><path class="rm-leg" d="M494.2 332.4Q282.3 493.0 127.8 709.4" stroke="#B23A6B" stroke-dasharray="10 8" marker-mid="url(#rmAB23A6B)"/><path class="rm-leg" d="M127.8 709.4Q339.7 548.8 494.2 332.4" stroke="#B23A6B" stroke-dasharray="10 8" marker-mid="url(#rmAB23A6B)"/><path class="rm-leg" d="M494.2 332.4Q524.2 203.5 474.4 80.9" stroke="#B23A6B" stroke-dasharray="3 7" marker-mid="url(#rmAB23A6B)"/><path class="rm-edge" d="M551 753L600 802" stroke="#B23A6B" marker-end="url(#rmAB23A6B)"/><text class="rm-edge-t" x="541" y="767" text-anchor="end">🚄 12:30 去新千岁机场</text></g><g class="rm-way" transform="translate(494.2 332.4)"><circle r="10"/></g><g class="rm-pin" transform="translate(127.8 709.4)"><circle r="17" fill="#B23A6B"/><text y="8">1</text></g><g class="rm-pin" transform="translate(474.4 80.9)"><circle r="17" fill="#B23A6B"/><text y="8">2</text></g><text class="rm-name" x="470" y="340" text-anchor="end">STREAM 酒店</text><text class="rm-name" x="160" y="717" text-anchor="start">伏见稻荷</text><text class="rm-name" x="442" y="89" text-anchor="end">JR 札幌站</text><text class="rm-osm" x="590" y="792" text-anchor="end">© OpenStreetMap · OpenFreeMap</text></svg><div class="rm-legend"><span><i class="lg-car" style="--c:#B23A6B"></i>打车/巴士</span><span><i class="lg-train" style="--c:#B23A6B"></i>JR/地铁</span></div><ol class="rm-list"><li><b class="w">·</b><time>09:00</time>退房存行李</li><li><span class="rm-via">打车/巴士</span><b style="background:#B23A6B">1</b><time>09:30</time>伏见稻荷神社</li><li><span class="rm-via">打车/巴士</span><b class="w">·</b><time>12:00</time>取行李</li><li><span class="rm-via">JR/地铁</span><b style="background:#B23A6B">2</b><time>12:30</time>JR 札幌站</li><li class="after"><b class="w">·</b><time>13:15</time>新千岁国内线 2F 伴手礼</li><li class="after"><b class="w">·</b><time>16:30</time>3F 拉面道场</li><li class="after"><b class="w">·</b><time>19:30</time>NH78 → 羽田 → 浦东</li></ol></div></details>
     <div class="route">
       <div class="r-item r-node">
         <span class="r-pin nat">1</span>
@@ -1858,6 +1898,108 @@
   });
   addEventListener('resize',function(){ if(!mapOvl.hidden) mapRender(); });
 
+  // >>> routemap.js (generated from tools/routemap.js)
+// 每日路线图底图：打开某天的路线图时，从 OpenFreeMap 取 OpenStreetMap 矢量瓦片，画出道路、铁路、河流、水面和公园轮廓。
+// 瓦片由 sw.js 存进 MAP_CACHE，看过一次以后离线也能显示；取不到就只显示路线和站点。
+(function(){
+  var TJ='https://tiles.openfreemap.org/planet', Z=14;
+  function tplUrl(){
+    var saved=store.get('hokkaido-tile-tpl');
+    if(saved) return Promise.resolve(saved);
+    return fetch(TJ).then(function(r){return r.json();}).then(function(j){ store.set('hokkaido-tile-tpl',j.tiles[0]); return j.tiles[0]; });
+  }
+  // ---- minimal Mapbox Vector Tile decoder (protobuf varints, packed geometry) ----
+  function Reader(buf){ this.b=new Uint8Array(buf); this.p=0; }
+  Reader.prototype.v=function(){ var b=this.b,r=0,s=1,c; do{ c=b[this.p++]; r+=(c&127)*s; s*=128; }while(c>=128); return r; };
+  Reader.prototype.skip=function(t){ if(t===0) this.v(); else if(t===2) this.p+=this.v(); else if(t===5) this.p+=4; else if(t===1) this.p+=8; };
+  Reader.prototype.str=function(n){ var s=this.b.subarray(this.p,this.p+n); this.p+=n; return new TextDecoder().decode(s); };
+  function packed(r){ var n=r.v(),end=r.p+n,o=[]; while(r.p<end) o.push(r.v()); return o; }
+  function value(r,end){ var v=null; while(r.p<end){ var k=r.v(),f=k>>3,t=k&7; if(f===1) v=r.str(r.v()); else if(f===7) v=!!r.v(); else r.skip(t); } return v; }
+  function layers(buf){
+    var r=new Reader(buf),out={};
+    while(r.p<r.b.length){
+      var k=r.v(); if((k>>3)!==3){ r.skip(k&7); continue; }
+      var end=r.v()+r.p,L={name:'',keys:[],vals:[],feats:[],ext:4096};
+      while(r.p<end){
+        var k2=r.v(),f=k2>>3,t=k2&7;
+        if(f===1) L.name=r.str(r.v());
+        else if(f===2){ var fe=r.v()+r.p,F={tags:[],type:0,geom:[]}; while(r.p<fe){ var k3=r.v(),g=k3>>3; if(g===2) F.tags=packed(r); else if(g===3) F.type=r.v(); else if(g===4) F.geom=packed(r); else r.skip(k3&7); } L.feats.push(F); }
+        else if(f===3) L.keys.push(r.str(r.v()));
+        else if(f===4){ var ve=r.v()+r.p; L.vals.push(value(r,ve)); r.p=ve; }
+        else if(f===5) L.ext=r.v();
+        else r.skip(t);
+      }
+      out[L.name]=L;
+    }
+    return out;
+  }
+  function props(L,F){ var o={}; for(var i=0;i<F.tags.length;i+=2) o[L.keys[F.tags[i]]]=L.vals[F.tags[i+1]]; return o; }
+  function rings(F){ // tile-pixel coordinates, one array per MoveTo
+    var g=F.geom,i=0,x=0,y=0,out=[],cur=null;
+    while(i<g.length){
+      var c=g[i++],id=c&7,n=c>>3;
+      if(id===7){ if(cur) cur.close=true; continue; }
+      for(var j=0;j<n;j++){
+        var dx=g[i++],dy=g[i++]; x+=(dx>>>1)^-(dx&1); y+=(dy>>>1)^-(dy&1);
+        if(id===1){ cur=[[x,y]]; out.push(cur); } else cur.push([x,y]);
+      }
+    }
+    return out;
+  }
+  function lon2t(lon){ return (lon+180)/360*(1<<Z); }
+  function lat2t(lat){ var r=lat*Math.PI/180; return (1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*(1<<Z); }
+  function t2lat(t){ var n=Math.PI-2*Math.PI*t/(1<<Z); return 180/Math.PI*Math.atan(0.5*(Math.exp(n)-Math.exp(-n))); }
+  function classify(layer,p){
+    if(layer==='transportation'){
+      if(p.brunnel==='tunnel') return null;
+      var c=p['class']||'';
+      if(/^(motorway|trunk|primary)$/.test(c)) return 'r1';
+      if(/^(secondary|tertiary)$/.test(c)) return 'r2';
+      if(c==='minor') return 'r3';
+      if(c==='rail') return 'rail';
+      return null;
+    }
+    if(layer==='water') return 'water';
+    if(layer==='waterway') return /river|canal/.test(p['class']||'')?'river':null;
+    if(layer==='park') return 'park';
+    if(layer==='landcover') return (p.subclass==='park'||p.subclass==='garden')?'park':null;
+    return null;
+  }
+  function draw(g){
+    var bb=g.getAttribute('data-bb').split(',').map(Number),W=+g.getAttribute('data-w'),H=+g.getAttribute('data-h'),minor=g.getAttribute('data-minor')==='1';
+    var x0=Math.floor(lon2t(bb[0])),x1=Math.floor(lon2t(bb[2])),y0=Math.floor(lat2t(bb[3])),y1=Math.floor(lat2t(bb[1]));
+    var px=function(tx,ty,ext,p){ var lon=(tx+p[0]/ext)/(1<<Z)*360-180,lat=t2lat(ty+p[1]/ext); return Math.round((lon-bb[0])/(bb[2]-bb[0])*W)+' '+Math.round((bb[3]-lat)/(bb[3]-bb[1])*H); };
+    var acc={park:[],water:[],river:[],r3:[],r2:[],r1:[],rail:[]},jobs=[];
+    g.setAttribute('data-state','loading');
+    return tplUrl().then(function(tpl){
+      for(var tx=x0;tx<=x1;tx++) for(var ty=y0;ty<=y1;ty++) (function(tx,ty){
+        jobs.push(fetch(tpl.replace('{z}',Z).replace('{x}',tx).replace('{y}',ty)).then(function(r){ if(!r.ok) throw r.status; return r.arrayBuffer(); }).then(function(buf){
+          var ls=layers(buf);
+          ['water','park','landcover','waterway','transportation'].forEach(function(name){
+            var L=ls[name]; if(!L) return;
+            L.feats.forEach(function(F){
+              var cls=classify(name,props(L,F)); if(!cls||(cls==='r3'&&!minor)) return;
+              var poly=F.type===3;
+              rings(F).forEach(function(rg){ if(rg.length<2) return; acc[cls].push('M'+rg.map(function(p){return px(tx,ty,L.ext,p);}).join('L')+(poly?'Z':'')); });
+            });
+          });
+        }));
+      })(tx,ty);
+      return Promise.all(jobs);
+    }).then(function(){
+      var html='';
+      Object.keys(acc).forEach(function(c){ if(acc[c].length){ html+='<path class="rm-'+c+'" d="'+acc[c].join('')+'"/>'; if(c==='rail') html+='<path class="rm-rail-d" d="'+acc[c].join('')+'"/>'; } });
+      g.innerHTML=html; g.setAttribute('data-state','ok');
+    }).catch(function(){ g.setAttribute('data-state','off'); store.set('hokkaido-tile-tpl',''); });
+  }
+  document.querySelectorAll('details.route-map').forEach(function(d){
+    d.addEventListener('toggle',function(){
+      var g=d.querySelector('.rm-base');
+      if(d.open&&g&&g.getAttribute('data-state')!=='ok'&&g.getAttribute('data-state')!=='loading') draw(g);
+    });
+  });
+})();
+  // <<< routemap.js
   var statusEl=document.getElementById('appStatus');
   var offlineReady=false;
   function updateNetwork(){ statusEl.textContent=!navigator.onLine?'● 离线模式 · 攻略照常可用':(offlineReady?'● 在线 · 已缓存，可离线使用':'● 在线 · 正在缓存离线包…'); }
