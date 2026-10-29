@@ -109,7 +109,7 @@
     svg.style.width=vb.width+'px'; svg.style.height=vb.height+'px';
     view.base=Math.min(W/vb.width,H/vb.height);
     // wide maps (e.g. Otaru) start zoomed to fill most of the height; drag sideways to see the rest
-    view.s=Math.min(Math.max(view.base,H*0.82/vb.height),view.base*2.2);
+    view.s=Math.min(Math.max(view.base,H*0.82/vb.height),view.base*1.35);
     view.x=(W-vb.width*view.s)/2; view.y=(H-vb.height*view.s)/2; apply();
   }
   function zoomAt(f,cx,cy){
