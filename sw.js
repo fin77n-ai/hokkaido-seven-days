@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hokkaido-seven-days-v23';
+const CACHE_NAME = 'hokkaido-seven-days-v24';
 // Wikimedia photo thumbnails live in their own cache so a new itinerary version does not wipe them
 const PHOTO_CACHE = 'hokkaido-photos-v1';
 // OpenFreeMap vector tiles for the 每日路线图 base map: once a day's map has been opened online, it works offline
